@@ -38,7 +38,7 @@ By starting the MAMP app you are also starting your Apache and MySQL server. You
 
 [![Download](https://github.com/irusri/GenIECMS/blob/master/docs/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
 
-**Copy GenIECMS to MAMP web server**
+**Copy GenIECMS to MAMP Web server**
 
 You will find the source of GenIECMS in your download folder. So you just need to Copy GenIECMS folder into to your corresponding ```~/Applications/MAMP/htdocs/ folder```.
 
