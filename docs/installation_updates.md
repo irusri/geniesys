@@ -51,7 +51,7 @@ By starting the MAMP app you are also starting your Apache and MySQL server. You
 
 **Copy GenIECMS to MAMP Web server**
 
-You will find the source of GenIECMS in your download folder. So you just need to Copy GenIECMS folder into to your corresponding ```~/Applications/MAMP/htdocs/ folder```.
+You will find the source of GenIECMS in your download folder. So you just need to Copy GenIECMS folder into corresponding ```~/Applications/MAMP/htdocs/ folder```.
 
 That is basically what you need to do in order to install GenIECMS on your Mac's local server. You should now be able to access it at: ```http://localhost:8888/GenIECMS``` in your browser.
 
@@ -62,4 +62,16 @@ GenIECMS can be successfully installed into windows computer using XAMPP as a We
 [![XAMPP](https://github.com/irusri/GenIECMS/blob/master/docs/xampp.png?raw=true "XAMPP")](https://www.apachefriends.org/download.html)
 
 **Installing XAMPP**
+
+You just need to download the xampp-xxx.exe, start the installer and follow the instructions. Finally you'll have to launch the control panel and start the Apache. It's Done!
+
+**Download GenIECMS**
+
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
+
+**Copy GenIECMS to XAMPP Web server**
+
+You will find the source of GenIECMS in your download folder. So you just need to Copy GenIECMS folder into corresponding ```C:\xampp\htdocs``` folder.
+
+That is basically what you need to do in order to install GenIECMS on your Windows's local server. You should now be able to access it at: ```http://localhost/GenIECMS``` in your browser.
 
