@@ -11,7 +11,9 @@ You can download the latest version of GenIECMS by using the official download l
 
 If you prefer using the terminal please run:
 
-```git clone --recursive https://github.com/irusri/GenIECMS.git```    
+```
+git clone --recursive https://github.com/irusri/GenIECMS.git
+```    
 
 **Requirements**
 * Apache 2 with URL rewriting (mod_rewrite) or nginx
