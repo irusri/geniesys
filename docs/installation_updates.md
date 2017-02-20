@@ -32,7 +32,7 @@ By starting the MAMP app you are also starting your Apache and MySQL server. You
 **Download GenIECMS**  
 [![Download](https://github.com/irusri/GenIECMS/blob/master/docs/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
 
-**Copy ALL files**
+**Copy ALL files**  
 You will find the source of GenIECMS in your download folder. So we need to make sure to copy that as well. Copy GenIECMS folder and add them to your corresponding ~/Applications/MAMP/htdocs/ folder.
 
 That's basically all you need to do to install GenIECMS on your Mac's local server environment delivered by MAMP. You should now be able to access it at: http://localhost:8888/GenIECMS in your browser.
