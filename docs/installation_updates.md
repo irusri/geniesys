@@ -47,7 +47,7 @@ That is basically what you need to do in order to install GenIECMS on your Mac's
 ------------------------
 Running from Command Line
 ------------------------
-When you have already installed PHP 5.4 or higher version into your **nix* computer, just use following lines to install GenIECMS.
+When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS.
 ```
 git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
