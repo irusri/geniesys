@@ -10,7 +10,7 @@ Welcome to GenIECMS's documentation!
    :maxdepth: 4
    :caption: User Documentation
 
-   getting_started
+   installation_updates
    installation
    classes
    scripts
