@@ -59,4 +59,5 @@ That is basically what you need to do in order to install GenIECMS on your Mac's
 Installing GenIECMS on a PC
 ------------------------
 GenIECMS can be successfully installed into windows computer using XAMPP as a Web server. 
-[![XAMPP](https://github.com/irusri/GenIECMS/blob/master/docs/xampp.png?raw=true "XAMPP")](http://www.mamp.info/en/downloads/)
+[![XAMPP](https://github.com/irusri/GenIECMS/blob/master/docs/xampp.png?raw=true "XAMPP")](https://www.apachefriends.org/download.html)
+
