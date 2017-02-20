@@ -23,5 +23,6 @@ Most Mac users will probably try GenIECMS with MAMP.
 
 [![Download](https://github.com/irusri/GenIECMS/blob/master/docs/mamp.png?raw=true "Download")](http://www.mamp.info/en/downloads/)
 
-**Installing MAMP**
-
+**Installing MAMP**  
+Installing MAMP is just a matter of downloading the app from the MAMP website and running the installer. It will install a MAMP app in your Applications folder.
+![Download](https://github.com/irusri/GenIECMS/blob/master/docs/mamp-02.png "Download")
