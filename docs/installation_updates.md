@@ -58,4 +58,4 @@ That is basically what you need to do in order to install GenIECMS on your Mac's
 ------------------------
 Installing GenIECMS on a PC
 ------------------------
-
+GenIECMS can be successfully installed into windows computer using XAMPP as a Web server. 
