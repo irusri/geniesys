@@ -11,7 +11,7 @@ Welcome to GenIECMS's documentation!
    :caption: User Documentation
 
    installation_updates
-   installation
+   installation 
    classes
    scripts
    extras
