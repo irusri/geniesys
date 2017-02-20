@@ -2,7 +2,7 @@
 
 You can download the latest version of GenIECMS by using the official download link:
 
-![alt text](https://github.com/irusri/GenIECMS/blob/master/docs/download.png?raw=true "Logo Title Text 2")
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
 
 If you prefer using the terminal please run:
 
