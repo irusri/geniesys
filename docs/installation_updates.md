@@ -44,3 +44,10 @@ You will find the source of GenIECMS in your download folder. So you just need t
 
 That is basically what you need to do in order to install GenIECMS on your Mac's local server. You should now be able to access it at: ```http://localhost:8888/GenIECMS``` in your browser.
 
+------------------------
+Running from Command Line
+------------------------
+
+
+
+
