@@ -13,9 +13,7 @@ If you prefer using the terminal please run:
 
 ```git clone --recursive https://github.com/irusri/GenIECMS.git```
 
-------------------------
-Requirements
-------------------------
+**Requirements**
 * Apache 2 with URL rewriting (mod_rewrite) or nginx
 * PHP 5.4+
 
