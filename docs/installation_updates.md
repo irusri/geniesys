@@ -20,6 +20,17 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 * PHP 5.4+
 
 ------------------------
+Running from Command Line
+------------------------
+When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS.
+```
+git clone --recursive https://github.com/irusri/GenIECMS.git
+cd GenIECMS
+php -S localhost:8000
+```
+You should now be able to access GenIECMS at: ```http://localhost:8000/GenIECMS``` in your browser.
+
+------------------------
 Installing GenIECMS on a Mac
 ------------------------
 Most Mac users will probably try GenIECMS with MAMP.  
@@ -45,14 +56,6 @@ You will find the source of GenIECMS in your download folder. So you just need t
 That is basically what you need to do in order to install GenIECMS on your Mac's local server. You should now be able to access it at: ```http://localhost:8888/GenIECMS``` in your browser.
 
 ------------------------
-Running from Command Line
+Installing Kirby on a PC
 ------------------------
-When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS.
-```
-git clone --recursive https://github.com/irusri/GenIECMS.git
-cd GenIECMS
-php -S localhost:8000
-```
-You should now be able to access GenIECMS at: ```http://localhost:8000/GenIECMS``` in your browser.
-
 
