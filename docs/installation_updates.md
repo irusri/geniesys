@@ -8,3 +8,7 @@ If you prefer using the terminal please run:
 
 ```git clone --recursive https://github.com/irusri/GenIECMS.git```
 
+###Requirements
+* Apache 2 with URL rewriting (mod_rewrite) or nginx
+* PHP 5.4+
+* PHP mbstring extension for proper UTF-8 support
