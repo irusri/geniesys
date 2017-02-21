@@ -80,4 +80,11 @@ Troubleshooting
 ------------------------
 GenIECMS can easily be installed without an effort. Unfortunately there is always space for problems due to multiple server setups and PHP versions. In this section, we try to answer most frequent issues in order to install GenIECMS as effortless as possible. Please send us an email if you still get trouble with installation or updates: contact@geniecms.org
 
+**Subfolder permissions**
+Web server runs in a different group than your user account on most servers. Following subfolder permissions will necessary to grant write access from GenIECMS.
+```
+chgrp -R www-data GenIECMS
+chmod -R 775 GenIECMS/genie_files
+```
+Please make sure that the root folder is also readable by the webserver.
 
