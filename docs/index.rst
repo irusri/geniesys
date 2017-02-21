@@ -13,9 +13,7 @@ Welcome to GenIECMS's documentation!
    installation_updates
    getting_started
    installation 
-   classes
-   scripts
-   extras
+
 
 
 Indices and tables
