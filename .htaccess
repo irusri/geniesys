@@ -1,0 +1,9 @@
+RedirectMatch 403 ^.*/genie_files/
+ErrorDocument 403 &nbsp;
+RewriteEngine on
+Options -Indexes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1#%{REQUEST_URI} ([^#]*)#(.*)\1$
+RewriteRule ^([^\.]+)$ %2?page=$1 [QSA,L]
+ErrorDocument 404 /notfound.html
