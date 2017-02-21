@@ -89,12 +89,6 @@ chmod -R 775 GenIECMS/genie_files
 ```
 Please make sure that the root folder is also readable by the webserver.
 
-Subfolder permissions
-Web server runs in a different group than your user account on most servers. Following subfolder permissions will necessary to grant write access from GenIECMS.
-chgrp -R www-data GenIECMS
-chmod -R 775 GenIECMS/genie_files
-Please make sure that the root folder is also readable by the webserver.
-
 **Broken subpages**
 
 Whenever you have problems(can not open or  a server error) with subpages, you can try following steps.
