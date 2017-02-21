@@ -100,4 +100,4 @@ Please make sure that you are using the PHP 5.4 or higher.
 
 **More problems?**
 
-Please contact us by sending an email:```contact@geniecms.org```
+Please contact us:```contact@geniecms.org```
