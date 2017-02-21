@@ -3,13 +3,10 @@ genie_files/password
 data
 plugins/eximage
 plugins/settings.php
-plugins/autocomplete
 plugins/blast
 plugins/chrdiagram
 plugins/sequence_search
 plugins/jbrowse
 plugins/exmatch
 plugins/exdraw
-plugins/genelist
-plugins/gene
 plugins/sidebar

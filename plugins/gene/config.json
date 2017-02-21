@@ -1,0 +1,18 @@
+{
+"selection_box":[{"height":180,"width":400}],	 
+"datasets":[
+		{
+		"genome_blast_dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2.0"
+	},
+	{
+		"cds_blast_dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2_cds"
+	},
+	{
+	"transcript_blast_dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2_transcript"
+	},
+	{
+	"protein_blast_dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2_protien"
+	}
+],
+"default_jbrowse_dataset_directory":"Fegr20"
+}

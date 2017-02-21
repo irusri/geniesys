@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="jquery, plugin, alert, prompt, message, humanized, popup" />
+    <meta name="description" content="A jQuery humanized message plugin is a way to neatly overlay alerts and message for users using your app.  You can position your messages on any part of the screen and they will neatly fade in and out with any color and time delay you like." />
+    <meta name = "owner" content = "Websanova" />
+    <link rel="icon" type="image/vnd.microsoft.icon"  href="./assets/img/favicon.ico" />
+    <title>Websanova :: wHumanMsg</title>
+    
+    <script type="text/javascript" src="./assets/jquery.1.9.1.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="./assets/demo.css" />
+</head>
+<body>
+    <header>
+        <a id="header-logo" href="http://websanova.com" target="_blank"></a>
+
+        <div id="header-links">
+            <a href="http://websanova.com">Home</a>
+            <a href="http://websanova.com/plugins">Plugins</a>
+            <a href="http://websanova.com/extensions">Extensions</a>
+        </div>
+    </header>
+
+    <div id="content">
+        <h1 id="plugin-name">wHumanMsg.js</h1>
+
+        <div id="addthis-toolbox" class="addthis_toolbox addthis_default_style">
+            <a id="github-button" href="https://github.com/websanova/wHumanMsg" target="_blank" title="GitHub"></a>
+            <a class="addthis_button_facebook" addthis:url="http://whumanmsg.websanova.com" addthis:title="Websanova wHumanMsg Demo"></a>
+            <a class="addthis_button_twitter" addthis:url="http://whumanmsg.websanova.com" addthis:title="Websanova wHumanMsg Demo"></a>
+            <a class="addthis_button_google_plusone_share" addthis:url="http://whumanmsg.websanova.com" addthis:title="Websanova wHumanMsg Demo"></a>
+            <a class="addthis_button_reddit" addthis:url="http://whumanmsg.websanova.com" addthis:title="Websanova wHumanMsg Demo"></a>
+            <a class="addthis_button_dzone" addthis:url="http://whumanmsg.websanova.com" addthis:title="Websanova wHumanMsg Demo"></a>
+            <a class="addthis_button_compact" addthis:url="http://whumanmsg.websanova.com" addthis:title="Websanova wHumanMsg Demo"></a>
+        </div>
+
+        <h2>About</h2>
+
+        <div class="content-box">
+            A jQuery humanized message plugin is a way to neatly overlay alerts and message for users using your app.  You can position your messages on any part of the screen and they will neatly fade in and out with any color and time delay you like.
+        </div>
+
+        <ul>
+            <li><a href="https://github.com/websanova/wHumanMsg/tags">Download</a></li>
+            <li><a href="https://github.com/websanova/wHumanMsg#whumanmsgjs">Documentation</a></li>
+        </ul>
+
+        <h2>Related Plugins</h2>
+
+        <ul>
+            <li><a href="http://wtooltip.websanova.com">wTooltip</a> - Simple sleek looking tooltips.</li>
+            <li><a href="http://wmodal.websanova.com">wModal</a> - Clean looking and easy to use modals.</li>
+        </ul>
+
+        <h2>Demo</h2>
+
+        <div class="content-box">
+        	<div id="test"></div>
+
+            <input type="button" value="reset" onclick="hm.wHumanMsg('reset');">
+			<input type="button" value="default" onclick="hm.wHumanMsg('Websanova Humanized<br/>Message Plugin');">
+			
+			<br/><br/>
+
+			<input type="button" value="update color" onclick="hm.wHumanMsg('theme', 'plum'); hm.wHumanMsg('updated color to: ' + hm.wHumanMsg('theme'));">
+			<input type="button" value="update opacity" onclick="hm.wHumanMsg('opacity', 1); hm.wHumanMsg('updated opacity to: ' + hm.wHumanMsg('opacity'));">
+			<input type="button" value="update fadeIn" onclick="hm.wHumanMsg('fadeIn', 500); hm.wHumanMsg('updated fadeIn to: ' + hm.wHumanMsg('fadeIn'));">
+			<input type="button" value="update fadeOut" onclick="hm.wHumanMsg('fadeOut', 500); hm.wHumanMsg('updated fadeOut to: ' + hm.wHumanMsg('fadeOut'));">
+			<input type="button" value="update displayLength" onclick="hm.wHumanMsg('displayLength', 500); hm.wHumanMsg('updated displayLength to: ' + hm.wHumanMsg('displayLength'));">
+			<input type="button" value="update html" onclick="hm.wHumanMsg('html', false); hm.wHumanMsg('updated html to: ' + hm.wHumanMsg('html'));">
+			
+			<br/><br/>
+
+			<input type="button" value="red" onclick="hm.wHumanMsg('This is red<br/>with html', {theme: 'red'});">
+			<input type="button" value="green" onclick="hm.wHumanMsg('This is green<br/>with no html', {theme: 'green', html: false});">
+			<input type="button" value="blue" onclick="hm.wHumanMsg('This is blue<br/>back to html', {theme: 'blue'});">
+			<input type="button" value="white" onclick="hm.wHumanMsg('This is white with fast fades', {theme: 'white', fadeIn: 300, fadeOut: 300});">
+			<input type="button" value="black" onclick="hm.wHumanMsg('This is black with short display', {theme: 'black', displayLength: 300});">
+			<input type="button" value="cream" onclick="hm.wHumanMsg('This is cream with low opacity', {theme: 'cream', opacity: 0.3});">
+			<input type="button" value="yellow" onclick="hm.wHumanMsg('This is yellow', {theme: 'yellow'});">
+			<input type="button" value="orange" onclick="hm.wHumanMsg('This is orange', {theme: 'orange'});">
+			<input type="button" value="plum" onclick="hm.wHumanMsg('This is plum', {theme: 'plum'});">
+        </div>
+
+        <script type="text/javascript" src="./wHumanMsg.js"></script>
+        <link rel="Stylesheet" type="text/css" href="./wHumanMsg.css" />
+
+        <script type="text/javascript">	
+			var hm = $("body").wHumanMsg();
+		</script>
+
+        <h2>Resources</h2>
+
+        <ul>
+            <li><a href="http://websanova.com/plugins">More jQuery plugins by Websanova</a></li>
+            <li><a href="http://www.websanova.com/tutorials/jquery/the-ultimate-guide-to-writing-jquery-plugins">The Ultimate Guide to Writing jQuery Plugins</a></li>
+            <li><a href="http://www.websanova.com/tutorials/jquery/jquery-plugin-development-boilerplate">jQuery Plugin Development Boilerplate</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <div id="footer-icons">
+            <!--a id="youtube-icon" href="http://websanova.com/youtube" target="_blank"></a-->
+            <a id="stumbleupon-icon" href="http://websanova.com/stumbleupon" target="_blank"></a>
+            <a id="linkedin-icon" href="http://websanova.com/linkedin" target="_blank"></a>
+            <a id="facebook-icon" href="http://websanova.com/facebook" target="_blank"></a>
+            <a id="googleplus-icon" href="http://websanova.com/googleplus" target="_blank"></a>
+            <a id="twitter-icon" href="http://websanova.com/twitter" target="_blank"></a>
+            <a id="github-icon" href="http://websanova.com/github" target="_blank"></a>
+            <a id="rss-icon" href="http://websanova.com/feed" target="_blank"></a>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        if(window.location.protocol === 'file:') $('#addthis-toolbox').hide();
+    </script>
+
+    <!-- AddThis Button BEGIN -->
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-504fdeb9241970a8"></script>
+    <!-- AddThis Button END -->
+
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-12380236-11']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+</html>

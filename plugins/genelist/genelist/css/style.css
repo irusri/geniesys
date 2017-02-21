@@ -1,0 +1,256 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * ColVis styles
+ */
+ .select_genome{
+  margin:6px ;
+  float:right;
+  z-index:100000;
+}
+.inline{
+  display: inline-block;
+}
+.inline + .inline{
+  margin-left:10px;
+}
+.radio{
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+  color:#6c9270;/*#1abc9c*/
+  font-weight:500;
+  font-size:14px;
+  position:relative;
+}
+.radio span{
+  position:relative;
+   padding-left:20px;
+}
+
+/*.radio span:hover input[type="radio"]:hover{
+  color:#0000ff;
+   backgroundcolor: yellow;
+}*/
+/*.inline:hover{
+	 backgroundcolor: yellow;
+	 color:#0000ff;
+}
+*/
+.radio span:after{
+  content:'';
+  width:15px;
+  height:15px;
+  border:3px solid;
+  position:absolute;
+  left:0;
+
+  top:1px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+  box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+.radio input[type="radio"]{
+   cursor: pointer;
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index: 1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+.radio input[type="radio"]:checked + span{
+  color:#F00;
+}
+.radio input[type="radio"]:checked + span:before{
+    content:'';
+  width:5px;
+  height:5px;
+  position:absolute;
+  background:#F00;
+  left:5px;
+  top:6px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+}
+
+.ColVis {
+	float: right;
+	margin-bottom: 1em;
+}
+
+.ColVis_Button {
+	position: relative;
+	float: left;
+	margin-right: 3px;
+	padding: 3px 5px;
+	height: 40px;
+  font-size: 14px;
+	color:#FFF !important;
+	background-color:  #6e874d;/*Chanaka*/
+	border-bottom: 1px dotted #ccc;
+	border-top: 0px dotted #ccc;
+	border-left: 0px dotted #ccc;
+	border-right: 0px dotted #ccc;
+	cursor: pointer;
+	*cursor: hand;
+}
+
+button.ColVis_Button::-moz-focus-inner {
+	border: none !important;
+	padding: 0;
+}
+
+.ColVis_text_hover {
+	border: 1px solid #999;
+	background-color: #f0f0f0;
+}
+
+div.ColVis_collectionBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	z-index: 1100;
+}
+
+div.ColVis_collection {
+	position: relative;
+	width: 180px;
+	background-color: #6e874d;/*Chanaka*/
+	padding: 3px;
+	color:#FFF !important;
+	border-bottom: 0px dotted #ccc;
+	z-index: 1102;
+}
+
+div.ColVis_collection button.ColVis_Button {
+	background-color: #6e874d; /*Chanaka*/
+	width: 100%;
+	float: none;
+	margin-bottom: 2px;
+}
+
+div.ColVis_collection button.ColVis_Group {
+	background: #dadada;
+	border: 1px solid #bababa;
+}
+
+div.ColVis_catcher {
+	position: absolute;
+	z-index: 1101;
+}
+
+.disabled {
+	color: #999;
+}
+
+
+
+button.ColVis_Button {
+	text-align: left;
+}
+
+div.ColVis_collection button.ColVis_Button:hover {
+	border: 0px solid #999;
+	background-color:#d35530;/*Chanaka*/
+}
+
+div.ColVis_collection button.ColVis_Group:hover {
+	background:#d35530;/*Chanaka*/
+	border: 0px solid #424242;
+}
+
+span.ColVis_radio {
+	display: inline-block;
+	width: 20px;
+}
+.dataTables_filter {
+  display: none;
+}
+
+.clear{
+	position:absolute;
+
+	right:0px;
+	overflow:hidden;
+		top:45px;;
+}
+
+#ToolTables_tblPrueba2_2, #ToolTables_tblPrueba2_3{
+  background: #e15b63;
+  color: #FFF;
+}
+
+.loader_color {
+				border-style:dotted;
+        position: absolute;
+  			top: 0px;
+			left:0px;
+			border-color:#8C2318 #5E8C6A #BFB35A #F2C45A;
+      /*  border-color: red green blue orange;*/
+				-webkit-animation: revolve 2s linear infinite;
+				-moz-animation: revolve 2s linear infinite;
+				animation: revolve 2s linear infinite; /* IE10+ */
+			}
+			.small{
+				width: 20px;
+				height: 20px;
+				border-radius: 20px;
+				border-width: 6px;
+			}
+			.medium {
+				position: absolute;
+				left: 45%;
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				border-width: 2px;
+			}
+			.large {
+				position: absolute;
+				left: 55%;
+				width: 100px;
+				height: 100px;
+				border-radius: 100px;
+				border-width: 3px;
+			}
+			@-webkit-keyframes revolve
+			{
+				from { -webkit-transform: rotate(0deg); }
+				50%  { -webkit-transform: rotate(180deg); }
+				to   { -webkit-transform: rotate(360deg); }
+			}
+			@-moz-keyframes revolve
+			{
+				from { -moz-transform: rotate(0deg); }
+				50%  { -moz-transform: rotate(180deg); }
+				to   { -moz-transform: rotate(360deg); }
+			}
+			@keyframes revolve  /* IE10+ */
+			{
+				from { transform: rotate(0deg); }
+				50%  { transform: rotate(180deg); }
+				to   { transform: rotate(360deg); }
+			}
+
+.ColVis_MasterButton{
+	margin-right: 16px;
+}
+#ToolTables_tblPrueba2_1{
+	margin-right: 16px;
+}
+#ToolTables_tblPrueba2_2{
+	margin-left: 4px;
+}
+#ToolTables_tblPrueba2_3{
+	margin-right: 16px;
+}
+
+

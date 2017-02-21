@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>jQuery autocompleter</title>
+    <link rel="stylesheet" type="text/css" href="../lib/jquery.autocomplete.css">
+
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+    
+    <script  type="text/javascript">
+/*
+$.widget( "custom.catcomplete", $.ui.autocomplete, {
+		_renderMenu: function( ul, items ) {
+			var that = this,
+				currentCategory = "";
+			$.each( items, function( index, item ) {
+				if ( item.category != currentCategory ) {
+					ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+					currentCategory = item.category;
+				}
+				that._renderItemData( ul, item );
+			});
+		}
+	});*/
+	
+$(function() {
+/*
+    $("#ac1").autocomplete('search.php', {
+        minChars: 3
+    });
+
+    $("#flush").click(function() {
+        var ac = $("#ac1").data('autocompleter');
+        if (ac && $.isFunction(ac.cacheFlush)) {
+            ac.cacheFlush();
+        } else {
+            alert('Error flushing cache');
+        }
+    });
+
+    $("#ac2").autocomplete({
+        url: 'search.php?output=json',
+        sortFunction: function(a, b, filter) {
+            var f = filter.toLowerCase();
+            var fl = f.length;
+            var a1 = a.value.toLowerCase().substring(0, fl) == f ? '0' : '1';
+            var a1 = a1 + String(a.data[0]).toLowerCase();
+            var b1 = b.value.toLowerCase().substring(0, fl) == f ? '0' : '1';
+            var b1 = b1 + String(b.data[0]).toLowerCase();
+            if (a1 > b1) {
+                return 1;
+            }
+            if (a1 < b1) {
+                return -1;
+            }
+            return 0;
+        },
+        showResult: function(value, data) {
+            return '<span style="color:red">' + value + '</span>';
+        },
+        onItemSelect: function(item) {
+            var text = 'You selected <b>' + item.value + '</b>';
+            if (item.data.length) {
+                text += ' <i>' + item.data.join(', ') + '</i>';
+            }
+            $("#last_selected").html(text);
+        },
+        mustMatch: true,
+        maxItemsToShow: 5,
+        selectFirst: false,
+        autoFill: false,
+        selectOnly: true,
+        remoteDataType: 'json'
+    });
+
+    $("#ac3").autocomplete({
+        data: [
+            ['apple', 1],
+            ['apricot', 2],
+            ['pear', 3],
+            ['prume', 4],
+            ['Doyenné du Comice', 5]
+        ]
+    });
+
+    $("#ac4").autocomplete({
+        url: 'search.php',
+        useCache: false,
+        filterResults: false
+    });
+
+    $("#ac5").autocomplete('search.php', {
+        minChars: 1,
+        useDelimiter: true,
+        selectFirst: true,
+        autoFill: true,
+    });
+
+    $("#toggle").click(function() {
+        $("#hide").toggle(); // To test repositioning
+    });
+
+    $("#ac6").autocomplete('search.php?output=json', {
+        remoteDataType: 'json',
+		 useCache: true,
+		 autoFill: true,
+		 
+		 
+		 
+		 
+		 
+        processData: function(data) {
+			var i, processed = [];
+			for (i=0; i < data.length; i++) {
+				processed.push([data[i][0] + " - " + data[i][1] + " - " + data[i][2]]);
+			}
+			return processed;
+        }
+    });
+
+    $("#ac7").autocomplete({
+        data: [
+            ['Chico Marx'],
+            ['Harpo Marx'],
+            ['Groucho Marx'],
+        ],
+        filter: function(result, filter) {
+            var s = result.value.toLowerCase();
+            var f = filter.toLowerCase();
+            var p = s.indexOf(f);
+            if (p >= 0) {
+                // Start of text or after a whitespace
+                return p === 0 || !$.trim(s.substr(p - 1, 1));
+            }
+            return false;
+        }
+    });
+
+*/
+
+
+
+$("#mainsearch").autocomplete(/*'search2.php?output=json', */{
+       
+		
+	/*	processData: function(data) {
+			 var array = new Array();
+			 $.each(data, function(i, item) {
+	   			 var place = item.label +'-'+ item.category + '-'+ item.value;
+       			 array.push(place);
+				 
+   			 });
+			
+			 console.log(array.length);
+			return array;
+        },*/
+	
+	
+	  source: function(request, response) {
+        $.ajax({
+            url: "http://ws.geonames.org/searchJSON",
+            data: {
+            featureClass: "q",
+            style: "full",
+            maxRows: 12,
+            name_startsWith: request.term
+          	},
+            dataType: "json",
+            type: "POST",
+            success: function(data) { 
+                response($.map(data, function(obj) {
+					console.log(obj.category);
+                    return {
+                        label: obj.label,
+                        value: obj.value,
+                        category: obj.category
+                    };
+                }));
+            }
+
+        });
+    },
+	
+	
+		
+		 /* source: function(request, response) { 
+  
+            var localResults = $.ui.autocomplete.filter(local, request.term);
+
+          
+            $.ajax({
+                /*url: "http://api.stackexchange.com/2.1/search",
+                data: {
+                    page: 1,
+                    pagesize: 10,
+                    order: 'desc',
+                    sort: 'activity',
+                    site: 'stackoverflow',
+                    intitle: request.term
+                },
+                dataType: 'jsonp',
+                success: function(data) {
+                    response($.map(data.items, function(el) {
+                        return el.value+' chanaka '+el.category;
+                    }).concat(local));
+                }
+            });
+        },*/
+		
+		
+
+	/*_renderItem : function( ul, item ) {
+      return $( "<li>" )
+        .append( "<a>" + item.label + "<br>" + item.category + "</a>" )
+        .appendTo( ul );
+    },*/
+		
+		
+    }).data( "autocomplete" )._renderItem = function( ul, item ) {
+            return $( "<li></li>" )
+                .data( "item.autocomplete", item )
+                .append( "<a>" + item.label + "<br>" + item.value + "</a>" )
+                .appendTo( ul );
+        };
+	
+	
+	
+	
+	
+});
+ 
+
+    </script>
+</head>
+
+<body>
+http://stackoverflow.com/questions/9337464/client-side-searching-for-autocomplete-with-json-source
+http://stackoverflow.com/questions/5077409/jquery-ui-autocomplete-server-side-example-what-does-request-json-response-look
+
+	<div class="search2"><input name="mainsearch" id="mainsearch"  type="text"></div>
+<p>
+	<div class="search12"><input name="status" id="status" ></div>
+    
+    
+  
+    
+    <form>
+        <input type="text" id="ac6">
+    </form>
+  
+  
+ 
+  
+ <input id="txtEmployeeID" />
+
+</body>
+
+</html>

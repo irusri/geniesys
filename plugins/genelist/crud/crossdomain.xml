@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<cross-domain-policy> 
+<allow-http-request-headers-from domain="*" headers="*" />
+<site-control permitted-cross-domain-policies="all"/>
+<allow-access-from domain="*" to-ports="*" />
+<allow-access-from domain="localhost" to-ports="*" />
+</cross-domain-policy>
