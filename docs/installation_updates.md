@@ -82,7 +82,7 @@ GenIECMS can easily be installed without an effort. Unfortunately there is alway
 
 **Subfolder permissions**
 
-Web server runs in a different group than your user account on most servers. Following subfolder permissions will necessary to grant write access from GenIECMS.
+Web server runs in a different group than your user account on most servers. Following subfolder permissions will necessary to grant write access from GenIECMS.:
 ```
 chgrp -R www-data GenIECMS
 chmod -R 775 GenIECMS/genie_files
