@@ -67,7 +67,7 @@ You just need to download the xampp-xxx.exe, start the installer and follow the 
 
 **Download GenIECMS**
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
 
 **Copy GenIECMS to XAMPP Web server**
 
