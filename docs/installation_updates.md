@@ -98,9 +98,9 @@ Please make sure that the root folder is also readable by the webserver.
 **Broken subpages**
 
 Whenever you have problems(can not open or  a server error) with subpages, you can try following steps.
-1. Make sure that the .htaccess file is present inside GenIECMS folder.
-2. mod_rewrite should be enabled on your server.
-3. You need to check the .htaccess. You can test this by adding  some extra  characters into your .htaccess. If this cause an "Internal Server Error", the file gets loaded. Otherwise, you need to enable AllowOverride all in your Web server  configuration file.
+* Make sure that the .htaccess file is present inside GenIECMS folder.
+* mod_rewrite should be enabled on your server.
+* You need to check the .htaccess. You can test this by adding  some extra  characters into your .htaccess. If this cause an "Internal Server Error", the file gets loaded. Otherwise, you need to enable AllowOverride all in your Web server  configuration file.
 
 Please make sure that you are using the PHP 5.4 or higher. 
 
