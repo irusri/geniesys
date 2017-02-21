@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 $subdirectory=str_replace($_SERVER['DOCUMENT_ROOT'],"",getcwd());
-$rp = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
+$rp = (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF'])!="index.php")? basename($_SERVER['PHP_SELF']) : '';
 $hostname='http://'.$_SERVER['HTTP_HOST']."/".$subdirectory;
 $c['hostname'] = $hostname;
 $c['password'] = 'admin';
@@ -27,45 +27,46 @@ define('SITE_ROOT', dirname(__FILE__));
 
 
 foreach($c as $key => $val){
-	if($key == 'content')continue;
-	$fval = @file_get_contents('genie_files/'.$key);
-	$d['default'][$key] = $c[$key];
-	if($fval)$c[$key] = $fval;
-	switch($key){
-		case 'password':
-			if(!$fval)$c[$key] = savePassword($val);
-			break;
-		case 'loggedin':
-   			if(isset($_SESSION['l']) and $_SESSION['l']==$c['password'])$c[$key] = true;
-			if(isset($_REQUEST['logout'])){
-				session_destroy();
-				header('Location: ./');
-				exit;
-			}
-			if(isset($_REQUEST['login'])){
-				if(is_loggedin())header('Location: ./');
-				loginForm();
-			}
-			$lstatus = (is_loggedin())? "<a href='$hostname?logout'>Logout</a>": "<a href='$hostname?login'>Login</a>";
-			break;
-		case 'page':
-			if($rp)$c[$key]=$rp;
-			$c[$key] = getthetitle($c[$key]);
-			if(isset($_REQUEST['login']))continue;
-			$c['content'] = @file_get_contents("genie_files/".$c[$key]);
-			if(!$c['content']){
-				if(!isset($d['page'][$c[$key]])){
-						//header('HTTP/1.1 404 Not Found');
-						$c['content'] = (is_loggedin())? $d['new_page']['admin']:$c['content'] = $d['new_page']['visitor'];
-				}else{
-					
-					$c['content'] = $d['page'][$c[$key]];
-				}
-			}
-			break;
-		default:
-			break;
-	}
+        if($key == 'content')continue;
+        $fval = @file_get_contents('genie_files/'.$key);
+        $d['default'][$key] = $c[$key];
+        if($fval)$c[$key] = $fval;
+        switch($key){
+                case 'password':
+                        if(!$fval)$c[$key] = savePassword($val);
+                        break;
+                case 'loggedin':
+                        if(isset($_SESSION['l']) and $_SESSION['l']==$c['password'])$c[$key] = true;
+                        if(isset($_REQUEST['logout'])){
+                                session_destroy();
+                                header('Location: ./');
+                                exit;
+                        }
+                        if(isset($_REQUEST['login'])){
+                                if(is_loggedin())header('Location: ./');
+                                loginForm();
+                        }
+                        $lstatus = (is_loggedin())? "<a href='$hostname?logout'>Logout</a>": "<a href='$hostname?login'>Login</a>";
+                        break;
+                case 'page':
+                        if($rp)$c[$key]=$rp;
+                        $c[$key] = getthetitle($c[$key]);
+                        if(isset($_REQUEST['login']))continue;
+                        $c['content'] = @file_get_contents("genie_files/".$c[$key]);
+                        if(!$c['content']){
+							 //print_r($d['page'][$c[$key]]);
+                                if(!isset($d['page'][$c[$key]])){
+                                                header('HTTP/1.1 404 Not Found');
+                                                $c['content'] = (is_loggedin())? $d['new_page']['admin']:$c['content'] = $d['new_page']['visitor'];
+                                }else{
+
+                                        $c['content'] = $d['page'][$c[$key]];
+                                }
+                        }
+                        break;
+                default:
+                        break;
+        }
 }
 loadPlugins();
 
@@ -88,32 +89,32 @@ function loadPlugins(){
 }
 
 function getthetitle($p){
-	$p = strip_tags($p);
-	preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
-	$matches = array_map('strtolower', $matches[0]);
-	$tmp_title = implode('-', $matches);
-	return $tmp_title;
+        $p = strip_tags($p);
+        preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
+        $matches = array_map('strtolower', $matches[0]);
+        $tmp_title = implode('-', $matches);
+        return $tmp_title;
 }
 
 function getthetitle_for_menu($p){
-	$p = strip_tags($p);
-	preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
-	$matches = $matches[0];
-	$tmp_title = implode('-', $matches);
-	return $tmp_title;
+        $p = strip_tags($p);
+        preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
+        $matches = $matches[0];
+        $tmp_title = implode('-', $matches);
+        return $tmp_title;
 }
 
 function is_loggedin(){
-	global $c;
-	return $c['loggedin'];
+        global $c;
+        return $c['loggedin'];
 }
 
 function editTags(){
-	global $hook;
-	if(!is_loggedin() && !isset($_REQUEST['login'])) return;
-	foreach($hook['admin-head'] as $o){
-		echo "\t".$o."\n";
-	}
+        global $hook;
+        if(!is_loggedin() && !isset($_REQUEST['login'])) return;
+        foreach($hook['admin-head'] as $o){
+                echo "\t".$o."\n";
+        }
 }
 
 function content($id,$content){
@@ -123,23 +124,22 @@ function content($id,$content){
 
 
 function genie_menu(){
-	global $c,$hostname;
-	$mlist = explode('<br />',$c['menu']);
-	for($i=0;$i<count($mlist);$i++){
-		$page = getthetitle_for_menu($mlist[$i]);
-		if(!$page) continue;
-		if(substr($page,0,1)!="-"){
-			$menu_items= "<li><a target='_parent' href='".$hostname.$page."'>".str_replace('-',' ',$page)."</a></li>";
-		}else{
-			$page_display=str_replace("_"," ",$page);
-			$menu_items= "<ul><li><a target='_parent' href='".$hostname.str_replace('-','',$page)."'>".str_replace('-',' ',$page_display)."</a></li></ul>";
-		}
-		$contact_menu_items.=$menu_items;
-	}
-	$contact_menu_items= str_replace('</li><ul>','<ul>',$contact_menu_items);
-	echo str_replace('</ul><ul>','',$contact_menu_items);
+        global $c,$hostname;
+        $mlist = explode('<br />',$c['menu']);
+        for($i=0;$i<count($mlist);$i++){
+                $page = getthetitle_for_menu($mlist[$i]);
+                if(!$page) continue;
+                if(substr($page,0,1)!="-"){
+                        $menu_items= "<li><a target='_parent' href='".$hostname.$page."'>".str_replace('-',' ',$page)."</a></li>";
+                }else{
+                        $page_display=str_replace("_"," ",$page);
+                        $menu_items= "<ul><li><a target='_parent' href='".$hostname.str_replace('-','',$page)."'>".str_replace('-',' ',$page_display)."</a></li></ul>";
+                }
+                $contact_menu_items.=$menu_items;
+        }
+        $contact_menu_items= str_replace('</li><ul>','<ul>',$contact_menu_items);
+        echo str_replace('</ul><ul>','',$contact_menu_items);
 }
-
 
 
 function loginForm(){
