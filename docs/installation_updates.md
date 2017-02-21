@@ -75,3 +75,9 @@ You will find the source of GenIECMS in your download folder. So you just need t
 
 That is basically what you need to do in order to install GenIECMS on your Windows's local server. You should now be able to access it at: ```http://localhost/GenIECMS``` in your browser.
 
+------------------------
+Troubleshooting
+------------------------
+GenIECMS can easily be installed without an effort. Unfortunately there is always space for problems due to multiple server setups and PHP versions. In this section, we try to answer most frequent issues in order to install GenIECMS as effortless as possible. Please send us an email if you still get trouble with installation or updates: contact@geniecms.org
+
+
