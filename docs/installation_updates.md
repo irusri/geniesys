@@ -111,8 +111,15 @@ GenIECMS can be updated manually using latest ZIP file from ```http://geniecms.o
 
 **Updates using Git**
 
+Here is the easy way to update GenIECMS using git submodules:
 
-
+```
+cd GenIECMS
+git checkout master
+git pull
+git submodule foreach --recursive git checkout master
+git submodule foreach --recursive git pull
+```
 
 
 
