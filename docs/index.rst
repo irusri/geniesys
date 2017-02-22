@@ -12,7 +12,9 @@ Welcome to GenIECMS's documentation!
 
    installation_updates
    getting_started
+   plugins
    installation 
+   
 
 
 
