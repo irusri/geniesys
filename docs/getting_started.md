@@ -23,3 +23,10 @@ GenIECMS's folder structure
 │   ├── scripts   
 │   └── themes   
 ```
+-------------------------
+Configuring genome database
+-------------------------
+
+You need to rename ```/GenIECMS/plugins/settings_copy.php``` into ```/GenIECMS/plugins/settings_copy.php```. All configuration settings for GenIECMS will be available in /GenIECMS/plugins/settings.php file. You can find everything about the available configuration options and how to set them in the Configuration section.
+
+
