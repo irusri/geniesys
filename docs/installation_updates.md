@@ -101,3 +101,18 @@ Please make sure that you are using the PHP 5.4 or higher.
 **More problems?**
 
 Please contact us:```contact@geniecms.org```
+
+-----------------
+GenIECMS updates
+-----------------
+**Manual updates**
+
+GenIECMS can be updated manually using latest ZIP file from ```http://geniecms.org/latest/genie.zip```. Please backup your older version of  ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` into latest version of GenIECMS.
+
+**Updates using Git**
+
+
+
+
+
+
