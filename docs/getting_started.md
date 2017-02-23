@@ -34,4 +34,4 @@ You need to rename ```/GenIECMS/plugins/settings_copy.php``` into ```/GenIECMS/p
 Database design
 -------------------------
 
-[![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true)
+![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")
