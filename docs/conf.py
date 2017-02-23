@@ -20,13 +20,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-import bibtexparser
-
-with open('references.bib') as bibtex_file:
-    bibtex_str = bibtex_file.read()
-
-bib_database = bibtexparser.loads(bibtex_str)
-print(bib_database.entries)
 
 # -- General configuration ------------------------------------------------
 
