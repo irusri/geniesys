@@ -16,15 +16,11 @@ Welcome to GenIECMS's documentation!
    
 .. toctree::
    :maxdepth: 4
-   :caption: Plugins
+   :caption: Developer Documentation
    
-   blast 
+   plugins 
+   template
 
-.. toctree::
-   :maxdepth: 4
-   :caption: Templating
-   
-   blast 
 
 Indices and tables
 ==================
