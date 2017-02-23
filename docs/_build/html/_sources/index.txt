@@ -18,6 +18,7 @@ Welcome to GenIECMS's documentation!
    :maxdepth: 4
    
    plugins/index
+   bibliography
    
 
 
