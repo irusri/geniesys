@@ -1,7 +1,7 @@
 Genome Integrative Explorer Content Management System(GenIE-CMS)
 =======
 
-|readthedocs|
+
 
 
 .. |readthedocs| image:: https://readthedocs.org/projects/geniecms/badge/?version=latest
