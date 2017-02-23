@@ -1,7 +1,8 @@
+|readthedocs|
+
 ## GenIECMS
 The Genome Integrative Explorer Content Management System (GenIE-CMS) is the first dedicative in-house CMS to facilitate external groups in setting up their own web resource for searching, visualizing, editing, sharing and reproducing their genomic and transcriptomic data while using project raw data(gff3,fasta,fatsq) as an input.
 
-<pre>
 
 ###Use GFF3 file and generate source input file to load into gene_info mysql table
 awk -F"\t" '/gene/{split($9,a,"ID=");split(a[2],b,";");print b[1]"\t"$1"\t"$4"\t"$5"\t"$7}' input/Potra01-gene-mRNA-wo-intron.gff3 > input/gene_info.txt
@@ -55,7 +56,6 @@ Potra000002g00006.2	AT1G61770.1
 
 ###Finally update the gene_i
 update_gene_i.sh
-
 ### Following script will update the gene_i in gene_[go/pfam/kegg] tables
 update_annotation_gene_i.sh  gene_[go/pfam/kegg]
 </pre>
