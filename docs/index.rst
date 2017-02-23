@@ -15,7 +15,11 @@ Welcome to GenIECMS's documentation!
    plugins
    installation 
    
-
+.. toctree::
+   :maxdepth: 4
+   :caption: Plugins
+   
+   plugins 
 
 
 Indices and tables
