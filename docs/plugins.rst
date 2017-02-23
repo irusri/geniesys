@@ -2,9 +2,7 @@
 Plugins
 =======
 
-.. toctree::
-   :maxdepth: 4
-   :caption: Plugins
+
    
-   blast
+.. blast::
  
