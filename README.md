@@ -4,9 +4,6 @@ Genome Integrative Explorer Content Management System(GenIECMS)
 
 <center>[![Demo](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_demo.png?raw=true "Demo")](http://geniecms.org/demo)</center>
 
-<!--To right align an image-->
-
-[![Demo](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_demo.png?raw=true "Demo")](http://geniecms.org/demo)
 
 
 
