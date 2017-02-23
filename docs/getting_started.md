@@ -12,7 +12,8 @@ The Genome Integrative Explorer Content Management System (GenIE-CMS) is dedicat
 GenIECMS's folder structure
 ------------------
 ```
-├── GenIECMS   
+├── GenIECMS 
+│   ├── data
 │   ├── docs   
 │   ├── genie_files   
 │   ├── index.php   
