@@ -12,9 +12,13 @@ Welcome to GenIECMS's documentation!
 
    installation_updates
    getting_started
-   
+
+####################
+  Plugins
+####################
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    
    plugins/index
    
