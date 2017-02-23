@@ -5,4 +5,4 @@ GenIECMS
 
 
 .. |readthedocs| image:: https://readthedocs.org/projects/chaospy/badge/?version=master
-    :target: http://geniecms.readthedocs.io/en/master/?badge=master
+    :target: http://geniecms.readthedocs.io/en/latest/installation_updates.html
