@@ -14,8 +14,9 @@ Welcome to GenIECMS's documentation!
    getting_started
    installation 
 
-Plugins
-=======
+####################
+  Plugins
+####################
 
 .. toctree::
    :maxdepth: 2
