@@ -30,4 +30,8 @@ Configuring genome database
 
 You need to rename ```/GenIECMS/plugins/settings_copy.php``` into ```/GenIECMS/plugins/settings_copy.php```. All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You can find everything about the available configuration options and how to set them in the configuration section.
 
+-------------------------
+Database design
+-------------------------
 
+[![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true)
