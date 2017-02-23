@@ -6,3 +6,4 @@
    :maxdepth: 4
    
    blast
+   jbrowse
