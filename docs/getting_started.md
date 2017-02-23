@@ -12,14 +12,13 @@ GenIE-CMS will support cutting-edge genomic science, providing easily accessible
 
 In Addition, Researchers who are not specialized in bioinformatics or have limited computers skills are not currently able to gain maximal insight from the biological data typically produced by genomics projects. In order to overcome this limitation, GenIE-CMS will provide an ideal gateway with simple graphical user interfaces to those who have limited skills in bioinformatics.
 
-Web resources such as Phytozome :cite:`goodstein_phytozome:_2012`, iPlant( Goff. et al.,2011), TAIR (Rhee et al., 2003) and PLAZA (Proost et al., 2011) help users to search and navigate through different genomes . These collections of tools and services have been sources of inspiration to be and have contributed my desire to develop the GenIE-CMS as well as, and importantly, developing an understanding of their limitations to end users. None of these resources allow users to easily setup their own web resource without submitting their data to the resource developers and making them publicly available.
+Web resources such as <dl>
+    <dt><a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3245001/">Phytozome: a comparative platform for green plant genomics</a>
+    </dt><dt><a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3355756/">The iPlant Collaborative: Cyberinfrastructure for Plant Biology</a>
+    </dt><dt><a href="https://academic.oup.com/nar/article/31/1/224/2401365/The-Arabidopsis-Information-Resource-TAIR-a-model">The Arabidopsis Information Resource (TAIR): a model organism database providing a centralized, curated gateway to Arabidopsis biology, research materials and community</a>
+    </dt><dt><a href="http://www.plantphysiol.org/content/158/2/590">Dissecting Plant Genomes with the PLAZA Comparative Genomics Platform</a>
+</dt></dl> help users to search and navigate through different genomes . These collections of tools and services have been sources of inspiration to be and have contributed my desire to develop the GenIE-CMS as well as, and importantly, developing an understanding of their limitations to end users. None of these resources allow users to easily setup their own web resource without submitting their data to the resource developers and making them publicly available.
 
-.. rubric:: References
-
- :cite:`Strunk1979` this
-
-.. bibliography:: references.bib
-   :style: unsrt
 
 ------------------
 GenIECMS's folder structure
