@@ -31,7 +31,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autodoc',
-    'sphinx.ext.doctest','sphinxcontrib.bibtex']
+    'sphinx.ext.doctest','sphinxcontrib.bibtex','tinkerer.ext.blog', 'tinkerer.ext.disqus']
 
 from recommonmark.parser import CommonMarkParser
 
