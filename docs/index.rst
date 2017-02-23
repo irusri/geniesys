@@ -8,14 +8,11 @@ Welcome to GenIECMS's documentation!
  
 .. toctree::
    :maxdepth: 4
-   :caption: User Documentationss
+   :caption: User Documentation
 
    installation_updates
    getting_started
 
-####################
-  Plugins
-####################
 
 .. toctree::
    :maxdepth: 4
