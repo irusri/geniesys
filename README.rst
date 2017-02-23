@@ -1,4 +1,4 @@
-GenIECMS
+GenIECMS(The Genome Integrative Explorer Content Management System)
 =======
 
 |readthedocs|
