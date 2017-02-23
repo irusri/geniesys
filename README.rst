@@ -57,5 +57,5 @@ Potra000002g00006.2	AT1G61770.1
 ###Finally update the gene_i
 update_gene_i.sh
 ### Following script will update the gene_i in gene_[go/pfam/kegg] tables
-update_annotation_gene_i.sh  gene_[go/pfam/kegg]
-</pre>
+update_annotation_gene_i.sh  gene_[go/pfam/kegg]
+```
