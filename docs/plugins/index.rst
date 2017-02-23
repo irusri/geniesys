@@ -5,4 +5,4 @@
 .. toctree::
    :maxdepth: 4
    
-   blast
+   plugins/blast
