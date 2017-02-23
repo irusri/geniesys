@@ -1,4 +1,4 @@
-Genome Integrative Explorer Content Management System(GenIE-CMS)
+Genome Integrative Explorer Content Management System(GenIECMS)
 =======
 [![readthedocs](https://readthedocs.org/projects/geniecms/badge/?version=latest "readthedocs")](http://geniecms.readthedocs.io/en/latest/installation_updates.html)
 
