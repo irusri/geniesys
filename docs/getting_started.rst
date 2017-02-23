@@ -12,7 +12,7 @@ GenIE-CMS will support cutting-edge genomic science, providing easily accessible
 
 In Addition, Researchers who are not specialized in bioinformatics or have limited computers skills are not currently able to gain maximal insight from the biological data typically produced by genomics projects. In order to overcome this limitation, GenIE-CMS will provide an ideal gateway with simple graphical user interfaces to those who have limited skills in bioinformatics.
 
-Web resources such as Phytozome :cite:t:`goodstein_phytozome:2012`, iPlant( Goff. et al.,2011), TAIR (Rhee et al., 2003) and PLAZA (Proost et al., 2011) help users to search and navigate through different genomes . These collections of tools and services have been sources of inspiration to be and have contributed my desire to develop the GenIE-CMS as well as, and importantly, developing an understanding of their limitations to end users. None of these resources allow users to easily setup their own web resource without submitting their data to the resource developers and making them publicly available.
+Web resources such as Phytozome :cite:t:`goodstein_phytozome:_2012`, iPlant( Goff. et al.,2011), TAIR (Rhee et al., 2003) and PLAZA (Proost et al., 2011) help users to search and navigate through different genomes . These collections of tools and services have been sources of inspiration to be and have contributed my desire to develop the GenIE-CMS as well as, and importantly, developing an understanding of their limitations to end users. None of these resources allow users to easily setup their own web resource without submitting their data to the resource developers and making them publicly available.
 
 .. bibliography:: references.bibtex
 
