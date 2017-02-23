@@ -17,7 +17,7 @@ Welcome to GenIECMS's documentation!
 .. toctree::
    :maxdepth: 4
    
-   plugins/*
+   plugins/index
    
 
 
