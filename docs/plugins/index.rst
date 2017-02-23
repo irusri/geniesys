@@ -1,8 +1,8 @@
 ####################
-  Plugins
+  Pluginss
 ####################
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    
    blast
