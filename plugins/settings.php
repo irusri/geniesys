@@ -24,7 +24,7 @@ global $db_url;
 $db_url=  array ('genelist'=>'mysqli://geniecms:geniepass@spruce.plantphys.umu.se/'.$selected_database);
 
 /*Define your base url with trailing slash*/
-$GLOBALS["base_url"]='http://localhost:8000';
+$GLOBALS["base_url"]='http://localhost';
 
 /*You dont need to change anything here*/
 global $uuid;
