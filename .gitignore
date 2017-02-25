@@ -2,7 +2,6 @@ password
 genie_files
 data
 plugins/eximage
-plugins/settings.php
 plugins/blast
 plugins/chrdiagram
 plugins/sequence_search
