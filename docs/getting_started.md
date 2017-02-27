@@ -53,6 +53,7 @@ GRANT SELECT ON new_database.* TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.genebaskets TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localhost';
 ``` 
+```newuser, newpassword and new_database``` will be used in plugins/settings.php.
 
 [![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
