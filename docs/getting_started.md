@@ -39,6 +39,18 @@ Database design
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]```
 [![GenIE Databases](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true "GenIE Databases")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)
+```
+**Create a database:**
+CREATE DATABASE new_database;
+
+**Create MySQL user:**
+CREATE USER newuser@'localhost' IDENTIFIED BY 'newpassword';
+
+**User permissions:**
+GRANT SELECT ON new_database.* TO newuser@'localhost';
+GRANT INSERT,UPDATE,DELETE ON new_database.genebaskets TO newuser@'localhost';
+GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localhost';
+``` 
 
 [![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
