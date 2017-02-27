@@ -28,7 +28,7 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
 php -S localhost:3000
 ```
-You should now be able to access GenIECMS at: ```http://localhost:8000/GenIECMS``` in your browser.
+You should now be able to access GenIECMS at: ```http://localhost:3000/GenIECMS``` in your browser.
 
 ------------------------
 Installing GenIECMS on a Mac
