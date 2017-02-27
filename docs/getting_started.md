@@ -41,7 +41,7 @@ Analysis, expression or genomic tools can be integreated into a CMS as an extern
 Configuring genome database
 -------------------------
 
-All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available database details. You can find everything about the integration plugins and how to load data in the plugins section.
+All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
 -------------------------
 Database design
