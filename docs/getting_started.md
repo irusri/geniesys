@@ -53,8 +53,12 @@ GRANT SELECT ON new_database.* TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.genebaskets TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localhost';
 ``` 
-```newuser, newpassword and new_database``` will be used in plugins/settings.php.
-
+```newuser, newpassword and new_database``` will be used in plugins/settings.php similar to following example.
+```
+$db_species_array=array("new_database"=>"new genome",...
+$db_species_color_array=array("new_database"=>"#86c0a6",....
+$db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected_database); 
+```
 [![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
 ---------------------------
