@@ -35,6 +35,9 @@ GenIECMS's folder structure
 Database design
 -------------------------
 
+**Creating a new database**
+Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]```
+
 [![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
 ---------------------------
