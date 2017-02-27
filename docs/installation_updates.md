@@ -26,7 +26,7 @@ When you have already installed PHP 5.4 or higher version into your **nix* suppo
 ```
 git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
-php -S localhost:8000
+php -S localhost:3000
 ```
 You should now be able to access GenIECMS at: ```http://localhost:8000/GenIECMS``` in your browser.
 
