@@ -32,10 +32,15 @@ GenIECMS's folder structure
 │   └── themes   
 ```
 -------------------------
-Plugins/Modules
+Database design
 -------------------------
 
-Analysis, expression or genomic tools can be integreated into a CMS as an external plugin. Comprehensive plugin development guidelines can be found under the plugins section. GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) developed as part of other sub projects will be integrated as en external plugins to the GenIE-CMS. 
+[![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
+
+---------------------------
+Preprocessing and Loading data
+---------------------------
+
 
 -------------------------
 Configuring genome database
@@ -44,9 +49,9 @@ Configuring genome database
 All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
 -------------------------
-Database design
+Plugins/Modules
 -------------------------
 
-[![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
+Analysis, expression or genomic tools can be integreated into a CMS as an external plugin. Comprehensive plugin development guidelines can be found under the plugins section. GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) developed as part of other sub projects will be integrated as en external plugins to the GenIE-CMS. 
 
 
