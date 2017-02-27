@@ -47,6 +47,6 @@ All configuration settings for GenIECMS will be available in ```/GenIECMS/plugin
 Database design
 -------------------------
 
-![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")
+[![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
 
