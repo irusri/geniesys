@@ -38,8 +38,9 @@ Database design
 **Creating a new database**
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]```
+[![GenIE Databases](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true "GenIE Databases")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)
 
-[![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
+[![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
 ---------------------------
 Preprocessing and Loading data
