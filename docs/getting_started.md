@@ -32,10 +32,16 @@ GenIECMS's folder structure
 │   └── themes   
 ```
 -------------------------
+Plugins/Modules
+-------------------------
+
+Analysis, expression or genomic tools can be integreated into a CMS as an external plugin. Comprehensive plugin development guidelines can be found under the plugins section. GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) developed as part of other sub projects will be integrated as en external plugins to the GenIE-CMS. 
+
+-------------------------
 Configuring genome database
 -------------------------
 
-You need to rename ```/GenIECMS/plugins/settings_copy.php``` into ```/GenIECMS/plugins/settings_copy.php```. All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You can find everything about the available configuration options and how to set them in the configuration section.
+You need to rename ```/GenIECMS/plugins/settings_copy.php``` into ```/GenIECMS/plugins/settings_copy.php```. All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You can find everything about the available plugin options and how to integrate them in the plugins section.
 
 -------------------------
 Database design
