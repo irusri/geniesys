@@ -61,7 +61,7 @@ $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected
 ```
 **Loading tables**
 
-Fowllowing database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). You can download and load tables into the newly created database using following commands.
+Fowllowing database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). You can [download](https://raw.githubusercontent.com/irusri/GenIECMS/master/scripts/genie_db.sql) and load tables into the newly created database using following commands.
 
 [![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
