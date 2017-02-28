@@ -3,7 +3,6 @@ Getting Started
 =============
 
 ------------
-
 What is GenIECMS?
 ------------
 
@@ -41,7 +40,7 @@ Due to increasing number of species in PlantGenIE we use standard naming convent
 
 [![GenIE Databases](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true "GenIE Databases")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)
 
-```
+```mysql
 #Create a database:
 CREATE DATABASE new_database;
 
@@ -54,7 +53,7 @@ GRANT INSERT,UPDATE,DELETE ON new_database.genebaskets TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localhost';
 ```
 ```newuser, newpassword and new_database``` will be used in plugins/settings.php similar to following example.
-```
+```php
 $db_species_array=array("new_database"=>"new genome",...
 $db_species_color_array=array("new_database"=>"#86c0a6",....
 $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected_database); 
@@ -62,17 +61,16 @@ $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected
 **Loading tables**
 
 Following database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). You can [download](https://raw.githubusercontent.com/irusri/GenIECMS/master/scripts/genie_db.sql) and load tables into the newly created database using following commands.
-```
+```shell
 git show HEAD~1:scripts/genie_db.sql > genie_db.sql
 mysql -u newuser -p newpassword new_database < genie_db.sql
 ```
 [![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
 ---------------------------
-
 Preprocessing and Loading data
 ---------------------------
-```
+```powershell
 ###Use GFF3 file and generate source input file to load into gene_info mysql table
 awk -F"\t" '/gene/{split($9,a,"ID=");split(a[2],b,";");print b[1]"\t"$1"\t"$4"\t"$5"\t"$7}' input/Potra01-gene-mRNA-wo-intron.gff3 > input/gene_info.txt
 
