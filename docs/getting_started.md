@@ -1,8 +1,9 @@
+
 Getting Started
 =============
 
-
 ------------
+
 What is GenIECMS?
 ------------
 
@@ -13,7 +14,6 @@ GenIE-CMS will support cutting-edge genomic science, providing easily accessible
 In Addition, Researchers who are not specialized in bioinformatics or have limited computers skills are not currently able to gain maximal insight from the biological data typically produced by genomics projects. In order to overcome this limitation, GenIE-CMS will provide an ideal gateway with simple graphical user interfaces to those who have limited skills in bioinformatics.
 
 Web resources such as <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3245001/">Phytozome(Goodst et al., 2012) </a>, <a target="_blank"  href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3355756/">iPlant( Goff. et al.,2011)</a>, <a  target="_blank" href="https://academic.oup.com/nar/article/31/1/224/2401365/The-Arabidopsis-Information-Resource-TAIR-a-model">TAIR (Rhee et al., 2003)</a> and <a target="_blank"  href="http://www.plantphysiol.org/content/158/2/590">PLAZA (Proost et al., 2011)</a>. These collections of tools and services have been sources of inspiration to be and have contributed my desire to develop the GenIE-CMS as well as, and importantly, developing an understanding of their limitations to end users. None of these resources allow users to easily setup their own web resource without submitting their data to the resource developers and making them publicly available.
-
 
 ------------------
 GenIECMS's folder structure
@@ -32,6 +32,7 @@ GenIECMS's folder structure
 │   └── themes   
 ```
 -------------------------
+
 Database design
 -------------------------
 
@@ -52,7 +53,7 @@ CREATE USER newuser@'localhost' IDENTIFIED BY 'newpassword';
 GRANT SELECT ON new_database.* TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.genebaskets TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localhost';
-``` 
+```
 ```newuser, newpassword and new_database``` will be used in plugins/settings.php similar to following example.
 ```
 $db_species_array=array("new_database"=>"new genome",...
@@ -69,6 +70,7 @@ mysql -u newuser -p newpassword new_database < genie_db.sql
 [![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
 
 ---------------------------
+
 Preprocessing and Loading data
 ---------------------------
 ```
@@ -129,12 +131,14 @@ update_gene_i.sh
 update_annotation_gene_i.sh  gene_[go/pfam/kegg]
 ```
 -------------------------
+
 Configuring genome database
 -------------------------
 
 All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
 -------------------------
+
 Plugins/Modules
 -------------------------
 
