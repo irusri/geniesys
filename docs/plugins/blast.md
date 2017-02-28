@@ -2,11 +2,12 @@
 BLAST
 =====================
 
-------------------------
-###Implementation
+**Implementation**
+
 PlantGenIE BLAST search is implemented using NCBI Blast (v2.2.26) and no database will be used. config.json files contains all necessary.  We use PHP, JavaScript, XSL, Perl and d3js, Drupal libraries to improve Open Source GMOD Bioinformatic Software Bench server to provide a graphical user interface.
 
-###Libraries
+**Libraries**
+
 Makesure ubuntu taskspooler and blastall properly installed into /use/bin
 
 ````shell
@@ -22,11 +23,13 @@ use Bio::FeatureIO;
 use Bio::SeqFeature::Generic;
 ````
 
-###Installation
+**Installation**
+
 Download the BLAST tool plugin from here. Then unzip the blast.zip and place into CMS/plugins/ folder.
 
-###Adding Datasets
-Adding a dataset into BLASt tool is simple and straightforward process. Config.json file contains all necessary configuration parameters to add new datasets into existing BLAST tool. An  example of config.json file looks like following:
+**Adding Datasets**
+
+###Adding a dataset into BLASt tool is simple and straightforward process. Config.json file contains all necessary configuration parameters to add new datasets into existing BLAST tool. An  example of config.json file looks like following:
 
 ```json
 {
