@@ -17,7 +17,7 @@ Web resources such as <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/a
 ------------------
 GenIECMS's folder structure
 ------------------
-```
+```shell
 ├── GenIECMS 
 │   ├── data
 │   ├── docs   
@@ -70,7 +70,7 @@ mysql -u newuser -p newpassword new_database < genie_db.sql
 ---------------------------
 Preprocessing and Loading data
 ---------------------------
-```powershell
+```shell
 ###Use GFF3 file and generate source input file to load into gene_info mysql table
 awk -F"\t" '/gene/{split($9,a,"ID=");split(a[2],b,";");print b[1]"\t"$1"\t"$4"\t"$5"\t"$7}' input/Potra01-gene-mRNA-wo-intron.gff3 > input/gene_info.txt
 
@@ -128,14 +128,12 @@ update_gene_i.sh
 update_annotation_gene_i.sh  gene_[go/pfam/kegg]
 ```
 -------------------------
-
 Configuring genome database
 -------------------------
 
 All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
 -------------------------
-
 Plugins/Modules
 -------------------------
 
