@@ -7,4 +7,4 @@
    
    genelist
    blast
-   jbrowse 	
+   jbrowse
