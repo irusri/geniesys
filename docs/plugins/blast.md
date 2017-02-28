@@ -29,7 +29,7 @@ Download the BLAST tool plugin from here. Then unzip the blast.zip and place int
 
 **Adding Datasets**
 
-###Adding a dataset into BLASt tool is simple and straightforward process. Config.json file contains all necessary configuration parameters to add new datasets into existing BLAST tool. An  example of config.json file looks like following:
+Adding a dataset into BLASt tool is simple and straightforward process. Config.json file contains all necessary configuration parameters to add new datasets into existing BLAST tool. An  example of config.json file looks like following:
 
 ```json
 {
