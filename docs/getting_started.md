@@ -32,7 +32,6 @@ GenIECMS's folder structure
 │   └── themes   
 ```
 -------------------------
-
 Database design
 -------------------------
 
