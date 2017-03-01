@@ -8,3 +8,4 @@
    genelist
    blast
    jbrowse
+   new_plugin
