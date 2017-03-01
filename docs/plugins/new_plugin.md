@@ -12,3 +12,6 @@ For example:
 ```
 /GenIECMS/plugins/hello/hello.php
 ```
+1.) Creat hello_world directory inside the plugin directory
+
+2.) Place following index.php file inside hello_world directory
