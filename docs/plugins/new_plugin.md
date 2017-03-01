@@ -15,3 +15,28 @@ For example:
 1.) Creat hello_world directory inside the plugin directory
 
 2.) Place following index.php file inside hello_world directory
+```
+<?php
+//index.php
+$subdir_arr = explode("/", $_SERVER['REDIRECT_URL']);
+$mennu_arr = explode("<br />", $c['menu']);
+$menu_exist = false;
+for ($search_num = 0; $search_num < count($mennu_arr); $search_num++) {
+    if (trim(strtolower($mennu_arr[$search_num])) == strtolower($subdir_arr[count($subdir_arr) - 1]) || trim(strtolower($mennu_arr[$search_num])) == "-".strtolower($subdir_arr[count($subdir_arr) - 1])) {
+        $menu_exist = true;
+    }
+}
+if (strtolower(basename(dirname(<strong>FILE</strong>))) == strtolower($subdir_arr[count($subdir_arr) - 1]) ) { //&& $menu_exist == true
+    $c['initialize_tool_plugin'] = true;
+    $c['tool_plugin'] = strtolower($subdir_arr[count($subdir_arr) - 1]);
+}
+?>
+```
+3.) Add tool.php into the hello_world directory
+```
+<?php
+//tool.php
+echo "Hello World!";
+?>
+```
+4.) Navigate to http://[server name]/GenIECMS/hello_world
