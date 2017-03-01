@@ -26,7 +26,7 @@ for ($search_num = 0; $search_num < count($mennu_arr); $search_num++) {
         $menu_exist = true;
     }
 }
-if (strtolower(basename(dirname(<strong>FILE</strong>))) == strtolower($subdir_arr[count($subdir_arr) - 1]) ) { //&& $menu_exist == true
+if (strtolower(basename(dirname(<strong>FILE</strong>))) == strtolower($subdir_arr[count($subdir_arr) - 1]) ) { 
     $c['initialize_tool_plugin'] = true;
     $c['tool_plugin'] = strtolower($subdir_arr[count($subdir_arr) - 1]);
 }
