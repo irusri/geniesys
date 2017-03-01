@@ -9,7 +9,8 @@ A GenIECMS plugin can start as a simple file with a PHP function. All plugins ar
 /GenIECMS/plugins/{pluginname}/index.php
 /GenIECMS/plugins/{pluginname}/tool.php
 ```
-For example:
+**Hello World! Plugin**
+
 ```shell
 /GenIECMS/plugins/hello/hello.php
 ```
