@@ -11,3 +11,8 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
 php -S localhost:3000
 ```
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/irusri/GenIECMS/badge.svg?style=beer-square)](https://beerpay.io/irusri/GenIECMS)  [![Beerpay](https://beerpay.io/irusri/GenIECMS/make-wish.svg?style=flat-square)](https://beerpay.io/irusri/GenIECMS?focus=wish)
