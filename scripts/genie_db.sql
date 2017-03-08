@@ -257,7 +257,7 @@ CREATE TABLE `transcript_atg` (
 DROP TABLE IF EXISTS `transcript_info`;
 CREATE TABLE `transcript_info` (
   `transcript_id` varchar(60) NOT NULL DEFAULT '',
-  `gene_id` varchar(60) NOT NULL,
+  `gene_id` varchar(60) NOT NULL DEFAULT '',
   `description` varchar(255) DEFAULT '',
   `chromosome_name` varchar(16) NOT NULL,
   `strand` varchar(2) NOT NULL,
