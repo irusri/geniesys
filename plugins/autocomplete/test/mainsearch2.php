@@ -38,8 +38,8 @@ if (isset($_GET['q'])) {
   $q = trim($_GET['q']);
   $onlyconsonants=strtolower($q);
   if ($q) {
-	mysql_connect("spruce.plantphys.umu.se", "popuser", "poppass") or die(mysql_error());
-	mysql_select_db("egrandis") or die(mysql_error());
+	mysql_connect("spruce.plantphys.umu.se", "geniecms", "geniepass") or die(mysql_error());
+	mysql_select_db("egrandis_demo") or die(mysql_error());
 	
 	//if(substr($q, 0, 2)!="MA"){
 	//$resultssequence = mysql_query("select trinityname,division,taxonomyname from trinity_taxonomy where trinityname like '%$q%'")or die(mysql_error());
