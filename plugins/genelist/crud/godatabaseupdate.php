@@ -13,23 +13,23 @@ if(isset($_POST['go_sel_add'])){
 	$sampleaddString = implode(",",$samplestrArr);
 
 	 
-	 $check=mysql_query("SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'");
-	  if(mysql_num_rows($check)==0)
+	 $check=mysqli_query($genelist_connection,"SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'");
+	  if(mysqli_num_rows($check)==0)
 		{
 	
-			mysql_query("insert into gobaskets(go_basket_id,go_basket_name,harga,golist,ip) values('$kode','default','$initcounts','$sampleaddString','$ip')") or die("data gagal di insert");
+			mysqli_query($genelist_connection,,"insert into gobaskets(go_basket_id,go_basket_name,harga,golist,ip) values('$kode','default','$initcounts','$sampleaddString','$ip')") or die("data gagal di insert");
 			
 			echo $initcounts.'  added(1)';
 		
 		}else{
 				$samplequerystr="SELECT gobaskets.golist,gobaskets.go_basket_id FROM gobaskets WHERE gobaskets.ip='$ip'";
-				$samplequeryresults=mysql_query($samplequerystr) or die("query gagal dijalankan");
+				$samplequeryresults=mysqli_query($genelist_connection,$samplequerystr) or die("query gagal dijalankan");
 			
-				$samplequerydata=mysql_fetch_assoc($samplequeryresults);
+				$samplequerydata=mysqli_fetch_assoc($samplequeryresults);
 				$samplelisttmp=$samplequerydata['golist'];
 				$samplelistidtmp=$samplequerydata['go_basket_id'];
 			if($samplelisttmp==""){
-				mysql_query("update gobaskets set gobaskets.golist='$sampleaddString',gobaskets.harga='$initcounts' where gobaskets.go_basket_id='$samplelistidtmp'") or die ("data gagal di update");
+				mysqli_query($genelist_connection,"update gobaskets set gobaskets.golist='$sampleaddString',gobaskets.harga='$initcounts' where gobaskets.go_basket_id='$samplelistidtmp'") or die ("data gagal di update");
 				echo $initcounts.'  updated(2)';
 			}else{
 				$samplelisttmpArr = explode(",",$samplelisttmp);
@@ -38,7 +38,7 @@ if(isset($_POST['go_sel_add'])){
 				$filtertedtmpresultsArr=array_unique($tmpresultArr);
 				$filteredupdatecount=count($filtertedtmpresultsArr);
 				$filteredupdatedlist=implode(',',$filtertedtmpresultsArr);	
-				mysql_query("update gobaskets set gobaskets.golist='$filteredupdatedlist',gobaskets.harga='$filteredupdatecount' where gobaskets.go_basket_id='$samplelistidtmp'") or die ("data gagal di update");
+				mysqli_query($genelist_connection,"update gobaskets set gobaskets.golist='$filteredupdatedlist',gobaskets.harga='$filteredupdatecount' where gobaskets.go_basket_id='$samplelistidtmp'") or die ("data gagal di update");
 				//echo $filteredupdatecount.'->'.$filteredupdatedlist;
 				echo $filteredupdatecount.'  updated(3)';
 			}
@@ -61,17 +61,17 @@ if(isset($_POST['go_sel_add'])){
 	$sampleremovecount=count($samplesremoveArr);
 	$sampleremovetring = implode(",",$samplesremoveArr);
 	
-	 $check2=mysql_query("SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'");
-	  if(mysql_num_rows($check2)==0)
+	 $check2=mysqli_query($genelist_connection,"SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'");
+	  if(mysqli_num_rows($check2)==0)
 		{
 			
 			
 		}else{
 			
 			$sampleremovequerystr="SELECT gobaskets.golist,gobaskets.go_basket_id FROM gobaskets WHERE gobaskets.ip='$ip'";
-				$sampleremovequeryresults=mysql_query($sampleremovequerystr) or die("query gagal dijalankan");
+				$sampleremovequeryresults=mysqli_query($genelist_connection,$sampleremovequerystr) or die("query gagal dijalankan");
 			
-				$sampleremovequerydata=mysql_fetch_assoc($sampleremovequeryresults);
+				$sampleremovequerydata=mysqli_fetch_assoc($sampleremovequeryresults);
 				$sampleremovelisttmp=$sampleremovequerydata['golist'];
 				$sampleremovelistidtmp=$sampleremovequerydata['go_basket_id'];
 				
@@ -87,7 +87,7 @@ if(isset($_POST['go_sel_add'])){
 				$updatecountremove=count($updatesamplelistRemoveArr);
 				$updatesremove=implode(',',$updatesamplelistRemoveArr);
 					
-					mysql_query("update gobaskets set gobaskets.golist='$updatesremove',gobaskets.harga='$updatecountremove' where gobaskets.go_basket_id='$sampleremovelistidtmp'") or die ("data gagal di update");
+					mysqli_query($genelist_connection,"update gobaskets set gobaskets.golist='$updatesremove',gobaskets.harga='$updatecountremove' where gobaskets.go_basket_id='$sampleremovelistidtmp'") or die ("data gagal di update");
 					
 					echo '2';
 					
@@ -101,17 +101,17 @@ if(isset($_POST['go_sel_add'])){
 	
 }else if(isset($_POST['empty_default_go_basket'])) {
 	
-		mysql_query("update gobaskets set gobaskets.golist='',gobaskets.harga='' where gobaskets.ip='$ip'") or die ("data gagal di update");
+		mysqli_query($genelist_connection,"update gobaskets set gobaskets.golist='',gobaskets.harga='' where gobaskets.ip='$ip'") or die ("data gagal di update");
 	echo '3';
 
 }else if (isset($_POST['get_default_go_ids'])){
 	
 		
 	 $defaultstr="SELECT gobaskets.golist FROM gobaskets where gobaskets.ip='$ip'";
-		$defaultresults=mysql_query($defaultstr) or die("query gagal dijalankan");
+		$defaultresults=mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
 		
-			if(mysql_num_rows($defaultresults)!=0)	{
-			$defaultgeenedata=mysql_fetch_assoc($defaultresults);
+			if(mysqli_num_rows($defaultresults)!=0)	{
+			$defaultgeenedata=mysqli_fetch_assoc($defaultresults);
 							$genessendStringt=$defaultgeenedata['golist'];
 						
 		echo $genessendStringt;

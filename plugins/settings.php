@@ -35,5 +35,6 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
 } else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    {
     $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
 }
+
 $uuid =$_COOKIE['fingerprint'];
 ?>

@@ -18,7 +18,7 @@
          ?>
       <script type="application/javascript">
          var fp4 = new Fingerprint({screen_resolution: true,ie_activex: true,canvas: true});
-         setCookie('fingerprint',"JA"+fp4.get().toString(),7);
+         setCookie('fingerprint',"SAA"+fp4.get().toString(),7);
       </script>
       <script src="js/bootstrap.min.js"></script>
    </head>
