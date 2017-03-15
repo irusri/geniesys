@@ -25,9 +25,6 @@
          <li style=" width:100%">
             <a class="toollinks" href="/chrdiagram">&nbsp;ChrDiagram</a>
          </li>
-         <li style=" width:100%">
-            <a class="toollinks" href="/seq_search">&nbsp;ChrDiagram</a>
-         </li>
       </ul>
    </div>
    <div id="editpanel3" style="background:#fff ;font-size:12px;n;z-index:9;position:relative;display:none;width:100%;min-height:120px;overflow:hidden;min-height:200px;margin-left:-40px;">
