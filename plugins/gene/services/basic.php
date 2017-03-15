@@ -1,18 +1,14 @@
 <?php
 $post_id=trim($_POST['id']);
-require_once('settings.php'); 
+include('settings.php'); 
 $table_name="transcript_info"; 
 $id_type="";
  
-//MySQL connection from main settings file. database is popgeniegenepages
-$private_url = parse_url($db_url['genelist']);
-mysql_connect($private_url['host'], $private_url['user'], $private_url['pass']) or die(mysql_error());
-mysql_select_db(str_replace('/', '', $private_url['path'])) or die(mysql_error());
 
 //Initial check whether given ID exsist on our Database
 if(isset($post_id) && $post_id != ''){
-	$initcheck=mysql_query("SELECT * FROM ".$table_name." WHERE transcript_id='$post_id' or gene_id='$post_id'");
-	if(mysql_num_rows($initcheck)!=0){
+	$initcheck=mysqli_query($genelist_connection,"SELECT * FROM ".$table_name." WHERE transcript_id='$post_id' or gene_id='$post_id'");
+	if(mysqli_num_rows($initcheck)!=0){
 		$init_id = strtolower($post_id);
 		$pattern = '/^[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[0-9]?[0-9]$/';
 		if(preg_match($pattern,$init_id)== true){
@@ -26,17 +22,17 @@ if(isset($post_id) && $post_id != ''){
 }
 //When id is transcript or gene
 if($id_type=="transcript" ||  $id_type=="gene"){
-	$basic_results = mysql_query("SELECT ".$table_name.".*,potri_id,atg_id FROM ".$table_name." 
+	$basic_results = mysqli_query($genelist_connection,"SELECT ".$table_name.".*,potri_id,atg_id FROM ".$table_name." 
 	left join transcript_atg on ".$table_name.".transcript_i=transcript_atg.transcript_i
 	left join transcript_potri on ".$table_name.".transcript_i=transcript_potri.transcript_i
 	WHERE ".$table_name.".transcript_id='$post_id' or ".$table_name.".gene_id='$post_id' limit 1");
 	error_reporting(0);
 	$g = 0;
-	while ($basic_results_rows = mysql_fetch_array($basic_results)) {
+	while ($basic_results_rows = mysqli_fetch_array($basic_results)) {
 		$tmp_geneid=$basic_results_rows['gene_id'];
 		$children[$g]->gene_id=$basic_results_rows['gene_id'];		
-		$basic_results_tids = mysql_query("SELECT transcript_id FROM ".$table_name." WHERE gene_id='$tmp_geneid'");
-		while ($basic_results_rows_tids = mysql_fetch_array($basic_results_tids)) {
+		$basic_results_tids = mysqli_query($genelist_connection,"SELECT transcript_id FROM ".$table_name." WHERE gene_id='$tmp_geneid'");
+		while ($basic_results_rows_tids = mysqli_fetch_array($basic_results_tids)) {
 			if($basic_results_rows_tids['transcript_id']!=$post_id){
 			$tmp_tids.=$basic_results_rows_tids['transcript_id'].' ';
 			}

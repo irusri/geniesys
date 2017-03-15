@@ -35,20 +35,19 @@ $ip=$uuid;
 	}
 	elseif($action=="update")
 	{
-		mysqli_query($genelist_connection,"update genebaskets set gene_basket_name='$nama' where gene_basket_id='$kode'") or die ("data gagal di update");
+		mysqli_query($genelist_connection,"update genebaskets set gene_basket_name='$nama' where gene_basket_id='$kode'") or die ("data gagal dsi update");
 		echo 1 ;
 		exit;
 	}
 	elseif($_GET['action']=="updatedefaultgene")
 	{
-		//echo $ip;
 		$kode=intval($_GET['genebasketid']);
 		$check2=mysqli_query($genelist_connection,"select * from defaultgenebaskets where ip='$ip'");
 		if(mysqli_num_rows($check2)==0)
 		{
 		mysqli_query($genelist_connection,"insert into defaultgenebaskets(gene_basket_id,ip) values('$kode','$ip')") or die("data gagal di insert");
 		}else{
-		mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("data gagal di update");
+		mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("data gagal dii update");
 		}
 		echo 1 ;
 	//	echo "sss";
@@ -59,8 +58,8 @@ $ip=$uuid;
 		$kode=intval($_GET['genebasketid']);
 		mysqli_query($genelist_connection,"delete from genebaskets where gene_basket_id='$kode'")or die("data tidak berhasil di hapus");
 
-		//$check3=mysqli_query($genelist_connection,"select * from defaultgenebaskets where gene_basket_id='$kode' and ip='$ip'" );
-		//if(mysqli_num_rows($check3)!=0)
+		//$check3=mysql_query("select * from defaultgenebaskets where gene_basket_id='$kode' and ip='$ip'" );
+		//if(mysql_num_rows($check3)!=0)
 		//{
 		mysqli_query($genelist_connection,"delete from defaultgenebaskets where gene_basket_id='$kode'")or die("data tidak berhasil di hapus");
 		//}
@@ -80,7 +79,7 @@ $ip=$uuid;
 
 			mysqli_query($genelist_connection,"insert into genebaskets(genebaskets.genelist,genebaskets.ip,genebaskets.harga,genebaskets.gene_basket_name) SELECT genebaskets.genelist,genebaskets.ip,genebaskets.harga,'$nama' from genebaskets WHERE genebaskets.gene_basket_id='$kode';");
 
-			//mysqli_query($genelist_connection,"update genebaskets set genebaskets.genelist='',genebaskets.harga='' where genebaskets.gene_basket_id='$kode'") or die ("data gagal di update");
+			//mysql_query("update genebaskets set genebaskets.genelist='',genebaskets.harga='' where genebaskets.gene_basket_id='$kode'") or die ("data gagal di update");
 			echo 1;
 
 			//}else{

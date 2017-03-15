@@ -7,11 +7,11 @@
    <li id="genelistli" style="list-style-type: none;">
       <ul id="numberofgenesSpanDetail" class="notifi">
          <div id="content" style="font-weight:bold">
-            <?php include( "plugins/genelist/baskets/listbarang.php");?>
+            <?php include( "plugins/genelist/crud/listbarang.php");?>
          </div>
          <div id="Formcontent"></div>
-         <span class="hint--bottom" aria-label="Add new GeneList"> <a href="<?php print $GLOBALS['base_url']?>/plugins/genelist/baskets/formbarang.php?action=add" class="add"><i class="savemenu fa-plus"></i></a></span> &nbsp;<span class="hint--bottom" aria-label="Duplicate selected GeneList"><a href="<?php print $GLOBALS['base_url']?>/plugins/genelist/baskets/formbarang.php?action=savecurent"
-            class="savecurrent"><i class="savemenu fa-copy"></i></a></span> &nbsp; <span id="cancelbtn" class="hint--right" aria-label="Cancel" style="display:none"><a href="<?php print $GLOBALS['base_url']?>/plugins/genelist/baskets/formbarang.php?action=add" class="cancel"><i class="savemenu fa-ban"></i></a></span> 
+         <span class="hint--bottom" aria-label="Add new GeneList"> <a href="<?php print $GLOBALS['base_url']?>/plugins/genelist/crud/formbarang.php?action=add" class="add"><i class="savemenu fa-plus"></i></a></span> &nbsp;<span class="hint--bottom" aria-label="Duplicate selected GeneList"><a href="<?php print $GLOBALS['base_url']?>/plugins/genelist/crud/formbarang.php?action=savecurent"
+            class="savecurrent"><i class="savemenu fa-copy"></i></a></span> &nbsp; <span id="cancelbtn" class="hint--right" aria-label="Cancel" style="display:none"><a href="<?php print $GLOBALS['base_url']?>/plugins/genelist/crud/formbarang.php?action=add" class="cancel"><i class="savemenu fa-ban"></i></a></span> 
       </ul>
    </li>
    <div id="editpanel2" style="background:#fff ;font-size:14px;;z-index:9;position:relative;display:none;width:100%;min-height:120px;overflow:hidden;min-height:200px;margin-left:-40px;">
@@ -105,7 +105,7 @@
                adjustPadding();
                $("#editpanel").show()
                updategenebasket3();
-               $("#content").load("plugins/genelist/baskets/listbarang.php");
+               $("#content").load("plugins/genelist/crud/listbarang.php");
                //	console.log($("#genenumber")[0].)
                //	console.log($("#mainspan")[0])
                $("#mainspan").hide();

@@ -380,7 +380,7 @@ function updategenebasket() {
 
             //$("#numberofgenesSpan").illuminate();
             $.ajax({
-                url: "plugins/genelist/baskets/updatebaskets.php?id=gene",
+                url: "plugins/genelist/crud/updatebaskets.php?id=gene",
                 type: "GET",
                 success: function(hasil) {
                     var numberc = pad2(hasil).replace(/\s/g, "");

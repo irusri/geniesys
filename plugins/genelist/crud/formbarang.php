@@ -1,104 +1,63 @@
 <?php
-
-		include("koneksi.php");
-		$ip=$uuid;
-
-	$action="new";
-	$status="submit";
-	$readonly="";
-	$kode="";
-	$nama='';
-	$harga='';
-	if(isset($_GET['action']) and $_GET['action']=="update" and !empty($_GET['genebasketid']))
-	{
-			include("koneksi.php");
-		$ip=$uuid;
-
-		$str="select * from genebaskets where gene_basket_id=".intval($_GET['genebasketid']);
-		$res=mysqli_query($genelist_connection,$str) or die("query gagal dijalankan");
-		$data=mysqli_fetch_assoc($res);
-		//print_r($data);
-		$kode=$data['gene_basket_id'];
-		$nama=$data['gene_basket_name'];
-		$harga=$data['harga'];
-		$action="update";
-		$simpan=$action;
-		$readonly="readonly=readonly";
-		//setcookie('blabla', $$nama, time() + (86400 * 30), "/"); // 86400 = 1 day
-	}
-
-	if(isset($_GET['action']) and $_GET['action']=="savecurent" )
-	{
-		include("koneksi.php");
-		$ip=$uuid;
-$savecurrentquery="SELECT genebaskets.gene_basket_name,genebaskets.harga,defaultgenebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-		$savecurrent=mysqli_query($genelist_connection,$savecurrentquery) or die("query gagal dijalankan");
-
-			if(mysqli_num_rows($savecurrent)!=0)
-			{
-
-		$savedata=mysqli_fetch_assoc($savecurrent);
-			$nama=$savedata['gene_basket_name'];
-			if($nama=="default"){$nama="active";}
-			$kode=$savedata['gene_basket_id'];
-		$harga=$data['harga'];
-			}
-
-
-
-
-		$action="savecurent";
-		$simpan=$action;
-		$readonly="readonly=readonly";
-	}
-
+include("koneksi.php");
+$ip = $uuid;
+$action = "new";
+$status = "submit";
+$readonly = "";
+$kode = "";
+$nama = '';
+$harga = '';
+if (isset($_GET['action']) and $_GET['action'] == "update"
+    and!empty($_GET['genebasketid'])) {
+    include("koneksi.php");
+    $ip = $uuid;
+    $str = "select * from genebaskets where gene_basket_id=".intval($_GET['genebasketid']);
+    $res = mysqli_query($genelist_connection,$str) or die("query gagal dijalankan");
+    $data = mysqli_fetch_assoc($res);
+    //print_r($data);
+    $kode = $data['gene_basket_id'];
+    $nama = $data['gene_basket_name'];
+    $harga = $data['harga'];
+    $action = "update";
+    $simpan = $action;
+    $readonly = "readonly=readonly";
+    //setcookie('blabla', $$nama, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
+if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
+    include("koneksi.php");
+    $ip = $uuid;
+    $savecurrentquery = "SELECT genebaskets.gene_basket_name,genebaskets.harga,defaultgenebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
+    $savecurrent = mysqli_query($genelist_connection,$savecurrentquery) or die("query gagal dijalankan");
+    if (mysqli_num_rows($savecurrent) != 0) {
+        $savedata = mysqli_fetch_assoc($savecurrent);
+        $nama = $savedata['gene_basket_name'];
+        if ($nama == "default") {
+            $nama = "active";
+        }
+        $kode = $savedata['gene_basket_id'];
+        $harga = $data['harga'];
+    }
+    $action = "savecurent";
+    $simpan = $action;
+    $readonly = "readonly=readonly";
+}
 
 ?>
-<script type="text/javascript">
-$(function(){
-
-	$("#formBarang").submit(function(){
-		if(document.getElementById('namebarangid').value!=""){
-		$.ajax({
-			url:$(this).attr("action"),
-			type:$(this).attr("method"),
-			data:$(this).serialize(),
-			success:function(data){
-				if(data==1)
-				{
-
-					$("#content").load("<?php print $GLOBALS['base_url']?>/plugins/genelist/crud/listbarang.php");
-					page=$(this).attr("href")
-					$("#Formcontent").html("").unload(page);
-					return false
-				}
-				else
-				{
-					alert(data);
-				}
-			}
-		});
-		}else{
-		alert('Please type in name to new gene list!');
-		}
-
-		return false;
-	});
-
-})
-</script>
-
-<form method="post" name="formBarang" action="<?php print $GLOBALS['base_url']?>/plugins/genelist/crud/proses.php" id="formBarang">
-<table width="400">
-<input type="hidden" name="genebasketid" size="20" value="<?php echo $kode;?>" />
-<tr>
-<td>name</td><td><input id="namebarangid" type="text" name="namabarang" size="20" value="<?php echo $nama;?>" />&nbsp;<input  type="submit" value="<?php echo $status;?>"/></td>
-</tr>
-
-<tr>
-<td colspan="2"></td>
-</tr>
-</table>
-<input type="hidden" name="action" value="<?php echo $action;?>" />
-
+<script src="plugins/genelist/crud/js/init_form.js" type="text/javascript"></script>
+<form style="height: 36px;margin-bottom:16px" method="post" name="formBarang" action="plugins/genelist/crud/proses.php" id="formBarang">
+    <table style="border:1px solid #e15b63;border-radius: 10px;padding: 2px 2px 2px 2px;" width="100%">
+        <input type="hidden" name="genebasketid" size="20" value="<?php echo $kode;?>" />
+        <tr >
+            <!-- <td>name</td> -->
+            <td>
+                <input id="namebarangid" type="text" name="namabarang" size="28" style="font-size:16px;width:80%;background-color: #fafafa  ; outline: none;border:none;color:blue;font-weight:bold;color:#7ab6ab" value="<?php echo $nama;?>" />&nbsp;
+                <!-- <button type="submit" value="" class="btn btn-default"><span id="submitformbtn"></span></button> -->
+                <span class="hint--top" aria-label="Save GeneList"><button class="submitb" type="submit" style="font-size:20px;cursor:pointer;color:#909090"><i class="fa fa-save"></i></button></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <input type="hidden" name="action" value="<?php echo $action;?>" />
 </form>

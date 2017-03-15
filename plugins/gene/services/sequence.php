@@ -1,7 +1,7 @@
 <?php
 $post_id=trim($_POST['id']);
 $seq_type=trim($_POST['seq_type']);
-require_once('settings.php'); 
+include('settings.php'); 
 $table_name="transcript_info";
 $id_type="";
  

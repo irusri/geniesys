@@ -47,12 +47,12 @@ if($_GET("table")!=undefined){
   function updategenebasketsss() {
       //$("#numberofgenesSpan").illuminate();
       $.ajax({
-          url: "plugins/genelist/baskets/updatebaskets.php?id=gene",
+          url: "plugins/genelist/crud/updatebaskets.php?id=gene",
           type: "GET",
           success: function(hasil) {
               var numberc = pad2(hasil).replace(/\s/g, "");
               document.getElementById("numberofgenesSpan").innerHTML = numberc;
-              $("#content").load("plugins/genelist/baskets/listbarang.php");
+              $("#content").load("plugins/genelist/crud/listbarang.php");
               /*		var nogenes_blinker = setInterval(function(){ blinker() }, 1000);
 				if(numberc!="00"){
 					clearInterval(nogenes_blinker);
