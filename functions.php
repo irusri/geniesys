@@ -1,11 +1,11 @@
 <?php
 /**
- * @author     Chanaka Mannapperuma <irusri@gmail.com>
- * @date	   2017-03-04
- * @version    Beta 1.0
- * @usage      Main functions for GenIECMS
- * @licence    GNU GENERAL PUBLIC LICENSE
- * @link       https://geniecms.org
+ * @author		Chanaka Mannapperuma <irusri@gmail.com>
+ * @date		2017-03-04
+ * @version		Beta 1.0
+ * @usage		Main functions for GenIECMS
+ * @licence		GNU GENERAL PUBLIC LICENSE
+ * @link		https://geniecms.org
  */
 /*Load the content based on request from index.php*/
 foreach($c as $key => $val) {
