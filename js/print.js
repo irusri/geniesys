@@ -333,7 +333,7 @@ function updategenebasket() {
 				//console.log(typeof(numberc),typeof(document.getElementById("numberofgenesSpan").innerHTML),)
 			//	if(typeof(document.getElementById("numberofgenesSpan").innerHTML)!=undefined){
 
-               // document.getElementById("numberofgenesSpan").innerHTML = numberc;
+                document.getElementById("numberofgenesSpan").innerHTML = numberc;
 			//					}
 				
                 if(typeof(document.getElementsByClassName("notificationcount2").innerHTML)!=undefined){
