@@ -8,14 +8,14 @@
 $ip=$uuid;
 
 	$str="select * from genebaskets where ip='$ip'";
-	$res=mysql_query($str) or die("query gagal dijalankan");
+	$res=mysqli_query($genelist_connection,$str) or die("query gagal dijalankan");
 
 	$defaultstr="SELECT genebaskets.gene_basket_name,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-	$defaultresults=mysql_query($defaultstr) or die("query gagal dijalankan");
+	$defaultresults=mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
 
-	if(mysql_num_rows($defaultresults)!=0)
+	if(mysqli_num_rows($defaultresults)!=0)
 		{
-			$defaultgeenedata=mysql_fetch_assoc($defaultresults);
+			$defaultgeenedata=mysqli_fetch_assoc($defaultresults);
 			$gbid=$defaultgeenedata['gene_basket_name'];
 			$default_g_id=$defaultgeenedata['gene_basket_id'];
 			$defaultgenebasketname=$gbid;
@@ -25,9 +25,9 @@ $ip=$uuid;
 		}else{
 
    $checkbasketsquery="SELECT genebaskets.gene_basket_id FROM genebaskets WHERE genebaskets.ip='$ip'";
-	$checkbasketsresults=mysql_query($checkbasketsquery) or die("query gagal dijalankan");
+	$checkbasketsresults=mysqli_query($genelist_connection,$checkbasketsquery) or die("query gagal dijalankan");
 
-	if(mysql_num_rows($checkbasketsresults)!=0){
+	if(mysqli_num_rows($checkbasketsresults)!=0){
 		$defaultgenebasketname='no active genelist selected! click one of following gene list name to use it as a active genelist.';
 		}else{
 		$defaultgenebasketname ='add few genes to active genelist <a style="cursor:pointer"  onclick="open_genelist();"><font style="color:#00F" width="3"  id="defaultgenebasket">here</font></a>.'	;

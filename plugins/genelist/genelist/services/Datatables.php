@@ -37,7 +37,7 @@
     * Load ActiveRecord functions
     *
     */
-    public function __construct($driver = 'mysql') 
+    public function __construct($driver = 'mysqli') 
     {
       require( dirname(__FILE__) . '/ActiveRecords/' . $driver . '.php' );
       $this->ar = new ActiveRecords;

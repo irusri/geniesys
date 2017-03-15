@@ -15,8 +15,8 @@
 		$ip=$uuid;
 
 		$str="select * from genebaskets where gene_basket_id=".intval($_GET['genebasketid']);
-		$res=mysql_query($str) or die("query gagal dijalankan");
-		$data=mysql_fetch_assoc($res);
+		$res=mysqli_query($genelist_connection,$str) or die("query gagal dijalankan");
+		$data=mysqli_fetch_assoc($res);
 		//print_r($data);
 		$kode=$data['gene_basket_id'];
 		$nama=$data['gene_basket_name'];
@@ -32,12 +32,12 @@
 		include("koneksi.php");
 		$ip=$uuid;
 $savecurrentquery="SELECT genebaskets.gene_basket_name,genebaskets.harga,defaultgenebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-		$savecurrent=mysql_query($savecurrentquery) or die("query gagal dijalankan");
+		$savecurrent=mysqli_query($genelist_connection,$savecurrentquery) or die("query gagal dijalankan");
 
-			if(mysql_num_rows($savecurrent)!=0)
+			if(mysqli_num_rows($savecurrent)!=0)
 			{
 
-		$savedata=mysql_fetch_assoc($savecurrent);
+		$savedata=mysqli_fetch_assoc($savecurrent);
 			$nama=$savedata['gene_basket_name'];
 			if($nama=="default"){$nama="active";}
 			$kode=$savedata['gene_basket_id'];

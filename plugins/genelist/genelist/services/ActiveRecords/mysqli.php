@@ -113,16 +113,22 @@
       {
         $prefix = (count($this->ar_where) == 0)? '' : $type;
 
-        if($v != NULL) 
+        if($v != NULL)  
         {
-          $k = ($this->_has_operator($k) == TRUE)? $k : $k . ' ='; 
-          $v = ($escape == TRUE)? " '" . $v . "'" : $v;  
+			if($k=="transcript_atg.atg_id like " || $k=="gene_go.go_description like " || $k=="gene_pfam.pfam_description like " || $k=="gene_kegg.kegg_description like " || $k=="transcript_info.description like " ||  $k=="Description LIKE " || $k=="genelist_atg.genelist_atg_id LIKE " ){
+				$k = ($this->_has_operator($k) == TRUE)? $k : $k . ' ='; 
+          		$v = ($escape == TRUE)? ' "' . $v . '" ' : $v;  
+			}else{
+          	$k = ($this->_has_operator($k) == TRUE)? $k : $k . ' ='; 
+          	$v = ($escape == TRUE)? ' ("' . $v . '")' : $v;  
+			}
+			 
         }
 
         $this->ar_where[] = $prefix . (($escape == TRUE)? $this->_protect_identifiers($k.$v) : $k.$v);
       }
       return $this;  
-    }
+	}
 
     /**
     * Generates the LIMIT portion of the query
