@@ -1,5 +1,5 @@
 <?php
-/*Load the content based on the request*/
+/*Load the content based on request from index.php*/
 foreach($c as $key => $val) {
 	if ($key == 'content') continue;
 	$fval = @file_get_contents('genie_files/'.$key);
