@@ -3,11 +3,11 @@ include("koneksi.php");
 $defaultgenebasketname = "";
 $ip = $uuid;
 $str = "select * from genebaskets where ip='$ip'";
-$res = mysql_query($str) or die("query gagal dijalankan");
+$res = mysqli_query($genelist_connection,$str) or die("query gagal dijalankan");
 $defaultstr = "SELECT genebaskets.gene_basket_name,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-$defaultresults = mysql_query($defaultstr) or die("query gagal dijalankan");
-if (mysql_num_rows($defaultresults) != 0) {
-    $defaultgeenedata = mysql_fetch_assoc($defaultresults);
+$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+if (mysqli_num_rows($defaultresults) != 0) {
+    $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
     $gbid = $defaultgeenedata['gene_basket_name'];
     $default_g_id = $defaultgeenedata['gene_basket_id'];
     $defaultgenebasketname = $gbid;
@@ -18,8 +18,8 @@ if (mysql_num_rows($defaultresults) != 0) {
     '</font>) genelist </font></a><font size="1">&nbsp<br></font>';
 } else {
     $checkbasketsquery = "SELECT genebaskets.gene_basket_id FROM genebaskets WHERE genebaskets.ip='$ip'";
-    $checkbasketsresults = mysql_query($checkbasketsquery) or die("query gagal dijalankan");
-    if (mysql_num_rows($checkbasketsresults) != 0) {
+    $checkbasketsresults = mysqli_query($genelist_connection,$checkbasketsquery) or die("query gagal dijalankan");
+    if (mysqli_num_rows($checkbasketsresults) != 0) {
         $defaultgenebasketname = '<font style="color:#7ab6ab">No active genelist selected! click one of following gene list name to use it as a active genelist.</font>';
     } else {
         $defaultgenebasketname = '<font style="color:#7ab6ab">Click  <a style="cursor:pointer"  onclick="open_genelist();"><font style="color:#00F" width="3"  id="defaultgenebasket">here</font></a> to open the GeneList.</font>';
@@ -38,7 +38,7 @@ if (mysql_num_rows($defaultresults) != 0) {
       </tr>
    </thead> -->
    <tbody>
-      <?php while($data=mysql_fetch_assoc($res)){?>
+      <?php while($data=mysqli_fetch_assoc($res)){?>
       <tr>
          <td><a onclick="changespeciesdropdown('<?php echo $data['gene_basket_name'];?>')" href="plugins/genelist/baskets/proses.php?action=updatedefaultgene&genebasketid=<?php echo $data['gene_basket_id'];?>" id="<?php echo $data['harga'];?>" class="bname"><?php  if($data['gene_basket_name']=="default"){$data['gene_basket_name']="active";}
             if($data['gene_basket_id']==$default_g_id){
