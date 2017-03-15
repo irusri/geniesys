@@ -9,3 +9,4 @@ plugins/sequence_search
 plugins/jbrowse
 plugins/exmatch
 plugins/exdraw
+themes/theme.php
