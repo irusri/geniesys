@@ -1,51 +1,54 @@
 <?php
-
-foreach($c as $key => $val){
-        if($key == 'content')continue;
-        $fval = @file_get_contents('genie_files/'.$key);
-        $d['default'][$key] = $c[$key];
-        if($fval)$c[$key] = $fval;
-        switch($key){
-                case 'password':
-                        if(!$fval)$c[$key] = savePassword($val);
-                        break;
-                case 'loggedin':
-                        if(isset($_SESSION['l']) and $_SESSION['l']==$c['password'])$c[$key] = true;
-                        if(isset($_REQUEST['logout'])){
-                                session_destroy();
-                                header('Location: ./');
-                                exit;
-                        }
-                        if(isset($_REQUEST['login'])){
-                                if(is_loggedin())header('Location: ./');
-                                loginForm();
-                        }
-                        $lstatus = (is_loggedin())? "<a href='$hostname?logout'>Logout</a>": "<a href='$hostname?login'>Login</a>";
-                        break;
-                case 'page':
-                        if($rp)$c[$key]=$rp;
-                        $c[$key] = getthetitle($c[$key]);
-                        if(isset($_REQUEST['login']))continue;
-                        $c['content'] = @file_get_contents("genie_files/".$c[$key]);
-                        if(!$c['content']){
-							 //print_r($d['page'][$c[$key]]);
-                                if(!isset($d['page'][$c[$key]])){
-                                                header('HTTP/1.1 404 Not Found');
-                                                $c['content'] = (is_loggedin())? $d['new_page']['admin']:$c['content'] = $d['new_page']['visitor'];
-                                }else{
-
-                                        $c['content'] = $d['page'][$c[$key]];
-                                }
-                        }
-                        break;
-                default:
-                        break;
-        }
+/*Load the content based on the request*/
+foreach($c as $key => $val) {
+	if ($key == 'content') continue;
+	$fval = @file_get_contents('genie_files/'.$key);
+	$d['default'][$key] = $c[$key];
+	if ($fval) $c[$key] = $fval;
+	switch ($key) {
+		case 'password':
+			if (!$fval) $c[$key] = savePassword($val);
+			break;
+		case 'loggedin':
+			if (isset($_SESSION['l']) and $_SESSION['l'] == $c['password']) $c[$key] = true;
+			if (isset($_REQUEST['logout'])) {
+				session_destroy();
+				header('Location: ./');
+				exit;
+			}
+			if (isset($_REQUEST['login'])) {
+				if (is_loggedin()) header('Location: ./');
+				loginForm();
+			}
+			$lstatus = (is_loggedin()) ? "<a href='$hostname?logout'>Logout</a>" : "<a href='$hostname?login'>Login</a>";
+			break;
+		case 'page':
+			if ($rp) $c[$key] = $rp;
+			$c[$key] = getthetitle($c[$key]);
+			if (isset($_REQUEST['login'])) continue;
+			$c['content'] = @file_get_contents("genie_files/".$c[$key]);
+			if (!$c['content']) {
+				//print_r($d['page'][$c[$key]]);
+				if (!isset($d['page'][$c[$key]])) {
+					header('HTTP/1.1 404 Not Found');
+					$c['content'] = (is_loggedin()) ? $d['new_page']['admin'] : $c['content'] = $d['new_page']['visitor'];
+				} else {
+					$c['content'] = $d['page'][$c[$key]];
+				}
+			}
+			break;
+		default:
+			break;
+	}
 }
+
+/*Fire loadPlugins() function*/
 loadPlugins();
 
+/*Load the selected theme from settings menu*/
 require("themes/".$c['themeSelect']."/theme.php");
 
+/*Load plugins while traveling through plugins directory*/
 function loadPlugins(){
 	global $hook,$c;
 	$cwd = getcwd();
@@ -62,6 +65,7 @@ function loadPlugins(){
 	
 }
 
+/*Formulate the page titles*/
 function getthetitle($p){
         $p = strip_tags($p);
         preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
@@ -70,6 +74,7 @@ function getthetitle($p){
         return $tmp_title;
 }
 
+/*Formulate the menu titles*/
 function getthetitle_for_menu($p){
         $p = strip_tags($p);
         preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
@@ -78,6 +83,7 @@ function getthetitle_for_menu($p){
         return $tmp_title;
 }
 
+/*Check user authentication level*/
 function is_loggedin(){
         global $c;
         return $c['loggedin'];
@@ -96,7 +102,7 @@ function content($id,$content){
 	echo (is_loggedin())? "<span title='".$d['default']['content']."' id='".$id."' class='editText richText'>".$content."</span>": $content;
 }
 
-
+/*Rendering the main menu*/
 function genie_menu(){
         global $c,$hostname;
         $mlist = explode('<br />',$c['menu']);
@@ -115,7 +121,7 @@ function genie_menu(){
         echo str_replace('</ul><ul>','',$contact_menu_items);
 }
 
-
+/*Rendering the login form*/
 function loginForm(){
 	global $c, $msg;
 	$msg = '';
@@ -132,6 +138,7 @@ function loginForm(){
 	</form>";
 }
 
+/*Loginform functions*/
 function login(){
 	global $c, $msg;
 	if(md5($_POST['password'])<>$c['password']){
@@ -148,6 +155,7 @@ function login(){
 	exit;
 }
 
+/*if the passwword file exist use md5 to save the password*/
 function savePassword($p){
 	$file = @fopen('genie_files/password', 'w');
 	if(!$file){
@@ -159,6 +167,7 @@ function savePassword($p){
 	return md5($p);
 }
 
+/*Rendering the main settings this will appear nce user logged into the genie*/
 function settings(){
 	global $c,$d;
 	echo "<div class='settings'>
