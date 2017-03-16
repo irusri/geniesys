@@ -38,8 +38,8 @@ if (isset($_GET['q'])) {
   $q = trim($_GET['q']);
   $onlyconsonants=strtolower($q);
   if ($q) {
-	mysql_connect("spruce.plantphys.umu.se", "geniecms", "geniepass") or die(mysql_error());
-	mysql_select_db("egrandis_demo") or die(mysql_error());
+	$mysqlcon=mysqli_connect("spruce.plantphys.umu.se", "geniecms", "geniepass","egrandis_demo") or die(mysqli_error());
+	//mysqli_select_db("egrandis_demo") or die(mysql_error());
 	
 	//if(substr($q, 0, 2)!="MA"){
 	//$resultssequence = mysql_query("select trinityname,division,taxonomyname from trinity_taxonomy where trinityname like '%$q%'")or die(mysql_error());
@@ -57,11 +57,11 @@ if (isset($_GET['q'])) {
 		}
 */
 //if(checkprefix($onlyconsonants,"ma")==true || checkprefix($onlyconsonants,"po")==true  ){	
-		$resultssequence2 = mysql_query("SELECT * FROM transcript_info WHERE concat(transcript_id,gene_id,description) like '%$q%' limit 10")or die(mysql_error());
+		$resultssequence2 = mysqli_query($mysqlcon,"SELECT * FROM transcript_info WHERE concat(transcript_id,gene_id,description) like '%$q%' limit 10")or die(mysqli_error());
 		
 		
 		$k = 0;
-		while($sequencearr2 = mysql_fetch_array($resultssequence2)){
+		while($sequencearr2 = mysqli_fetch_array($resultssequence2)){
 			  $trinitynamer2=$sequencearr2['gene_id'];
 			   if($sequencearr2['description']!="" && $sequencearr2['description']!="-"){
 			   $trinitynamer2x=$sequencearr2['gene_id'].'-'.limit($sequencearr2['description']);
