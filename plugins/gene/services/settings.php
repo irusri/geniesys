@@ -1,6 +1,5 @@
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/plugins/settings.php";
+$path= dirname(__FILE__)."/../../settings.php";
 include($path);
 global $db_url;
 $private_url = parse_url($db_url['genelist']);

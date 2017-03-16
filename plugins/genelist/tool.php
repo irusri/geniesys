@@ -54,9 +54,9 @@ setcookie ("fingerprint", $popuuid, $expire, '/', $setDomain, 0 );
 <link rel="stylesheet" href="plugins/genelist/genelist/css/style.css" type="text/css" media="all">
 <div id="popmeup" style="width:100%;padding:5px;">
 <?php if($table_exsist==false){?>
-<? echo $_GET['_term'];?>
+<?php echo $_GET['_term'];?>
 <font color="#FF0000"><a id="loadexamplebtn"  title="Click here to load example gene list." style="cursor:pointer;text-decoration:none;z-index:10000">Load Example</a></font>
-<textarea  multiple="multiple"  placeholder="Type in here to search all database fields " id="myInputTextField" value="" style="width:100%;;max-height:500px;min-height:40px;"  ></textarea><? } ?>
+<textarea  multiple="multiple"  placeholder="Type in here to search all database fields " id="myInputTextField" value="" style="width:100%;;max-height:500px;min-height:40px;"  ></textarea><?php } ?>
 <!--<font color="#999999">*please use <strong>desc:</strong> prefix for search description.e.g: desc:drought</font>-->
 </div>
 <script>

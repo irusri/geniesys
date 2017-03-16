@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_GET)) {
     $baskettype = $_GET['id'];
 }

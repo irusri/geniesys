@@ -58,7 +58,7 @@
             echo "</div>";
             }else{?>
          <div id="wrapper" class="border">
-         <?php if($_SERVER[REQUEST_URI] =="/"){?>
+         <?php if($_SERVER["REQUEST_URI"] =="/"){?>
          	<!--ADD FRONT PAGE CONTENT HERE-->
         <?php } ?>   
             <?php if(is_loggedin()) { ?>

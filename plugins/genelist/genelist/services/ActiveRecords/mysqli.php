@@ -191,7 +191,7 @@
     {
       $aData = array();
 
-      while ($aRow = mysqli_fetch_array($this->_result, MYSQL_ASSOC))
+      while ($aRow = mysqli_fetch_array($this->_result, MYSQLI_ASSOC))
         $aData[] = $aRow;
 
       return $aData;

@@ -54,7 +54,7 @@ foreach($c as $key => $val) {
 loadPlugins();
 
 /*Load the selected theme from settings menu*/
-require("themes/".$c['themeSelect']."/theme.php");
+include("themes/".$c['themeSelect']."/theme.php");
 
 /*Load plugins while traveling through plugins directory*/
 function loadPlugins(){

@@ -1,7 +1,8 @@
 <?php 
-require_once('Datatables2.php');
-require_once('settings.php');  
-include('../../crud/getgenelist.php');
+include_once('Datatables2.php');
+
+include_once('../../crud/getgenelist.php');
+include_once('settings.php');  
 $default_gene_basket_array=getdefaultgenelist();
 
  if(isset($_POST['checkrandomid'])){
@@ -115,36 +116,9 @@ echo json_encode($default_gene_basket_array);
 echo $datatables->generate($default_gene_basket_array);	
 }
 
-#####################################
-//Check prefix
-#####################################
-function checkprefix($source, $prefix) {
-    if (str_startswith($source, $prefix)) {
-       return true;
-    } else {
-       return false;
-    }
-}
-function str_startswith($source, $prefix)
-{
-   return strncmp($source, $prefix, strlen($prefix)) == 0;
-}
-/////////////////////////////////////
 
 
-#####################################
-//Check suffix
-#####################################
-function checksuffix($source, $suffix) {
-    if (str_endswith($source, $suffix)) {
-       return true;
-    } else {
-       return false;
-    }
-}
-function str_endswith($source, $suffix) {
-   return (strpos(strrev($source), strrev($suffix)) === 0);
-}
-/////////////////////////////////////
+
+
 
 ?>

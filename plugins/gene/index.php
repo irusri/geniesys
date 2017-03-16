@@ -1,6 +1,5 @@
 <?php 
-
-$subdir_arr = explode("/", $_SERVER['REQUEST_URI']);
+$subdir_arr = explode("/", $_SERVER["REQUEST_URI"]);
 $mennu_arr= explode("<br />", $c['menu']);
 $menu_exist=true;
 
@@ -9,11 +8,10 @@ for($search_num=0;$search_num<count($mennu_arr);$search_num++){
 		$menu_exist=true;
 	}
 }
-//echo strtolower($subdir_arr[count($subdir_arr)-1]);
 
-if(strtolower(basename(dirname(__FILE__)))== basename($_SERVER['PHP_SELF']) || strtolower($subdir_arr[count($subdir_arr)-1])=="transcript" ){//&& $menu_exist==true
+if(strtolower(basename(dirname(__FILE__)))== basename($_SERVER['REDIRECT_URL']) || basename($_SERVER['REDIRECT_URL'])=="transcript" ){//&& $menu_exist==true
 	$c['initialize_tool_plugin']=true;
 	$c['tool_plugin']="gene";//strtolower($subdir_arr[count($subdir_arr)-1]);
 
-}
+} 
 ?>
