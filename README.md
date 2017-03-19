@@ -13,7 +13,7 @@ cd GenIECMS
 php -S localhost:3000
 ```
 
-
+[![asciicast](https://asciinema.org/a/6kwlxee1o1qt15r3gunx7lt08.png)](https://asciinema.org/a/6kwlxee1o1qt15r3gunx7lt08)
 
 **Make your wish**
 
