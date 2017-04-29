@@ -9,7 +9,7 @@ JBrowse
 
 **Manual installation from JBrowse.org - optional**
 
-This is important when you need to convert exsisting JBrowse into GenIE module.  
+This is important when you need to convert existing JBrowse into GenIE module.  
 1.) Copy JBrowse into plugins folder  
 2.) Copy `index.php` and `tool.php` into jbrowse folder  
 3.) Create menu item called jbrowse  
