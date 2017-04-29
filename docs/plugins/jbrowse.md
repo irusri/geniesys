@@ -19,11 +19,12 @@ This is important when you need to convert exsisting JBrowse into GenIE module.
 
 **Loading data into JBrowse**
 
-`shell
-bin/prepare-refseqs.pl --fasta ../../data/Egrandis_297_v2.0.fa  
-bin/flatfile-to-json.pl --gff ../../data/Egrandis_297_v2.0.gene.gff3 --trackLabel E.Genes --trackType CanvasFeatures  
+```shell
+bin/prepare-refseqs.pl --fasta ../../data/Egrandis297v2.0.fa
+bin/flatfile-to-json.pl --gff ../../data/Egrandis297v2.0.gene.gff3 --trackLabel E.Genes --trackType CanvasFeatures
 bin/generate-names.pl -v
-`
+
+```
 
 **Usage**
 
