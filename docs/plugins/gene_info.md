@@ -12,7 +12,9 @@ Gene Information Pages
 Navigate to `http://[your server name]/genie/gene?id=[gene id]` or `http://[your server name]/genie/transcript?id=[transcript id]`
 
 **Sequence coloring**
+
 Following script will be used to load genome gff3 file into corresponding sequence coloring table in GenIE database. Final changes will be appeared with colouring features of genomic,transcriptomic and cds sequences in gene information pages.
+
 ```shell
 #!/bin/bash
 #get the gene.gff3 file and loaded into database table calles sequence_color
