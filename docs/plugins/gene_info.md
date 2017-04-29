@@ -3,10 +3,8 @@ Gene Information Pages
 
 **Installation**
 
-1.) Download the gene.zip file and unzip into plugins directory.
-
-2.) Edit database details in services/settings.php file.
-
+1.) Download the gene.zip file and unzip into plugins directory.  
+2.) Edit database details in services/settings.php file.  
 3.) Edit the conf.json file, if needed to display sequence information inside the gene pages.
 
 **Usage**
