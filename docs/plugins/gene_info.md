@@ -18,7 +18,7 @@ Following script will be used to load genome gff3 file into corresponding sequen
 ```shell
 #!/bin/bash
 #get the gene.gff3 file and loaded into database table calles sequence_color
-#Usage: sh sequence_color.sh /mnt/spruce/www/demo/geniecms/data/Egrandis_297_v2.0.gene.gff3
+#Usage: sh sequence_color.sh /data/Egrandis_297_v2.0.gene.gff3
 
 awk '/mRNA/{split($2,a,"=");sub(/ID=./,a[2]";");print $1;next}/gene/{;next}{sub(/ID=./,a[2]";");print $1}' FS=\; OFS=\; $1 | awk '!/#/{print $9"\t"$1"\t"$3"\t"$4"\t"$5}' > tmp &&
 sed -i 's/five_prime_UTR/5UTR/' tmp && sed -i 's/three_prime_UTR/3UTR/' tmp  &&
