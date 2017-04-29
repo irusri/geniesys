@@ -8,4 +8,5 @@
    genelist
    blast
    gene_info
+   jbrowse
    new_plugin
