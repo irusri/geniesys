@@ -3,7 +3,7 @@ JBrowse
 
 **Installation**
 
-1.) Download the jbrowse.zip file and unzip into plugins directory.      
+1.) Download the jbrowse.zip file and unzip into plugins directory.        
 2.) Edit database details in services/settings.php file.  
 
 **Manual installation from JBrowse.org - optional**
