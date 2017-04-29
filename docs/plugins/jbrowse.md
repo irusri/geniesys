@@ -10,7 +10,7 @@ JBrowse
 
 Following steps are important when you need to convert existing JBrowse into GenIE module.  
 - Copy JBrowse into plugins folder  
-- Copy `index.php` and `tool.php` into jbrowse folder  
+- Copy `index.php` into jbrowse folder  
 - Create menu item called jbrowse  
 - Change plugins `plugins/jbrowse/main.css` and `plugins/jbrowse/genome.css`   
 - Copy `pugins/jbrowse/index.html` into `plugins/jbrowse/tool.php` from jbrowse.zip  
