@@ -65,7 +65,7 @@ Following database diagram shows the initial genie tables which are compatible w
 git show HEAD~1:scripts/genie_db.sql > genie_db.sql
 mysql -u newuser -p newpassword new_database < genie_db.sql
 ```
-[![GenIE Database Design](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE_DB.png)
+[![GenIE Database Design](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
 
 ---------------------------
 Preprocessing and Loading data
