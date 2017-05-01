@@ -14,7 +14,7 @@ There are only two primary tables(transcript_info and gene_info) in GenIECMS dat
 
 Loading data into the primary tables can be easily accomplished using dedicated scripts listed on GenIECMS/scripts folder. First, we need to find corresponding GFF3 and FASTA files related to the species that we are going to load into the GenIE-CMS.
 
-**Creating Primary tables**
+*Creating Primary tables*
 ```shell
 #Create transcript_info table
 CREATE TABLE `transcript_info` (
@@ -81,7 +81,7 @@ mysql> ALTER TABLE gene_info ADD INDEX `gene_id` (`gene_id`)
 ```
 The following example will show you how to load basic information into the primary tables. 
 
-**Loading data into Primary tables**
+*Loading data into Primary tables*
 ```shell
 #head  input/Potra01-gene-mRNA-wo-intron.gff3
 Potra000001	leafV2	gene	9066	10255	.	-	.	ID=Potra000001g00001;Name=Potra000001g00001;potri=Potri.004G180000,Potri.004G180200
