@@ -114,7 +114,7 @@ Potra000002g31577	Potra000002	55010	55465	+
 ./load_data.sh gene_info gene_info.txt
 
 #Use GFF3 and generate source input file to load into transcript_info mysql table
-awk -F"\t" '/mRNA/{split($9,a,"ID=");split(a[2],b,";");split(b[1],c,".");print b[1],$1,$4,$5,$7}' FS='\t' OFS='\t' input/Potra01-gene-mRNA-wo-intron.gff3 > input/transcript_info.txt
+awk '/mRNA/{split($9,a,"ID=");split(a[2],b,";");split(b[1],c,".");print b[1],$1,$4,$5,$7}' FS='\t' OFS='\t' input/Potra01-gene-mRNA-wo-intron.gff3 > input/transcript_info.txt
 
 #results file(transcript_info.txt) looks like following
 Potra000001g00001.1	Potra000001	9066	10255	-
@@ -131,16 +131,15 @@ Potra000002g00006.5	Potra000002	33101	35399	+
 #Load previously generated source file into transcript_info table
 ./load_data.sh transcript_info transcript_info.txt
 
-#Load sequence coloring table
-./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
-
 #Load gene description
 ./update_descriptions.sh gene_info input/Potra01.1_gene_Description.tsv
 
 #Load transcript description
 ./update_descriptions.sh transcript_info input/Potra01.1_transcript_Description.tsv
-```
 
+#Load sequence coloring table
+./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
+```
 
 **Annotation tables**
 
