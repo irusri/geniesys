@@ -18,7 +18,6 @@ Loading data into the primary tables can be easily accomplished using dedicated 
 ```shell
 #Create transcript_info table
 CREATE TABLE `transcript_info` (
-  `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   `transcript_id` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `chromosome_name` varchar(20) DEFAULT NULL,
   `transcript_start` int(16) unsigned DEFAULT NULL,
@@ -27,6 +26,7 @@ CREATE TABLE `transcript_info` (
   `gene_id` varchar(60) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `gene_i` mediumint(16) unsigned DEFAULT NULL,
+   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transcript_i`),
   UNIQUE KEY `transcript_id` (`transcript_id`)
 );
@@ -35,7 +35,6 @@ mysql> explain transcript_info;
 +------------------+------------------------+------+-----+---------+----------------+
 | Field            | Type                   | Null | Key | Default | Extra          |
 +------------------+------------------------+------+-----+---------+----------------+
-| transcript_i     | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 | transcript_id    | varchar(60)            | NO   | MUL |         |                |
 | chromosome_name  | varchar(20)            | YES  |     | NULL    |                |
 | transcript_start | int(16) unsigned       | YES  |     | NULL    |                |
@@ -43,12 +42,12 @@ mysql> explain transcript_info;
 | strand           | varchar(2)             | YES  |     | NULL    |                |
 | gene_id          | varchar(60)            | YES  |     | NULL    |                |
 | description      | varchar(1000)          | YES  |     | NULL    |                |
+| transcript_i     | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 | gene_i           | mediumint(16) unsigned | YES  |     | NULL    |                |
 +------------------+------------------------+------+-----+---------+----------------+
 9 rows in set (0.00 sec)
 #Create gene_info table
 CREATE TABLE `gene_info` (
-  `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   `gene_id` varchar(60) CHARACTER SET utf8 NOT NULL,
   `chromosome_name` varchar(20) DEFAULT NULL,
   `gene_start` int(16) unsigned DEFAULT NULL,
@@ -56,6 +55,7 @@ CREATE TABLE `gene_info` (
   `strand` varchar(2) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `peptide_name` varchar(50) DEFAULT NULL,
+   `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`gene_i`),
   UNIQUE KEY `gene_id` (`gene_id`)
 );
@@ -64,7 +64,6 @@ mysql> explain gene_info;
 +-----------------+------------------------+------+-----+---------+----------------+
 | Field           | Type                   | Null | Key | Default | Extra          |
 +-----------------+------------------------+------+-----+---------+----------------+
-| gene_i          | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 | gene_id         | varchar(60)            | NO   | UNI | NULL    |                |
 | chromosome_name | varchar(20)            | YES  |     | NULL    |                |
 | gene_start      | int(16) unsigned       | YES  |     | NULL    |                |
@@ -72,6 +71,7 @@ mysql> explain gene_info;
 | strand          | varchar(2)             | YES  |     | NULL    |                |
 | description     | varchar(1000)          | YES  |     | NULL    |                |
 | peptide_name    | varchar(50)            | YES  |     | NULL    |                |
+| gene_i          | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 +-----------------+------------------------+------+-----+---------+----------------+
 8 rows in set (0.00 sec)
 #Adding indeices to transcript_info and gene_info tables is important when we update and select tables.
