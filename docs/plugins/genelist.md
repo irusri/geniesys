@@ -125,7 +125,7 @@ Potra000002g00005.5	Potra000002	19346	21913	-
 Potra000002g00005.4	Potra000002	19346	25349	-
 Potra000002g00006.5	Potra000002	33101	35399	+
 ```
-Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and the script can be found inside `GenIECMS/scripts`folder.
+Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and `load_data.sh` script can be found inside `GenIECMS/scripts`folder.
 ```shell
 #!/bin/bash
 #load_data.sh
@@ -149,7 +149,9 @@ Folowing two lines will load `transcript_info.tsv` and `gene_info.tsv` files int
 
 #Load previously generated source file into transcript_info table
 ./load_data.sh transcript_info transcript_info.txt
+```
 
+```shell
 #Load gene description
 ./update_descriptions.sh gene_info input/Potra01.1_gene_Description.tsv
 
