@@ -151,7 +151,6 @@ Loading data into the annotation tables can be easily done using corresponding s
 ```shell
 #Load Annotations
 #Let's assume, if we have Best BLAST atg Ids which are corresponding to Poplar ids. Results file will look like following example.
-
 Potra000001g00001.1 AT5G39130.1
 Potra000001g00002.1 AT5G39130.1
 Potra000002g00003.1 AT4G21215.2
