@@ -110,9 +110,6 @@ Potra000002g31575	Potra000002	42835	43635	+
 Potra000002g31576	Potra000002	52539	53036	+
 Potra000002g31577	Potra000002	55010	55465	+
 
-#Load above generated source file into gene_info table
-./load_data.sh gene_info gene_info.txt
-
 #Use GFF3 and generate source input file to load into transcript_info mysql table
 awk '/mRNA/{split($9,a,"ID=");split(a[2],b,";");split(b[1],c,".");print b[1],$1,$4,$5,$7}' FS='\t' OFS='\t' input/Potra01-gene-mRNA-wo-intron.gff3 > input/transcript_info.txt
 
@@ -127,6 +124,28 @@ Potra000002g00005.1	Potra000002	19301	25032	-
 Potra000002g00005.5	Potra000002	19346	21913	-
 Potra000002g00005.4	Potra000002	19346	25349	-
 Potra000002g00006.5	Potra000002	33101	35399	+
+```
+Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and the script can be found inside `GenIECMS/scripts`folder.
+```shell
+#!/bin/bash
+#load_data.sh
+#USAGE: sh load_data.sh [table_name] [filename]
+#sh load_data.sh transcript_info_x /tmp/transcript_info.tsv
+
+DB_USER='your_db_username'
+DB_PASS='your_password'
+DB='database_name'
+
+/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+TRUNCATE TABLE $1;
+ALTER TABLE $1 AUTO_INCREMENT = 1;
+load data local infile '$2' replace INTO TABLE $1 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+EOFMYSQL
+```
+Folowing two lines will load `transcript_info.tsv` and `gene_info.tsv` files into respective tables.
+```shell
+#Load above generated source file into gene_info table
+./load_data.sh gene_info gene_info.txt
 
 #Load previously generated source file into transcript_info table
 ./load_data.sh transcript_info transcript_info.txt
