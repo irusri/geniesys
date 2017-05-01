@@ -20,7 +20,6 @@ Loading data into the primary tables can be easily accomplished using dedicated 
 CREATE TABLE `transcript_info` (
   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   `transcript_id` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `pac_id` int(16) DEFAULT NULL,
   `transcript_start` int(16) unsigned DEFAULT NULL,
   `transcript_end` int(16) unsigned DEFAULT NULL,
   `gene_id` varchar(60) DEFAULT NULL,
@@ -37,7 +36,6 @@ mysql> explain transcript_info;
 +------------------+------------------------+------+-----+---------+----------------+
 | transcript_i     | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 | transcript_id    | varchar(60)            | NO   | MUL |         |                |
-| pac_id           | int(16)                | YES  |     | NULL    |                |
 | transcript_start | int(16) unsigned       | YES  |     | NULL    |                |
 | transcript_end   | int(16) unsigned       | YES  |     | NULL    |                |
 | gene_id          | varchar(60)            | YES  |     | NULL    |                |
@@ -55,8 +53,7 @@ CREATE TABLE `gene_info` (
   `strand` varchar(1) DEFAULT NULL,
   `gene_start` int(16) unsigned DEFAULT NULL,
   `gene_end` int(16) unsigned DEFAULT NULL,
-  `pac_id` mediumint(16) unsigned DEFAULT NULL,
-  `peptide_name` varchar(50) DEFAULT NULL,
+  `peptide_name` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`gene_i`),
   UNIQUE KEY `gene_id` (`gene_id`)
 ) ;
@@ -72,8 +69,7 @@ mysql> explain  gene_info;
 | strand          | varchar(1)             | YES  |     | NULL    |                |
 | gene_start      | int(16) unsigned       | YES  |     | NULL    |                |
 | gene_end        | int(16) unsigned       | YES  |     | NULL    |                |
-| pac_id          | mediumint(16) unsigned | YES  |     | NULL    |                |
-| peptide_name    | varchar(50)            | YES  |     | NULL    |                |
+| peptide_name    | varchar(60)            | YES  |     | NULL    |                |
 +-----------------+------------------------+------+-----+---------+----------------+
 9 rows in set (0.00 sec)
 #Adding indeices to transcript_info and gene_info tables is important when we update and select tables.
