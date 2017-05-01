@@ -81,7 +81,7 @@ mysql> ALTER TABLE transcript_info ADD INDEX `transcript_id` (`transcript_id`)
 mysql> ALTER TABLE gene_info ADD INDEX `gene_id` (`gene_id`)
 
 ```
-The following example will show you how to load the basic information into the primary tables. 
+The following example will show you how to load basic information into the primary tables. 
 
 **Loading data into Primary tables**
 ```shell
