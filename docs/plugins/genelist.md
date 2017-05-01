@@ -125,7 +125,7 @@ Potra000002g00005.5	Potra000002	19346	21913	-
 Potra000002g00005.4	Potra000002	19346	25349	-
 Potra000002g00006.5	Potra000002	33101	35399	+
 ```
-Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and `load_data.sh` script can be found inside `GenIECMS/scripts`folder.
+Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and `load_data.sh` script can be found inside `GenIECMS/scripts` folder.
 ```shell
 #!/bin/bash
 #load_data.sh
@@ -150,7 +150,62 @@ Folowing two lines will load `transcript_info.txt` and `gene_info.txt` files int
 #Load previously generated source file into transcript_info table
 ./load_data.sh transcript_info transcript_info.txt
 ```
-Now we just need to fill the description column in gene_info and transcript_info tables. Therefore, we need file similar to folliwng format. 
+Now we just need to fill the description column in gene_info and transcript_info tables. Therefore, we need files similar to folliwng example. 
+```shell
+#head potra_transcript_description.txt
+Potra000001g00001.1	Germin-like protein subfamily 1 member
+Potra000001g00002.1	Germin-like protein
+Potra000002g00003.1	uncharacterized protein LOC105113244
+Potra000002g35060.1	Pyruvate, phosphate dikinase regulatory
+Potra000002g00005.3	Gibberellin 2-beta-dioxygenase
+Potra000002g00005.2	Gibberellin 2-beta-dioxygenase
+Potra000002g00005.1	Gibberellin 2-beta-dioxygenase
+Potra000002g00005.5	Gibberellin 2-beta-dioxygenase
+Potra000002g00005.4	Gibberellin 2-beta-dioxygenase
+Potra000002g00006.5	DnaJ homolog subfamily
+
+#head potra_gene_description.txt
+Potra000001g00001	Germin-like protein subfamily 1 member
+Potra000001g00002	Germin-like protein
+Potra000002g00003	uncharacterized protein LOC105113244
+Potra000002g35060	Pyruvate, phosphate dikinase regulatory
+Potra000002g00005	Gibberellin 2-beta-dioxygenase
+Potra000002g00006	DnaJ homolog subfamily
+Potra000002g00007	Tyrosyl-DNA phosphodiesterase
+Potra000002g31575	uncharacterized protein LOC105115090
+Potra000002g31576	conserved unknown protein
+Potra000002g31577	conserved unknown protein
+```
+There is a script called `update_descriptions.sh` in `GenIECMS/scripts` folder. The script looks like following.
+```shell
+#!/bin/bash
+#update_descriptions.sh
+
+DB_USER='your_db_username'
+DB_PASS='your_password'
+DB='database_name'
+
+# if less than two arguments supplied, display  error message
+        if [  $# -le 0 ]
+        then
+                start='\033[0;33m'
+                start_0='\033[0;33m'
+                start_2='\033[0;31m'
+                end='\033[0m'
+                echo  "\nUsage:\n$0 ${start}[gene_info/transcript_info] [file_name]${end}\nEx: ${start_2}sh update_descriptions.sh transcript_info/gene_info potra_descriptions.tsv${end}\n\nWhat it does?\n${start_0}This script will create a two columns(ids, descriptions) temporary table and load the [file_name] into it.\nThen it will match ids column in temporary table with transcript_ids/gene_ids and update the gene/transcript descriptions.\nFinally delete the temporary table.\n${end}"
+                exit 1
+        fi
+
+table_name=$(echo $1 | awk '{split($0,a,"_");print a[1]}');
+tmp_field_name=$table_name"_id"
+/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB<<EOFMYSQL
+CREATE TEMPORARY TABLE tmp_tb(gene_name VARCHAR(255),annotation VARCHAR(255));
+load data local infile '$2' replace INTO TABLE tmp_tb fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+UPDATE $1 INNER JOIN tmp_tb on tmp_tb.gene_name = $1.$tmp_field_name SET $1.description = tmp_tb.annotation;
+DROP TEMPORARY TABLE tmp_tb;
+EOFMYSQL
+```
+We can use `update_descriptions.sh` script to load descriptions into gene_info and transcript_info tables. 
 ```shell
 #Load gene description
 ./update_descriptions.sh gene_info input/Potra01.1_gene_Description.tsv
