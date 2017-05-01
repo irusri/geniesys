@@ -58,7 +58,6 @@ CREATE INDEX gene_i ON gene_go (gene_i);
 
 -- Table: gene_info
 CREATE TABLE `gene_info` (
-  `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   `gene_id` varchar(60) CHARACTER SET utf8 NOT NULL,
   `chromosome_name` varchar(20) DEFAULT NULL,
   `gene_start` int(16) unsigned DEFAULT NULL,
@@ -66,6 +65,7 @@ CREATE TABLE `gene_info` (
   `strand` varchar(2) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `peptide_name` varchar(50) DEFAULT NULL,
+  `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`gene_i`),
   UNIQUE KEY `gene_id` (`gene_id`)
 );
@@ -190,7 +190,6 @@ CREATE INDEX atg_id ON transcript_atg (atg_id);
 
 -- Table: transcript_info
 CREATE TABLE `transcript_info` (
-  `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   `transcript_id` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `chromosome_name` varchar(20) DEFAULT NULL,
   `transcript_start` int(16) unsigned DEFAULT NULL,
@@ -199,6 +198,7 @@ CREATE TABLE `transcript_info` (
   `gene_id` varchar(60) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `gene_i` mediumint(16) unsigned DEFAULT NULL,
+   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transcript_i`),
   UNIQUE KEY `transcript_id` (`transcript_id`)
 );
