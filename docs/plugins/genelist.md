@@ -199,7 +199,7 @@ DB='database_name'
 table_name=$(echo $1 | awk '{split($0,a,"_");print a[1]}');
 tmp_field_name=$table_name"_id"
 /usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB<<EOFMYSQL
-CREATE TEMPORARY TABLE tmp_tb(gene_name VARCHAR(255),annotation VARCHAR(255));
+CREATE TEMPORARY TABLE tmp_tb(gene_name VARCHAR(60),annotation VARCHAR(1000));
 load data local infile '$2' replace INTO TABLE tmp_tb fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
 UPDATE $1 INNER JOIN tmp_tb on tmp_tb.gene_name = $1.$tmp_field_name SET $1.description = tmp_tb.annotation;
 DROP TEMPORARY TABLE tmp_tb;
