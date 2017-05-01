@@ -208,10 +208,10 @@ EOFMYSQL
 We can use `update_descriptions.sh` script to load descriptions into gene_info and transcript_info tables. 
 ```shell
 #Load gene description
-./update_descriptions.sh gene_info input/Potra01.1_gene_Description.tsv
+./update_descriptions.sh gene_info potra_transcript_description.txt
 
 #Load transcript description
-./update_descriptions.sh transcript_info input/Potra01.1_transcript_Description.tsv
+./update_descriptions.sh transcript_info potra_gene_description.txt
 
 #Load sequence coloring table
 ./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
