@@ -213,8 +213,29 @@ We can use `update_descriptions.sh` script to load descriptions into gene_info a
 #Load transcript description
 ./update_descriptions.sh transcript_info potra_gene_description.txt
 
-#Load sequence coloring table
-./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
+```
+Finally update the `gene_i`in `transcript_info` and `gene_info` tables using `update_gene_i.sh`.
+```shell
+#!/bin/bash
+#update_gene_i.sh
+
+DB_USER='your_db_username'
+DB_PASS='your_password'
+DB='database_name'
+
+#USAGE: sh update_gene_i.sh
+
+/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+create temporary table add_gene_i(gene_i MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, genename VARCHAR(40));
+ALTER TABLE add_gene_i AUTO_INCREMENT = 1;
+INSERT INTO add_gene_i(genename) select DISTINCT(gene_id) from transcript_info;
+UPDATE transcript_info INNER join add_gene_i ON add_gene_i.genename = transcript_info.gene_id SET transcript_info.gene_i = add_gene_i.gene_i;
+drop temporary table add_gene_i;
+EOFMYSQL
+```
+Run following command
+```shell
+./update_gene_i.sh
 ```
 
 **Annotation tables**
@@ -257,6 +278,8 @@ update_gene_i.sh
 
 #Following script will update the gene_i in gene_[go/pfam/kegg] tables
 update_annotation_gene_i.sh  gene_[go/pfam/kegg]
+#Load sequence coloring table
+./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
 ```
 
 **Installation**
