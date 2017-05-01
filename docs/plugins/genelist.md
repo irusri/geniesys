@@ -130,7 +130,7 @@ Two files are ready for loading into the primary tables. `load_data.sh` script c
 #!/bin/bash
 #load_data.sh
 #USAGE: sh load_data.sh [table_name] [filename]
-#sh load_data.sh transcript_info_x /tmp/transcript_info.tsv
+#sh load_data.sh transcript_info transcript_info.txt
 
 DB_USER='your_db_username'
 DB_PASS='your_password'
@@ -142,7 +142,7 @@ ALTER TABLE $1 AUTO_INCREMENT = 1;
 load data local infile '$2' replace INTO TABLE $1 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
 EOFMYSQL
 ```
-Folowing two lines will load `transcript_info.tsv` and `gene_info.tsv` files into respective tables.
+Folowing two lines will load `transcript_info.txt` and `gene_info.txt` files into respective tables.
 ```shell
 #Load above generated source file into gene_info table
 ./load_data.sh gene_info gene_info.txt
@@ -150,7 +150,7 @@ Folowing two lines will load `transcript_info.tsv` and `gene_info.tsv` files int
 #Load previously generated source file into transcript_info table
 ./load_data.sh transcript_info transcript_info.txt
 ```
-
+Now we just need to fill the description column in gene_info and transcript_info tables. Therefore, we need file similar to folliwng format. 
 ```shell
 #Load gene description
 ./update_descriptions.sh gene_info input/Potra01.1_gene_Description.tsv
