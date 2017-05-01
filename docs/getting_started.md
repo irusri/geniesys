@@ -65,9 +65,10 @@ Following database diagram shows the initial genie tables which are compatible w
 git show HEAD~1:scripts/genie_db.sql > genie_db.sql
 mysql -u newuser -p newpassword new_database < genie_db.sql
 ```
+**Please read the plugins/genelist to load customize datasets into the GenIE-CMS.**
+
 [![GenIE Database Design](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
 
-**Please read the plugins/genelist to load customize datasets into the GenIE-CMS.**
 
 -------------------------
 Configuring genome database
