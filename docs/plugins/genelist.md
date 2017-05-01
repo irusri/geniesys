@@ -214,7 +214,7 @@ We can use `update_descriptions.sh` script to load descriptions into gene_info a
 ./update_descriptions.sh transcript_info potra_gene_description.txt
 
 ```
-Finally update the `gene_i`in `transcript_info` and `gene_info` tables using `update_gene_i.sh`.
+Finally update the `gene_i`in `transcript_info` table using `update_gene_i.sh`.
 ```shell
 #!/bin/bash
 #update_gene_i.sh
