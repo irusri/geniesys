@@ -240,7 +240,7 @@ Run following command
 
 **Annotation tables**
 
-Whenever a user needs to integrate new annotation field into the GeneList, it is a possible to create a new table which is known as annotation table. The user can create as many annotation tables depend on their requirements.
+Whenever a user needs to integrate new annotation field into the GeneList, it is possible to create a new table which is known as annotation table. The user can create as many annotation tables depend on their requirements.
 
 Loading data into the annotation tables can be easily done using corresponding scripts listed on GenIECMS/scripts folder. First, we need to create the source file to fill the annotation table. The source file should contain two fields. The first field should be either a gene_id or transcript_id and the other fields should be the annotation.
 
