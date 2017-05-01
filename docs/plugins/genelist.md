@@ -26,7 +26,7 @@ CREATE TABLE `transcript_info` (
   `gene_id` varchar(60) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `gene_i` mediumint(16) unsigned DEFAULT NULL,
-   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
+  `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transcript_i`),
   UNIQUE KEY `transcript_id` (`transcript_id`)
 );
@@ -55,7 +55,7 @@ CREATE TABLE `gene_info` (
   `strand` varchar(2) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `peptide_name` varchar(50) DEFAULT NULL,
-   `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
+  `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`gene_i`),
   UNIQUE KEY `gene_id` (`gene_id`)
 );
