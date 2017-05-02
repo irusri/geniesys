@@ -10,7 +10,7 @@ GeneList is the heart of the GenIE-CMS; this will be the entry point to many of 
 
 **Primary tables**
 
-There are only two primary tables(transcript_info and gene_info) in GenIECMS database. Primary tables keep basic gene and transcript information. Since the smallest data unit is based on transcript ids or gene ids, all primary tables are used transcript_i/gene_i as a primary key.
+There should only be two primary tables (transcript_info and gene_info) in GenIECMS database. Primary tables keep basic gene and transcript information. Since the smallest data unit is based on transcript ids or gene ids, all primary tables are used transcript_i/gene_i as a primary key.
 
 Loading data into the primary tables can be easily accomplished using dedicated scripts listed on GenIECMS/scripts folder. First, we need to find corresponding GFF3 and FASTA files related to the species that we are going to load into the GenIE-CMS.
 
