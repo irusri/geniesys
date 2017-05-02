@@ -386,7 +386,7 @@ Eucgr.A00004	GO:0005634-nucleus
 Eucgr.A00012	GO:0015031-protein transport;GO:0006457-protein folding
 ```
 
-Now we can use create a table to load the newly generated annotation file.
+Now we need to create a table to load newly generated annotation data.
 
 ```shell
 #Create gene_go table
