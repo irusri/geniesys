@@ -324,6 +324,130 @@ Run following command to update `transcript_i`
 
 *Load data into gene_[go/pfam/kegg] tables*
 
+Although it is recommended to have all the annotation are based on transcript IDs, sometimes we may have annotation corresponding to gene IDs. Following example will show you how to load gene ID based annotation files into GenIE-CMS database.
+
+*Load data into gene_[go/pfam/kegg] tables*
+
+```powershell
+#Let's assume, if we have annotation file similar to following example.
+Eucgr.A00001   GO:0008565      protein transporter activity
+Eucgr.A00001   GO:0031204      posttranslational protein targeting to membrane, translocation
+Eucgr.A00004   GO:0005634      nucleus
+Eucgr.A00006   GO:0003677      DNA binding
+Eucgr.A00006   GO:0003824      catalytic activity
+Eucgr.A00012   GO:0015031      protein transport
+Eucgr.A00012   GO:0006457      protein folding
+Eucgr.A00014   GO:0003852      2-isopropylmalate synthase activity
+Eucgr.A00014   GO:0009098      leucine biosynthetic process
+Eucgr.A00017   GO:0008312      7S RNA binding
+```
+As you see in the above example, one gene ID associated with several Gene ontology IDs.  Therfore, we need to format the above results into the right format. Following `parse.py` script can be used. Now we need to create MySQL Annotation table to load GO results.
+
+```python
+#!/usr/bin/env python
+#parse.py
+def parse(file, store):
+        f = open(file, 'r')
+        dic = {}
+        for i in f:
+                i = i.strip("\n")
+                val = i.split("\t")
+                try:
+                    if(val[1]!=""):
+                        dic[val[0]] = dic[val[0]] + ";"+ val[1]+"-"+val[2]
+                except KeyError:
+                    if(val[0]!=""):
+                        dic[val[0]]=val[1]+"-"+val[2]
+        f.close()
+        f = open(store, 'w')
+        for i in dic.keys():
+                string = i+"\t"+dic[i]
+                f.write(string+"\n")
+        f.close
+
+if __name__=="__main__":
+        import sys
+        if len(sys.argv) > 1:
+                file = sys.argv[1]
+                store = sys.argv[2]
+                parse(file, store)
+        else:
+                sys.exit("No input")
+```
+
+Then the output will be similar to following.
+
+```
+Eucgr.A00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation
+Eucgr.A00014	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process
+Eucgr.A00006	GO:0003677-DNA binding;GO:0003824-catalytic activity
+Eucgr.A00017	GO:0008312-7S RNA binding
+Eucgr.A00004	GO:0005634-nucleus
+Eucgr.A00012	GO:0015031-protein transport;GO:0006457-protein folding
+```
+
+Now we can use create a table to load the newly generated annotation file.
+
+```shell
+#Create gene_go table
+CREATE TABLE `gene_go` (
+  `gene_id` varchar(60) NOT NULL,
+  `go_description` varchar(2000) DEFAULT NULL,
+  `gene_i` mediumint(16) unsigned NOT NULL,
+  PRIMARY KEY (`gene_i`),
+  KEY `gene_id` (`gene_id`)
+);
+
+#We will load above file into following table.
+mysql> explain gene_go;
++------------------+------------------------+------+-----+---------+-------+
+| Field            | Type                   | Null | Key | Default | Extra |
++------------------+------------------------+------+-----+---------+-------+
+| gene_id          | varchar(60)            | NO   | MUL | NULL    |       |
+| go_description   | varchar(2000)          | YES  |     | NULL    |       |
+| gene_i           | mediumint(16) unsigned | NO   | PRI | NULL    |       |
++------------------+------------------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+```
+
+Previousy used `load_data.sh`  script can be used to load go_gene results to `gene_go` table.
+
+```shell
+./load_data.sh gene_pfam gene_pfam.txt
+```
+
+Finally update the `gene_i` in `gene_go` table using following script.
+
+```shell
+#!/bin/bash
+DB_USER='your_db_username'
+DB_PASS='your_password'
+DB='database_name'
+
+#USAGE sh update.sh transcript_potri
+display_usage() {
+        echo  "\nUsage:\n$0 [table_name] \n"
+        }
+
+# if less than one arguments supplied, display usage
+        if [  $# -le 0 ]
+        then
+                display_usage
+                exit 1
+        fi
+        
+/usr/bin/mysql --host=localhost  --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+UPDATE $1 INNER JOIN transcript_info on transcript_info.transcript_id = $1.transcript_id SET $1.transcript_i = transcript_info.transcript_i;
+EOFMYSQL
+```
+
+Run following command to update `gene_i`
+
+```shell
+./update_gene_i.sh gene_go
+```
+
+
 ```shell
 #Following script will update the gene_i in gene_[go/pfam/kegg] tables
 update_annotation_gene_i.sh  gene_[go/pfam/kegg]
