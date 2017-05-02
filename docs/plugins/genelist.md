@@ -330,16 +330,16 @@ Although it is recommended to have all the annotation are based on transcript ID
 
 ```powershell
 #Let's assume, if we have annotation file similar to following example.
-Eucgr.A00001   GO:0008565      protein transporter activity
-Eucgr.A00001   GO:0031204      posttranslational protein targeting to membrane, translocation
-Eucgr.A00004   GO:0005634      nucleus
-Eucgr.A00006   GO:0003677      DNA binding
-Eucgr.A00006   GO:0003824      catalytic activity
-Eucgr.A00012   GO:0015031      protein transport
-Eucgr.A00012   GO:0006457      protein folding
-Eucgr.A00014   GO:0003852      2-isopropylmalate synthase activity
-Eucgr.A00014   GO:0009098      leucine biosynthetic process
-Eucgr.A00017   GO:0008312      7S RNA binding
+Potra000001g00001   GO:0008565      protein transporter activity
+Potra000001g00001   GO:0031204      posttranslational protein targeting to membrane, translocation
+Potra000002g00006   GO:0005634      nucleus
+Potra000002g00005   GO:0003677      DNA binding
+Potra000002g00005   GO:0003824      catalytic activity
+Potra000002g00006   GO:0015031      protein transport
+Potra000002g00006   GO:0006457      protein folding
+Potra000001g00002   GO:0003852      2-isopropylmalate synthase activity
+Potra000001g00002   GO:0009098      leucine biosynthetic process
+Potra000002g00008   GO:0008312      7S RNA binding
 ```
 As you see in the above example, one gene ID associated with several Gene ontology IDs.  Therfore, we need to format the above results into the right format. Following `parse.py` script can be used. Now we need to create MySQL Annotation table to load GO results.
 
@@ -378,12 +378,12 @@ if __name__=="__main__":
 Then the output will be similar to following.
 
 ```
-Eucgr.A00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation
-Eucgr.A00014	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process
-Eucgr.A00006	GO:0003677-DNA binding;GO:0003824-catalytic activity
-Eucgr.A00017	GO:0008312-7S RNA binding
-Eucgr.A00004	GO:0005634-nucleus
-Eucgr.A00012	GO:0015031-protein transport;GO:0006457-protein folding
+Potra000001g00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation
+Potra000001g00002	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process
+Potra000002g00005	GO:0003677-DNA binding;GO:0003824-catalytic activity
+Potra000002g00008	GO:0008312-7S RNA binding
+Potra000002g00006	GO:0005634-nucleus
+Potra000002g00006	GO:0015031-protein transport;GO:0006457-protein folding
 ```
 
 Now we need to create a table to load newly generated annotation data.
