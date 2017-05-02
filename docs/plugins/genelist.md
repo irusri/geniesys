@@ -244,6 +244,7 @@ Whenever a user needs to integrate new annotation field into the GeneList, it is
 
 Loading data into the annotation tables can be easily done using corresponding scripts listed on GenIECMS/scripts folder. First, we need to create the source file to fill the annotation table. The source file should contain two fields. The first field should be either a gene_id or transcript_id and the other fields should be the annotation.
 
+*Load data into transcript_[go/pfam/kegg] tables*
 ```shell
 #Let's assume, if we have Best BLAST results similar to following example.
 Potra000001g00001.1 AT5G39130.1
@@ -320,6 +321,8 @@ Run following command to update `transcript_i`
 ```shell
 ./update_transcript_i.sh transcript_atg
 ```
+
+*Load data into gene_[go/pfam/kegg] tables*
 
 ```shell
 #Following script will update the gene_i in gene_[go/pfam/kegg] tables
