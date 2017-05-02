@@ -245,8 +245,7 @@ Whenever a user needs to integrate new annotation field into the GeneList, it is
 Loading data into the annotation tables can be easily done using corresponding scripts listed on GenIECMS/scripts folder. First, we need to create the source file to fill the annotation table. The source file should contain two fields. The first field should be either a gene_id or transcript_id and the other fields should be the annotation.
 
 ```shell
-#Load Annotations
-#Let's assume, if we have Best BLAST atg Ids which are corresponding to Poplar ids. Results file will look like following example.
+#Let's assume, if we have Best BLAST results similar to following example.
 Potra000001g00001.1 AT5G39130.1
 Potra000001g00002.1 AT5G39130.1
 Potra000002g00003.1 AT4G21215.2
@@ -257,7 +256,10 @@ Potra000002g00005.4 AT4G21200.1 ATGA2OX8,GA2OX8
 Potra000002g00005.5 AT4G21200.1 ATGA2OX8,GA2OX8
 Potra000002g00006.1 AT1G61770.1
 Potra000002g00006.2 AT1G61770.1
+```
+Now we need to create MySQL Annotation table to load Best BLAST results.
 
+```shell
 #Create transcript_atg table
 CREATE TABLE `transcript_atg` (
   `transcript_id` varchar(60) NOT NULL,
@@ -280,18 +282,52 @@ mysql> explain transcript_atg;
 | transcript_i  | mediumint(16) unsigned | NO   | PRI | NULL    |       |
 +---------------+------------------------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
+```
 
-./load_data.sh transcript_atg input/potra_genelist_atg.txt transcript_id
+Previousy used `load_data.sh`  script can be used to load Best BLAST results to `transcript_atg` table.
+
+```shell
+./load_data.sh transcript_atg potra_transcript_atg.txt
+```
+
+Finally update the `transcript_i` in `transcript_atg` table using following script.
+
+```shell
+#!/bin/bash
+DB_USER='your_db_username'
+DB_PASS='your_password'
+DB='database_name'
+
+#USAGE sh update.sh transcript_potri
+display_usage() {
+        echo  "\nUsage:\n$0 [table_name] \n"
+        }
+
+# if less than one arguments supplied, display usage
+        if [  $# -le 0 ]
+        then
+                display_usage
+                exit 1
+        fi
+        
+/usr/bin/mysql --host=localhost  --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+UPDATE $1 INNER JOIN transcript_info on transcript_info.transcript_id = $1.transcript_id SET $1.transcript_i = transcript_info.transcript_i;
+EOFMYSQL
+```
+
+Run following command to update `transcript_i`
+
+```shell
 ./update_transcript_i.sh transcript_atg
+```
 
-#Finally update the gene_i
-update_gene_i.sh
-
+```shell
 #Following script will update the gene_i in gene_[go/pfam/kegg] tables
 update_annotation_gene_i.sh  gene_[go/pfam/kegg]
 #Load sequence coloring table
 ./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
 ```
+
 
 **Installation**
 
