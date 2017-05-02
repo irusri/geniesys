@@ -442,11 +442,12 @@ Run following command to update `gene_i`
 ```shell
 ./update_gene_i.sh gene_go
 ```
-
+<!--
 ```shell
 #Load sequence coloring table
 ./sequence_coloring.sh input/Potra01-gene-mRNA-wo-intron.gff3
-```
+``` 
+-->
 
 **Installation**
 
