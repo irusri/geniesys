@@ -258,16 +258,27 @@ Potra000002g00005.5 AT4G21200.1 ATGA2OX8,GA2OX8
 Potra000002g00006.1 AT1G61770.1
 Potra000002g00006.2 AT1G61770.1
 
+#Create transcript_atg table
+CREATE TABLE `transcript_atg` (
+  `transcript_id` varchar(60) NOT NULL,
+  `atg_id` varchar(60) NOT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `transcript_i` mediumint(16) unsigned NOT NULL,
+  PRIMARY KEY (`transcript_i`),
+  KEY `transcript_id` (`transcript_id`),
+  KEY `atg_id` (`atg_id`)
+);
+
 #We will load above file into following table.
-#mysql> explain transcript_atg;
-+-----------------+------------------------+------+-----+---------+-------+
-| Field           | Type                   | Null | Key | Default | Extra |
-+-----------------+------------------------+------+-----+---------+-------+
-| transcript_id   | varchar(255)           | NO   | PRI | NULL    |       |
-| atg_id          | varchar(24)            | NO   | MUL | NULL    |       |
-| atg_description | varchar(255)           | YES  |     | NULL    |       |
-| transcript_i    | mediumint(20) unsigned | NO   | PRI | NULL    |       |
-+-----------------+------------------------+------+-----+---------+-------+
+mysql> explain transcript_atg;
++---------------+------------------------+------+-----+---------+-------+
+| Field         | Type                   | Null | Key | Default | Extra |
++---------------+------------------------+------+-----+---------+-------+
+| transcript_id | varchar(60)            | NO   | MUL | NULL    |       |
+| atg_id        | varchar(60)            | NO   | MUL | NULL    |       |
+| description   | varchar(1000)          | YES  |     | NULL    |       |
+| transcript_i  | mediumint(16) unsigned | NO   | PRI | NULL    |       |
++---------------+------------------------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
 
 ./load_data.sh transcript_atg input/potra_genelist_atg.txt transcript_id
