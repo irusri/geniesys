@@ -377,7 +377,7 @@ if __name__=="__main__":
 
 Then the output will be similar to following.
 
-```
+```powershell
 Potra000001g00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation
 Potra000001g00002	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process
 Potra000002g00005	GO:0003677-DNA binding;GO:0003824-catalytic activity
