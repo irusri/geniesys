@@ -324,7 +324,7 @@ Run following command to update `transcript_i`
 
 *Load data into gene_[go/pfam/kegg] tables*
 
-Although it is recommended to have all the annotation are based on transcript IDs, sometimes we may have annotation corresponding to gene IDs. Following example will show you how to load gene ID based annotation files into GenIE-CMS database.
+Although it is recommended to have all the annotation are based on transcript IDs, sometimes we may have annotation with gene IDs. Following example will show you how to load gene ID based annotation files into GenIE-CMS database.
 
 *Load data into gene_[go/pfam/kegg] tables*
 
