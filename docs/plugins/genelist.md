@@ -258,7 +258,7 @@ Potra000002g00005.5 AT4G21200.1 ATGA2OX8,GA2OX8
 Potra000002g00006.1 AT1G61770.1
 Potra000002g00006.2 AT1G61770.1
 ```
-Now we need to create MySQL Annotation table to load Best BLAST results.
+Now we need to create a MySQL Annotation table to load Best BLAST results.
 
 ```shell
 #Create transcript_atg table
@@ -285,7 +285,7 @@ mysql> explain transcript_atg;
 4 rows in set (0.00 sec)
 ```
 
-Previousy used `load_data.sh`  script can be used to load Best BLAST results to `transcript_atg` table.
+Previous `load_data.sh` script can be used to load Best BLAST results to `transcript_atg` table.
 
 ```shell
 ./load_data.sh transcript_atg potra_transcript_atg.txt
