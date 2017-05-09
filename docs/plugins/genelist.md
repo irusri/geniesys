@@ -393,19 +393,20 @@ Now we need to create a table to load newly generated annotation data.
 CREATE TABLE `gene_go` (
   `gene_id` varchar(60) NOT NULL,
   `go_description` varchar(2000) DEFAULT NULL,
-  `gene_i` mediumint(16) unsigned NOT NULL,
-  PRIMARY KEY (`gene_i`),
+  `gene_i` mediumint(16) unsigned DEFAULT NULL,
+  PRIMARY KEY (`gene_id`),
   KEY `gene_id` (`gene_id`)
 );
+
 
 #We will load above file into following table.
 mysql> explain gene_go;
 +------------------+------------------------+------+-----+---------+-------+
 | Field            | Type                   | Null | Key | Default | Extra |
 +------------------+------------------------+------+-----+---------+-------+
-| gene_id          | varchar(60)            | NO   | MUL | NULL    |       |
+| gene_id          | varchar(60)            | NO   | PRI | NULL    |       |
 | go_description   | varchar(2000)          | YES  |     | NULL    |       |
-| gene_i           | mediumint(16) unsigned | NO   | PRI | NULL    |       |
+| gene_i           | mediumint(16) unsigned | NO   |     | NULL    |       |
 +------------------+------------------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 ```
