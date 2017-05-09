@@ -361,7 +361,7 @@ def parse(file, store):
         f.close()
         f = open(store, 'w')
         for i in dic.keys():
-                string = i+"\t"+dic[i]
+                string = i+"\t"+dic[i]+"\t0"
                 f.write(string+"\n")
         f.close
 
@@ -378,12 +378,12 @@ if __name__=="__main__":
 Then the output will be similar to following.
 
 ```powershell
-Potra000001g00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation
-Potra000001g00002	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process
-Potra000002g00005	GO:0003677-DNA binding;GO:0003824-catalytic activity
-Potra000002g00008	GO:0008312-7S RNA binding
-Potra000002g00006	GO:0005634-nucleus
-Potra000002g00006	GO:0015031-protein transport;GO:0006457-protein folding
+Potra000001g00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation 0
+Potra000001g00002	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process  0
+Potra000002g00005	GO:0003677-DNA binding;GO:0003824-catalytic activity  0
+Potra000002g00008	GO:0008312-7S RNA binding 0
+Potra000002g00006	GO:0005634-nucleus  0
+Potra000002g00006	GO:0015031-protein transport;GO:0006457-protein folding 0
 ```
 
 Now we need to create a table to load newly generated annotation data.
