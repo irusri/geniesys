@@ -28,7 +28,7 @@ CREATE TABLE `transcript_info` (
   `gene_i` mediumint(16) unsigned DEFAULT NULL,
   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transcript_i`),
-  UNIQUE KEY `transcript_id` (`transcript_id`)
+  KEY `transcript_id` (`transcript_id`)
 );
 #Describe transcript_info table
 mysql> explain transcript_info;
@@ -57,14 +57,14 @@ CREATE TABLE `gene_info` (
   `peptide_name` varchar(50) DEFAULT NULL,
   `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`gene_i`),
-  UNIQUE KEY `gene_id` (`gene_id`)
+  KEY `gene_id` (`gene_id`)
 );
 #Describe gene_info table
 mysql> explain gene_info;
 +-----------------+------------------------+------+-----+---------+----------------+
 | Field           | Type                   | Null | Key | Default | Extra          |
 +-----------------+------------------------+------+-----+---------+----------------+
-| gene_id         | varchar(60)            | NO   | UNI | NULL    |                |
+| gene_id         | varchar(60)            | NO   | MUL | NULL    |                |
 | chromosome_name | varchar(20)            | YES  |     | NULL    |                |
 | gene_start      | int(16) unsigned       | YES  |     | NULL    |                |
 | gene_end        | int(16) unsigned       | YES  |     | NULL    |                |
