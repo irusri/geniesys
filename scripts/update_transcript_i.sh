@@ -1,8 +1,8 @@
 #!/bin/bash
+#update_transcripts,sh
 
-DB_USER='your_db_username'
-DB_PASS='your_password'
-DB='database_name'
+#Include settings file
+. "$(dirname "$0")"/settings.ini
 
 #USAGE sh update.sh transcript_potri
 display_usage() {
@@ -16,6 +16,6 @@ display_usage() {
                 exit 1
         fi
         
-/usr/bin/mysql --host=localhost  --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+/usr/bin/mysql --host=${HOST} -u ${DB_USER} -p${DB_PASS} --local_infile=1 --database=${DB}<<EOFMYSQL
 UPDATE $1 INNER JOIN transcript_info on transcript_info.transcript_id = $1.transcript_id SET $1.transcript_i = transcript_info.transcript_i;
 EOFMYSQL
