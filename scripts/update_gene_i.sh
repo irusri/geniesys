@@ -1,13 +1,12 @@
 #!/bin/bash
 #update_gene_i.sh
 
-DB_USER='your_db_username'
-DB_PASS='your_password'
-DB='database_name'
+#Include settings file
+. "$(dirname "$0")"/settings.ini
 
 #USAGE: sh update_gene_i.sh
 
-/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+/usr/bin/mysql --host=${HOST} -u ${DB_USER} -p${DB_PASS} --local_infile=1 --database=${DB}<<EOFMYSQL
 create temporary table add_gene_i(gene_i MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, genename VARCHAR(40));
 ALTER TABLE add_gene_i AUTO_INCREMENT = 1;
 INSERT INTO add_gene_i(genename) select DISTINCT(gene_id) from transcript_info;
