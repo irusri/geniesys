@@ -1,9 +1,9 @@
 
 #!/bin/bash
+#update_annotation_gene.sh
 
-DB_USER='your_db_username'
-DB_PASS='your_password'
-DB='database_name'
+#Include settings file
+. "$(dirname "$0")"/settings.ini
 
 #USAGE sh update_annotation_gene_i.sh gene_go
 display_usage() {
@@ -17,6 +17,6 @@ display_usage() {
                 exit 1
         fi
 
-/usr/bin/mysql --host=localhost  --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+/usr/bin/mysql --host=${HOST} -u ${DB_USER} -p${DB_PASS} --local_infile=1 --database=${DB}<<EOFMYSQL
 UPDATE $1 INNER JOIN transcript_info on transcript_info.gene_id = $1.gene_id SET $1.gene_i = transcript_info.gene_i;
 EOFMYSQL
