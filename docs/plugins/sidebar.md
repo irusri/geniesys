@@ -21,4 +21,5 @@ mysql> explain defaultgenebaskets;
 | time           | timestamp    | YES  |     | NULL    | on update CURRENT_TIMESTAMP |
 +----------------+--------------+------+-----+---------+-----------------------------+
 3 rows in set (0.00 sec)
-```
+   
+   ```
