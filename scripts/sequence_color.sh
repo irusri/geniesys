@@ -3,9 +3,8 @@
 #get the gene.gff3 file and loaded into database sequence_color table.
 #Usage: sh sequence_color.sh /mnt/spruce/www/demo/geniecms/data/Egrandis_297_v2.0.gene.gff3
 
-DB_USER='your_db_username'
-DB_PASS='your_password'
-DB='database_name'
+#Include settings file
+. "$(dirname "$0")"/settings.ini
 
 # if less than two arguments supplied, display  error message
         if [  $# -le 0 ]
@@ -21,7 +20,7 @@ DB='database_name'
 
 awk '/mRNA/{split($2,a,"=");sub(/ID=./,a[2]";");print $1;next}/gene/{;next}{sub(/ID=./,a[2]";");print $1}' FS=\; OFS=\; $1 | awk '!/#/{print $9"\t"$1"\t"$3"\t"$4"\t"$5}' > tmp &&
 sed -i 's/five_prime_UTR/5UTR/' tmp && sed -i 's/three_prime_UTR/3UTR/' tmp  &&
-/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB<<EOFMYSQL
+/usr/bin/mysql --host=${HOST} -u ${DB_USER} -p${DB_PASS} --local_infile=1 --database=${DB}<<EOFMYSQL
 TRUNCATE TABLE  sequence_color;
 LOAD DATA LOCAL INFILE "tmp" INTO TABLE sequence_color fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
 EOFMYSQL
