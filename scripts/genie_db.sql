@@ -47,35 +47,39 @@ CREATE TABLE expression_datasetX (
 
 -- Table: gene_go
 CREATE TABLE gene_go (
-    go_i int(16) NOT NULL,
-    gene_i int(16) NOT NULL,
-    gene_info_gene_i int(16) NOT NULL,
-    go_info_go_i int(16) NOT NULL,
+    go_i int(11) NOT NULL,
+    gene_i int(11) NOT NULL,
+    gene_info_gene_i int(11) NOT NULL,
+    go_info_go_i int(11) NOT NULL,
     CONSTRAINT gene_go_pk PRIMARY KEY (go_i,gene_i)
 ) ENGINE MyISAM CHARACTER SET latin1;
 
 CREATE INDEX gene_i ON gene_go (gene_i);
 
 -- Table: gene_info
-CREATE TABLE `gene_info` (
-  `gene_id` varchar(60) CHARACTER SET utf8 NOT NULL,
-  `chromosome_name` varchar(20) DEFAULT NULL,
-  `gene_start` int(16) unsigned DEFAULT NULL,
-  `gene_end` int(16) unsigned DEFAULT NULL,
-  `strand` varchar(2) DEFAULT NULL,
-  `description` varchar(1000) DEFAULT NULL,
-  `peptide_name` varchar(50) DEFAULT NULL,
-  `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`gene_i`),
-  UNIQUE KEY `gene_id` (`gene_id`)
-);
+CREATE TABLE gene_info (
+    gene_i int(11) NOT NULL,
+    gene_id varchar(60) CHARACTER SET utf8 NULL DEFAULT '',
+    description varchar(255) NOT NULL DEFAULT '""',
+    synonyms varchar(255) NOT NULL DEFAULT '',
+    has_exp tinyint(1) NOT NULL DEFAULT '0',
+    cluster varchar(1) NOT NULL DEFAULT '',
+    at_desc varchar(255) NULL DEFAULT '',
+    at_ortholog varchar(15) NULL DEFAULT '',
+    at_syn varchar(255) NULL DEFAULT '',
+    degree smallint(5) NULL DEFAULT '0',
+    btw_rank smallint(5) NULL DEFAULT '0',
+    close_rank smallint(5) NULL DEFAULT '0',
+    avg_neigh_deg float NULL DEFAULT '0',
+    CONSTRAINT gene_info_pk PRIMARY KEY (gene_i)
+) ENGINE MyISAM CHARACTER SET latin1;
 
 CREATE INDEX gene_id ON gene_info (gene_id);
 
 -- Table: go_info
 CREATE TABLE go_info (
-    go_i int(16) NOT NULL AUTO_INCREMENT,
-    go_id varchar(16) NULL DEFAULT NULL,
+    go_i int(11) NOT NULL AUTO_INCREMENT,
+    go_id varchar(255) NULL DEFAULT NULL,
     name_space varchar(255) NULL DEFAULT 'unknown',
     description varchar(255) NULL DEFAULT NULL,
     CONSTRAINT go_info_pk PRIMARY KEY (go_i)
@@ -83,10 +87,10 @@ CREATE TABLE go_info (
 
 -- Table: go_relation
 CREATE TABLE go_relation (
-    go_c int(16) NOT NULL,
-    go_p int(16) NOT NULL,
-    gene_go_go_i int(16) NOT NULL,
-    gene_go_gene_i int(16) NOT NULL,
+    go_c int(11) NOT NULL,
+    go_p int(11) NOT NULL,
+    gene_go_go_i int(11) NOT NULL,
+    gene_go_gene_i int(11) NOT NULL,
     CONSTRAINT go_relation_pk PRIMARY KEY (go_c,go_p)
 ) ENGINE MyISAM CHARACTER SET latin1;
 
@@ -94,19 +98,19 @@ CREATE INDEX go_p ON go_relation (go_p);
 
 -- Table: pfam_table
 CREATE TABLE pfam_table (
-    gene_i int(16) NULL DEFAULT NULL,
-    pfam_i int(16) NOT NULL AUTO_INCREMENT,
+    gene_i int(11) NULL DEFAULT NULL,
+    pfam_i int(11) NOT NULL AUTO_INCREMENT,
     pfam_id varchar(60) NULL DEFAULT NULL,
     description varchar(255) NULL DEFAULT NULL,
-    gene_info_gene_i int(16) NOT NULL,
+    gene_info_gene_i int(11) NOT NULL,
     CONSTRAINT pfam_table_pk PRIMARY KEY (pfam_i)
 ) ENGINE MyISAM CHARACTER SET latin1;
 
 -- Table: sample_datasetX
 CREATE TABLE sample_datasetX (
-    sample_i int(16) NOT NULL,
+    sample_i int(11) NOT NULL,
     sample_id varchar(60) NOT NULL,
-    exp_i int(16) NULL DEFAULT NULL,
+    exp_i int(11) NULL DEFAULT NULL,
     title varchar(255) NOT NULL DEFAULT '',
     last_update varchar(60) NOT NULL DEFAULT '',
     type varchar(255) NOT NULL DEFAULT '',
@@ -124,7 +128,7 @@ CREATE TABLE sample_datasetX (
     contact varchar(255) NULL DEFAULT NULL,
     supplementary_file varchar(255) NULL,
     exp_id varchar(200) NULL DEFAULT '',
-    experiment_datasetX_exp_i int(16) NOT NULL,
+    experiment_datasetX_exp_i int(11) NOT NULL,
     CONSTRAINT sample_datasetX_pk PRIMARY KEY (sample_i)
 ) ENGINE MyISAM CHARACTER SET latin1;
 
@@ -189,19 +193,22 @@ CREATE INDEX transcript_i ON transcript_atg (transcript_i);
 CREATE INDEX atg_id ON transcript_atg (atg_id);
 
 -- Table: transcript_info
-CREATE TABLE `transcript_info` (
-  `transcript_id` varchar(60) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `chromosome_name` varchar(20) DEFAULT NULL,
-  `transcript_start` int(16) unsigned DEFAULT NULL,
-  `transcript_end` int(16) unsigned DEFAULT NULL,
-  `strand` varchar(2) DEFAULT NULL,
-  `gene_id` varchar(60) DEFAULT NULL,
-  `description` varchar(1000) DEFAULT NULL,
-  `gene_i` mediumint(16) unsigned DEFAULT NULL,
-   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`transcript_i`),
-  UNIQUE KEY `transcript_id` (`transcript_id`)
-);
+CREATE TABLE transcript_info (
+    transcript_id varchar(60) NOT NULL DEFAULT '',
+    gene_id int(11) NOT NULL,
+    description varchar(255) NULL DEFAULT '',
+    chromosome_name varchar(16) NOT NULL,
+    strand varchar(2) NOT NULL,
+    gene_start int(11) NOT NULL,
+    gene_end int(11) NOT NULL,
+    pac_id varchar(60) NULL DEFAULT NULL,
+    peptide_name varchar(60) NULL DEFAULT NULL,
+    transcript_start int(16) NOT NULL,
+    transcript_end int(16) NOT NULL,
+    transcript_i int(11) NOT NULL AUTO_INCREMENT,
+    gene_info_gene_i int(11) NOT NULL,
+    CONSTRAINT transcript_info_pk PRIMARY KEY (transcript_i)
+) ENGINE MyISAM CHARACTER SET latin1;
 
 -- foreign keys
 -- Reference: correlation_datasetX_clr_gene_info (table: correlation_datasetX_clr)

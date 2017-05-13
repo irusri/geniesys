@@ -12,7 +12,7 @@ def parse(file, store):
         f.close()
         f = open(store, 'w')
         for i in dic.keys():
-                string = i+"\t"+dic[i]
+                string = i+"\t"+dic[i]+"\t0"
                 f.write(string+"\n")
         f.close
 
