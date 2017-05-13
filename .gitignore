@@ -11,3 +11,4 @@ plugins/exmatch
 plugins/exdraw
 themes/genie/theme.php
 themes/genie
+scripts/settings.ini
