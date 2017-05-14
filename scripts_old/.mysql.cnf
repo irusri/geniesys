@@ -1,6 +1,0 @@
-
-[client]
-host=database_host
-user=database_username
-password='database_password'
-database=database_name
