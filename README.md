@@ -19,3 +19,10 @@ php -S localhost:3000
 
  [![Beerpay](https://beerpay.io/irusri/GenIECMS/make-wish.svg?style=flat)](https://beerpay.io/irusri/GenIECMS)
 --->
+
+Licence & Contributors
+======================
+
+This work is licenced under the Free and Open Source licence
+
+Contributions are welcome!
