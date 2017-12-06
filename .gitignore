@@ -7,7 +7,6 @@ genie_files/
 data
 plugins/settings.php
 plugins/eximage
-plugins/blast
 plugins/chrdiagram
 plugins/sequence_search
 plugins/jbrowse

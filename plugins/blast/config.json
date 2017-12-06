@@ -1,0 +1,34 @@
+{
+"selection_box":[{"height":180,"width":400}],	 
+"datasets":[
+		{
+	    "number": 1,
+	    "user_friendly_name": "Genome",
+		"dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2.0",
+		"molecule_type":"nucleotide",
+		"group_name":"Eucalyptus grandis"
+	},
+	{
+	    "number": 2,
+	    "user_friendly_name": "CDS",
+		"dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2_cds /mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2.0",
+		"molecule_type":"nucleotide",
+		"group_name":"Eucalyptus grandis"
+	},
+		{
+	    "number": 3,
+	    "user_friendly_name": "Transcript",
+		"dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2_transcript /mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2.0",
+		"molecule_type":"nucleotide",
+		"group_name":"Eucalyptus grandis"
+	},
+	{
+	    "number": 4,
+	    "user_friendly_name": "Protein",
+		"dataset_path":"/mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2_protien",
+		"molecule_type":"protein",
+		"group_name":"Eucalyptus grandis"
+	}
+],
+"default_jbrowse_dataset_directory":"Fegr20"
+}

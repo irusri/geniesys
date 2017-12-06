@@ -1,0 +1,15 @@
+<img id="blast_image" style="overflow:hidden;top:0px"  usemap="#bgmap00001" border=1/><map name="bgmap00001" id="bgmap00001">
+<area shape="rect" coords="10,0,1010,52" href="jbrowse?loc=Chr09%3A3779182..3782534&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="10,58,1010,97" href="jbrowse?loc=Chr09&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="11,184,1010,223" href="jbrowse?loc=Chr04&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="10,100,1010,139" href="jbrowse?loc=Chr07&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="524,226,740,265" href="jbrowse?loc=scaffold_125&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="10,142,1010,181" href="jbrowse?loc=Chr08&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="520,268,1010,307" href="jbrowse?loc=scaffold_3502&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="306,310,1006,349" href="jbrowse?loc=Chr03&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="523,352,1006,391" href="jbrowse?loc=Chr10&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="523,394,1006,433" href="jbrowse?loc=Chr05&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="29,226,461,265" href="jbrowse?loc=scaffold_3625&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="10,439,500,491" href="jbrowse?loc=Potri.001G000900.2&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+<area shape="rect" coords="339,497,428,536" href="jbrowse?loc=Chr10&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
+</map>
