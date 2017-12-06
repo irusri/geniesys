@@ -25,6 +25,6 @@ php -S localhost:3000
 Licence & Contributors
 ======================
 
-This work is licenced under the Free and Open Source licence
+This work is under Free and Open Source licence
 
 Contributions are welcome!
