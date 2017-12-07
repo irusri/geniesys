@@ -9,5 +9,4 @@
    blast
    gene_info
    jbrowse
-   exImage
    new_plugin
