@@ -28,7 +28,8 @@ CREATE TABLE `transcript_info` (
   `gene_i` mediumint(16) unsigned DEFAULT NULL,
   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transcript_i`),
-  KEY `transcript_id` (`transcript_id`)
+  KEY `transcript_id` (`transcript_id`),
+  KEY `gene_id` (`gene_id`)
 );
 #Describe transcript_info table
 mysql> explain transcript_info;
@@ -40,7 +41,7 @@ mysql> explain transcript_info;
 | transcript_start | int(16) unsigned       | YES  |     | NULL    |                |
 | transcript_end   | int(16) unsigned       | YES  |     | NULL    |                |
 | strand           | varchar(2)             | YES  |     | NULL    |                |
-| gene_id          | varchar(60)            | YES  |     | NULL    |                |
+| gene_id          | varchar(60)            | YES  | MUL | NULL    |                |
 | description      | varchar(1000)          | YES  |     | NULL    |                |
 | transcript_i     | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 | gene_i           | mediumint(16) unsigned | YES  |     | NULL    |                |
@@ -76,6 +77,7 @@ mysql> explain gene_info;
 8 rows in set (0.00 sec)
 #Adding indeices to transcript_info and gene_info tables is important when we update and select tables.
 mysql> ALTER TABLE transcript_info ADD INDEX `transcript_id` (`transcript_id`)
+mysql> ALTER TABLE transcript_info ADD INDEX `gene_id` (`gene_id`)
 mysql> ALTER TABLE gene_info ADD INDEX `gene_id` (`gene_id`)
 
 ```
