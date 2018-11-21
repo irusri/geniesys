@@ -120,7 +120,9 @@ git pull
 git submodule foreach --recursive git checkout master
 git submodule foreach --recursive git pull
 ```
-**Install with the Docker**
+-----------------
+Docker installation
+-----------------
 ```
 # Please comment the supporting_files/run.sh line to avoid download the geniecms.git  
 git clone https://github.com/irusri/docker4geniecms.git  
