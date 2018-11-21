@@ -20,4 +20,8 @@ Welcome to GenIE-CMS's documentation!
    plugins/index
    
 
+Indices and tables
+==================
 
+* :ref:`genindex`
+* :ref:`search`
