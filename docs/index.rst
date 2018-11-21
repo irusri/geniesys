@@ -21,8 +21,3 @@ Welcome to GenIE-CMS's documentation!
    
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
