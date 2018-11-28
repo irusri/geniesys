@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'GenIE-CMS'
-copyright = u'2017, GenIE-CMS'
+copyright = u'2018, GenIE-CMS'
 author = u'Chanaka Mannapperuma'
 
 # The version info for the project you're documenting, acts as replacement for
