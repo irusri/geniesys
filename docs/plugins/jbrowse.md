@@ -29,3 +29,5 @@ bin/generate-names.pl -v
 **Usage**
 
 Navigate to `http://[your server name]/genie/jbrowse`
+
+For more information please go to [JBrowse documentation](http://gmod.org/wiki/JBrowse_Configuration_Guide) 

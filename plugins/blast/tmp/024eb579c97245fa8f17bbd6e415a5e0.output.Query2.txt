@@ -1,0 +1,58 @@
+BLASTN blastn 2.2.26 [Sep-21-2011]
+
+
+~Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, ~Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), ~"Gapped BLAST and PSI-BLAST: a new generation of protein database search~programs",  Nucleic Acids Res. 25:3389-3402.
+Query= Potri.001G000900.2 
+       (1,642 letters)
+
+Database: /mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2.0 
+           4,943 sequences; 691,346,258 total letters
+
+                                                                 Score       E
+Sequences producing significant alignments:                      (bits)    value
+lcl|Chr10 No definition line found                                  63.9282  6.38814e-08
+
+
+>lcl|Chr10 No definition line found
+         Length = 37777128
+
+ Score = 63.9282 bits (32), Expect = 6.38814e-08
+ Identities = 47/52 (90%)
+ Frame =  +1 / -1
+
+Query: 1104     CAACTAAAACTCCTTCCAAAAGTGATGATTTGATCTGGCAAACTTCATCGCA 1155
+                |||| ||||||||||| |  |||||||||||||||||||||||| ||||||| 
+Sbjct: 21667994 CAACAAAAACTCCTTCAAGGAGTGATGATTTGATCTGGCAAACTCCATCGCA 21667943
+
+ Score = 50.0517 bits (25), Expect = 0.00096075
+ Identities = 61/73 (83%)
+ Frame =  +1 / -1
+
+Query: 1159     GCCTCAAATCTTGTTGGAGTGTCAATGCCCATCATACAGCAAAGGCCTGATATCAAAATG 1218
+                |||||||||||||||||||| | |||||||  ||| || || ||||| ||||| || ||  
+Sbjct: 21667528 GCCTCAAATCTTGTTGGAGTTTGAATGCCCGCCATGCAACAGAGGCCGGATATTAAGATT 21667469
+
+Query: 1219     ATAAGCAAAACAA 1231
+                |||||||| |||| 
+Sbjct: 21667468 ATAAGCAACACAA 21667456
+
+
+  Database: /mnt/spruce/www/demo/geniecms/demo/data/BLAST/Egrandis_297_v2.0 
+    Posted date:  Nov 17, 2017 10:50 AM
+	Number of letters in database: 691,346,258
+	Number of sequences in database: 4,943
+
+  Matrix: 
+  Gap Penalties Existence: 5, Extension: 2
+filter: F
+mismatch: -3
+expect: 0.001
+match: 1
+Search Statistics
+effectivespace: 0
+entropy: 1.30725
+hsplength: 0
+kappa: 0.710603
+lambda: 1.37406
+
+

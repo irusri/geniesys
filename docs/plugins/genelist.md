@@ -28,7 +28,8 @@ CREATE TABLE `transcript_info` (
   `gene_i` mediumint(16) unsigned DEFAULT NULL,
   `transcript_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transcript_i`),
-  UNIQUE KEY `transcript_id` (`transcript_id`)
+  KEY `transcript_id` (`transcript_id`),
+  KEY `gene_id` (`gene_id`)
 );
 #Describe transcript_info table
 mysql> explain transcript_info;
@@ -40,7 +41,7 @@ mysql> explain transcript_info;
 | transcript_start | int(16) unsigned       | YES  |     | NULL    |                |
 | transcript_end   | int(16) unsigned       | YES  |     | NULL    |                |
 | strand           | varchar(2)             | YES  |     | NULL    |                |
-| gene_id          | varchar(60)            | YES  |     | NULL    |                |
+| gene_id          | varchar(60)            | YES  | MUL | NULL    |                |
 | description      | varchar(1000)          | YES  |     | NULL    |                |
 | transcript_i     | mediumint(16) unsigned | NO   | PRI | NULL    | auto_increment |
 | gene_i           | mediumint(16) unsigned | YES  |     | NULL    |                |
@@ -57,14 +58,14 @@ CREATE TABLE `gene_info` (
   `peptide_name` varchar(50) DEFAULT NULL,
   `gene_i` mediumint(16) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`gene_i`),
-  UNIQUE KEY `gene_id` (`gene_id`)
+  KEY `gene_id` (`gene_id`)
 );
 #Describe gene_info table
 mysql> explain gene_info;
 +-----------------+------------------------+------+-----+---------+----------------+
 | Field           | Type                   | Null | Key | Default | Extra          |
 +-----------------+------------------------+------+-----+---------+----------------+
-| gene_id         | varchar(60)            | NO   | UNI | NULL    |                |
+| gene_id         | varchar(60)            | NO   | MUL | NULL    |                |
 | chromosome_name | varchar(20)            | YES  |     | NULL    |                |
 | gene_start      | int(16) unsigned       | YES  |     | NULL    |                |
 | gene_end        | int(16) unsigned       | YES  |     | NULL    |                |
@@ -76,6 +77,7 @@ mysql> explain gene_info;
 8 rows in set (0.00 sec)
 #Adding indeices to transcript_info and gene_info tables is important when we update and select tables.
 mysql> ALTER TABLE transcript_info ADD INDEX `transcript_id` (`transcript_id`)
+mysql> ALTER TABLE transcript_info ADD INDEX `gene_id` (`gene_id`)
 mysql> ALTER TABLE gene_info ADD INDEX `gene_id` (`gene_id`)
 
 ```
@@ -330,16 +332,16 @@ Although it is recommended to have all the annotation are based on transcript ID
 
 ```powershell
 #Let's assume, if we have annotation file similar to following example.
-Eucgr.A00001   GO:0008565      protein transporter activity
-Eucgr.A00001   GO:0031204      posttranslational protein targeting to membrane, translocation
-Eucgr.A00004   GO:0005634      nucleus
-Eucgr.A00006   GO:0003677      DNA binding
-Eucgr.A00006   GO:0003824      catalytic activity
-Eucgr.A00012   GO:0015031      protein transport
-Eucgr.A00012   GO:0006457      protein folding
-Eucgr.A00014   GO:0003852      2-isopropylmalate synthase activity
-Eucgr.A00014   GO:0009098      leucine biosynthetic process
-Eucgr.A00017   GO:0008312      7S RNA binding
+Potra000001g00001   GO:0008565      protein transporter activity
+Potra000001g00001   GO:0031204      posttranslational protein targeting to membrane, translocation
+Potra000002g00006   GO:0005634      nucleus
+Potra000002g00005   GO:0003677      DNA binding
+Potra000002g00005   GO:0003824      catalytic activity
+Potra000002g00006   GO:0015031      protein transport
+Potra000002g00006   GO:0006457      protein folding
+Potra000001g00002   GO:0003852      2-isopropylmalate synthase activity
+Potra000001g00002   GO:0009098      leucine biosynthetic process
+Potra000002g00008   GO:0008312      7S RNA binding
 ```
 As you see in the above example, one gene ID associated with several Gene ontology IDs.  Therfore, we need to format the above results into the right format. Following `parse.py` script can be used. Now we need to create MySQL Annotation table to load GO results.
 
@@ -361,7 +363,7 @@ def parse(file, store):
         f.close()
         f = open(store, 'w')
         for i in dic.keys():
-                string = i+"\t"+dic[i]
+                string = i+"\t"+dic[i]+"\t0"
                 f.write(string+"\n")
         f.close
 
@@ -377,13 +379,13 @@ if __name__=="__main__":
 
 Then the output will be similar to following.
 
-```
-Eucgr.A00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation
-Eucgr.A00014	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process
-Eucgr.A00006	GO:0003677-DNA binding;GO:0003824-catalytic activity
-Eucgr.A00017	GO:0008312-7S RNA binding
-Eucgr.A00004	GO:0005634-nucleus
-Eucgr.A00012	GO:0015031-protein transport;GO:0006457-protein folding
+```powershell
+Potra000001g00001	GO:0008565-protein transporter activity;GO:0031204-posttranslational protein targeting to membrane, translocation 0
+Potra000001g00002	GO:0003852-2-isopropylmalate synthase activity;GO:0009098-leucine biosynthetic process  0
+Potra000002g00005	GO:0003677-DNA binding;GO:0003824-catalytic activity  0
+Potra000002g00008	GO:0008312-7S RNA binding 0
+Potra000002g00006	GO:0005634-nucleus  0
+Potra000002g00006	GO:0015031-protein transport;GO:0006457-protein folding 0
 ```
 
 Now we need to create a table to load newly generated annotation data.
@@ -393,20 +395,21 @@ Now we need to create a table to load newly generated annotation data.
 CREATE TABLE `gene_go` (
   `gene_id` varchar(60) NOT NULL,
   `go_description` varchar(2000) DEFAULT NULL,
-  `gene_i` mediumint(16) unsigned NOT NULL,
-  PRIMARY KEY (`gene_i`),
+  `gene_i` mediumint(16) unsigned DEFAULT '0',
+  PRIMARY KEY (`gene_id`),
   KEY `gene_id` (`gene_id`)
 );
 
+
 #We will load above file into following table.
 mysql> explain gene_go;
-+------------------+------------------------+------+-----+---------+-------+
-| Field            | Type                   | Null | Key | Default | Extra |
-+------------------+------------------------+------+-----+---------+-------+
-| gene_id          | varchar(60)            | NO   | MUL | NULL    |       |
-| go_description   | varchar(2000)          | YES  |     | NULL    |       |
-| gene_i           | mediumint(16) unsigned | NO   | PRI | NULL    |       |
-+------------------+------------------------+------+-----+---------+-------+
++----------------+------------------------+------+-----+---------+-------+
+| Field          | Type                   | Null | Key | Default | Extra |
++----------------+------------------------+------+-----+---------+-------+
+| gene_id        | varchar(60)            | NO   | PRI | NULL    |       |
+| go_description | varchar(2000)          | YES  |     | NULL    |       |
+| gene_i         | mediumint(16) unsigned | YES  |     | 0       |       |
++----------------+------------------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 ```
 
@@ -420,27 +423,32 @@ Finally update the `gene_i` in `gene_go` table using following script.
 
 ```shell
 #!/bin/bash
-#update_gene_i.sh
 
 DB_USER='your_db_username'
 DB_PASS='your_password'
 DB='database_name'
 
-#USAGE: sh update_gene_i.sh
+#USAGE sh update_annotation_gene_i.sh gene_go
+display_usage() {
+        echo  "\nUsage:\n$0 [table_name] \n"
+        }
 
-/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
-create temporary table add_gene_i(gene_i MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, genename VARCHAR(40));
-ALTER TABLE add_gene_i AUTO_INCREMENT = 1;
-INSERT INTO add_gene_i(genename) select DISTINCT(gene_id) from transcript_info;
-UPDATE transcript_info INNER join add_gene_i ON add_gene_i.genename = transcript_info.gene_id SET transcript_info.gene_i = add_gene_i.gene_i;
-drop temporary table add_gene_i;
+# if less than one arguments supplied, display usage
+        if [  $# -le 0 ]
+        then
+                display_usage
+                exit 1
+        fi
+
+/usr/bin/mysql --host=localhost  --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+UPDATE $1 INNER JOIN transcript_info on transcript_info.gene_id = $1.gene_id SET $1.gene_i = transcript_info.gene_i;
 EOFMYSQL
 ```
 
 Run following command to update `gene_i`
 
 ```shell
-./update_gene_i.sh gene_go
+./update_annotation_gene_i.sh gene_go
 ```
 <!--
 ```shell
