@@ -1,10 +1,8 @@
 [![GenIECMS](https://github.com/irusri/GenIECMS/blob/master/docs/images/logo_32.png?raw=true "Download") GenIECMS](http://geniecms.org)
 =======
 [![readthedocs](https://readthedocs.org/projects/geniecms/badge/?version=latest "readthedocs")](http://geniecms.readthedocs.io/en/latest/installation_updates.html)
-<<<<<<< HEAD
 =======
 
->>>>>>> 8b8d103491cbe649a90247cbece1c5efe0167ce3
 
 <!---
 | **Quick Installation** | **Demo** | 
