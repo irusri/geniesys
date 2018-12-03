@@ -9,7 +9,6 @@ plugins/settings.php
 plugins/eximage
 plugins/chrdiagram
 plugins/sequence_search
-plugins/jbrowse
 plugins/exmatch
 plugins/exdraw
 themes/genie/theme.php
