@@ -1,0 +1,65 @@
+{
+   "names" : {
+      "type" : "Hash",
+      "url" : "names/"
+   },
+   "tracks" : [
+      {
+         "chunkSize" : 20000,
+         "type" : "SequenceTrack",
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "category" : "Reference sequence",
+         "label" : "DNA",
+         "key" : "Reference sequence"
+      },
+      {
+         "style" : {
+            "subfeatureClasses" : {
+               "CDS" : "transcript-CDS"
+            },
+            "arrowheadClass" : "transcript-arrowhead",
+            "className" : "feature5"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "autocomplete" : "all",
+         "feature" : [
+            "gene"
+         ],
+         "compress" : 0,
+         "type" : "FeatureTrack",
+         "urlTemplate" : "tracks/Genes/{refseq}/trackData.json",
+         "key" : "Protein-coding genes",
+         "label" : "Genes",
+         "category" : "Genes",
+         "subfeatures" : true,
+         "track" : "Genes"
+      },
+      {
+         "label" : "transcript_with_no_features",
+         "category" : "Genes",
+         "key" : "Exonerate predictions (misconfigured for test, and with a long description)",
+         "type" : "FeatureTrack",
+         "urlTemplate" : "tracks/transcript_with_no_features/{refseq}/trackData.json",
+         "track" : "transcript_with_no_features",
+         "subfeatures" : true,
+         "autocomplete" : "all",
+         "description" : 1,
+         "feature" : [
+            "mRNA"
+         ],
+         "style" : {
+            "arrowheadClass" : "transcript-arrowhead",
+            "subfeatureClasses" : {
+               "CDS" : "transcript-CDS",
+               "UTR" : "transcript-UTR"
+            },
+            "className" : "transcript"
+         },
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "compress" : 0
+      }
+   ],
+   "dataset_id" : "yeast",
+   "formatVersion" : 1
+}

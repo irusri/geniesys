@@ -1,0 +1,73 @@
+{
+   "abstract" : "create and use a local lib/ for perl modules with PERL5LIB",
+   "author" : [
+      "mst - Matt S. Trout (cpan:MSTROUT) <mst@shadowcat.co.uk>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "ExtUtils::MakeMaker version 7.1, CPAN::Meta::Converter version 2.150001, CPAN::Meta::Converter version 2.150005",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "local-lib",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {}
+      },
+      "configure" : {
+         "requires" : {}
+      },
+      "develop" : {
+         "recommends" : {
+            "Test::CPAN::Changes" : "0"
+         },
+         "requires" : {
+            "Capture::Tiny" : "0",
+            "Perl::MinimumVersion" : "1.35",
+            "Test::EOL" : "0",
+            "Test::MinimumVersion" : "0",
+            "Test::More" : "0.8101",
+            "Test::NoTabs" : "0",
+            "Test::Pod" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "7.00",
+            "perl" : "5.006"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "mailto" : "bug-local-lib@rt.cpan.org",
+         "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=local-lib"
+      },
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ],
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/Perl-Toolchain-Gang/local-lib",
+         "web" : "https://github.com/Perl-Toolchain-Gang/local-lib"
+      },
+      "x_IRC" : "irc://irc.perl.org/#local-lib"
+   },
+   "version" : "2.000018",
+   "x_serialization_backend" : "JSON::PP version 2.27202"
+}
