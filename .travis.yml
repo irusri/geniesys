@@ -7,3 +7,4 @@ php:
 ignore:
   - *.md
   - scripts/*
+  - docs/*
