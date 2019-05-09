@@ -36,16 +36,16 @@ Adding a dataset into BLAST tool we must use [formatdb](http://structure.usc.edu
 "selecttion_box":[{"height":180,"width":400}],
 "datasets":[{
    	 "number": 1,
-        	 "user_friendly_name": "A Label which appears in the Tool",
-		 "dataset_path":"/path/to/the/blast/indices",
-            "molecule_type":"nucleotide/protein",
-            "group_name":"Group Name"
+        	"user_friendly_name": "A Label which appears in the Tool",
+		"dataset_path":"/path/to/the/blast/indices",
+            	"molecule_type":"nucleotide/protein",
+            	"group_name":"Group Name"
     },{
-        	 "number": 2,
-        	 "user_friendly_name": "A Label which appears in the Tool",
-		 "dataset_path":"/path/to/the/blast/indices",
-            "molecule_type":"nucleotide/protein",
-            "group_name":"Group Name"
+        	"number": 2,
+        	"user_friendly_name": "A Label which appears in the Tool",
+		"dataset_path":"/path/to/the/blast/indices",
+            	"molecule_type":"nucleotide/protein",
+            	"group_name":"Group Name"
     }],
 "default_jbrowse_dataset_directory":"Fegr20"
 }
