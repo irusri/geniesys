@@ -11,7 +11,7 @@ Gene Information Pages
 
 Navigate to `http://[your server name]/genie/gene?id=[gene id]` or `http://[your server name]/genie/transcript?id=[transcript id]`
 
-**Sequence information**
+**Sequence information**  
 Sequences will be displayed under the sequence tab once we configure the config.json file. 
 
 **Sequence coloring**
