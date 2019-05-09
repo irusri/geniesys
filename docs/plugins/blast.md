@@ -25,11 +25,11 @@ use Bio::SeqFeature::Generic;
 
 **Installation**
 
-Download the BLAST tool plugin from here(https://github.com/irusri/GenIECMS/tree/master/plugins). Then place it into your CMS/plugins/ folder.
+Download the BLAST tool plugin from [here](https://github.com/irusri/GenIECMS/tree/master/plugins). Then place it into your `CMS/plugins/` folder.
 
 **Adding Datasets**
 
-Adding a dataset into BLASt tool we must use formatdb(http://structure.usc.edu/blast/formatdb.html) or makeblastdb(http://nebc.nerc.ac.uk/bioinformatics/documentation/blast+/user_manual.pdf) tools. Config.json file contains all necessary configuration parameters to add new datasets into existing BLAST tool. An  example of config.json file looks like following:
+Adding a dataset into BLASt tool we must use [formatdb](http://structure.usc.edu/blast/formatdb.html) or [makeblastdb](http://nebc.nerc.ac.uk/bioinformatics/documentation/blast+/user_manual.pdf) tools. `Config.json` file contains all necessary configuration parameters to add new datasets into existing BLAST tool. An  example of config.json file looks like following:
 
 ```json
 {
