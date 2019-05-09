@@ -11,6 +11,9 @@ Gene Information Pages
 
 Navigate to `http://[your server name]/genie/gene?id=[gene id]` or `http://[your server name]/genie/transcript?id=[transcript id]`
 
+**Sequence information**
+Sequences will be displayed under the sequence tab once we configure the config.json file. 
+
 **Sequence coloring**
 
 Following script will be used to load genome gff3 file into corresponding sequence coloring table(sequence_color) in GenIE database. This feature will be shaded the genomic,transcriptomic and cds sequence regions in gene information pages.
@@ -28,3 +31,4 @@ LOAD DATA LOCAL INFILE "tmp" INTO TABLE sequence_color fields terminated by '\t'
 EOFMYSQL
 rm tmp
 ``
+
