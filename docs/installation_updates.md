@@ -7,9 +7,11 @@ Download & Requirements
 
 You can download the latest version of GenIECMS by using the official download link:
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/GenIECMS/archive/master.zip)
+[![Download](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/download.png)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
-If you prefer using the terminal please run:
+Please note that the above link download only the source code for GenIE-CMS. If you need to download for the parsing scripts, you can download it [here](https://github.com/irusri/scripts/archive/master.zip).
+
+If you prefer using the terminal please run to download both the CMS and parsing scripts:
 
 ```
 git clone --recursive https://github.com/irusri/GenIECMS.git
