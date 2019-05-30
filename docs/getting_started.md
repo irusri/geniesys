@@ -77,18 +77,18 @@ $GLOBALS["base_url"]='http://localhost:3000/';
 ```
 **Loading tables**
 
-Following database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). 
+Following database diagram shows the initial genie database architecture. It will be used with basic GenIECMS tools such as GeneList, gene information pages, autocomlete search and BLAST. 
 
-**Please read the plugins/genelist to load customize datasets into the GenIE-CMS.**
 
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
 
+We have to to follow [table loading](https://geniecms.readthedocs.io/en/latest/plugins/genelist.html) instructions to load data into the database tables.
 
 -------------------------
 Configuring genome database
 -------------------------
 
-All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
+All configuration settings in GenIECMS need to be added into ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
 -------------------------
 Plugins/Modules
