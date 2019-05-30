@@ -3,7 +3,7 @@ update_submodule.sh
 .vscode
 password
 genie_files
-genie_files/
+genie_files/*
 data
 plugins/settings.php
 plugins/eximage
