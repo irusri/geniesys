@@ -330,11 +330,11 @@ function updategenebasket() {
             type: "GET",
             success: function(hasil) {
                 var numberc = pad2(hasil).replace(/\s/g, "");
-				//console.log(typeof(numberc),typeof(document.getElementById("numberofgenesSpan").innerHTML),)
-			//	if(typeof(document.getElementById("numberofgenesSpan").innerHTML)!=undefined){
+				//console.log(document.getElementById("numberofgenesSpan"))
+				if(document.getElementById("numberofgenesSpan")!=null){
 
                 document.getElementById("numberofgenesSpan").innerHTML = numberc;
-			//					}
+								}
 				
                 if(typeof(document.getElementsByClassName("notificationcount2").innerHTML)!=undefined){
                 document.getElementsByClassName("notificationcount2").innerHTML = numberc;
