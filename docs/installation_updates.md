@@ -7,7 +7,7 @@ Download & Requirements
 
 You can download the latest version of GenIECMS by using the official download link:
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](https://github.com/irusri/GenIECMS/archive/master.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
 If you prefer using the terminal please run:
 
@@ -35,19 +35,19 @@ Installing GenIECMS on a Mac
 ------------------------
 Most Mac users will probably try GenIECMS with MAMP.  
 
-[![MAMP](https://github.com/irusri/GenIECMS/blob/master/docs/images/mamp.png?raw=true "MAMP")](http://www.mamp.info/en/downloads/)
+[![MAMP](https://github.com/irusri/GenIECMS/blob/master/docs/images/mamp.png?raw=true )](http://www.mamp.info/en/downloads/)
 
 **Installing MAMP**
 
 Installing MAMP is just a matter of downloading the app from the MAMP website and running the installer. It will install a MAMP app in your Applications folder.
 
-[![MAMP](https://github.com/irusri/GenIECMS/blob/master/docs/images/mamp-02.png?raw=true "MAMP")](http://www.mamp.info/en/downloads/)
+[![MAMP](https://github.com/irusri/GenIECMS/blob/master/docs/images/mamp-02.png?raw=true)](http://www.mamp.info/en/downloads/)
 
 By starting the MAMP app you are also starting your Apache and MySQL server. You should now be able to reach your local server at ```http://localhost:8888```.
 
 **Download GenIECMS**
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](https://github.com/irusri/GenIECMS/archive/master.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
 **Copy GenIECMS to MAMP Web server**
 
@@ -59,7 +59,7 @@ That is basically what you need to do in order to install GenIECMS on your Mac's
 Installing GenIECMS on a PC
 ------------------------
 GenIECMS can be successfully installed into windows computer using XAMPP as a Web server. 
-[![XAMPP](https://github.com/irusri/GenIECMS/blob/master/docs/images/xampp.png?raw=true "XAMPP")](https://www.apachefriends.org/download.html)
+[![XAMPP](https://github.com/irusri/GenIECMS/blob/master/docs/images/xampp.png?raw=true)](https://www.apachefriends.org/download.html)
 
 **Installing XAMPP**
 
@@ -67,7 +67,7 @@ You just need to download the xampp-xxx.exe, start the installer and follow the 
 
 **Download GenIECMS**
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](https://github.com/irusri/GenIECMS/archive/master.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
 **Copy GenIECMS to XAMPP Web server**
 
