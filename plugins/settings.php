@@ -27,6 +27,9 @@ $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected
 /*Define your base url with trailing slash*/
 $GLOBALS["base_url"]='http://localhost:8888/GenIECMS/';
 
+//Settings SQL modes here, allows for disabling the default STRICT_TRANS_TABLES  which prevents PHP from inserting '' in auto_increment fields.
+$db_settings['modes'] = "ONLY_FULL_GROUP_BY,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";
+
 
 /*You dont need to change anything here*/
 global $uuid;
