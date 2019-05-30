@@ -6,7 +6,7 @@ Getting Started
 What is GenIECMS?
 ------------
 
-The Genome Integrative Explorer Content Management System (GenIE-CMS) is dedicative in-house CMS to facilitate external groups in setting up their own web resource for searching, visualizing, editing, sharing and reproducing their genomic and transcriptomic data while using project raw data(gff3,fasta,fatsq) as an input.
+The Genome Integrative Explorer Content Management System (GenIE-CMS) is dedicative in-house CMS to facilitate external groups in setting up their own web resource for searching, visualizing, editing, sharing and reproducing their genomic and transcriptomic data while using project raw data(GFF3,FASTA,FASTQ) as an input.
 
 GenIE-CMS will support cutting-edge genomic science, providing easily accessible, reproducible, and shareable science. The increasingly large size of many datasets is a particularly challenging aspect of current and future genomics based research; it is often difficult to move large datasets between servers due to constraints of time and finance. It is also important to keep the experimental datasets private among the group members until the project goals are accomplished or until after publication. In other words, it must provide a high level of security to ensure that the genomic web resource remains private without requiring the moving of data to unknown remote servers. Therefore, a locally hosted GenIE-CMS installation represents a more secure, less expensive and time consuming resource to implement.
 
@@ -54,9 +54,14 @@ GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localh
 ```
 ```newuser, newpassword and new_database``` will be used in plugins/settings.php similar to following example.
 ```php
+/*Define the databasename names*/
 $db_species_array=array("new_database"=>"new genome",...
+/*Define the databasename and background colours*/
 $db_species_color_array=array("new_database"=>"#86c0a6",....
+/*Define the username, password and host here*/
 $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected_database); 
+/*Define the base url with trailing slash*/
+$GLOBALS["base_url"]='http://localhost:3000/';
 ```
 **Loading tables**
 
