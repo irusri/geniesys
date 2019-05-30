@@ -1,5 +1,5 @@
 <?php 
-require_once('Datatables2.php');
+require_once('Datatables.php');
 require_once('settings.php');  
 include('../../crud/getgenelist.php');
 $default_gene_basket_array=getdefaultgenelist();

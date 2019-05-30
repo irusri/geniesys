@@ -13,7 +13,6 @@ function getdefaultsamplelist()
         $sampletemparr     = explode(',', $samplesendstringt);
         return $sampletemparr;
     }
-    //	return 'null';
 }
 function getdefaultgolist()
 {
@@ -27,7 +26,6 @@ function getdefaultgolist()
         $sampletemparr     = explode(',', $samplesendstringt);
         return $sampletemparr;
     }
-    //return 'null';
 }
 function getdefaultgenelist()
 {
@@ -41,7 +39,6 @@ function getdefaultgenelist()
         $tmpArr           = explode(',', $genessendStringt);
         return $tmpArr;
     }
-    //return 'null';
 }
 function getdefaultgenelistname()
 {
@@ -55,7 +52,6 @@ function getdefaultgenelistname()
         //$tmpArr=explode(',',$genessendStringt);
         return $genessendStringt;
     }
-    //return 'null';
 }
 function updategenebasket($genearray)
 {

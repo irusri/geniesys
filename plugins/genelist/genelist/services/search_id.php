@@ -1,10 +1,8 @@
 <?php
-require_once('Datatables2.php');
+require_once('Datatables.php');
 require_once('settings.php');
 include('../../crud/getgenelist.php');
 $default_gene_basket_array=getdefaultgenelist();
-
-
 
 $datatables = new Datatables();
 
@@ -16,7 +14,6 @@ $keywords =  preg_split("/[\:]+/",trim(htmlentities($_POST['id'])));
 
 $tintinvariable="eucgr";
 $table_name="transcript_info";
-
 
 //MySQL connection from main settings file. database is popgeniegenepages
 $private_url = parse_url($db_url['genelist']);
@@ -119,8 +116,6 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 	
 
 }
-
-
 
 ini_set('memory_limit', '-1');
 ini_set('max_execution_time', 300000);

@@ -39,6 +39,7 @@
     */
     public function __construct($driver = 'mysqli') 
     {
+		
       require( dirname(__FILE__) . '/ActiveRecords/' . $driver . '.php' );
       $this->ar = new ActiveRecords;
     }
@@ -183,18 +184,66 @@
       return $this;
     }
 
+
+
+
+ /**
+    * Builds all the necessary query segments and performs the main query based on results set from chained statements
+    *
+    * @param string charset
+    * @return string
+    */
+    public function generate_csv($intersect_mysql_viscol_keys)
+    {
+      $this->get_paging();
+      $this->get_ordering();
+      $this->get_filtering();
+      return $this->produce_csv($intersect_mysql_viscol_keys);
+    }
+
+
+
+ /**
+    * Builds all the necessary query segments and performs the main query based on results set from chained statements
+    *
+    * @param string charset
+    * @return string
+    */
+    public function generate_genelist($charset = 'UTF-8')
+    {
+      $this->get_paging();
+      $this->get_ordering();
+      $this->get_filtering();
+      return $this->produce_output_genelist($charset);
+    }
+ /**
+    * Builds all the necessary query segments and performs the main query based on results set from chained statements
+    *
+    * @param string charset
+    * @return string
+    */
+    public function generate_init($gene_basket_array)
+    {
+	 // $charset = 'UTF-8';
+      $this->get_paging();
+      $this->get_ordering();
+      $this->get_filtering();
+      return $this->produce_output_init($gene_basket_array);
+    }
+
     /**
     * Builds all the necessary query segments and performs the main query based on results set from chained statements
     *
     * @param string charset
     * @return string
     */
-    public function generate($charset = 'UTF-8')
+    public function generate($gene_basket_array)
     {
+	 // $charset = 'UTF-8';
       $this->get_paging();
       $this->get_ordering();
       $this->get_filtering();
-      return $this->produce_output($charset);
+      return $this->produce_output($gene_basket_array);
     }
 
     /**
@@ -238,6 +287,7 @@
     */
     protected function get_filtering()
     {
+		
       if ($this->check_mDataprop())
         $mColArray = $this->get_mDataprop();
       elseif ($this->input('sColumns'))
@@ -255,11 +305,12 @@
         for($i = 0; $i < count($mColArray); $i++)
           if($this->input('bSearchable_' . $i) == 'true' && in_array($mColArray[$i], $columns))
             $sWhere .= $this->select[$mColArray[$i]] . " LIKE '%" . $sSearch . "%' OR ";
+				 
 
       $sWhere = substr_replace($sWhere, '', -3);
 
       if($sWhere != '')
-        $this->ar->where('(' . $sWhere . ')');
+	        $this->ar->where('(' . $sWhere . ')');
 
       for($i = 0; $i < intval($this->input('iColumns')); $i++)
       {
@@ -275,9 +326,12 @@
           }
         }
       }
-
+	
       foreach($this->filter as $val)
-        $this->ar->where($val[0], $val[1], $val[2]);
+	    $this->ar->where($val[0], $val[1], $val[2]);
+	
+	
+	
     }
 
     /**
@@ -296,16 +350,55 @@
     * @param string charset
     * @return string
     */
-    protected function produce_output($charset)
+    protected function produce_output($gene_basket_array)
     {
+		//print_r($gene_basket_array);
+		
+	  $charset = 'UTF-8';
       $aaData = array();
       $rResult = $this->get_display_result();
       $iTotal = $this->get_total_results();
       $iFilteredTotal = $this->get_total_results(TRUE);
-
+	 // $tmparr;
       foreach($rResult->result_array() as $row_key => $row_val)
       {
-        $aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
+		  
+		  for($m=0;$m<count($gene_basket_array);$m++){
+			  if($row_val["ID"]==$gene_basket_array[$m]){
+				 $row_val["check_box_value"]=true;
+		  	}
+		  }
+		  
+	/*	  print_r( $row_val["ids"]);
+		  
+		if(count($rResult->result_array())<=count($gene_basket_array)){
+		for($m=0;$m<count($gene_basket_array);$m++){
+			if($row_val["ids"]==$gene_basket_array[$m]){
+				 $row_val["check_box_value"]=true;
+		  	}else{
+			}
+		  }
+		}else{
+			echo "ss";
+			for($n=0;$n<100;$n++){
+			if($row_val["ids"]==$gene_basket_array[$n]){
+				 $row_val["check_box_value"]=true;
+		  	}else{
+			}
+		  }
+			
+		}*/
+	//	$tmparr[$row_key] =$row_val["ID"];
+		
+		 
+		// if($row_val["check_box_value"]==true)
+        	$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
+		 //}else{
+		   //$aaData[$row_key] =  "xx";
+		 //}
+		
+		//print_r($row_key );
+//echo (  array_values($row_val).$row_val["ID"]. $row_val["check_box_value"]);
 
         foreach($this->add_columns as $field => $val)
           if($this->check_mDataprop())
@@ -326,6 +419,278 @@
       $sColumns = array_diff($this->columns, $this->unset_columns);
       $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
 
+
+/*for($j=0;$j<count($tmparr);$j++){
+	$aaData[$j]="kk";	
+}
+*/
+
+
+//for($j=0;$j<count($aaData);$j++){
+	//echo $aaData[$j][0];
+	
+	//array_push($tmparr, $aaData[$j][0]);	
+//}
+//$result_basket_array=array_intersect($gene_basket_array,$tmparr);
+//print_r($result_basket_array);
+//print_r($tmparr);
+//print_r($gene_basket_array);
+
+/*if(count($aaData)>count($gene_basket_array)){
+	for($j=0;$j<count($aaData);$j++){
+		for($m=0;$m<count($gene_basket_array);$m++){
+			if($aaData[$j][0]==$gene_basket_array[$m]){
+				// $row_val["check_box_value"]=true;
+				//echo $gene_basket_array[$m];
+				 $aaData[$j]["check_box_value"]=true;
+		  	}else{
+				
+			}
+		  }
+		}
+}else{
+	
+for($m=0;$m<count($gene_basket_array);$m++){
+		for($j=0;$j<count($aaData);$j++){
+				if($aaData[$j][0]==$gene_basket_array[$m]){
+					// $row_val["check_box_value"]=true;
+					//echo $gene_basket_array[$m];
+					 $aaData[$j]["check_box_value"]=true;
+				}else{
+					
+				}
+			  }
+		}
+
+}*/
+
+
+
+if($iFilteredTotal!=73013 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 ){
+	
+      $sOutput = array
+      (
+        'sEcho'                => intval($this->input('sEcho')),
+        'iTotalRecords'        => $iTotal,
+        'iTotalDisplayRecords' => $iFilteredTotal,
+        'aaData'               => $aaData,
+        'sColumns'             => implode(',', $sColumns),
+      );
+	  
+}else{
+	
+	$sOutput = array
+      (
+        'sEcho'                => intval($this->input('sEcho')),
+        'iTotalRecords'        => 0,
+        'iTotalDisplayRecords' => 0,
+        'aaData'               => array(),
+        'sColumns'             => implode(',', $sColumns),
+      );
+	
+}
+
+
+      if(strtolower($charset) == 'utf-8')
+        return json_encode($sOutput);
+      else
+        return $this->jsonify($sOutput);
+		
+
+
+
+
+    }
+
+
+
+
+    /**
+    * Builds a JSON encoded string data
+    *
+    * @param string charset
+    * @return string
+    */
+    protected function produce_output_init($gene_basket_array)
+    {
+		//print_r($gene_basket_array);
+		
+	  $charset = 'UTF-8';
+      $aaData = array();
+      $rResult = $this->get_display_result();
+      $iTotal = $this->get_total_results();
+      $iFilteredTotal = $this->get_total_results(TRUE);
+	 // $tmparr;
+      foreach($rResult->result_array() as $row_key => $row_val)
+      {
+		  
+		  for($m=0;$m<count($gene_basket_array);$m++){
+			  if($row_val["ID"]==$gene_basket_array[$m]){
+				 $row_val["check_box_value"]=true;
+		  	}
+		  }
+		  
+
+        	$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
+
+
+        foreach($this->add_columns as $field => $val)
+          if($this->check_mDataprop())
+            $aaData[$row_key][$field] = $this->exec_replace($val, $aaData[$row_key]);
+          else
+            $aaData[$row_key][] = $this->exec_replace($val, $aaData[$row_key]);
+
+        foreach($this->edit_columns as $modkey => $modval)
+          foreach($modval as $val)
+            $aaData[$row_key][($this->check_mDataprop())? $modkey : array_search($modkey, $this->columns)] = $this->exec_replace($val, $aaData[$row_key]);
+
+        $aaData[$row_key] = array_diff_key($aaData[$row_key], ($this->check_mDataprop())? $this->unset_columns : array_intersect($this->columns, $this->unset_columns));
+
+        if(!$this->check_mDataprop())
+          $aaData[$row_key] = array_values($aaData[$row_key]);
+      }
+
+      $sColumns = array_diff($this->columns, $this->unset_columns);
+      $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
+
+
+
+      $sOutput = array
+      (
+        'sEcho'                => intval($this->input('sEcho')),
+        'iTotalRecords'        => $iTotal,
+        'iTotalDisplayRecords' => $iFilteredTotal,
+        'aaData'               => $aaData,
+		'initGenes'               => $gene_basket_array,
+        'sColumns'             => implode(',', $sColumns)
+      );
+
+      if(strtolower($charset) == 'utf-8')
+        return json_encode($sOutput);
+      else
+        return $this->jsonify($sOutput);
+    }
+
+ /**
+    * Builds a JSON encoded string data
+    *
+    * @param string charset
+    * @return string
+    */
+    protected function produce_output_genelist($charset)
+    {
+      $aaData = array();
+      $rResult = $this->get_display_result();
+      //$iTotal = $this->get_total_results();
+      //$iFilteredTotal = $this->get_total_results(TRUE);
+
+      foreach($rResult->result_array() as $row_key => $row_val)
+      {
+        ////$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
+		$aaData[$row_key] = $row_val[ID];
+		
+        //foreach($this->add_columns as $field => $val)
+          //if($this->check_mDataprop())
+            //$aaData[$row_key][$field] = $this->exec_replace($val, $aaData[$row_key]);
+          //else
+            //$aaData[$row_key][] = $this->exec_replace($val, $aaData[$row_key]);
+
+        //foreach($this->edit_columns as $modkey => $modval)
+          //foreach($modval as $val)
+            //$aaData[$row_key][($this->check_mDataprop())? $modkey : array_search($modkey, $this->columns)] = $this->exec_replace($val, $aaData[$row_key]);
+
+        //$aaData[$row_key] = array_diff_key($aaData[$row_key], ($this->check_mDataprop())? $this->unset_columns : array_intersect($this->columns, $this->unset_columns));
+
+        //if(!$this->check_mDataprop())
+          //$aaData[$row_key] = array_values($aaData[$row_key]);
+      }
+
+    //  $sColumns = array_diff($this->columns, $this->unset_columns);
+     // $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
+////$sOutput = array($aaData);
+	return $aaData;
+      //$sOutput = array
+      //(
+        /*'sEcho'                => intval($this->input('sEcho')),
+        'iTotalRecords'        => $iTotal,
+        'iTotalDisplayRecords' => $iFilteredTotal,
+        'aaData'               => $aaData,
+        'sColumns'             => implode(',', $sColumns)*/
+      //);
+
+     // if(strtolower($charset) == 'utf-8')
+        //return json_encode($sOutput);
+     // else
+     //   return $this->jsonify($sOutput);
+    }
+
+
+
+
+
+ /**
+    * Builds a JSON encoded string data
+    *
+    * @param string charset
+    * @return string
+    */
+    protected function produce_csv($intersect_mysql_viscol_keys)
+    {
+		//print_r($gene_basket_array);
+		
+	  $charset = 'UTF-8';
+      $aaData = array();
+      $rResult = $this->get_display_result();
+      $iTotal = $this->get_total_results();
+      $iFilteredTotal = $this->get_total_results(TRUE);
+	 // $tmparr;
+	 
+	
+
+      foreach($rResult->result_array() as $row_key => $row_val)
+      {
+		/*   for($h=0;$h<count($intersect_mysql_viscol_keys);$h++){
+			   		 if($intersect_mysql_viscol_keys[$h]== $row_key ){
+						}
+
+		   }*/
+		//  print_r( $row_key);
+		 /* for($m=0;$m<count($gene_basket_array);$m++){
+			  if($row_val["ID"]==$gene_basket_array[$m]){
+				 $row_val["check_box_value"]=true;
+		  	}
+		  }*/
+		 
+		  for($h=0;$h<count($intersect_mysql_viscol_keys);$h++){
+		  $aaData[$row_key][$h] = $row_val[$intersect_mysql_viscol_keys[$h]];
+		  }
+		  
+	//echo ($row_val[$row_key]);	  
+  //$this->columns=array_intersect($this->columns,$intersect_mysql_viscol_keys);
+    //    	$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
+
+        //foreach($this->add_columns as $field => $val)
+          //if($this->check_mDataprop())
+            //$aaData[$row_key][$field] = $this->exec_replace($val, $aaData[$row_key]);
+          //else
+            //$aaData[$row_key][] = $this->exec_replace($val, $aaData[$row_key]);
+
+        //foreach($this->edit_columns as $modkey => $modval)
+          //foreach($modval as $val)
+            //$aaData[$row_key][($this->check_mDataprop())? $modkey : array_search($modkey, $this->columns)] = $this->exec_replace($val, $aaData[$row_key]);
+
+        //$aaData[$row_key] = array_diff_key($aaData[$row_key], ($this->check_mDataprop())? $this->unset_columns : array_intersect($this->columns, $this->unset_columns));
+
+        //if(!$this->check_mDataprop())
+          //$aaData[$row_key] = array_values($aaData[$row_key]);
+		 
+      }
+
+      $sColumns = array_diff($this->columns, $this->unset_columns);
+      $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
+	   $sColumns=array_intersect( $sColumns,$intersect_mysql_viscol_keys);
+//print_r(  $sColumns);
+
       $sOutput = array
       (
         'sEcho'                => intval($this->input('sEcho')),
@@ -335,11 +700,15 @@
         'sColumns'             => implode(',', $sColumns)
       );
 
-      if(strtolower($charset) == 'utf-8')
-        return json_encode($sOutput);
-      else
-        return $this->jsonify($sOutput);
+return ($aaData);
+      //if(strtolower($charset) == 'utf-8')
+        //return json_encode($sOutput);
+     // else
+       // return $this->jsonify($sOutput);
     }
+
+
+
 
     /**
     * Get result count
@@ -518,7 +887,7 @@
         }
       }
 
-      $json = array();
+      $json = array(); 
 
       if($isList)
       {
@@ -532,6 +901,6 @@
           $json[] = $this->jsonify($key) . ':' . $this->jsonify($value);
         return '{' . join(',', $json) . '}';
       }
-    }
+    } 
   }
 /* End of file Datatables.php */
