@@ -14,7 +14,10 @@ There should only be two primary tables (transcript_info and gene_info) in GenIE
 
 Loading data into the primary tables can be easily accomplished using dedicated scripts listed on GenIECMS/scripts folder. First, we need to find corresponding GFF3 and FASTA files related to the species that we are going to load into the GenIE-CMS.
 
-*Creating Primary tables ! You do not need to create following tables separately, instead use [this script](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql) to create all tables at once. Then move to oading data into Primary tables section*
+*Creating Primary tables* 
+
+important: You do not need to create following tables separately, instead use [this script](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql) to create all tables at once. Then move to oading data into Primary tables section!
+
 ```shell
 #Create transcript_info table
 CREATE TABLE `transcript_info` (
