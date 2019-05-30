@@ -60,7 +60,18 @@ That is basically what you need to do in order to install GenIECMS on your Mac's
 ------------------------
 Configuration file
 ------------------------
-We should update the settings file(```GenIECMS/plugins/settings.php```) right after the installtion.
+We should update the settings file(```GenIECMS/plugins/settings.php```) right after the installtion. Especially the base URL depending on your webhost. For example:
+
+```php
+/*Define your base url with trailing slash*/
+$GLOBALS["base_url"]='http://localhost:8888/GenIECMS/';
+
+OR
+
+$GLOBALS["base_url"]='http://localhost:3000';
+
+```
+
 
 ------------------------
 Troubleshooting
