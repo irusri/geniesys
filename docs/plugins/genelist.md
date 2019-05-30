@@ -16,7 +16,8 @@ Loading data into the primary tables can be easily accomplished using dedicated 
 
 *Creating Primary tables* 
 
-.. Note:: You do not need to create following tables separately, instead use [this script](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql) to create all tables at once. Then move to oading data into Primary tables section!
+!!! tip "Tip" 
+You do not need to create following tables separately, instead use [this script](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql) to create all tables at once. Then move to oading data into Primary tables section!
 
 ```shell
 #Create transcript_info table
