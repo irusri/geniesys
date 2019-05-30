@@ -66,13 +66,13 @@ GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localh
 ```
 ```newuser, newpassword and new_database``` should be included in the plugins/settings.php similar to following example.
 ```php
-/*Define the databasename names*/
+#Define the databasename names
 $db_species_array=array("new_database"=>"new genome",...
-/*Define the databasename and background colours*/
+#Define the databasename and background colours
 $db_species_color_array=array("new_database"=>"#86c0a6",....
-/*Define the username, password and host here*/
+#Define the username, password and host here
 $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected_database); 
-/*Define the base url with trailing slash*/
+#Define the base url with trailing slash
 $GLOBALS["base_url"]='http://localhost:3000/';
 ```
 **Loading tables**
