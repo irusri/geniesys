@@ -57,6 +57,10 @@ You will find the source of GenIECMS in your download folder. So you just need t
 
 That is basically what you need to do in order to install GenIECMS on your Mac's local server. You should now be able to access it at: ```http://localhost:8888/GenIECMS``` in your browser.
 
+------------------------
+Configuration file
+------------------------
+We should update the settings file(```GenIECMS/plugins/settings.php```) right after the installtion.
 
 ------------------------
 Troubleshooting
@@ -90,7 +94,7 @@ GenIECMS updates
 -----------------
 **Manual updates**
 
-GenIECMS can be updated manually using latest ZIP file from ```https://github.com/irusri/GenIECMS/archive/master.zip```. Please backup your older version of  ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` into latest version of GenIECMS.
+GenIECMS can be updated manually using latest ZIP file from [GitHub](https://github.com/irusri/GenIECMS/archive/master.zip). Please backup your older version of  ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` into latest version of GenIECMS.
 
 **Updates using Git**
 
