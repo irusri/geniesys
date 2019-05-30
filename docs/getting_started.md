@@ -40,10 +40,22 @@ Due to increasing number of species in PlantGenIE we use standard naming convent
 
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)
 
+
+
+Log into the MySQL server and create a database. 
 ```mysql
 #Create a database:
 CREATE DATABASE new_database;
+```
+You can download the empty database [here](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql). Then load the database into the newly created database using following commands.
 
+
+```shell
+git show HEAD~1:scripts/dump.sql > dump.sql
+mysql -u newuser -p newpassword new_database < dump.sql
+```
+Log into the MySQL server to create user and grant permissions.
+```mysql
 #Create MySQL user:
 CREATE USER newuser@'localhost' IDENTIFIED BY 'newpassword';
 
@@ -52,7 +64,7 @@ GRANT SELECT ON new_database.* TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.genebaskets TO newuser@'localhost';
 GRANT INSERT,UPDATE,DELETE ON new_database.defaultgenebaskets TO newuser@'localhost';
 ```
-```newuser, newpassword and new_database``` will be used in plugins/settings.php similar to following example.
+```newuser, newpassword and new_database``` should be included in the plugins/settings.php similar to following example.
 ```php
 /*Define the databasename names*/
 $db_species_array=array("new_database"=>"new genome",...
@@ -65,11 +77,8 @@ $GLOBALS["base_url"]='http://localhost:3000/';
 ```
 **Loading tables**
 
-Following database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). You can [download](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql) and load tables into the newly created database using following commands.
-```shell
-git show HEAD~1:scripts/genie_db.sql > genie_db.sql
-mysql -u newuser -p newpassword new_database < genie_db.sql
-```
+Following database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). 
+
 **Please read the plugins/genelist to load customize datasets into the GenIE-CMS.**
 
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
