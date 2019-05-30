@@ -9,7 +9,7 @@ You can download the latest version of GenIECMS by using the official download l
 
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/download.png)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
-Please note that the above link download only the source code for GenIE-CMS. If you need to download for the parsing scripts, you can download it [here](https://github.com/irusri/scripts/archive/master.zip).
+Please note that the above link download only the source code for GenIE-CMS. If you need to download for the parsing scripts, you need to download it [here](https://github.com/irusri/scripts/archive/master.zip).
 
 If you prefer using the terminal please run to download both the CMS and parsing scripts:
 
@@ -30,7 +30,7 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
 php -S localhost:3000
 ```
-You should now be able to access GenIECMS at: ```http://localhost:3000/GenIECMS``` in your browser.
+You should now be able to access GenIECMS at: ```http://localhost:3000``` in your browser.
 
 ------------------------
 Installing GenIECMS on a Mac

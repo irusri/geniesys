@@ -6,7 +6,7 @@ GeneList
 
 GeneList is the heart of the GenIE-CMS; this will be the entry point to many of the tools and workflows. Foundation to entire CMS database has been designed based on GeneList tables. Tables that are started with *gene_* or *transcript_* prefixes are considered as GeneList tables. GeneList tables consist of two types of tables according to our vocabulary. The first one is primary tables and the second one is annotation tables. *transcript_info* and *gene_info* tables are considered as primary tables and rest of the GeneList tables are known as annotation tables.
 
-[![GeneList tables](https://github.com/irusri/GenIECMS/blob/master/docs/images/GeneList_v4.png?raw=true "GeneList tables")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GeneList_v4.png)
+[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/GeneList_v4.png?raw=true "GeneList tables")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GeneList_v4.png)
 
 **Primary tables**
 

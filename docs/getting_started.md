@@ -38,7 +38,7 @@ Database design
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]``` 
 
-[![GenIE Databases](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)
+[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)
 
 ```mysql
 #Create a database:
@@ -72,7 +72,7 @@ mysql -u newuser -p newpassword new_database < genie_db.sql
 ```
 **Please read the plugins/genelist to load customize datasets into the GenIE-CMS.**
 
-[![GenIE Database Design](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png "GenIE Database Design")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
+[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
 
 
 -------------------------
