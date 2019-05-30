@@ -94,6 +94,6 @@ All configuration settings in GenIECMS need to be added into ```/GenIECMS/plugin
 Plugins/Modules
 -------------------------
 
-Analysis, expression or genomic tools can be integreated into a CMS as an external plugin. Comprehensive plugin development guidelines can be found under the plugins section. GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) developed as part of other sub projects will be integrated as en external plugins to the GenIE-CMS. 
+Analysis, expression or genomic tools can be integreated into a CMS as external plugins. Detailed plugin development guidelines will be available under the [plugins section](https://geniecms.readthedocs.io/en/latest/plugins/index.html). GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) can be integrated as external plugins to the GenIE-CMS. 
 
 
