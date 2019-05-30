@@ -64,6 +64,7 @@ function updategenebasket($genearray)
     $genessendaddStringArray = array_unique($genearray);
     $genessendaddString      = implode(",", $genessendaddStringArray);
     $check                   = mysqli_query($genelist_connection,"select * from defaultgenebaskets where ip='$ip'");
+
     if (mysqli_num_rows($check) == 0) {
         // NO DEFAULT GENEBASKETS,INSTERED
         $initcounts = count($genessendaddStringArray);

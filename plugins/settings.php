@@ -24,7 +24,7 @@ global $db_url;
 $db_url=  array ('genelist'=>'mysqli://geniecms:geniepass@spruce.plantphys.umu.se/'.$selected_database);
 
 /*Define your base url with trailing slash*/
-$GLOBALS["base_url"]='http://crick.upsc.se/geniecms';
+$GLOBALS["base_url"]='http://localhost:3000';
 
 
 /*You dont need to change anything here*/
@@ -37,5 +37,5 @@ if ( isset($_SERVER["REMOTE_ADDR"]) )    {
     $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
 }
 
-$uuid =$_COOKIE['fingerprint'];
+$GLOBALS['uuid'] =$_COOKIE['fingerprint'];;
 ?>

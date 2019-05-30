@@ -18,7 +18,7 @@
          ?>
       <script type="application/javascript">
          var fp4 = new Fingerprint({screen_resolution: true,ie_activex: true,canvas: true});
-         setCookie('fingerprint',"GenIE"+fp4.get().toString(),7);
+         setCookie('fingerprint',"GenIE_"+fp4.get().toString(),7);
       </script>
       <script src="js/bootstrap.min.js"></script>
    </head>
@@ -91,7 +91,7 @@
          <script type="text/javascript">
             var color_array=<?php print json_encode($db_species_color_array)?>;
          </script>
-<iframe frameborder="0" height="0" scrolling="no" src="http://v22.popgenie.org/demo/service.php?id=new" width="0"></iframe>
+<!--<iframe frameborder="0" height="0" scrolling="no" src="http://v22.popgenie.org/demo/service.php?id=new" width="0"></iframe>-->
      <script type="text/javascript" src="js/onload_script.js"></script>
          <footer id="site_footer" style="width:100%" ><?php echo $c['copyright'] ." | $sig | $lstatus";?></footer>
 	   </div></div></br></br>
