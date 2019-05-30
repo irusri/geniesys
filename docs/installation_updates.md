@@ -7,7 +7,7 @@ Download & Requirements
 
 You can download the latest version of GenIECMS by using the official download link:
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](https://github.com/irusri/GenIECMS/archive/master.zip)
 
 If you prefer using the terminal please run:
 
@@ -47,7 +47,7 @@ By starting the MAMP app you are also starting your Apache and MySQL server. You
 
 **Download GenIECMS**
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](https://github.com/irusri/GenIECMS/archive/master.zip)
 
 **Copy GenIECMS to MAMP Web server**
 
@@ -67,7 +67,7 @@ You just need to download the xampp-xxx.exe, start the installer and follow the 
 
 **Download GenIECMS**
 
-[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](http://geniecms.org/latest/genie.zip)
+[![Download](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true "Download")](https://github.com/irusri/GenIECMS/archive/master.zip)
 
 **Copy GenIECMS to XAMPP Web server**
 
@@ -107,7 +107,7 @@ GenIECMS updates
 -----------------
 **Manual updates**
 
-GenIECMS can be updated manually using latest ZIP file from ```http://geniecms.org/latest/genie.zip```. Please backup your older version of  ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` into latest version of GenIECMS.
+GenIECMS can be updated manually using latest ZIP file from ```https://github.com/irusri/GenIECMS/archive/master.zip```. Please backup your older version of  ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` into latest version of GenIECMS.
 
 **Updates using Git**
 
