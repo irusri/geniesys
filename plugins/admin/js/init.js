@@ -42,8 +42,8 @@ function download_file(key,file_name){
             $("#db_name_2").html(file_name.split(".")[0].trim());
             $("#species_name").html(file_name.split(".")[0].trim());
             
-           $("#post_information").show();
-           $("#build_frame").hide();
+       //   $("#post_information").show();
+        //   $("#build_frame").hide();
            
 		}
 	});

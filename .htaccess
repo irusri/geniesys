@@ -2,6 +2,7 @@ RedirectMatch 403 ^.*/genie_files/
 ErrorDocument 403 &nbsp;
 RewriteEngine on
 Options -Indexes
+ServerSignature Off
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond $1#%{REQUEST_URI} ([^#]*)#(.*)\1$
