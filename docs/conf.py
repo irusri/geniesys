@@ -30,6 +30,8 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+import sphinx_bootstrap_theme
+
 extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.doctest','sphinxcontrib.contentui','recommonmark'] 
 from recommonmark.parser import CommonMarkParser
@@ -89,7 +91,8 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx-bootstrap-theme'
+html_theme = 'bootstrap'
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 #html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
