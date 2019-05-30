@@ -65,7 +65,7 @@ $GLOBALS["base_url"]='http://localhost:3000/';
 ```
 **Loading tables**
 
-Following database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). You can [download](https://raw.githubusercontent.com/irusri/GenIECMS/master/scripts/genie_db.sql) and load tables into the newly created database using following commands.
+Following database diagram shows the initial genie tables which are compatible with default GenIECMS tools(GeneList, gene information pages, autocomlete search and BLAST). You can [download](https://raw.githubusercontent.com/irusri/scripts/master/dump.sql) and load tables into the newly created database using following commands.
 ```shell
 git show HEAD~1:scripts/genie_db.sql > genie_db.sql
 mysql -u newuser -p newpassword new_database < genie_db.sql
