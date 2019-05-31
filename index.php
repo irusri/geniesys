@@ -7,8 +7,10 @@ define('SETTINGS', dirname(__FILE__). DS . 'plugins' . DS . 'settings.php');
 include_once(SETTINGS);
 //$subdirectory=str_replace($_SERVER['DOCUMENT_ROOT'],"",getcwd());
 $rp = (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF'])!="index.php")? basename($_SERVER['PHP_SELF']) : '';
+$rp = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 //$hostname='http://'.$_SERVER['HTTP_HOST']."/".$subdirectory;
 $c['hostname'] = $GLOBALS["base_url"];//$hostname;
+
 $c['password'] = 'admin';
 $c['loggedin'] = false;
 $c['page'] = 'home';

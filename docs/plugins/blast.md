@@ -35,7 +35,7 @@ Adding a dataset into BLAST tool we must use [formatdb](http://structure.usc.edu
 {
 "selecttion_box":[{"height":180,"width":400}],
 "datasets":[{
-   	 "number": 1,
+   	 	"number": 1,
         	"user_friendly_name": "A Label which appears in the Tool",
 		"dataset_path":"/path/to/the/blast/indices",
             	"molecule_type":"nucleotide/protein",
