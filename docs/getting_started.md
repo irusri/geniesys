@@ -82,7 +82,7 @@ Following database diagram shows the initial genie database architecture. It wil
 
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
 
-We have to to follow the [data loading](https://geniecms.readthedocs.io/en/latest/plugins/genelist.html) instructions to load data into the database tables.
+We have to to follow the [data loading](https://geniecms.readthedocs.io/en/latest/plugins/genelist.html) instructions in order to load data into the database tables.
 
 -------------------------
 Configuring genome database

@@ -1,5 +1,5 @@
-
 <?php 
+echo is_loggedin();
 $tmp_key=uniqid();
 setcookie('genie_key', $tmp_key);?>
 <iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="http://build.plantgenie.org/geniecms.php?key=<?php echo $tmp_key;?>">
