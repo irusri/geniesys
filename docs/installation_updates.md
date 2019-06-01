@@ -93,7 +93,7 @@ Please make sure that the root folder is also readable by the webserver.
 Whenever you have problems(can not open or  a server error) with subpages, you can try following steps.
 * Make sure that the .htaccess file is present inside GenIECMS folder.
 * mod_rewrite should be enabled on your server.
-* You need to check the .htaccess. You can test this by adding  some extra  characters into your .htaccess. If this cause an "Internal Server Error", the file gets loaded. Otherwise, you need to enable AllowOverride all in your Web server  configuration file. An example of ```.htaccess``file shown below.
+* You need to check the .htaccess. You can test this by adding  some extra  characters into your .htaccess. If this cause an "Internal Server Error", the file gets loaded. Otherwise, you need to enable AllowOverride all in your Web server  configuration file. An example of ```GenIECMS/.htaccess``` file shown below.
 
 ```
 RedirectMatch 403 ^.*/genie_files/
