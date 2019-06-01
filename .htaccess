@@ -8,4 +8,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond $1#%{REQUEST_URI} ([^#]*)#(.*)\1$
 RewriteRule ^([^\.]+)$ %2?page=$1 [QSA,L]
 ErrorDocument 404 /notfound.html
-

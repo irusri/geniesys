@@ -21,7 +21,7 @@ if (isset($_GET['q'])) {
 /*
  * Database connection from plugins/settings.php
  */	  
-$path= $_SERVER['DOCUMENT_ROOT']."/plugins/settings.php";
+$path= dirname(__FILE__)."/../../settings.php";
 include($path);
 $private_url = parse_url($db_url['genelist']);
 $GLOBALS["genelist_connection"]=mysqli_connect($private_url['host'], $private_url['user'], $private_url['pass'],str_replace('/', '', $private_url['path'])) or die(mysqli_error());

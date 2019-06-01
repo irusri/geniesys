@@ -1,0 +1,211 @@
+{
+    "selection_box":[{"height":420,"width":400}],	 
+    "datasets":[
+        {
+            "number": 1,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/Ptrichocarpa_210_hardmasked",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus trichocarpa(v3.0) Hardmasked"
+        },
+        {
+            "number": 2,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/Ptrichocarpa_210_softmasked",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus trichocarpa(v3.0) Softmasked"
+        },
+        {
+            "number": 3,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/Potra01_genome",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.0)"
+        },
+        {
+            "number": 4, 
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/potra11_genome",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.1)"
+        },
+        {
+            "number": 5,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/Potrs01_genome",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.0)"
+        },
+        {
+            "number": 6,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/potrs11_genome",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.1)"
+        },
+        {
+            "number": 7,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/P_tremuloides_x_P_tremula_T89_v0001",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides x Populus tremula-T89"
+        },
+        {
+            "number": 8,
+            "group_name": "Genomes",
+            "dataset_path":"/mnt/crick/data/beta_popgenie/blast/potra_v21/potra",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v2.1)"
+        },	
+        {
+            "number": 9,
+            "group_name": "Transcriptomes-Poplar genome annotations",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/v3.1/Ptrichocarpa_444_v3.1.transcript",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus trichocarpa(v3.0)"
+        },
+        {
+            "number": 10,
+            "group_name": "Transcriptomes-Poplar genome annotations",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/Potra01",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.0)"
+        },
+        {
+            "number": 11,
+            "group_name": "Transcriptomes-Poplar genome annotations",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/potra11_mrna",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.1)"
+        },
+        {
+            "number": 12,
+            "group_name": "Transcriptomes-Poplar genome annotations",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/Potrs01",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.0)"
+        },
+        {
+            "number": 13,
+            "group_name": "Transcriptomes-Poplar genome annotations",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/potrs11_mrna",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.1)"
+        },
+        {
+            "number": 14,
+            "group_name": "Transcriptomes-Poplar genome annotations",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/Potrx01_mRNA",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides x Populus tremula-T89(v1.0)"
+        },	
+        {
+            "number": 15,
+            "group_name": "Transcriptome assemblies - Populus tremula",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/Potra01_454_assembly",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.0) 454 assembly"
+        },
+        {
+            "number": 16,
+            "group_name": "Transcriptome assemblies - Populus tremula",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/Potra01_Pacbio_read",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.0) Pacbio read"
+        },
+        {
+            "number": 17,
+            "group_name": "Transcriptome assemblies - Populus tremula",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/Potra01_Trinity_assembly",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula(v1.0) Trinity assembly"
+        },
+        
+        {
+            "number": 18,
+            "group_name": "Coding Sequence(CDS)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/transcriptomes/v3.1/Ptrichocarpa_444_v3.1.cds",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus trichocarpa(v3.0)"
+        },	
+        {
+            "number": 19,
+            "group_name": "Coding Sequence(CDS)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/cds/Potrs01_CDS",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.0)"
+        },
+        {
+            "number": 20,
+            "group_name": "Coding Sequence(CDS)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/cds/potrs11_cds",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.1)"
+        },
+        {
+            "number": 21,
+            "group_name": "Coding Sequence(CDS)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/cds/Potra01_CDS",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.0)"
+        },
+        {
+            "number": 22,
+            "group_name": "Coding Sequence(CDS)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/cds/potra11_cds",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremuloides(v1.1)"
+        },
+        {
+            "number": 23,
+            "group_name": "UPSC Genomes Archive(<v0.99)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/cds/Pgrandidentatav0001",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus grandidentata"
+        },
+        {
+            "number": 24,
+            "group_name": "UPSC Genomes Archive(<v0.99)",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/cds/CLC_SwAsp014-002.scaffolds",
+            "molecule_type":"nucleotide",
+            "user_friendly_name":"Populus tremula (SWASP014)"
+        },
+        
+        {
+            "number": 25,
+            "group_name": "Protein",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/protein/Ptrichocarpa_444_v3.1.protein",
+            "molecule_type":"protein",
+            "user_friendly_name":"Populus trichocarpa protein(v3.0)"
+        },
+        {
+            "number": 26,
+            "group_name": "Protein",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/protein/potra_protein.fna",
+            "molecule_type":"protein",
+            "user_friendly_name":"Populus tremula protein(v1.0)"
+        },
+        {
+            "number": 27,
+            "group_name": "Protein",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/protein/potra11_protein",
+            "molecule_type":"protein",
+            "user_friendly_name":"Populus tremula protein(v1.1)"
+        },
+        {
+            "number": 28,
+            "group_name": "Protein",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/protein/Potrs01_mRNA",
+            "molecule_type":"protein",
+            "user_friendly_name":"Populus tremuloides protein(v1.0)"
+        },
+        {
+            "number": 29,
+            "group_name": "Protein",
+            "dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/protein/potrs11_protein",
+            "molecule_type":"protein",
+            "user_friendly_name":"Populus tremuloides protein(v1.1)"
+        }
+    ],
+    "default_jbrowse_dataset_directory":"Fptr"
+    }
