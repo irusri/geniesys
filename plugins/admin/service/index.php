@@ -33,8 +33,8 @@ function progressCallback( $download_size, $downloaded_size, $upload_size, $uplo
 sleep(2);
 
 $host='localhost';
-$user='admin';
-$pass='mypass';
+$user='root';
+$pass='root';
 $new_db_name = explode(".", $file_name)[0];
 
 $conn = mysqli_connect($host, $user, $pass);
@@ -51,8 +51,8 @@ echo "Record created successfully";
 }
 mysqli_close($conn);
 
-exec("mysql -u $user -p$pass $new_db_name < $file_name",$output);
+exec("mysql --host=$host -u $user -p$pass $new_db_name < $file_name",$output);
 
-exec("rm -r $file_name");
+//exec("rm -r $file_name");
 
 ?>

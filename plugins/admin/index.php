@@ -14,6 +14,6 @@ if(basename($_SERVER['REDIRECT_URL'])=="" && $_SERVER["REQUEST_URI"] =="/GenIECM
 //if(strtolower(basename(dirname(__FILE__)))== strtolower($subdir_arr[count($subdir_arr)-1]) && $menu_exist==true){
 	$c['initialize_tool_plugin']=true;
 	$c['tool_plugin']="admin";//strtolower($subdir_arr[count($subdir_arr)-1]);
-	echo $lstatus;
+	
 }
 ?>

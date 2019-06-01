@@ -1,9 +1,15 @@
 <?php 
 $tmp_key=uniqid();
 setcookie('genie_key', $tmp_key);?>
-
+<div>
+</div>
 <iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="http://build.plantgenie.org/geniecms.php?key=<?php echo $tmp_key;?>">
 </iframe>
+
+<br>
+
+
+
 <script src="plugins/admin/js/init.js" type="application/javascript"></script>
 <div id="post_information" style="display:none">
 You can access the database in using <a target="_blank" href="http://localhost/phpmyadmin">phpMyAdmin</a><br>
@@ -20,5 +26,10 @@ $GLOBALS["base_url"]='http://localhost';
 </pre>
 Further customisation please go to CMS documentation <a target="_blank" href="https://geniecms.readthedocs.io/en/latest">https://geniecms.readthedocs.io/en/latest/</a>
 </div>
+
+
+
+
+
 <?php if(is_loggedin()) { ?>
 <?php } ?>
