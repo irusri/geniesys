@@ -9,7 +9,7 @@ You can download the latest version of GenIECMS by using the official download l
 
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/download.png)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
-Please note that the above link download only the source code for GenIE-CMS. If you need to download for the parsing scripts, you need to download it [here](https://github.com/irusri/scripts/archive/master.zip).
+Please note that the above link will onlu download the source code for the GenIE-CMS. If you need to download the parsing scripts, you need to download it [here](https://github.com/irusri/scripts/archive/master.zip).
 
 If you prefer using the terminal please run to download both the CMS and parsing scripts:
 
@@ -53,7 +53,7 @@ By starting the MAMP app you are also starting your Apache and MySQL server. You
 
 **Copy GenIECMS to MAMP Web server**
 
-You will find the source of GenIECMS in your download folder. So you just need to Copy GenIECMS folder into corresponding ```~/Applications/MAMP/htdocs/ folder```.
+You will find the source of GenIECMS in your download folder. So you just need to Copy GenIECMS folder into corresponding ```~/Applications/MAMP/htdocs/``` folder.
 
 That is basically what you need to do in order to install GenIECMS on your Mac's local server. You should now be able to access it at: ```http://localhost:8888/GenIECMS``` in your browser.
 
@@ -72,6 +72,7 @@ $GLOBALS["base_url"]='http://localhost:3000';
 
 ```
 
+Next, we need to create a MySQL database and load our data.
 
 ------------------------
 Troubleshooting
