@@ -1,14 +1,13 @@
 <?php
 
 //require_once 'checkinitialid.php';
-
 header('Cache-Control: no-cache');
 header('Pragma: no-cache');
 
 /*
  * Database connection from plugins/settings.php 
  */	  
-$path= $_SERVER['DOCUMENT_ROOT']."/plugins/settings.php";
+$path= dirname(__FILE__)."/../../settings.php";
 include_once($path);
 $private_url = parse_url($db_url['genelist']);
 $GLOBALS["genelist_connection"]=mysqli_connect($private_url['host'], $private_url['user'], $private_url['pass'],str_replace('/', '', $private_url['path'])) or die(mysqli_error());
@@ -49,22 +48,10 @@ $g = 0;
 while ($rowPROBE_ID = mysqli_fetch_array($resultPROBE_ID)) {
 				$ttid=$children[$g]->TranscriptName=$rowPROBE_ID['gene_id'];
 			$children[$g]->description=limit($rowPROBE_ID['description']);
-		
-			
-				
 				$ret[] = $children[$g];
 				$g++;
 				}
-				
-				//if($ret==null){
-					//$ret=array('TranscriptName'=>'no results!');
-					
-					//}
-				
-				
 	return $ret;
-
-	
 
 }
 

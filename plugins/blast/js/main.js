@@ -14,18 +14,18 @@ function populate_datasets() {
                 $select.html('');
                 $.each(data.datasets, function(key, cat) {
                     var option = "<option  value='" + cat.number + "'>" + cat.user_friendly_name + "</option>";
-                    // if (cat.hasOwnProperty("group_name")) { text="+cat.dataset_path+"
                     var group = cat.group_name;
                     if ($("#database_type option:selected").val().match(/blastn|tblastn|tblastx/g) && cat.molecule_type == "nucleotide") {
                         if ($select.find("optgroup[label='" + group + "']").length === 0) {
                             $select.append("<optgroup label='" + group + "' />");
                         }
                         $select.find("optgroup[label='" + group + "']").append(option);
-						 $("#protein_btn").hide();
+						$("#protein_btn").hide();
 						$("#genomic_btn").show();
 						$("#transcript_btn").show();
 						$("#cds_btn").show();
                     }
+                    
                     if ($("#database_type option:selected").val().match(/^blastx|blastp/g) && cat.molecule_type == "protein") {
                         if ($select.find("optgroup[label='" + group + "']").length === 0) {
                             $select.append("<optgroup label='" + group + "' />");
@@ -44,9 +44,7 @@ function populate_datasets() {
         $select.append(option);
     }  
 	*/
-				
-					
-					//$("#database_type option[value=blstp]").prop("selected", true);
+				    //$("#database_type option[value=blstp]").prop("selected", true);
                    $("#Datasets option:selected").prop("selected", false);
                    $("#Datasets option:first").prop("selected", "selected");
                 });
@@ -57,7 +55,7 @@ function populate_datasets() {
         });
 	
 		if(blast_program=="blastp"){
-						document.getElementById("database_type").value="blastp";
+            document.getElementById("database_type").value="blastp";
 			blast_program="";
 		}
 

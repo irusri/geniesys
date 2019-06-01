@@ -1,0 +1,136 @@
+/*canvas
+{
+    border : 1px solid #333;
+    box-sizing: border-box;
+}*/
+
+/*.pc-container:after
+{
+    content: 'PhyloCanvas';
+    position: absolute;
+
+    color: #EEE;
+
+    font-size: 30pt;
+    font-family: sans-serif;
+
+    bottom: 0.25em;
+    right: 0.25em;
+}*/
+
+.pc-history
+{
+
+    position : absolute;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    box-sizing : border-box;
+    /*border : 1px solid #CCCCCC;*/
+    width : 20%;
+    overflow-x: hidden;
+    overflow-y : auto;
+    background: #EEE;
+	
+
+}
+
+.pc-history .toggle
+{
+
+    position : absolute;
+    top: 10px;
+    right: 0px;
+
+    padding : 5px 10px;
+
+    cursor: pointer;
+
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+
+    background-color : #CCCCCC;
+    color:#FFFFFF;
+}
+
+.pc-history.collapsed .toggle
+{
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.pc-history .toggle:hover
+{
+    background-color : #FFF;
+    color:#CCC;
+}
+
+.pc-history.collapsed
+{
+    width:30px;
+}
+
+.pc-history.collapsed img
+{
+    display : none;
+}
+
+/*.pc-history:before
+{
+    content: 'History';
+    transform: rotate(-90deg);
+    color : white;
+    position: absolute;
+
+    font-size: 30pt;
+    font-family: sans-serif;
+
+    text-shadow: 1px 1px #CCC, -1px -1px #CCC, -1px 1px #CCC, 1px -1px #CCC;
+
+    bottom: 1em;
+    left: -1em;
+}*/
+
+.pc-history img
+{
+    border: 1px solid #CCC;
+    cursor: pointer;
+
+    width: 100%;
+
+    box-sizing : border-box;
+
+    transition: background-color 0.25s ease;
+}
+
+.pc-history img:hover
+{
+    background-color: white;
+}
+
+.pc-toolbar
+{
+    position : absolute;
+    top: 0px;
+    right : 10px;
+    z-index : 1;
+}
+
+.pc-toolbar div
+{
+    display: block;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+
+.pc-toolbar .btn
+{
+    width : 120px;
+}
+
+.pc-toolbar .btn-group
+{
+    margin-left:0px;
+}

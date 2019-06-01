@@ -9,7 +9,6 @@ $blast_string="";
 <script type="text/javascript">
             var blast_program=<?php print json_encode($_POST['program'])?>;
 </script>
-<span style="float: right;color: red">&copy;</span>
 <link rel='stylesheet' href="plugins/blast/css/blast.css" /> 
 <div id="blast_content">
     <form method="post" id="genie_blast_form"  >
