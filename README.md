@@ -7,10 +7,11 @@
 |----------|----------|
 |    <a href="https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
 
-<aside class="warning">
+<aside class="notice">
 Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the CMS features.
 </aside>
-```
+
+```shell
 git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
 php -S localhost:3000
