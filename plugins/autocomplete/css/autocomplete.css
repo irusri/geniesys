@@ -1,5 +1,5 @@
  .ui-autocomplete-loading {
-    background: white url('../../../../plugins/autocomplete/images/ui-anim_basic_16x16.gif') right center no-repeat;
+    background: white url('../../../plugins/autocomplete/images/ui-anim_basic_16x16.gif') right center no-repeat;
 	z-index:90000;
 
 

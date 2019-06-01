@@ -8,7 +8,6 @@ include_once(SETTINGS);
 $rp = (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF'])!="index.php")? basename($_SERVER['PHP_SELF']) : '';
 $rp = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $c['hostname'] = $GLOBALS["base_url"];//$hostname;
-
 $c['password'] = 'admin';
 $c['loggedin'] = false;
 $c['page'] = 'home';

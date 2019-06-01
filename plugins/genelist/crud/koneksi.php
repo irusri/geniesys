@@ -1,7 +1,8 @@
 <?php
 $path= dirname(__FILE__)."/../../settings.php";
-//$path = $_SERVER['DOCUMENT_ROOT'];
-//$path .= "/plugins/settings.php";
+//$pathA= $_SERVER['DOCUMENT_ROOT']."/plugins/settings.php";
+//$pathB= dirname(__FILE__)."/../../../settings.php";
+//if(file_exists($pathA)){$path=$pathA;}else{$path=$pathB;}
 include_once($path);
 global $db_url;
 global $genelist_connection;
