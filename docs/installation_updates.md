@@ -22,18 +22,6 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 * PHP 5.4+
 
 ------------------------
-Running from Command Line
-------------------------
-When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
-
-```
-git clone --recursive https://github.com/irusri/GenIECMS.git
-cd GenIECMS
-php -S localhost:3000
-```
-You should now be able to access GenIECMS at: ```http://localhost:3000``` in your browser.
-
-------------------------
 Installing GenIECMS on a Mac
 ------------------------
 Most Mac users will probably try GenIECMS with MAMP.  
@@ -74,6 +62,7 @@ $GLOBALS["base_url"]='http://localhost:3000';
 ```
 
 Next, we need to create a MySQL database and load our data.
+
 
 ------------------------
 Troubleshooting
@@ -164,6 +153,18 @@ docker attach 890fa15eeef6126b668f4b0fcb7a38b33eaff0
 ```
 
 Now we can start the real development and push changes into genie.
+
+------------------------
+Running from Command Line
+------------------------
+When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
+
+```
+git clone --recursive https://github.com/irusri/GenIECMS.git
+cd GenIECMS
+php -S localhost:3000
+```
+You should now be able to access GenIECMS at: ```http://localhost:3000``` in your browser.
 
 
 
