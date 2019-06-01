@@ -10,7 +10,7 @@ if(isset($uuid)){
 	if(file_exists($tmp_resultfile) && filesize($tmp_resultfile) > 0) {
 		$tmp_table=blast_result_xml($tmp_resultfile);
 		//echo getcwd();
-          if(file_exists($tmp_resultfile.'.html')==false){
+      if(file_exists($tmp_resultfile.'.html')==false){
       		exec('perl scripts/htmlwriter.pl '.$tmp_resultfile.' > '.$tmp_resultfile.'.html'); 
           ##BLAST to gff3
           exec('perl scripts/parseBlastBestHitLocSeq.pl '.$tmp_resultfile.' > '.$tmp_resultfile.'.tab');
@@ -20,13 +20,14 @@ if(isset($uuid)){
           //unlink($tmp_resultfile.'.tab');
           ##BLAST2 gff3
       		if( $program!= 'blastp' && $program != 'tblastn'  ){
-      		//	exec('xsltproc --novalid blast2svg2.xsl '.$tmp_resultfile.' > '.$tmp_resultfile.'.svg '); 
+      			exec('xsltproc --novalid blast2svg2.xsl '.$tmp_resultfile.' > '.$tmp_resultfile.'.svg '); 
       		}
-         }
+        }
 		delete_old_files();
     $read_map=file_get_contents($tmp_resultfile.".txt");
 	
-	$config_path = file_get_contents("../config.json");
+
+	$config_path = file_get_contents($_SERVER['DOCUMENT_ROOT']."/plugins/config.json");
 	$json_path = json_decode($config_path, true);
 	$replacements=$json_path['default_jbrowse_dataset_directory'];
 	$read_map2= str_replace("jbrowse_dataset_directory", $replacements, $read_map);

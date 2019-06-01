@@ -35,7 +35,7 @@
          <header>
             <img id="logo_img" style="margin-left:8%;padding-top:4px;cursor:pointer;background-color:#FFF;padding-left:4px;;padding-right:4px;opacity:0.9"
             onClick="location.href='<?php echo $c['hostname']?>';" src="themes/<?php echo $c['themeSelect']?>/images/logo2.png"/>
-<?php  if(is_dir('plugins/autocomplete')==true){  include_once("plugins/autocomplete/autocompletesearch2.php");}?> 
+<?php  if(is_dir('plugins/autocomplete')==true){  include_once("plugins/autocomplete/autocompletesearch.php");}?> 
          </header>
 
          <div id="bg_content" style="width:86%;margin-left: 8%;margin-right: 6%;background-color:#FFF;background:#FFF;">

@@ -86,7 +86,7 @@ my $infile = shift or die "Usage: $0 <BLAST-report-file>\n       HTML output is 
 					  );
 					$graph->add_track(
 									   $full_length,
-									   -description => 'Top 20 hits',
+									   -description => 'Top 50 hits',
 									   -glyph   => 'arrow',
 									   -tick    => 2,
 									   -fgcolor => 'black',
@@ -96,7 +96,7 @@ my $infile = shift or die "Usage: $0 <BLAST-report-file>\n       HTML output is 
 					my $track = $graph->add_track(
 						-glyph       => 'graded_segments',
 						-label       => 1,
-						-feature_limit => 20,
+						-feature_limit => 50,
 						-connector   => 'dashed',
 						-bgcolor     => 'blue',
 						-font2color  => 'red',
@@ -115,7 +115,7 @@ my $infile = shift or die "Usage: $0 <BLAST-report-file>\n       HTML output is 
 						$hitname =~ s/lcl\|//;
 						my $description = $hit->description;
 						$description =~ s/No definition line found//;
-						if ( $hit && $i < 20 ) {
+						if ( $hit && $i < 50 ) {
 							$i++;
 							my $feature =
 							  Bio::SeqFeature::Generic->new(-score        => $hit->significance,

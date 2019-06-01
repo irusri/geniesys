@@ -1,0 +1,91 @@
+BLASTN blastn 2.2.26 [Sep-21-2011]
+
+
+~Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, ~Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), ~"Gapped BLAST and PSI-BLAST: a new generation of protein database search~programs",  Nucleic Acids Res. 25:3389-3402.
+Query= No definition line found
+       (276 letters)
+
+Database: /mnt/crick/data/beta_congenie/blast/piabi_v10/nucleotides/Pabies1.0-genome.fa 
+           10,253,694 sequences; 12,301,351,591 total letters
+
+                                                                 Score       E
+Sequences producing significant alignments:                      (bits)    value
+ref|MA_394599| len=6456                                             545.64  1.71689e-152
+ref|MA_10428528| len=11160                                          434.628  4.49398e-119
+
+
+>ref|MA_394599| len=6456
+         Length = 6456
+
+ Score = 545.64 bits (275), Expect = 1.71689e-152
+ Identities = 275/275 (100%)
+ Frame =  +1 / +1
+
+Query: 1    ATGGCTTCCAAAGTTGCAGGATGGATAAGCGTTTTGGCACTATGCAGTCTGCTTGTGGCT 60
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct: 4711 ATGGCTTCCAAAGTTGCAGGATGGATAAGCGTTTTGGCACTATGCAGTCTGCTTGTGGCT 4770
+
+Query: 61   GTATTTCAGGTGGCGGGCGTTTCAGCACAGACGCAGAGCAATACATACACGACGTACAAT 120
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct: 4771 GTATTTCAGGTGGCGGGCGTTTCAGCACAGACGCAGAGCAATACATACACGACGTACAAT 4830
+
+Query: 121  GACTACAACCCGTCCGCCAATAATTACGCCCTGGACGGCCTCTACTGCGCAACATATGAC 180
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct: 4831 GACTACAACCCGTCCGCCAATAATTACGCCCTGGACGGCCTCTACTGCGCAACATATGAC 4890
+
+Query: 181  TCTGATCAGTCCCTGCAGTGGCGCAGCCAGTACTACTGGACCGCCTTCTGTGGCCAAGCT 240
+            |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
+Sbjct: 4891 TCTGATCAGTCCCTGCAGTGGCGCAGCCAGTACTACTGGACCGCCTTCTGTGGCCAAGCT 4950
+
+Query: 241  GGCGGTCCCATGGGGCCTTCCTTGTGCGGGAAGTG 275
+            ||||||||||||||||||||||||||||||||||| 
+Sbjct: 4951 GGCGGTCCCATGGGGCCTTCCTTGTGCGGGAAGTG 4985
+
+
+>ref|MA_10428528| len=11160
+         Length = 11160
+
+ Score = 434.628 bits (219), Expect = 4.49398e-119
+ Identities = 261/275 (94%)
+ Frame =  +1 / -1
+
+Query: 1     CACTTCCCGCACAAGGAAGGCCCCATGGGACCGCCAGCTTGGCCACAGAAGGCGGTCCAG 60
+             ||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||  
+Sbjct: 10720 CACTTCCCGCACAAGGAAGGCCCCATGGGACCGCCAGCTTGGCCACAGAAGGCAGTCCAT 10661
+
+Query: 61    TAGTACTGGCTGCGCCACTGCAGGGACTGATCAGAGTCATATGTTGCGCAGTAGAGGCCG 120
+             | ||||||||||||||||||||||||||||||||||||||||||||||||||| |||||| 
+Sbjct: 10660 TTGTACTGGCTGCGCCACTGCAGGGACTGATCAGAGTCATATGTTGCGCAGTACAGGCCG 10601
+
+Query: 121   TCCAGGGCGTAATTATTGGCGGACGGGTTGTAGTCATTGTACGTCGTGTATGTATTGCTC 180
+             ||||||||||||||||||||||| |||||||||| ||||||||| ||||| ||||||||| 
+Sbjct: 10600 TCCAGGGCGTAATTATTGGCGGAAGGGTTGTAGTTATTGTACGTAGTGTACGTATTGCTC 10541
+
+Query: 181   TGCGTCTGTGCTGAAACGCCCGCCACCTGAAATACAGCCACAAGCAGACTGCATAGTGCC 240
+             ||||| |||||||||||||||| ||||||||||||||| |||||||||||||| |||||| 
+Sbjct: 10540 TGCGTTTGTGCTGAAACGCCCGTCACCTGAAATACAGCAACAAGCAGACTGCAGAGTGCC 10481
+
+Query: 241   AAAACGCTTATCCATCCTGCAACTTTGGAAGCCAT 275
+             ||||||| ||||||||||||||||||||| ||||| 
+Sbjct: 10480 AAAACGCCTATCCATCCTGCAACTTTGGATGCCAT 10446
+
+
+  Database: /mnt/crick/data/beta_congenie/blast/piabi_v10/nucleotides/Pabies1.0-genome.fa 
+    Posted date:  May 23, 2019 11:41 AM
+	Number of letters in database: 12,301,351,591
+	Number of sequences in database: 10,253,694
+
+  Matrix: 
+  Gap Penalties Existence: 5, Extension: 2
+filter: F
+match: 1
+mismatch: -3
+expect: 0.001
+Search Statistics
+effectivespace: 3.08194e+12
+entropy: 1.30725
+hsplength: 21
+kappa: 0.710603
+lambda: 1.37406
+
+

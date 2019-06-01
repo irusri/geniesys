@@ -1,0 +1,1 @@
+fastacmd  -p F -d '/mnt/crick/data/beta_congenie/blast/piabi_v10/nucleotides/Pabies1.0-genome.fa ' -o ../tmp/7680c05b5d6c49a9b90d1818a3c291d0.fasta -s
