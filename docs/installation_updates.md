@@ -24,7 +24,8 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 ------------------------
 Running from Command Line
 ------------------------
-When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS.
+When you have already installed PHP 5.4 or higher version into your **nix* support computer, just use following lines to install GenIECMS. This is only for the initial test installation, in order to make a full functional website you have to install WebServer packege like MAMP or MAMP.
+
 ```
 git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
