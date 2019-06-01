@@ -124,7 +124,7 @@ git submodule foreach --recursive git checkout master
 git submodule foreach --recursive git pull
 ```
 -----------------
-Docker installation
+Docker installation - For Developers and Contricutors
 -----------------
 ```
 # Please comment the supporting_files/run.sh line to avoid download the geniecms.git  
