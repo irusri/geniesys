@@ -120,7 +120,9 @@ function genie_menu(){
                 if(substr($page,0,1)!="-"){
                         $menu_items= "<li><a target='_parent' href='".$hostname.$page."'>".str_replace('-',' ',$page)."</a></li>";
                 }else{
-                        $page_display=str_replace("_"," ",$page);
+						$page_display=str_replace("_"," ",$page);
+					
+						if($page=="-GeneList"){$page='?_term=cellulose';}
                         $menu_items= "<ul><li><a target='_parent' href='".$hostname.str_replace('-','',$page)."'>".str_replace('-',' ',$page_display)."</a></li></ul>";
                 }
                 $contact_menu_items.=$menu_items;
