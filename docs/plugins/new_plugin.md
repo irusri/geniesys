@@ -4,7 +4,7 @@ How to create a plugin?
 
 **How to create a plugin**
 
-GenIECMS plugin can start as a simple file with a PHP function. All plugins are being installed in /GenIECMS/plugins. The only requirement for a plugin is that the foldername has to be the same as the menu name and index.php php file should be available inside the plugin folder.
+GenIECMS plugin can start as a simple file with a PHP function. All plugins are being installed in ```/GenIECMS/plugins```. The only requirement for a plugin is that the foldername has to be the same as the menu name and ```index.php php``` file should be available inside the plugin folder.
 ```shell
 /GenIECMS/plugins/{pluginname}/index.php
 /GenIECMS/plugins/{pluginname}/tool.php
@@ -41,6 +41,7 @@ if(strtolower(basename(dirname(__FILE__)))== strtolower($subdir_arr[count($subdi
 echo "Hello World!";
 ?>
 ```
-4.) Log into the system and add hello into the menu like shown in following figure 1.0.
+4.) Log into the system and add hello into the menu like shown in following figure.
+[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/login_screen.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/login_screen.png)
 
-4.) Navigate to http://[server name]/GenIECMS/hello_world
+4.) Navigate to ```http://[server name]/GenIECMS/hello_world```
