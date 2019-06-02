@@ -33,8 +33,8 @@
             </div>
          </div>
          <header>
-            <img id="logo_img" style="margin-left:8%;padding-top:4px;cursor:pointer;background-color:#FFF;padding-left:4px;;padding-right:4px;opacity:0.9"
-            onClick="location.href='<?php echo $c['hostname']?>';" src="themes/<?php echo $c['themeSelect']?>/images/plantgenie_logo.png"/>
+            <img id="logo_img" style="margin-left:8%;padding-top:4px;cursor:pointer;background-color:#FFF;padding-left:4px;;padding-right:4px;opacity:0.9;"
+            height="50%" onClick="location.href='<?php echo $c['hostname']?>';" src="themes/<?php echo $c['themeSelect']?>/images/plantgeine_logo.png"/>
 <?php  if(is_dir('plugins/autocomplete')==true){  include_once("plugins/autocomplete/autocompletesearch.php");}?> 
          </header>
 
