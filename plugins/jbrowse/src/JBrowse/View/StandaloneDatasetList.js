@@ -16,7 +16,7 @@ return declare( _WidgetBase, {
        this.inherited(arguments);
 
        var bdy = this.domNode;
-       var h2  = bdy.appendChild( document.createElement('h2') );
+       var h2  = bdy.appendChild( document.createElement('h3') );
        h2.innerHTML = "Available Datasets";
        this.containerNode = bdy.appendChild( document.createElement('ul') );
        var datasets = this.get('datasets');
