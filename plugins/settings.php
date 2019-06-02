@@ -1,7 +1,7 @@
 <?php
 /*Here you can listed genie databases that you are going to use for different genomes and their corresponding species names. eg: "database_1" => "species 1",*/
 global $db_species_array;
-$db_species_array=array("egrandis_demos"=>"species 1","egrandis_demos"=>"species 2");
+$db_species_array=array("egrandis_demo"=>"species 1","egrandis_demo"=>"species 2");
 
 /*Here you can listed background colors correspond to each species. eg: "database_1" => "#FF0000",*/
 global $db_species_color_array;
@@ -25,7 +25,7 @@ $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected
 //$db_url=  array ('genelist'=>'mysqli://geniecms:geniepass@spruce.plantphys.umu.se/'.$selected_database);
 
 /*Define your base url with trailing slash*/
-$GLOBALS["base_url"]='http://localhost:8888/GenIECMS/';
+$GLOBALS["base_url"]='http://localhost:'.$_SERVER['SERVER_PORT'].'/GenIECMS/';
 
 //Settings SQL modes here, allows for disabling the default STRICT_TRANS_TABLES  which prevents PHP from inserting '' in auto_increment fields.
 $db_settings['modes'] = "ONLY_FULL_GROUP_BY,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";
