@@ -43,6 +43,7 @@ $("#myModal").on("shown.bs.modal", function(e) {
 $("#myModal").on("hide.bs.modal", function(e) {
   location.reload();
   $("#myModal").hide();
+  window.location.href =  window.location.href.split("?")[0]; 
   // location.href ="https://geniecms.org/demo"
 });
 $(document).on("hidden.bs.modal", function(e) {
