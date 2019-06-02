@@ -1,22 +1,6 @@
 <!--<button  type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 --><div  type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#"></a></div>
 <?php
-
-/*if ( isset($_SERVER["REMOTE_ADDR"]) )    {
-    $ip = '' . $_SERVER["REMOTE_ADDR"] . '';
-} else if ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )    {
-    $ip = '' . $_SERVER["HTTP_X_FORWARDED_FOR"] . '';
-} else if ( isset($_SERVER["HTTP_CLIENT_IP"]) )    {
-    $ip = '' . $_SERVER["HTTP_CLIENT_IP"] . '';
-}
-global $user;
-if($user->uid!=$_COOKIE['fingerprint']){
-$expire=time()+ 86400 * 1;//however long you want
-$popuuid=$user->uid;
-$myDomain = ereg_replace('^[^\.]*\.([^\.]*)\.(.*)$', '\1.\2', $_SERVER['HTTP_HOST']);
-$setDomain = ($_SERVER['HTTP_HOST']) != "localhost" ? ".$myDomain" : false;
-setcookie ("fingerprint", $popuuid, $expire, '/', $setDomain, 0 );
-}*/
 ?>
 <!--<div id="test-popup" class="white-popup mfp-hide"> @import "sites/all/themes/admire_grunge/genelist/css/demo_page.css";-->
 <style type="text/css">
