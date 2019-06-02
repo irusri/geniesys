@@ -360,6 +360,12 @@ function updategenebasket() {
     success: function(hasil) {
       var numberc = pad2(hasil).replace(/\s/g, "");
       //console.log(document.getElementById("numberofgenesSpan"))
+      if (document.getElementById("numberofgenesSpan") == null) {
+        toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-bottom-right","onclick": null,"showDuration": "100","hideDuration": "100","timeOut": "4000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
+        toastr.error('Please go to the plugins/settings.php file and add correct database details.', 'Database error..');
+      }
+
+
       if (document.getElementById("numberofgenesSpan") != null) {
         document.getElementById("numberofgenesSpan").innerHTML = numberc;
       }

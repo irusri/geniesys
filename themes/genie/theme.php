@@ -21,6 +21,8 @@
          setCookie('fingerprint',"GenIE_"+fp4.get().toString(),7);
       </script>
       <script src="js/bootstrap.min.js"></script>
+      <script src='plugins/genelist/genelist/js/toastr.min.js'></script>
+      <link rel="stylesheet" href="plugins/genelist/genelist/css/toastr.min.css" type="text/css" media="all">
    </head>
    <body>
 
