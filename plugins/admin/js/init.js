@@ -30,7 +30,7 @@ function find_dump_file(){
 
 function download_file(key,file_name){
     //console.log("download",key,file_name);
-    var finalvarx= "key="+key+"&file_name="+file_name;
+    var finalvarx= "key="+key+"&file_name="+file_name+".sql";
 	$.ajax({
 		type: "POST",
 		url: "plugins/admin/service/index.php",

@@ -1,0 +1,521 @@
+
+   
+   .hide {
+     display: none;
+   }
+   
+   .mmo-messaging {
+     margin: 40px 0 0 0;
+     position: relative;
+     top: -12px;
+   }
+   
+   h1 {
+    /* color: #455a65;*/
+     font-size: 24px;
+     font-weight: 400;
+     margin: 0 0 20px 0;
+   }
+   
+   /*.mmo-state-01 h1#headline-01:before {
+     content: "Select a species";
+   }
+   
+   .mmo-state-01 h1#headline-02:before {
+     content: "Complete Visibility";
+   }
+   
+   .mmo-state-02 h1#headline-01:before {
+     content: "Automate Your Workflow";
+   }
+   
+   .mmo-state-02 h1#headline-02:before {
+     content: "Never Type In A Tracking Number Again";
+   }
+   
+   .mmo-state-03 h1#headline-01:before {
+     content: "Peace Of Mind For Road Warriors";
+   }
+   
+   .mmo-state-03 h1#headline-02:before {
+     content: "Color Coded Status";
+   }*/
+   
+   p {
+     color: #90a4af;
+     font-size: 18px;
+     margin: 0 0 40px 0;
+     padding: 0 40px;
+   }
+   
+   .mmo-state-01 p#message-01 {
+     margin: 0 30px 40px 30px;
+   }
+   
+   .mmo-state-01 p#message-02 {
+     margin: 0 120px 40px 120px;   
+   }
+   
+   .mmo-state-02 p#message-01 {
+     margin: 0 140px 40px 140px;
+   }
+   
+   .mmo-state-02 p#message-02 {
+    /* margin: 0 140px 40px 140px;*/
+   }
+  
+
+   
+
+   .mmo-state-03 p#message-01 {
+   /*  margin: 0 130px 40px 130px;*/    text-align: left;
+   }
+   
+   .mmo-state-03 p#message-02 {
+    /* margin: 0 140px 40px 140px;*/ text-align: left;
+   }
+   
+   /*.mmo-state-01 p#message-01:before {
+     content: "Mimeo Tracking gives customers back even more time, eliminating the need to manually check tracking numbers.";
+   }
+   
+   .mmo-state-01 p#message-02:before {
+     content: "Know where your packages are, every step along their journey.";
+   }
+   
+   .mmo-state-02 p#message-01:before {
+     content: "Access the status of every shipment, all in one place.";
+   }
+   
+   .mmo-state-02 p#message-02:before {
+     content: "View real time status of all orders on one screen.";
+   }
+   
+   .mmo-state-03 p#message-01:before {
+     content: "Enables travelers to easily check status remotely on any device.";
+   }
+   
+   .mmo-state-03 p#message-02:before {
+     content: "View and filter individual shipments by status.";
+   }*/
+   
+   button {
+     background: #0dabf7;
+     border: none;
+     border-radius: 4px;
+     color: #fff;
+     cursor: pointer;
+     font-size: 24px;
+     font-weight: 300;
+     height: 56px;
+     min-width: 56px;
+   }
+   
+   button:focus {
+     outline: none;
+   }
+   
+   button i.material-icons {
+     font-size: 48px;
+     text-align: center;
+     margin: 2px 0 0 0;
+     position: relative;
+   }
+   
+   button.mmo-modal-close {
+     background: none;
+   }
+   
+   .mmo-button-group-container {
+     bottom: 20px;
+     left: 50%;
+     margin-left: -113px;
+     position: absolute;
+   }
+   
+   .mmo-button-group {
+     align-self: flex-end;
+     display: flex;
+     justify-content: space-between;
+     width: 226px;
+   }
+   
+   .mmo-button-disabled {
+     background: #eceff1;
+     color: #000000;
+   }
+   
+   .mmo-state-02 #btn-left,
+   .mmo-state-03 #btn-left {
+     background: #0dabf7;
+   }
+   
+   .mmo-state-03 #btn-right {
+     background: #50ad47;
+   }
+   
+   .mmo-state-03 #btn-right:after {
+     content: "Let's Go!";
+     padding: 0 23px;
+   }
+   
+   .mmo-state-03 #btn-right i {
+     display: none;
+   }
+   
+   .mmo-modal-close {
+     color: rgba(255, 255, 255, 0.5);
+     font-size: 40px;
+     position: absolute;
+     right: 0;
+     z-index: 1;
+   }
+   
+   .mmo-state-02 #btn-left:hover,
+   .mmo-state-03 #btn-left:hover {
+     background: #3ebcf9;
+   }
+   
+   .mmo-state-02 #btn-left:hover:active,
+   .mmo-state-03 #btn-left:hover:active {
+     background: #078bca;
+   }
+   
+   .mmo-state-01 #btn-right:hover,
+   .mmo-state-02 #btn-right:hover {
+     background: #3ebcf9;
+   }
+   
+   .mmo-state-03 #btn-right:hover {
+     background: #6ec067;
+   }
+   
+   .mmo-state-01 #btn-right:hover:active,
+   .mmo-state-02 #btn-right:hover:active {
+     background: #078bca;
+   }
+   
+   .mmo-state-03 #btn-right:hover:active {
+     background: #3f8938;
+   }
+   
+   .mmo-modal-close:hover {
+     color: rgba(255, 255, 255, 0.75);
+   }
+   
+   .mmo-modal-close:hover:active {
+     color: rgba(255, 255, 255, 0.9);
+   }
+   
+   .mmo-modal--tracking-intro {
+       background: #fff;
+       border-radius: 4px;
+       box-shadow: 0 0 200px #0dabf747;
+       height: 800px;
+       margin: auto;
+       max-width: 600px;
+       overflow: hidden;
+       position: relative;
+   }
+   
+   .mmo-modal--tracking-intro .mmo-illustration--clouds,
+   .mmo-modal--tracking-intro .mmo-illustration--background,
+   .mmo-modal--tracking-intro .mmo-illustration--foreground,
+   .mmo-modal--tracking-intro .mmo-illustration--truck {
+     transition: all 1s ease;
+   }
+   
+   .mmo-modal--tracking-intro .mmo-timeline,
+   .mmo-modal--tracking-intro .mmo-timeline *,
+   button {
+     transition: all 0.1s ease;
+   }
+   
+   .mmo-illustration {
+     background: #0dabf7 url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/146858/sky-01.svg");
+     height: 300px;
+     overflow: hidden;
+     position: absolute;
+     width: 100%;
+   }
+   
+   .mmo-illustration--rainbow {
+     position: relative;
+     top: 8px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--clouds,
+   .mmo-state-02 .mmo-illustration--clouds,
+   .mmo-state-03 .mmo-illustration--clouds {
+     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/146858/clouds-01.svg");
+     height: 114px;
+     left: 8px;
+     position: absolute;
+     top: 0;
+     width: 1015px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--clouds {
+     left: 10px;
+   }
+   
+   .mmo-state-02 .mmo-illustration--clouds {
+     left: -210px;
+   }
+   
+   .mmo-state-03 .mmo-illustration--clouds {
+     left: -420px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--background,
+   .mmo-state-02 .mmo-illustration--background,
+   .mmo-state-03 .mmo-illustration--background {
+     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/146858/background-01.svg");
+     bottom: 0;
+     height: 238px;
+     left: 0;
+     position: absolute;
+     width: 1533px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--background {
+     left: 0;
+   }
+   
+   .mmo-state-02 .mmo-illustration--background {
+     left: -465px;
+   }
+   
+   .mmo-state-03 .mmo-illustration--background {
+     left: -930px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--foreground,
+   .mmo-state-02 .mmo-illustration--foreground,
+   .mmo-state-03 .mmo-illustration--foreground {
+     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/146858/foreground-01.svg");
+     bottom: 0;
+     height: 271px;
+     left: 0;
+     position: absolute;
+     width: 1800px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--foreground {
+     left: 0;
+   }
+   
+   .mmo-state-02 .mmo-illustration--foreground {
+     left: -600px;
+   }
+   
+   .mmo-state-03 .mmo-illustration--foreground {
+     left: -1200px;
+   }
+   
+   .mmo-illustration--shadow {
+     box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.1);
+     height: 300px;
+     margin-left: -5%;
+     position: absolute;
+     top: 0;
+     width: 110%;
+   }
+   
+   .mmo-illustration--head {
+     bottom: 40px;
+     color: #fff;
+     font-family: "Roboto Slab", serif;
+     font-size: 60px;
+     font-weight: 300;
+     position: absolute;
+     text-align: center;
+     text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+     width: 100%;
+   }
+   
+   .mmo-illustration--subhead {
+     bottom: 115px;
+     color: rgba(255, 255, 255, 0.6);
+     font-size: 20px;
+     font-weight: 100;
+     position: absolute;
+     text-align: left;
+     text-indent: 70px;
+     width: 100%;
+   }
+   
+   .mmo-content {
+     font-weight: 100;
+     height: 480px;
+     margin-top: 300px;
+     position: relative;
+     text-align: center;
+   }
+   
+   .mmo-illustration-truck-container {
+     display: flex;
+     height: 72px;
+     justify-content: space-between;
+     list-style: none;
+     margin: 0 16px;
+     position: relative;
+     top: -25px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--truck,
+   .mmo-state-02 .mmo-illustration--truck,
+   .mmo-state-03 .mmo-illustration--truck {
+     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/146858/truck.svg");
+     height: 72px;
+     position: relative;
+     width: 86px;
+   }
+   
+   .mmo-state-01 .mmo-illustration--truck {
+     left: 0;
+   }
+   
+   .mmo-state-02 .mmo-illustration--truck {
+     left: 50%;
+     margin-left: -43px;
+   }
+   
+   .mmo-state-03 .mmo-illustration--truck {
+     left: 100%;
+     margin-left: -86px;
+   }
+   
+   .mmo-state-03 .mmo-illustration--truck g path:nth-child(2) {
+     fill: #50ad47;
+   }
+   
+   .mmo-timeline {
+     box-shadow: inset 0 18px 0px #fff, inset 0 22px 0px #0dabf7;
+     display: flex;
+     height: 40px;
+     justify-content: space-between;
+     list-style: none;
+     margin: 0 40px;
+     position: relative;
+     top: -12px;
+   }
+   
+   .mmo-timeline div {
+     align: self auto;
+     background: #0dabf7;
+     border: 4px solid #fff;
+     border-radius: 32px;
+     cursor: pointer;
+     flex: 0 0 auto;
+     height: 32px;
+     width: 32px;
+   }
+       
+   
+   .mmo-state-01 .mmo-timeline div:nth-child(1) {
+     background: #fff;
+     border: 4px solid #0dabf7;
+   }
+   
+   .mmo-state-02 .mmo-timeline div:nth-child(2) {
+     background: #fff;
+     border: 4px solid #0dabf7;
+   }
+   
+   .mmo-state-03 .mmo-timeline div:nth-child(1) {
+     background: #50ad47;
+     border: 4px solid #fff;
+   }
+   
+   .mmo-state-03 .mmo-timeline div:nth-child(2) {
+     background: #50ad47;
+     border: 4px solid #fff;
+   }
+   
+   .mmo-state-03 .mmo-timeline div:nth-child(3) {
+     background: #50ad47;
+     border: 4px solid #50ad47;
+   }
+   
+   .mmo-timeline div i {
+     color: #0dabf7;
+     font-size: 32px;
+   }
+   
+   .mmo-state-03 .mmo-timeline div:nth-child(3) i {
+     color: #fff;
+   }
+   
+   .mmo-state-03 .mmo-timeline {
+     box-shadow: inset 0 18px 0px #fff, inset 0 22px 0px #50ad47;
+   }
+   
+   @media (max-width: 599px) {
+     .mmo-modal--tracking-intro {
+       height: auto;
+     }
+   
+     .mmo-illustration {
+       height: 200px;
+     }
+   
+     .mmo-state-01 .mmo-illustration--background,
+     .mmo-state-02 .mmo-illustration--background,
+     .mmo-state-03 .mmo-illustration--background,
+     .mmo-state-01 .mmo-illustration--foreground,
+     .mmo-state-02 .mmo-illustration--foreground,
+     .mmo-state-03 .mmo-illustration--foreground {
+       bottom: -100px;
+     }
+   
+     .mmo-illustration--head {
+       font-size: 40px;
+     }
+   
+     .mmo-illustration--subhead {
+       bottom: 90px;
+       font-size: 16px;
+     }
+   
+     .mmo-illustration--truck {
+       bottom: 100px;
+     }
+   
+     .mmo-timeline {
+       top: -100px;
+     }
+   
+     .mmo-timeline #stop-01,
+     .mmo-timeline #stop-02,
+     .mmo-timeline #stop-03 {
+       height: 20px;
+       width: 20px;
+     }
+   
+     h1 {
+       font-size: 95%;
+     }
+   
+     p {
+       font-size: 90%;
+     }
+   
+     button {
+       height: 40px;
+       width: 40px;
+     }
+   }
+   
+   .mmo-state-02 p#message-02{
+       text-align: left;
+   }
+
+
+   input {
+    border:1px solid #ccc;
+    width:200px;
+    padding:10px;
+    margin:5px 15px;
+    border-radius:5px;
+}

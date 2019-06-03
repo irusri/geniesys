@@ -16,7 +16,7 @@ $keywords =  preg_split("/[\:]+/",trim(htmlentities($_POST['id'])));
 		$sharred_list=implode('","',$geneids_array);
 }
 
-$tintinvariable="eucgr";
+$tintinvariable="Ana";
 $table_name="transcript_info";
 
 $datatables = new Datatables();
