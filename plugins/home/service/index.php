@@ -60,6 +60,8 @@ if (mysqli_multi_query($conn, $sql)) {
     } while (mysqli_next_result($conn));
  }
 
+ #CREATE USER IF NOT EXISTS 'user'@'localhost' IDENTIFIED BY 'password';
+
  exec("rm -r $file_name");
 
 ?>
