@@ -60,8 +60,11 @@ if (mysqli_multi_query($conn, $sql)) {
     } while (mysqli_next_result($conn));
  }
 
- #CREATE USER IF NOT EXISTS 'user'@'localhost' IDENTIFIED BY 'password';
-
+#User permissions:
+$conn->query("CREATE USER IF NOT EXISTS geniecmsuser@'".$host."' IDENTIFIED BY 'geniepass'; ");
+$conn->query("GRANT SELECT ON ".$database.".* TO geniecmsuser@'".$host."';");
+$conn->query("GRANT INSERT,UPDATE,DELETE ON ".$database.".genebaskets TO geniecmsuser@'".$host."';");
+$conn->query("GRANT INSERT,UPDATE,DELETE ON ".$database.".defaultgenebaskets TO geniecmsuser@'".$host."';");
  exec("rm -r $file_name");
 
 ?>
