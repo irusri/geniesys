@@ -9,8 +9,6 @@ $database=trim($_POST['database']);
 $operation=trim($_POST['operation']);
 
 
-
-
 $url="http://build.plantgenie.org/tmp/".$key."/".$file_name;
 
 $targetFile = fopen( $file_name, 'w' );
@@ -40,61 +38,28 @@ function progressCallback( $download_size, $downloaded_size, $upload_size, $uplo
     }
 }
 
-/*
-$host='localhost';
-$user='root';
-$pass='root';
-$new_db_name = explode(".", $file_name)[0];
-
-$conn = mysqli_connect($host, $user, $pass);
-
-if(! $conn ){
-   echo 'Connected failure<br>';
-}
-$sql = "create DATABASE $new_db_name";
-
-if (mysqli_query($conn, $sql)) {
-echo "Record created successfully";
-} else {
-   echo "Error deleting record: " . mysqli_error($conn);
-}
-mysqli_close($conn);
-*/ 
-//exec("/Applications/MAMP/Library/bin/mysql", $ret);
-//printf("Server version: %s\n", $mysqli->server_info);
-//echo json_encode($ret)."<br>";
 $path=getcwd()."/".$file_name;
-//echo "/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path";
-exec("/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path",$output);
+/*exec("/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path",$output);*/
 
-/*
-$path="Athaliana_167.sql";
+$conn = new mysqli($host, $username, $password, $database);
+$conn->query( 'SET @@global.max_allowed_packet = ' . 128 * 1024 * 1024 );
+//$maxp2 = $conn->query( 'SELECT @@global.max_allowed_packet' )->fetch_array();
 $sql = file_get_contents($path);
-echo $host, $username, $password, $database."<br>";
-*/
-/*
-$sql = file_get_contents($path);
-$mysqli = new mysqli($host, $username, $password, $database);
-if (mysqli_connect_errno()) { 
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
+if (mysqli_multi_query($conn, $sql)) {
+    do {
+        /* store first result set */
+        if ($result = mysqli_store_result($conn)) {
+            //do nothing since there's nothing to handle
+            mysqli_free_result($result);
+        }
+        /* print divider */
+        if (mysqli_more_results($conn)) {
+            //I just kept this since it seems useful
+            //try removing and see for yourself
+        }
+    } while (mysqli_next_result($conn));
+ }
 
-if($fp = file_get_contents($path)) {
-    $var_array = explode(';',$fp);
-    foreach($var_array as $value) {
-      mysqli_query($mysqli ,$value.';');
-    }
-  }*/
-/*
-if ($mysqli->multi_query($sql)) {
-    echo "success";
-} else {
-   echo $mysqli->error;
-}
-*/
-
-
-exec("rm -r $file_name");
+ exec("rm -r $file_name");
 
 ?>
