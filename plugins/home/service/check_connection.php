@@ -5,10 +5,6 @@ $password=trim($_POST['password']);
 $database=trim($_POST['database']);
 $operation=trim($_POST['operation']);
 
-$host="localhost";
-$username="root";
-$password="root";
-$operation="check";
 
 if($operation=="check"){
     $link = mysqli_connect($host, $username, $password);

@@ -8,10 +8,7 @@ $password=trim($_POST['password']);
 $database=trim($_POST['database']);
 $operation=trim($_POST['operation']);
 
-$host="localhost";
-$username="root";
-$password="root";
-$operation="check";
+
 
 
 $url="http://build.plantgenie.org/tmp/".$key."/".$file_name;
