@@ -81,7 +81,7 @@ jQuery.fn.dataTableExt.oApi.fnProcessingIndicator = function(oSettings, onoff) {
 $(document).ready(function() {
   $("#loadexamplebtn").click(function() {
     $("#myInputTextField").val(
-      "Eucgr.A00375,Eucgr.A02339,Eucgr.A02507,Eucgr.A02805,Eucgr.B01555,Eucgr.B01565,Eucgr.B02550,Eucgr.B03345,Eucgr.C00013,Eucgr.C01404,Eucgr.C03704,Eucgr.C04032,Eucgr.D00340,Eucgr.D02217,Eucgr.E00249,Eucgr.E02383,Eucgr.E02408,Eucgr.F02158,Eucgr.F02226,Eucgr.F03085,Eucgr.F03879,Eucgr.F03935,Eucgr.G00451,Eucgr.G01189,Eucgr.G02727,Eucgr.H00078,Eucgr.H02323,Eucgr.H02885,Eucgr.H02940,Eucgr.H04219,Eucgr.I00376,Eucgr.I01735,Eucgr.I02096,Eucgr.I02787,Eucgr.J00133,Eucgr.K00962,Eucgr.K01083,Eucgr.K01427,Eucgr.K01460,Eucgr.K02315,Eucgr.K02319,Eucgr.L02916"
+      "cellulose"
     );
     tblPrueba2.fnFilter($(this).val(), $("#myInputTextField").val());
   });

@@ -67,28 +67,37 @@ mysqli_close($conn);
 //printf("Server version: %s\n", $mysqli->server_info);
 //echo json_encode($ret)."<br>";
 $path=getcwd()."/".$file_name;
-echo "/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path";
+//echo "/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path";
 exec("/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path",$output);
 
 /*
 $path="Athaliana_167.sql";
 $sql = file_get_contents($path);
 echo $host, $username, $password, $database."<br>";
-
+*/
+/*
+$sql = file_get_contents($path);
 $mysqli = new mysqli($host, $username, $password, $database);
 if (mysqli_connect_errno()) { 
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
 
-
+if($fp = file_get_contents($path)) {
+    $var_array = explode(';',$fp);
+    foreach($var_array as $value) {
+      mysqli_query($mysqli ,$value.';');
+    }
+  }*/
+/*
 if ($mysqli->multi_query($sql)) {
     echo "success";
 } else {
    echo $mysqli->error;
-}*/
+}
+*/
 
 
-//exec("rm -r $file_name");
+exec("rm -r $file_name");
 
 ?>

@@ -16,7 +16,7 @@ $keywords =  preg_split("/[\:]+/",trim(htmlentities($_POST['id'])));
 		$sharred_list=implode('","',$geneids_array);
 }
 
-$tintinvariable="Ana";
+$tintinvariable="at";
 $table_name="transcript_info";
 
 $datatables = new Datatables();
@@ -91,7 +91,7 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 	$datatables->where('transcript_potri.potri_id in ',$geneids_array_str);
 	}
 	
-	if(checkprefix($onlyconsonants,"atg")==true   ){
+	if(checkprefix($onlyconsonants,"astg")==true   ){
 	$flag=false;
 	$geneids_array = explode(",", $onlyconsonants);
 	$geneids_array_str=implode('","',$geneids_array);
