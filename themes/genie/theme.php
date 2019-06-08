@@ -52,6 +52,8 @@
             </nav>
 
          <?php if(is_loggedin()) {settings();}?>
+         
+        
          <div class="clear"></div>
          <?php
             if( $c['initialize_tool_plugin']==1){
@@ -61,17 +63,21 @@
             }else{?>
          <div id="wrapper" class="border">
          <?php if($_SERVER["REQUEST_URI"] =="/"){?>
-         	<!--ADD FRONT PAGE CONTENT HERE-->
+            <!--ADD FRONT PAGE CONTENT HERE-->
+           
         <?php } ?>   
             <?php if(is_loggedin()) { ?>
+              
             <textarea class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
             <script type="text/javascript">
                var key = <?php echo json_encode($c['page']); ?>
             </script>
+            
             <button id="btn_submit" onclick="save(key);">save</button>
             <?php include('msg_box.php'); ?>
             <?php }else{ ?>
             <?php content($c['page'],$c['content']);?>
+            
             <?php } ?>
          </div>
         <!-- <div id="side" class="border">
@@ -93,6 +99,7 @@
          <script type="text/javascript">
             var color_array=<?php print json_encode($db_species_color_array)?>;
          </script>
+          
 <!--<iframe frameborder="0" height="0" scrolling="no" src="http://v22.popgenie.org/demo/service.php?id=new" width="0"></iframe>-->
 
    <a id="genelistlink" href="plugins/genelist/tool.php" data-toggle="modal" data-target="#myModal"  data-refresh="true"><font  style="color:#00F;display:none" >here</font></a>

@@ -526,8 +526,9 @@
     display: table; 
     
 }
-#db_form p{
+#db_form>p{
 display: table-row;
+font-size: 16px;
 }
 #db_form input{
     display: table-cell; 

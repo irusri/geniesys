@@ -196,6 +196,8 @@ function settings(){
 	foreach(array('title','description','keywords','copyright') as $key){
 		echo "<div class='change border'><span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></div>";
 	}
+	
+
 	echo "</div></div>";
 }
 ?>
