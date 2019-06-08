@@ -1,7 +1,7 @@
 <?php
 /*Here you can listed genie databases that you are going to use for different genomes and their corresponding species names. eg: "database_1" => "species 1",*/
 global $db_species_array;
-$db_species_array=array("Egrandis_297"=>"species 1","egrandis_demo"=>"species 2");
+$db_species_array=array("Athaliana_447"=>"species 1","egrandis_demo"=>"species 2");
 
 /*Here you can listed background colors correspond to each species. eg: "database_1" => "#FF0000",*/
 global $db_species_color_array;

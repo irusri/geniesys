@@ -519,3 +519,20 @@
     margin:5px 15px;
     border-radius:5px;
 }
+#db_form{
+    padding: 1px;
+    text-align: left;
+    margin: auto;
+    display: table; 
+    
+}
+#db_form p{
+display: table-row;
+}
+#db_form input{
+    display: table-cell; 
+}
+
+#db_form label{
+    display: table-cell;
+}
