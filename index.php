@@ -29,6 +29,5 @@ $sig = "Powered by <FONT color='#e15b63'><i class='fa fa-heart' aria-hidden='tru
 $hook['admin-richText'] = "rte.php";
 $c['initialize_tool_plugin']=false;
 include_once(__DIR__ . DS . 'functions.php');
-echo is_loggedin();
 ob_end_flush();
 ?>

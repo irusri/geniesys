@@ -197,7 +197,7 @@ function settings(){
 		echo "<div class='change border'><span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></div>";
 	}
 	
-
+echo ' <iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="http://build.plantgenie.org/geniecms.php"></iframe><br>';
 	echo "</div></div>";
 }
 ?>
