@@ -1,4 +1,4 @@
-var select_text='<select id="datasetmenu"   name="datasetmenu_3" style="width: 260px;font-size:16px" > <option value="" selected="">- CHOOSE DATASET -</option><option value="Athaliana_447">Athaliana Araport11</option><option value="Athaliana_167">Athaliana TAIR10</option><option value="Egrandis_297">Egrandis v2.0</option><option value="Ptrichocarpa_210">Ptrichocarpa v3.0</option> <option value="Ptrichocarpa_444">Ptrichocarpa v3.1</option><option value="Zmays_284">Zmays Ensembl-18</option><option value="Atrichopoda_291">Atrichopoda v1.0</option></select>';	
+var select_text='<select id="datasetmenu"   name="datasetmenu_3" style="width: 260px;font-size:16px" > <option value="" >- CHOOSE DATASET -</option><option selected="" value="Athaliana_447">Athaliana Araport11</option><option value="Athaliana_167">Athaliana TAIR10</option><option value="Egrandis_297">Egrandis v2.0</option><option value="Ptrichocarpa_210">Ptrichocarpa v3.0</option> <option value="Ptrichocarpa_444">Ptrichocarpa v3.1</option><option value="Zmays_284">Zmays Ensembl-18</option><option value="Atrichopoda_291">Atrichopoda v1.0</option></select>';	
 	
 function rainbowHide() {
   $(".mmo-illustration--rainbow svg").attr("class", "hide");
@@ -66,11 +66,11 @@ function datasetselector(a){
 		$("#headline-02").html("");
         break;
 	case 1:
-        var downloadSpecies='<br><button  id="download_species" onclick="downloadTheSpecies(1)" style="font-size:16px;height: 40px;display:none" type="button">Download the selected species</button>';
-        var downloadDump='<button id="download_dump" onclick="downloadTheSpecies(2)" style="font-size:16px;height: 40px;" type="button">My species is not in the list</button>';
-		$("#message-01").html(select_text);	
+        var downloadSpecies='<br><button  id="download_species" onclick="downloadTheSpecies(1)" style="font-size:16px;height: 40px;" type="button">Download sample species</button>';
+        var downloadDump='<button id="download_dump" onclick="downloadTheSpecies(2)" style="font-size:16px;height: 40px;" type="button">Download empty database</button>';
+		$("#message-01").html();	//select_text
 		$("#message-02").html(downloadSpecies+"&nbsp;&nbsp;&nbsp;"+downloadDump);	
-		$("#headline-01").html("Select species from the list to download");	
+		$("#headline-01").html();//"Select species from the list to download");	
 		$("#headline-02").html("");			
 	}
 	
@@ -98,6 +98,13 @@ $('#datasetmenu').on('change', function(e) {
 Clcking the download button. This should download either correct database or the empty database from the server.
 */
 function downloadTheSpecies(tmp_id){
+	selected_species="Athaliana_447";
+    selected_species_name="Athaliana Araport11";
+	selected_species_1="Athaliana_447";
+    selected_species_name_1="Athaliana Araport11";
+    key=uniqueId=selected_species;
+
+    console.log(tmp_id)
    $(".loader-wrap").show();
    $("#headline-01").html("Downloading ...");
     $("#message-01").html("");
