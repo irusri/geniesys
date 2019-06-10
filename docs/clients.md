@@ -7,7 +7,7 @@ Who Uses GenIE CMS
 **AtGenIE**
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/atgenie.png)](https://beta.atgenie.org)
 **PlantGenIE**
-[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/atgenie.png)](https://beta.plantgenie.org)
+[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/plantgenie.png)](https://beta.plantgenie.org)
 **EucGenIE**
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/eucgenie.png)](https://eucgenie.org)
 **Zostera marina**
