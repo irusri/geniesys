@@ -1,5 +1,9 @@
 Getting Started
 =============
+
+------------------------
+GeneList
+------------------------
 The GeneList tool allows the user to search for genes using **gene IDs, descriptions, experiments, GO ids and different annotations** then saves the result in a list that can be used by other tools.
 
 <iframe src="https://plantgenie.org/help/screencast/genelist_screencast/genelist.html"  height="345px" width="100%" frameborder="0" scrolling="no" style="z-index:999999;" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
