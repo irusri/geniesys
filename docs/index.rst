@@ -13,7 +13,6 @@ Welcome to GenIE-CMS's documentation!
    installation_updates
    getting_started
 
-
 .. toctree::
    :maxdepth: 4
    
