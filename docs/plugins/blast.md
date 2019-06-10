@@ -51,7 +51,7 @@ Adding a dataset into BLAST tool we must use [formatdb](http://structure.usc.edu
 }
 ```
 
-- number: This is an incremental unique number to identify the dataset id.  
-- user_friendly_name: This name will be appeared as dataset name  inside the BLAST tool.  
-- molecule_type: This value should be either nucleotide or protein.  
-- group_name: Group name helps to grouping the datasets based on similarity.  
+- ```number```: This is an incremental unique number to identify the dataset id.  
+- ```user_friendly_name```: This name will be appeared as dataset name  inside the BLAST tool.  
+- ```molecule_type```: This value should be either nucleotide or protein.  
+- ```group_name```: Group name helps to grouping the datasets based on similarity.  
