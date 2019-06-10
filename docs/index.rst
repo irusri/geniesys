@@ -18,6 +18,12 @@ Welcome to GenIE-CMS's documentation!
    :maxdepth: 4
    
    plugins/index
+
+.. toctree::
+   :maxdepth: 4
+   :caption: User Documentation
+
+   user_getting_started
    
 
 Indices and tables
