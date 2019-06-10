@@ -1,4 +1,4 @@
-[![GenIECMS](https://github.com/irusri/GenIECMS/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniecms.org) | [Documentation](https://readthedocs.org/projects/geniecms/badge/?version=latest) | [Demo](https://eucgenie.org)
+[![GenIECMS](https://github.com/irusri/GenIECMS/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniecms.org) | [Documentation](https://readthedocs.org/projects/geniecms/badge/?version=latest) | [Demo](https://eucgenie.org) | [Users](https://geniecms.readthedocs.io/en/latest/clients.html)
 =======
 <!--[![readthedocs](https://readthedocs.org/projects/geniecms/badge/?version=latest "readthedocs")](http://geniecms.readthedocs.io/en/latest/installation_updates.html)-->
 
