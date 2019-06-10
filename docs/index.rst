@@ -17,6 +17,7 @@ Welcome to GenIE-CMS's documentation!
    :maxdepth: 4
    
    plugins/index
+   clients
 
 .. toctree::
    :maxdepth: 4
