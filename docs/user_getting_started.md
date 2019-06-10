@@ -1,3 +1,3 @@
-User Getting Started
+Getting Started
 =============
 test
