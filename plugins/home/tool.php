@@ -92,4 +92,9 @@ var key="<?php echo trim($_GET['key'])?>";
 </script>
 <script src="plugins/home/js/home.js"></script>
 
+
+
+
+
 </html>
+
