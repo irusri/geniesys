@@ -41,8 +41,8 @@ if(strtolower(basename(dirname(__FILE__)))== strtolower($subdir_arr[count($subdi
 echo "Hello World!";
 ?>
 ```
-4.) Log into the system and add hello into the menu like shown in following figure.
+4.) Log into the system and add hello into the menu like shown in following figure.  
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/login_screen.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/login_screen.png)
 
-4.) Navigate to ```http://[server name]/GenIECMS/hello```
+5.) Navigate to ```http://[server name]/GenIECMS/hello```  
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/hello_world.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/hello_world.png)
