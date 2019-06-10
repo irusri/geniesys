@@ -8,7 +8,7 @@ Welcome to GenIE-CMS's documentation!
  
 .. toctree::
    :maxdepth: 4
-   :caption: User Documentation
+   :caption: Administrator Documentation
 
    installation_updates
    getting_started
