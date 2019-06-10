@@ -201,9 +201,8 @@ function download_file(){
             $(".mmo-modal--tracking-intro").addClass( "mmo-state-03" ).removeClass( "mmo-state-02" );
             rainbowFadeInUp();
             $("#headline-01").html("Successfully loaded into the database");
-            $("#message-01").html("<div style='text-align:left;padding-left:24px;padding-right:24px;'><strong>"+mdbname+"</strong> database has been loaded with <strong>"+selected_species_name+"</strong> data. Now we need to configure the settings file(<i>plugins/settings.php</i>) file like the following.</div>");
+            $("#message-01").html("<div style='text-align:left;padding-left:24px;padding-right:24px;'><strong>"+mdbname+"</strong> database has been loaded with <strong>"+selected_species_name+"</strong> data. Now we need to configure the settings file(<i>plugins/settings.php</i>) file like the following. Please click the following button to finalize the process and reload the page.</div>");
             $("#message-02").html("<button onclick='saveSettings()' >Finalize and Reload</button>");
-
             //$("#db_name_1").html(file_name.split(".")[0].trim());
             //$("#db_name_2").html(file_name.split(".")[0].trim());
             //$("#species_name").html(file_name.split(".")[0].trim());
