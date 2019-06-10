@@ -4,7 +4,7 @@ BLAST
 
 **Implementation**
 
-PlantGenIE BLAST search is implemented using NCBI Blast (v2.2.26) and no database will be used. config.json files contains all necessary.  We use ```PHP, JavaScript, XSL, Perl``` and ```d3js``` libraries to improve Open Source GMOD Bioinformatic Software Bench server to provide a graphical user interface.
+PlantGenIE BLAST search is implemented using ```NCBI Blast (v2.2.26)``` and no database will be used. config.json files contains all necessary.  We use ```PHP, JavaScript, XSL, Perl``` and ```d3js``` libraries to improve Open Source GMOD Bioinformatic Software Bench server to provide a graphical user interface.
 
 **Libraries**
 
