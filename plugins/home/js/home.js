@@ -1,13 +1,13 @@
 var select_text='<select id="datasetmenu"   name="datasetmenu_3" style="width: 260px;font-size:16px" > <option value="" >- CHOOSE DATASET -</option><option selected="" value="Athaliana_447">Athaliana Araport11</option><option value="Athaliana_167">Athaliana TAIR10</option><option value="Egrandis_297">Egrandis v2.0</option><option value="Ptrichocarpa_210">Ptrichocarpa v3.0</option> <option value="Ptrichocarpa_444">Ptrichocarpa v3.1</option><option value="Zmays_284">Zmays Ensembl-18</option><option value="Atrichopoda_291">Atrichopoda v1.0</option></select>';	
 	
 function rainbowHide() {
-  $(".mmo-illustration--rainbow svg").attr("class", "hide");
+  $(".genie-illustration--rainbow svg").attr("class", "hide");
 }
 function rainbowFadeOutDown() {
-  $(".mmo-illustration--rainbow svg").attr("class", "animated fadeOutDown");
+  $(".genie-illustration--rainbow svg").attr("class", "animated fadeOutDown");
 }
 function rainbowFadeInUp() {
-  $(".mmo-illustration--rainbow svg").attr("class", "animated fadeInUp");
+  $(".genie-illustration--rainbow svg").attr("class", "animated fadeInUp");
 	
 }
 
@@ -110,7 +110,7 @@ function downloadTheSpecies(tmp_id){
     $("#message-01").html("");
     $("#message-02").html("");
 
-    $(".mmo-modal--tracking-intro").addClass( "mmo-state-02" ).removeClass( "mmo-state-01 mmo-state-03" );
+    $(".genie-modal--tracking-intro").addClass( "genie-state-02" ).removeClass( "genie-state-01 genie-state-03" );
     if (rainbowActivation == true) {
         rainbowFadeOutDown();
     }
@@ -198,7 +198,7 @@ function download_file(){
 		complete: function (data) {
             console.log(data);
             $(".loader-wrap").hide();
-            $(".mmo-modal--tracking-intro").addClass( "mmo-state-03" ).removeClass( "mmo-state-02" );
+            $(".genie-modal--tracking-intro").addClass( "genie-state-03" ).removeClass( "genie-state-02" );
             rainbowFadeInUp();
             $("#headline-01").html("Successfully loaded into the database");
             $("#message-01").html("<div style='text-align:left;padding-left:24px;padding-right:24px;'><strong>"+mdbname+"</strong> database has been loaded with <strong>"+selected_species_name+"</strong> data. Now we need to configure the settings file(<i>plugins/settings.php</i>) file like the following. Please click the following button to finalize the process and reload the page.</div>");
@@ -320,13 +320,13 @@ function create_a_database_callback(table, one_table_success) {
 
 // Left & right button navigation
 /*$( "#btn-left" ).click( function() {
-  if ( $( ".mmo-modal--tracking-intro" ).hasClass( "mmo-state-02" ) ) {
-    $(".mmo-modal--tracking-intro").addClass( "mmo-state-01" ).removeClass( "mmo-state-02" );
+  if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-02" ) ) {
+    $(".genie-modal--tracking-intro").addClass( "genie-state-01" ).removeClass( "genie-state-02" );
 	  rainbowHide();
 	 
   }
-  else if ( $( ".mmo-modal--tracking-intro" ).hasClass( "mmo-state-03" ) ) {
-    $(".mmo-modal--tracking-intro").addClass( "mmo-state-02" ).removeClass( "mmo-state-03" );
+  else if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-03" ) ) {
+    $(".genie-modal--tracking-intro").addClass( "genie-state-02" ).removeClass( "genie-state-03" );
 	  rainbowFadeOutDown();
 	 
   }
@@ -335,13 +335,13 @@ function create_a_database_callback(table, one_table_success) {
 
 
 $( "#btn-right" ).click( function() {
-  if ( $( ".mmo-modal--tracking-intro" ).hasClass( "mmo-state-01" ) ) {
-    $(".mmo-modal--tracking-intro").addClass( "mmo-state-02" ).removeClass( "mmo-state-01" );
+  if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-01" ) ) {
+    $(".genie-modal--tracking-intro").addClass( "genie-state-02" ).removeClass( "genie-state-01" );
 	  rainbowHide();
 	 
   }
-  else if ( $( ".mmo-modal--tracking-intro" ).hasClass( "mmo-state-02" ) ) {
-    $(".mmo-modal--tracking-intro").addClass( "mmo-state-03" ).removeClass( "mmo-state-02" );
+  else if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-02" ) ) {
+    $(".genie-modal--tracking-intro").addClass( "genie-state-03" ).removeClass( "genie-state-02" );
 	  rainbowFadeInUp();
 	  datasetselector(8)
   }
@@ -351,7 +351,7 @@ $( "#btn-right" ).click( function() {
 
 
 function gotolast(t){
-  $(".mmo-modal--tracking-intro").addClass( "mmo-state-03" ).removeClass( "mmo-state-01 mmo-state-02" );
+  $(".genie-modal--tracking-intro").addClass( "genie-state-03" ).removeClass( "genie-state-01 genie-state-02" );
 	rainbowFadeInUp();
 	if(t==2){
 		datasetselector(5);
