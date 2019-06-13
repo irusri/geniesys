@@ -20,8 +20,6 @@ Welcome to GenIE-CMS's documentation!
    clients
 
 
-   
-
 Indices and tables
 ==================
 
