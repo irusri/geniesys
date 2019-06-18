@@ -463,7 +463,7 @@ Run following command to update `gene_i`
 
 **Installation**
 
-1. Download the ```genelist.zip``` file and unzip into plugins directory.
+1. Download the ```genelist.zip``` file and unzip into plugins directory
 2. Edit database details in services/settings.php file.
 
 **Usage**
