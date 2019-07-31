@@ -15,7 +15,7 @@ GenIECMS plugin can start as a simple file with a PHP function. All plugins are 
 /GenIECMS/plugins/hello/tool.php
 ```
 1. Creat hello directory inside the plugin directory
-2. Place following index.php file inside hello directory
+2. Place following index.php file inside hello directoy
 ```php
 <?php
 //index.php
