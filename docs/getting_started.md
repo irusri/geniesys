@@ -33,6 +33,7 @@ GenIECMS's folder structure
 -------------------------
 Database design
 -------------------------
+As GenIE-CMS is a file-based CMS with content stored in text files, you don't need a database for the initial version of the CMS. However, a database is required when we are going to integrate genomic tools into the GenIE-CMS.
 
 **Creating a new database**
 
