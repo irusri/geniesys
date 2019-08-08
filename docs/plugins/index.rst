@@ -5,6 +5,7 @@
 .. toctree::
    :maxdepth: 4
    
+   plugin_architecture
    genelist
    blast
    gene_info
