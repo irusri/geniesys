@@ -36,6 +36,10 @@ Installing MAMP is just a matter of downloading the app from the MAMP website an
 
 By starting the MAMP app you are also starting your Apache and MySQL server. You should now be able to reach your local server at ```http://localhost:8888```.
 
+It is convenient to change the MySQL and Apache ports to 3306 and 80 respectively to use default MySQL and Apache ports.
+
+[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/mamp_settings.png?raw=true)](http://www.mamp.info/en/downloads/)
+
 **Download GenIECMS**
 
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/GenIECMS/archive/master.zip)
