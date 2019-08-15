@@ -17,6 +17,23 @@ If you prefer using the terminal please run to download both the CMS and parsing
 git clone --recursive https://github.com/irusri/GenIECMS.git
 ```    
 
+------------------
+GenIECMS's folder structure
+------------------
+```shell
+├── GenIECMS 
+│   ├── data
+│   ├── docs   
+│   ├── genie_files   
+│   ├── index.php   
+│   ├── js   
+│   ├── LICENSE   
+│   ├── plugins   
+│   ├── README.md   
+│   ├── scripts   
+│   └── themes   
+```
+
 ------------------------
 Installing GenIECMS on a Mac
 ------------------------
