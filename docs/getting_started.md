@@ -32,8 +32,6 @@ To fulfil the above requirements, we have tested the GenIE-CMS under the followi
 * Docker (recommended for development purpose)
 
 
-
-
 **Creating a new database**
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]``` 
