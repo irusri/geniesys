@@ -1,5 +1,3 @@
-Installation & Updates
-=====================
 
 ------------------------
 Download the GenIE-CMS

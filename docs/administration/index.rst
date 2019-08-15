@@ -1,5 +1,5 @@
 ####################
-  Administration
+  Installation & Updates
 ####################
 
 .. toctree::
