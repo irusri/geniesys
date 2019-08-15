@@ -1,9 +1,9 @@
 Installation & Updates
 =====================
 
-------------------------
-Download & Requirements
-------------------------
+---------
+Download 
+---------
 
 You can download the latest version of GenIECMS by using the official download link:
 
