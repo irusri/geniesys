@@ -23,11 +23,10 @@ Requirements
 
 To run GenIE-CMS we recommend your host supports the following:
 
-* PHP version 7.3+
+* PHP version 5.4+
 * MySQL version 5.6+ or MariaDB version 10.0+
 
 We recommend Apache as the most robust servers. However GenIE-CMS can be installed with any server that supports PHP and MySQL.
-
 
 
 ------------------

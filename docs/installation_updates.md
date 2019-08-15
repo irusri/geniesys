@@ -17,9 +17,16 @@ If you prefer using the terminal please run to download both the CMS and parsing
 git clone --recursive https://github.com/irusri/GenIECMS.git
 ```    
 
-**Requirements**
-* Apache 2 with URL rewriting (mod_rewrite) or nginx
-* PHP 5.4+
+------------------
+Requirements
+------------------
+
+To run GenIE-CMS we recommend your host supports the following:
+
+* PHP version 5.4+
+* MySQL version 5.6+ or MariaDB version 10.0+
+
+We recommend Apache as the most robust servers. However GenIE-CMS can be installed with any server that supports PHP and MySQL.
 
 ------------------------
 Installing GenIECMS on a Mac
