@@ -1,4 +1,4 @@
-#GeneList
+## GeneList
 
 The GeneList tool allows the user to search for genes using **gene IDs, descriptions, experiments, GO ids and different annotations** then saves the result in a list that can be used by other tools.
 
