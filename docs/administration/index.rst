@@ -8,4 +8,5 @@
    installation_updates
    installation
    updates
+   troubleshooting
 
