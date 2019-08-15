@@ -15,7 +15,7 @@ git clone --recursive https://github.com/irusri/GenIECMS.git
 ```    
 
 ------------------
-GenIECMS's folder structure
+Folder structure
 ------------------
 ```shell
 ├── GenIECMS 
