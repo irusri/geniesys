@@ -17,7 +17,7 @@ Next, we need to create a MySQL database and load our data.
 
 
 -----------------
-GenIECMS updates
+Updates
 -----------------
 **Manual updates**
 
