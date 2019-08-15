@@ -1,5 +1,5 @@
 ------------------------
-Update configuration file
+Configuration file
 ------------------------
 We should update the settings file(```GenIECMS/plugins/settings.php```) right after the installtion. Especially the base URL depending on your webhost. For example:
 
