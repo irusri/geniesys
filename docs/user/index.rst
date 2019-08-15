@@ -1,5 +1,5 @@
 ####################
-  Plugins
+  Getting Started
 ####################
 
 .. toctree::
