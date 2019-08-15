@@ -60,7 +60,7 @@ Following database diagram shows the initial genie database architecture. It wil
 We have to to follow the [data loading](https://geniecms.readthedocs.io/en/latest/plugins/genelist.html) instructions in order to load data into the database tables.
 
 
-## Configuring genome database
+**Configuring genome database**
 
 
 All configuration settings in GenIECMS need to be added into ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
