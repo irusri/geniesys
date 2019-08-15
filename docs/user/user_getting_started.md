@@ -1,9 +1,6 @@
-Getting Started
-=============
 
-------------------------
-GeneList
-------------------------
+#GeneList
+
 The GeneList tool allows the user to search for genes using **gene IDs, descriptions, experiments, GO ids and different annotations** then saves the result in a list that can be used by other tools.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
