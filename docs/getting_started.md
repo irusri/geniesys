@@ -31,22 +31,7 @@ To fulfil the above requirements, we have tested the GenIE-CMS under the followi
 * Apache, PHP and MySQL standalone servers
 * Docker (recommended for development purpose)
 
-------------------
-GenIECMS's folder structure
-------------------
-```shell
-├── GenIECMS 
-│   ├── data
-│   ├── docs   
-│   ├── genie_files   
-│   ├── index.php   
-│   ├── js   
-│   ├── LICENSE   
-│   ├── plugins   
-│   ├── README.md   
-│   ├── scripts   
-│   └── themes   
-```
+
 
 
 **Creating a new database**
