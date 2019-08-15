@@ -64,7 +64,7 @@ Now we can start the real development and push changes into genie.
 
 ## Running from Command Line
 
-If you want to use PHP's built-in server (not recommended), just use following lines to install GenIECMS. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
+If you want to use PHP's built-in server (**not recommended**), just use following lines to install GenIECMS. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
 
 ```
 git clone --recursive https://github.com/irusri/GenIECMS.git
