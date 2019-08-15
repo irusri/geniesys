@@ -2,13 +2,11 @@ Installation
 =====================  
 
 
-## Installing GenIECMS on a Mac
+## Installing GenIECMS on a MAMP
   
-Most Mac users will probably try GenIECMS with MAMP.  
+Most Mac users will probably try GenIECMS with MAMP/LAMP.  
 
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/mamp.png?raw=true )](http://www.mamp.info/en/downloads/)
-
-**Installing MAMP**
 
 Installing MAMP is just a matter of downloading the app from the MAMP website and running the installer. It will install a MAMP app in your Applications folder.
 
