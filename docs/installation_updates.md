@@ -1,9 +1,9 @@
 Installation & Updates
 =====================
 
----------
-Download 
----------
+------------------------
+Download the GenIE-CMS
+------------------------
 
 You can download the latest version of GenIECMS by using the official download link:
 
