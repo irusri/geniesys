@@ -23,6 +23,8 @@ Welcome to GenIE-CMS's documentation!
    :maxdepth: 4
    :caption: User Documentation
 
+   user/index
+
 Indices and tables
 ==================
 
