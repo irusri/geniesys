@@ -10,9 +10,6 @@ The Gene Information Page consists of dedicated tabs names: Basic Information (i
 
 The Gene Information page is the starting point to WebApollo and this will also be the final destination for many of the PlantGenIE tools, for example GBrowse, GeneList or exPlot. There are dedicated pages for both genes and transcripts information.
 
-**Data**  
-
-The Gene Page uses data from various sources including Gbrowse, exImage, WebApollo and MySQL. The GeneLists tool uses in house annotation data and data from Phytozome and Plaza.
 
 **Implementation**  
 
