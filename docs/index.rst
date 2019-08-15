@@ -11,7 +11,7 @@ Welcome to GenIE-CMS's documentation!
    :caption: Administrator Documentation
 
    getting_started
-   installation_updates
+   administration/index
    
 
 .. toctree::
