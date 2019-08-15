@@ -2,6 +2,7 @@
 
 **Overview**  
 
+
 The Gene information page contains basic information about a gene including sequence, function and family information.
 
 Basic Usage
@@ -11,8 +12,10 @@ The Gene Information page is the starting point to WebApollo and this will also 
 
 **Data**  
 
+
 The Gene Page uses data from various sources including Gbrowse, exImage, WebApollo and MySQL. The GeneLists tool uses in house annotation data and data from Phytozome and Plaza.
 
 **Implementation**  
+
 
 The Gene Information page uses JavaScript, PHP, MySQL, PostgreSQL, JQuery and d3js.
