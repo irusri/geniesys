@@ -14,7 +14,7 @@ Following code is good for quick test. However, you need to have working webserv
 ```shell
 git clone --recursive https://github.com/irusri/GenIECMS.git
 cd GenIECMS
-php -S localhost:3000
+php -S localhost:3000 
 ```
 
 <!--
