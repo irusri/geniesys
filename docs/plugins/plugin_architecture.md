@@ -5,7 +5,7 @@ site/plugins/my-plugin/index.php
 ```
 GenIE-CMS automatically loads all plugins from folders within ```/site/plugins``` and tries to find an ```index.php```.
 
-## Database architecture  
+## Database design  
 
 GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
 
