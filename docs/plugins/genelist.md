@@ -65,12 +65,6 @@ Configuring genome database
 
 All configuration settings in GenIECMS need to be added into ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
--------------------------
-Plugins/Modules
--------------------------
-
-Analysis, expression or genomic tools can be integreated into a CMS as external plugins. Detailed plugin development guidelines will be available under the [plugins section](https://geniecms.readthedocs.io/en/latest/plugins/index.html). GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) can be integrated as external plugins to the GenIE-CMS. 
-
 
 **Primary tables**
 

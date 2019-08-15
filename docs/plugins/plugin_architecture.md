@@ -9,3 +9,7 @@ GenIE-CMS automatically loads all plugins from folders within ```/site/plugins``
 
 GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
 
+
+## Plugins/Modules
+
+Analysis, expression or genomic tools can be integreated into a CMS as external plugins. Detailed plugin development guidelines will be available under the [plugins section](https://geniecms.readthedocs.io/en/latest/plugins/index.html). GenIE-CMS will contain JBrowse, GeneList, gene information pages and BLAST as standard default plugins. All additional tools(exImage, exNet, Enrichment) can be integrated as external plugins to the GenIE-CMS. 
