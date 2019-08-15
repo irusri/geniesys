@@ -3,7 +3,7 @@ Getting Started
 =============
 
 ------------
-What is GenIECMS?
+Overview of GenIECMS
 ------------
 
 The Genome Integrative Explorer Content Management System (GenIE-CMS) is dedicative in-house CMS to facilitate external groups in setting up their own web resource for searching, visualizing, editing, sharing and reproducing their genomic and transcriptomic data while using project raw data( ```GFF3,FASTA,FASTQ ```) as an input.
