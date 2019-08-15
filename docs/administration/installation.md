@@ -2,7 +2,7 @@ Installation
 =====================  
 
 
-## Installing GenIECMS on a MAMP
+## Installing with MAMP/XAMPP
   
 Most Mac users will probably try GenIECMS with MAMP/LAMP.  
 
