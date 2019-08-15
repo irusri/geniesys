@@ -16,6 +16,20 @@ In Addition, Researchers who are not specialized in bioinformatics or have limit
 
 Web resources such as <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3245001/">Phytozome(Goodst et al., 2012) </a>, <a target="_blank"  href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3355756/">iPlant( Goff. et al.,2011)</a>, <a  target="_blank" href="https://academic.oup.com/nar/article/31/1/224/2401365/The-Arabidopsis-Information-Resource-TAIR-a-model">TAIR (Rhee et al., 2003)</a> and <a target="_blank"  href="http://www.plantphysiol.org/content/158/2/590">PLAZA (Proost et al., 2011)</a>. These collections of tools and services have been sources of inspiration to be and have contributed my desire to develop the GenIE-CMS as well as, and importantly, developing an understanding of their limitations to end users. None of these resources allow users to easily setup their own web resource without submitting their data to the resource developers and making them publicly available.
 
+
+------------------
+Requirements
+------------------
+
+To run GenIE-CMS we recommend your host supports the following:
+
+* PHP version 7.3+
+* MySQL version 5.6+ or MariaDB version 10.0+
+
+We recommend Apache as the most robust servers. However GenIE-CMS can be installed with any server that supports PHP and MySQL.
+
+
+
 ------------------
 GenIECMS's folder structure
 ------------------
