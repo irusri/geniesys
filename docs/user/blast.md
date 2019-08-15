@@ -55,9 +55,6 @@ PlantGenIE BLAST uses standard default NCBI BLAST options. However users can cha
 
 The BLAST Results page will be automatically reloaded until the search results are successfully retrieved. BLAST results are organized into a table containing Query ID, Hit ID, Average bit score (top), Average e-value (lowest), Average identity (av. similarity) and Links. Clickable BLAST results display the corresponding region of identified homology within the GBrowse tool, where the matching region is shown.
 
-<strong>Data</strong>
-
-The BLAST tool uses public genome assemblies, early release de novo assemblies from UPSC and data from [Phytozome] (http://www.phytozome.net/) and <a class="ext" href="http://bioinformatics.psb.ugent.be/plaza/" target="_blank">Plaza</a>.
 
 <strong>Implementation</strong>
 
