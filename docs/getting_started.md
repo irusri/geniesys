@@ -8,6 +8,8 @@ Overview of GenIECMS
 
 The Genome Integrative Explorer Content Management System (GenIE-CMS) is dedicative in-house CMS to facilitate external groups in setting up their own web resource for searching, visualizing, editing, sharing and reproducing their genomic and transcriptomic data while using project raw data( ```GFF3,FASTA,FASTQ ```) as an input.
 
+GenIE-CMS is a file-based CMS with basic content stored in text files, you don't need a database for the initial version of the CMS. However, database is required when we are going to integrate genomic tools into the GenIE-CMS.
+
 GenIE-CMS will support cutting-edge genomic science, providing easily accessible, reproducible, and shareable science. The increasingly large size of many datasets is a particularly challenging aspect of current and future genomics based research; it is often difficult to move large datasets between servers due to constraints of time and finance. It is also important to keep the experimental datasets private among the group members until the project goals are accomplished or until after publication. In other words, it must provide a high level of security to ensure that the genomic web resource remains private without requiring the moving of data to unknown remote servers. Therefore, a locally hosted GenIE-CMS installation represents a more secure, less expensive and time consuming resource to implement.
 
 In Addition, Researchers who are not specialized in bioinformatics or have limited computers skills are not currently able to gain maximal insight from the biological data typically produced by genomics projects. In order to overcome this limitation, GenIE-CMS will provide an ideal gateway with simple graphical user interfaces to those who have limited skills in bioinformatics.
@@ -30,10 +32,7 @@ GenIECMS's folder structure
 │   ├── scripts   
 │   └── themes   
 ```
--------------------------
-Database design
--------------------------
-GenIE-CMS is a file-based CMS with basic content stored in text files, you don't need a database for the initial version of the CMS. However, database is required when we are going to integrate genomic tools into the GenIE-CMS.
+
 
 **Creating a new database**
 
