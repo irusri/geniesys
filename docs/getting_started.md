@@ -27,12 +27,26 @@ To run GenIE-CMS we recommend your host supports the following:
 * MySQL version 5.6+ or MariaDB version 10.0+
 
 To fulfil the above requirements, we have tested the GenIE-CMS under the following infrastructures.
-
 * MAMP/LAMP
 * Apache, PHP and MySQL standalone servers
 * Docker (recommended for development purpose)
 
-
+------------------
+GenIECMS's folder structure
+------------------
+```shell
+├── GenIECMS 
+│   ├── data
+│   ├── docs   
+│   ├── genie_files   
+│   ├── index.php   
+│   ├── js   
+│   ├── LICENSE   
+│   ├── plugins   
+│   ├── README.md   
+│   ├── scripts   
+│   └── themes   
+```
 
 
 **Creating a new database**
