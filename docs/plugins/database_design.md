@@ -44,7 +44,7 @@ $db_url=  array ('genelist'=>'mysqli://newuser:newpassword@localhost/'.$selected
 //Define the base url with trailing slash
 $GLOBALS["base_url"]='http://localhost:3000/';
 ```
-**Loading tables**
+## Loading tables
 
 Following database diagram shows the initial genie database architecture. It will be used with basic GenIECMS tools such as GeneList, gene information pages, autocomlete search and BLAST. 
 
