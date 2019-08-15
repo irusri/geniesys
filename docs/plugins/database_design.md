@@ -1,6 +1,5 @@
---------------
 Database design
----------------  
+=====================  
 
 GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
 
