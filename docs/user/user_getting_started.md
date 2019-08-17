@@ -14,7 +14,7 @@ Simply type in gene ids, descriptions, or different annotations. The matching ge
 
 **Multiple GeneList**     
 
-The GeneList tool is capable of holding several named gene lists for use in other tools. These lists can be Added, Renamed or Deleted. Once clicking on a GeneList name, it will become the active GeneList and will be displayed in all other tools. GeneLists will remain for seven days while shared GeneList will be saved for 30 days
+The GeneList tool is capable of holding several named gene lists for use in other tools. These lists can be Added, Renamed or Deleted. Once clicking on a GeneList name, it will become the active GeneList and will be displayed in all other tools. GeneLists will remain for seven days while shared GeneList will be saved for 30 days.
  
 
 
