@@ -10,3 +10,4 @@
    blast
    gbrowse
    eximage
+   sequence_search
