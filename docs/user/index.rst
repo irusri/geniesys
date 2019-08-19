@@ -8,3 +8,4 @@
    user_getting_started
    gene_info_page
    blast
+   gbrowse
