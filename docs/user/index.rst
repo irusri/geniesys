@@ -9,3 +9,4 @@
    gene_info_page
    blast
    gbrowse
+   eximage
