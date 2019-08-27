@@ -8,7 +8,7 @@ PlantGenIE BLAST search is implemented using ```NCBI Blast (v2.2.26)``` and no d
 
 **Libraries**
 
-Makesure ubuntu taskspooler and blastall properly installed into /use/bin
+Makesure ubuntu taskspooler and blastall properly installed into ```/use/bin```
 
 ````shell
 use DBI;
