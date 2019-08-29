@@ -2,7 +2,7 @@
 
 <strong>Overview</strong>
 
-The BLAST (Basic Local Alignment Search Tool) tool compares input sequences to PlantGenIE sequence databases to identify homologous sequence matches.
+The BLAST (Basic Local Alignment Search Tool) tool compares input sequences with datasource to identify homologous sequence matches.
 
 <strong>Basic Usage</strong>
 
