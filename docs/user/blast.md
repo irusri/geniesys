@@ -53,7 +53,7 @@ BLAST plugin uses standard default NCBI BLAST options. However users can change 
 <br>
 <strong>BLAST results</strong>
 
-The BLAST Results page will be automatically reloaded until the search results are successfully retrieved. BLAST results are organized into a table containing Query ID, Hit ID, Average bit score (top), Average e-value (lowest), Average identity (av. similarity) and Links. Clickable BLAST results display the corresponding region of identified homology within the JBrowse tool, where the matching region is shown.
+BLAST Results page will be automatically reloaded until the search results are successfully retrieved. BLAST results are organized into a table containing Query ID, Hit ID, Average bit score (top), Average e-value (lowest), Average identity (av. similarity) and Links. Clickable BLAST results display the corresponding region of identified homology within the JBrowse tool, where the matching region is shown.
 
 
 <strong>Implementation</strong>
