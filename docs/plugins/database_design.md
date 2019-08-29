@@ -3,7 +3,10 @@ Database design
 
 GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
 
-## Creating a new database
+You can create a database using a graphical user interface or command line.
+## Creating a new database using user interface
+
+## Creating a new database using command line
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]``` 
 
