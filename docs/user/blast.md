@@ -6,9 +6,9 @@ The BLAST (Basic Local Alignment Search Tool) tool compares input sequences with
 
 <strong>Basic Usage</strong>
 
-Simply paste your sequence (with or without a FASTA header) into the Query Sequence input text box. Alternative you can retrieve a transcript sequence by entering a gene ID into the Load example text box, or you can upload a sequence file (Less than 100 MB) using the upload file function. Having used one of these input options, click and select the desired dataset from the lists of available BLAST databases. Finally click the BLAST! button at the bottom of the page.
+Paste your sequence (with or without a FASTA header) into the query input text box.   Transcript sequence can be extracted by type in a gene ID into the Load example text box or upload a sequence file (Less than 100 MB)with the upload file function. Then click and select the desired dataset from the lists of available BLAST databases and click the BLAST! Button at the bottom of the page.
 
-PlantGenIE BLAST uses standard default NCBI BLAST options. However users can change the following advanced options:
+BLAST plugin uses standard default NCBI BLAST options. However users can change the following advanced options:
 <table>
 <thead>
 <tr>
