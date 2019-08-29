@@ -53,10 +53,10 @@ BLAST plugin uses standard default NCBI BLAST options. However users can change 
 <br>
 <strong>BLAST results</strong>
 
-The BLAST Results page will be automatically reloaded until the search results are successfully retrieved. BLAST results are organized into a table containing Query ID, Hit ID, Average bit score (top), Average e-value (lowest), Average identity (av. similarity) and Links. Clickable BLAST results display the corresponding region of identified homology within the GBrowse tool, where the matching region is shown.
+The BLAST Results page will be automatically reloaded until the search results are successfully retrieved. BLAST results are organized into a table containing Query ID, Hit ID, Average bit score (top), Average e-value (lowest), Average identity (av. similarity) and Links. Clickable BLAST results display the corresponding region of identified homology within the JBrowse tool, where the matching region is shown.
 
 
 <strong>Implementation</strong>
 
-PlantGenIE BLAST search is implemented using NCBI Blast (v2.2.26) and a backend PostgresSQL Chado database. We use PHP, JavaScript, XSL, Perl and d3js, Drupal libraries to improve Open Source GMOD Bioinformatic Software Bench server to provide a graphical user interface.
+ BLAST search tool is implemented using NCBI Blast (v2.2.26) and a backend PostgresSQL Chado database. We use PHP, JavaScript, XSL, Perl and d3js, Drupal libraries to improve Open Source GMOD Bioinformatic Software Bench server to provide a graphical user interface.
 
