@@ -5,7 +5,7 @@ GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL dat
 
 You can create a database using a graphical user interface or command line.
 ## Creating a new database GUI
-Once you navigate to the Home page, you will see options to install the database.  To begin with, there are two options.
+Once you navigate to the Home page, you will see options to install the database. There are two options available, to begin with, database installation, as stated below.
 
 **1.) install Arabidopsis thaliana model species** 
 **2.) install an empty database.**
