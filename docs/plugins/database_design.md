@@ -5,11 +5,17 @@ GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL dat
 
 You can create a database using a graphical user interface or command line.
 ## Creating a new database GUI
-Once you navigate to the Home page, you will see options to install the database. We can install a model species database or empty database for the CMS.
+Once you navigate to the Home page, you will see options to install the database.  To begin with, there are two options.
+
+**1.) install Arabidopsis thaliana model species** 
+**2.) install an empty database.**
+
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_db.png) 
 
+**1.) install Arabidopsis thaliana model species**
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_atg_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_atg_db.png) 
 
+**2.) install an empty database.**
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_empty_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_empty_db.png)  
 
 
