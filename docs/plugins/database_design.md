@@ -6,7 +6,7 @@ GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL dat
 You can create a database using a graphical user interface or command line.
 ## Creating a new database GUI
 
-[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_db.png)
+[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_db.png) 
 
 
 ## Creating a new database CMD
