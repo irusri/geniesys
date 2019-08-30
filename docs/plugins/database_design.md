@@ -4,7 +4,7 @@ Database design
 GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
 
 You can create a database using a graphical user interface or command line.
-## Creating a new database GUI
+## Creating a new database using GUI
 Once you navigate to the Home page, you will see options to install the database. There are two options available, to begin with, database installation, as stated below.
 
 **1.) install Arabidopsis thaliana model species** 
@@ -12,17 +12,19 @@ Once you navigate to the Home page, you will see options to install the database
 
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_db.png) 
 
-**1.) install Arabidopsis thaliana model species**
+**1.) install Arabidopsis thaliana model species** 
+ 
 You need to type in the database name, MySQL host, username and password and then click the button "Load Data into the Database."
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_atg_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_atg_db.png) 
 
-**2.) install an empty database.**
+**2.) install an empty database.**  
+
 You need to type in the empty database name, MySQL host, username and password and then click the button "Load Data into the Database."
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_empty_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_empty_db.png)  
 
 Once the above processes are completed, you can be able to access the newly created database in MySQL server. 
 
-## Creating a new database CMD
+## Creating a new database using CMD
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]``` 
 
