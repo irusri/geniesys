@@ -6,6 +6,9 @@ GenIE-CMS is a file-based CMS with basic content stored in text files. MySQL dat
 You can create a database using a graphical user interface or command line.
 ## Creating a new database GUI
 
+[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_db.png)
+
+
 ## Creating a new database CMD
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]``` 
