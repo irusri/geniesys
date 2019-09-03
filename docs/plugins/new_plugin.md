@@ -46,3 +46,5 @@ echo "Hello World!";
 
 5.) Navigate to ```http://[server name]/GenIECMS/hello```  
 [![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/hello_world.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/hello_world.png)
+
+More details about the GenIE-CMS API is available on https://api.plantgenie.org
