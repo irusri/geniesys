@@ -34,6 +34,12 @@ ErrorDocument 404 /notfound.html
 
 Please make sure that you are using the PHP 5.4 or higher. 
 
+## Example input files
+
+## Exampl of source files
+
+## Download example database
+
 ## More problems?
 
 Please contact us:```contact@geniecms.org```
