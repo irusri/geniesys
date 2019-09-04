@@ -1,7 +1,7 @@
 Database design
 =====================  
 
-GenIE-Sys is a file-based Content Management System(CMS) with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
+GenIE-Sys is a file-based Contents Management System(CMS) with basic content stored in text files. MySQL database is not needed to get started with the CMS. However, the database server is required to load the genomic data and integrate with GenIE-CMS plugins.
 
 You can create a database using a graphical user interface or command line.
 ## Creating a new database using GUI
