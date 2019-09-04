@@ -8,7 +8,7 @@
 |    <a href="https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
 -->
 <aside class="notice">
-Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the Sys features.
+Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the GenIE-Sys features.
 </aside>
 
 ```shell
@@ -26,7 +26,7 @@ php -S localhost:3000
  [![Beerpay](https://beerpay.io/irusri/GenIECMS/make-wish.svg?style=flat)](https://beerpay.io/irusri/GenIECMS)
 -->
 **GenIE-Sys Development**  
-This is the Development and the latest version of GenIE-CMS. Our main goal is to add admin interface where users can easily create database plus integrate different types of data, create new pages and menus, configure tools and changing website layout by using Themes.
+This is the Development and the latest version of GenIE-Sys. Our main goal is to add admin interface where users can easily create database plus integrate different types of data, create new pages and menus, configure tools and changing website layout by using Themes.
 
 As we mentioned in documentation, we have two ways to start GenIE-CMS:
 
