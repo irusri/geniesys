@@ -165,7 +165,7 @@ texinfo_documents = [
     (master_doc, 'GenIE-Sys', u'GenIE-Sys Documentation',
      author, 'GenIE-Sys', 'One line description of project.',
      'Miscellaneous'),
-]
+] 
 
 
 
