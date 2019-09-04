@@ -28,7 +28,7 @@ php -S localhost:3000
 **GenIE-Sys Development**  
 This is the Development and the latest version of GenIE-Sys. Our main goal is to add admin interface where users can easily create database plus integrate different types of data, create new pages and menus, configure tools and changing website layout by using Themes.
 
-As we mentioned in documentation, we have two ways to start GenIE-CMS:
+As we mentioned in documentation, we have two ways to start GenIE-Sys:
 
 1.) [Using the Docker image](https://github.com/irusri/Docker4GenIECMS)   
 2.) [Using standalone webserver](https://geniecms.readthedocs.io/en/latest/installation_updates.html)
