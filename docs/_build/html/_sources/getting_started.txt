@@ -3,7 +3,7 @@ Getting Started
 
 
 ------------
-What is GenIECMS?
+What is GenIESys?
 ------------
 
 The Genome Integrative Explorer System (GenIE-Sys) is dedicative in-house CMS to facilitate external groups in setting up their own web resource for searching, visualizing, editing, sharing and reproducing their genomic and transcriptomic data while using project raw data(gff3,fasta,fatsq) as an input.
@@ -22,10 +22,10 @@ Web resources such as Phytozome :cite:`goodstein_phytozome:_2012`, iPlant( Goff.
    :style: unsrt
 
 ------------------
-GenIECMS's folder structure
+GenIESys's folder structure
 ------------------
 ```
-├── GenIECMS 
+├── GenIESys 
 │   ├── data
 │   ├── docs   
 │   ├── genie_files   
@@ -41,12 +41,12 @@ GenIECMS's folder structure
 Configuring genome database
 -------------------------
 
-You need to rename ```/GenIECMS/plugins/settings_copy.php``` into ```/GenIECMS/plugins/settings_copy.php```. All configuration settings for GenIECMS will be available in ```/GenIECMS/plugins/settings.php``` file. You can find everything about the available configuration options and how to set them in the configuration section.
+You need to rename ```/GenIESys/plugins/settings_copy.php``` into ```/GenIESys/plugins/settings_copy.php```. All configuration settings for GenIESys will be available in ```/GenIESys/plugins/settings.php``` file. You can find everything about the available configuration options and how to set them in the configuration section.
 
 -------------------------
 Database design
 -------------------------
 
-![GenIE Database](https://github.com/irusri/GenIECMS/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")
+![GenIE Database](https://github.com/irusri/GenIESys/blob/master/docs/images/GenIE_DB.png?raw=true "GenIE Database")
 
 
