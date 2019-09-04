@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# GenIECMS documentation build configuration file, created by
+# GenIESys documentation build configuration file, created by
 # sphinx-quickstart on Sun Feb 19 04:49:24 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -151,7 +151,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'geniecms', u'GenIE-Sys Documentation',
+    (master_doc, 'geniesys', u'GenIE-Sys Documentation',
      [author], 1)
 ]
 
