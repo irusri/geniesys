@@ -8,12 +8,12 @@
 |    <a href="https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
 -->
 <aside class="notice">
-Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the CMS features.
+Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the Sys features.
 </aside>
 
 ```shell
-git clone --recursive https://github.com/irusri/GenIECMS.git
-cd GenIECMS
+git clone --recursive https://github.com/irusri/geniesys.git
+cd geniesys
 php -S localhost:3000 
 ```
 
@@ -25,7 +25,7 @@ php -S localhost:3000
 
  [![Beerpay](https://beerpay.io/irusri/GenIECMS/make-wish.svg?style=flat)](https://beerpay.io/irusri/GenIECMS)
 -->
-**GenIE-CMS Development**  
+**GenIE-Sys Development**  
 This is the Development and the latest version of GenIE-CMS. Our main goal is to add admin interface where users can easily create database plus integrate different types of data, create new pages and menus, configure tools and changing website layout by using Themes.
 
 As we mentioned in documentation, we have two ways to start GenIE-CMS:
@@ -35,7 +35,7 @@ As we mentioned in documentation, we have two ways to start GenIE-CMS:
 
 However, we need to have an error free CMS to running in the backend to compatible with both above situations. For the development purpose I would like to use the docker container, commit and push changes to genie.git and simply remove the container.  
 
-**How can we make GenIE-CMS development environment with Docker?**
+**How can we make GenIE-Sys development environment with Docker?**
 <pre>
 # Please comment the supporting_files/run.sh line to avoid download the geniecms.git  
 git clone https://github.com/irusri/docker4geniecms.git  
