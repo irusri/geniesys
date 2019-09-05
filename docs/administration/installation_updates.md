@@ -2,7 +2,7 @@
 Download the GenIE-Sys
 ------------------------
 
-You can download the latest version of GenIECMS by using the official download link:
+You can download the latest version of GenIE-Sys by using the official download link:
 
 [![](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/download.png)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
