@@ -151,7 +151,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'geniesys', u'GenIESys Documentation',
+    (master_doc, 'geniesys', u'GenIE-Sys Documentation',
      [author], 1)
 ]
 
