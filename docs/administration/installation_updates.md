@@ -1,24 +1,24 @@
 ------------------------
-Download the GenIE-CMS
+Download the GenIE-Sys
 ------------------------
 
 You can download the latest version of GenIECMS by using the official download link:
 
-[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/download.png)](https://github.com/irusri/GenIECMS/archive/master.zip)
+[![](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/download.png)](https://github.com/irusri/GenIECMS/archive/master.zip)
 
-Please note that the above link will onlu download the source code for the GenIE-CMS. If you need to download the parsing scripts, you need to download it [here](https://github.com/irusri/scripts/archive/master.zip).
+Please note that the above link will onlu download the source code for the GenIE-Sys. If you need to download the parsing scripts, you need to download it [here](https://github.com/irusri/scripts/archive/master.zip).
 
-If you prefer using the terminal please run to download both the CMS and parsing scripts:
+If you prefer using the terminal please run to download both the GenIE-Sys and parsing scripts:
 
 ```
-git clone --recursive https://github.com/irusri/GenIECMS.git
+git clone --recursive https://github.com/irusri/geniesys.git
 ```    
 
 ------------------
 Folder structure
 ------------------
 ```shell
-├── GenIECMS 
+├── geniesys 
 │   ├── data
 │   ├── docs   
 │   ├── genie_files   
@@ -30,7 +30,6 @@ Folder structure
 │   ├── scripts   
 │   └── themes   
 ```
-
 
 
 
