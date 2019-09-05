@@ -52,7 +52,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = u'GenIESys'
+project = u'GenIE-Sys'
 copyright = u'2019, GenIE-Sys'
 author = u'Chanaka Mannapperuma'
 
