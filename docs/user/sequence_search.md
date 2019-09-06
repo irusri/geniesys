@@ -1,5 +1,5 @@
 ## Sequence search
-The Sequence search tool extracts CDS, Transcript, Protein or Genomic sequences from the CMS database.
+The Sequence search tool extracts CDS, Transcript, Protein or Genomic sequences from the GenIE-Sys database.
 
 **Basic Usage**
 
