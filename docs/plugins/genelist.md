@@ -4,17 +4,17 @@ GeneList
 
 **Overview**
 
-GeneList is the heart of the GenIE-CMS; this will be the entry point to many of the tools and workflows. Foundation to entire CMS database has been designed based on GeneList tables. Tables that are started with *gene_* or *transcript_* prefixes are considered as GeneList tables. GeneList tables consist of two types of tables according to our vocabulary. The first one is primary tables and the second one is annotation tables. *transcript_info* and *gene_info* tables are considered as primary tables and rest of the GeneList tables are known as annotation tables.
+GeneList is the heart of the GenIE-Sys; this will be the entry point to many of the tools and workflows. Foundation to entire CMS database has been designed based on GeneList tables. Tables that are started with *gene_* or *transcript_* prefixes are considered as GeneList tables. GeneList tables consist of two types of tables according to our vocabulary. The first one is primary tables and the second one is annotation tables. *transcript_info* and *gene_info* tables are considered as primary tables and rest of the GeneList tables are known as annotation tables.
 
-[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/GeneList_v4.png?raw=true "GeneList tables")](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GeneList_v4.png)
+[![](https://github.com/irusri/geniesys/blob/master/docs/images/GeneList_v4.png?raw=true "GeneList tables")](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/GeneList_v4.png)
 
 
 
 **Primary tables**
 
-There should only be two primary tables (transcript_info and gene_info) in GenIECMS database. Primary tables keep basic gene and transcript information. Since the smallest data unit is based on transcript ids or gene ids, all primary tables are used *transcript_i/gene_i* as a primary key.
+There should only be two primary tables (transcript_info and gene_info) in GenIE-Sys database. Primary tables keep basic gene and transcript information. Since the smallest data unit is based on transcript ids or gene ids, all primary tables are used *transcript_i/gene_i* as a primary key.
 
-Loading data into the primary tables can be easily accomplished using dedicated scripts listed on GenIECMS/scripts folder. First, we need to find corresponding GFF3 and FASTA files related to the species that we are going to load into the GenIE-CMS.
+Loading data into the primary tables can be easily accomplished using dedicated scripts listed on geniesys/scripts folder. First, we need to find corresponding GFF3 and FASTA files related to the species that we are going to load into the GenIE-Sys.
 
 *Creating Primary tables* 
 
@@ -133,7 +133,7 @@ Potra000002g00005.5	Potra000002	19346	21913	-	Potra000002g00005
 Potra000002g00005.4	Potra000002	19346	25349	-	Potra000002g00005
 Potra000002g00006.5	Potra000002	33101	35399	+	Potra000002g00006
 ```
-Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and `load_data.sh` script can be found inside `GenIECMS/scripts` folder.
+Two files are ready for loading into the primary tables. `load_data.sh` script can be used to load them into the database and `load_data.sh` script can be found inside `geniesys/scripts` folder.
 ```shell
 #!/bin/bash
 #load_data.sh
@@ -184,7 +184,7 @@ Potra000002g31575	uncharacterized protein LOC105115090
 Potra000002g31576	conserved unknown protein
 Potra000002g31577	conserved unknown protein
 ```
-There is a script called `update_descriptions.sh` in `GenIECMS/scripts` folder. The script looks like following.
+There is a script called `update_descriptions.sh` in `geniesys/scripts` folder. The script looks like following.
 ```shell
 #!/bin/bash
 #update_descriptions.sh
@@ -250,7 +250,7 @@ Run following command
 
 Whenever a user needs to integrate new annotation field into the GeneList, it is possible to create a new table which is known as annotation table. The user can create as many annotation tables depend on their requirements.
 
-Loading data into the annotation tables can be easily done using corresponding scripts listed on GenIECMS/scripts folder. First, we need to create the source file to fill the annotation table. The source file should contain two fields. The first field should be either a gene_id or transcript_id and the other fields should be the annotation.
+Loading data into the annotation tables can be easily done using corresponding scripts listed on geniesys/scripts folder. First, we need to create the source file to fill the annotation table. The source file should contain two fields. The first field should be either a gene_id or transcript_id and the other fields should be the annotation.
 
 *Load data into transcript_[go/pfam/kegg] tables*
 ```shell
@@ -332,7 +332,7 @@ Run following command to update `transcript_i`
 
 *Load data into gene_[go/pfam/kegg] tables*
 
-Although it is recommended to have all the annotation are based on transcript IDs, sometimes we may have annotation with gene IDs. Following example will show you how to load gene ID based annotation files into GenIE-CMS database.
+Although it is recommended to have all the annotation are based on transcript IDs, sometimes we may have annotation with gene IDs. Following example will show you how to load gene ID based annotation files into GenIE-Sys database.
 
 *Load data into gene_[go/pfam/kegg] tables*
 
@@ -470,5 +470,5 @@ Run following command to update `gene_i`
 
 **Usage**
 
-Navigate to `http://[your server name]/GenIECMS/genelist`
+Navigate to `http://[your server name]/geniesys/genelist`
 
