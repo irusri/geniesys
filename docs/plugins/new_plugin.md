@@ -4,15 +4,15 @@ How to create a plugin?
 
 **How to create a plugin**
 
-GenIECMS plugin can start as a simple file with a PHP function. All plugins are being installed in ```/GenIECMS/plugins```. The only requirement for a plugin is that the foldername has to be the same as the menu name and ```index.php``` file should be available inside the plugin folder to initialize the plugin.
+GenIE-Sys plugin can start as a simple file with a PHP function. All plugins are being installed in ```/geniesys/plugins```. The only requirement for a plugin is that the foldername has to be the same as the menu name and ```index.php``` file should be available inside the plugin folder to initialize the plugin.
 ```shell
-/GenIECMS/plugins/{pluginname}/index.php
-/GenIECMS/plugins/{pluginname}/tool.php
+/geniesys/plugins/{pluginname}/index.php
+/geniesys/plugins/{pluginname}/tool.php
 ```
 **Hello World! Plugin**
 
 ```shell
-/GenIECMS/plugins/hello/tool.php
+/geniesys/plugins/hello/tool.php
 ```
 1. Creat hello directory inside the plugin directory
 2. Place following index.php file inside hello directory
@@ -42,9 +42,9 @@ echo "Hello World!";
 ?>
 ```
 4.) Log into the system and add hello into the menu like shown in following figure.  
-[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/login_screen.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/login_screen.png)
+[![](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/login_screen.png)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/login_screen.png)
 
-5.) Navigate to ```http://[server name]/GenIECMS/hello```  
-[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/hello_world.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/hello_world.png)
+5.) Navigate to ```http://[server name]/geniesys/hello```  
+[![](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/hello_world.png)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/hello_world.png)
 
-More details about the GenIE-CMS API is available on https://api.plantgenie.org
+More details about the GenIE-Sys API is available on https://api.plantgenie.org
