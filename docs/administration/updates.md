@@ -1,11 +1,11 @@
 ------------------------
 Configuration file
 ------------------------
-We should update the settings file(```GenIECMS/plugins/settings.php```) right after the installtion. Especially the base URL depending on your webhost. For example:
+We should update the settings file(```geniesys/plugins/settings.php```) right after the installtion. Especially the base URL depending on your webhost. For example:
 
 ```php
 /*Define your base url with trailing slash*/
-$GLOBALS["base_url"]='http://localhost:8888/GenIECMS/';
+$GLOBALS["base_url"]='http://localhost:8888/geniesys/';
 
 OR
 
@@ -21,14 +21,14 @@ Updates
 -----------------
 **Manual updates**
 
-GenIECMS can be updated manually using latest ZIP file from [GitHub](https://github.com/irusri/GenIECMS/archive/master.zip). Please backup your older version of  ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```GenIECMS/plugins/settings.php``` and ```GenIECMS/genie_files``` into latest version of GenIECMS.
+GenIECMS can be updated manually using latest ZIP file from [GitHub](https://github.com/irusri/geniesys/archive/master.zip). Please backup your older version of  ```geniesys/plugins/settings.php``` and ```geniesys/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```geniesys/plugins/settings.php``` and ```geniesys/genie_files``` into latest version of GenIE-Sys.
 
 **Updates using Git**
 
-Here is the easy way to update GenIECMS using git submodules:
+Here is the easy way to update GenIE-Sys using git submodules:
 
 ```
-cd GenIECMS
+cd geniesys
 git checkout master
 git pull
 git submodule foreach --recursive git checkout master
