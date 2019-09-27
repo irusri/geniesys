@@ -21,7 +21,7 @@ Web resources such as <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/a
 Requirements
 ------------------
 
-To run GenIE-Sys we recommend your host supports the following:
+To run GenIE-Sys we recommend your host supports the following
 
 * PHP version 5.4+
 * MySQL version 5.6+ or MariaDB version 10.0+
