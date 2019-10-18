@@ -24,7 +24,7 @@ $c['title'] = 'GenIECMS.org';
 $c['subside'] = "<h3>ABOUT YOUR WEBSITE</h3><br />\nWebsite description, contact information, mini map or anything else.<br /><br />\n\n This content is static and is visible on all pages except tools.";
 $c['description'] = 'Your website description.';
 $c['keywords'] = 'enter, your website, keywords';
-$c['copyright'] = "&copy;  Your website";//'&copy;'. //date('Y') .' Your website';
+$c['copyright'] = "&copy;  Your website";//'&copy;'. //date('Y') .' Your websit';
 $sig = "Powered by <FONT color='#e15b63'><i class='fa fa-heart' aria-hidden='true'></i></FONT> <a href='http://geniecms.org'>GenIECMS</a>";
 $hook['admin-richText'] = "rte.php";
 $c['initialize_tool_plugin']=false;
