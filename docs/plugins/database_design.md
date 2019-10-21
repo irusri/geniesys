@@ -7,7 +7,7 @@ You can create a database using a graphical user interface or command line.
 ## Creating a new database using GUI
 Once you navigate to the Home page, you will see options to install the database. There are two options available, to begin with, database installation, as stated below.
 
-**1.) install Arabidopsis thaliana model species**   
+**1.) install Arabidopsis thaliana model species**     
 **2.) install an empty database.**
 
 [![](https://github.com/irusri/geniesys/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/install_db.png) 
