@@ -14,7 +14,7 @@ Once you navigate to the Home page, you will see options to install the database
 
 **1.) install Arabidopsis thaliana model species** 
 
-You need to type in the database name, MySQL host, username and password and then click the button "Load Data into the Database."
+You need to type in the database name, MySQL host, username and password and then click the button "Load Data into the Database."  
 [![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_atg_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_atg_db.png) 
 
 **2.) install an empty database.**  
