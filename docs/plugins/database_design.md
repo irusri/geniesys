@@ -10,17 +10,17 @@ Once you navigate to the Home page, you will see options to install the database
 **1.) install Arabidopsis thaliana model species**   
 **2.) install an empty database.**
 
-[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_db.png) 
+[![](https://github.com/irusri/geniesys/blob/master/docs/images/install_db.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/install_db.png) 
 
 **1.) install Arabidopsis thaliana model species** 
 
 You need to type in the database name, MySQL host, username and password and then click the button "Load Data into the Database."  
-[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_atg_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_atg_db.png) 
+[![](https://github.com/irusri/geniesys/blob/master/docs/images/install_atg_db.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/install_atg_db.png) 
 
 **2.) install an empty database.**  
 
 You need to type in the empty database name, MySQL host, username and password and then click the button "Load Data into the Database."
-[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/install_empty_db.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/install_empty_db.png)  
+[![](https://github.com/irusri/geniesys/blob/master/docs/images/install_empty_db.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/install_empty_db.png)  
 
 Once the above processes are completed, you can be able to access the newly created database in MySQL server. 
 
@@ -28,7 +28,7 @@ Once the above processes are completed, you can be able to access the newly crea
 
 Due to increasing number of species in PlantGenIE we use standard naming convention to easily identify and maintain the databases. For example: ```[website name]_[species name]_[version number]```   
 
-[![](https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_databases.png?raw=true)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/genie_databases.png)  
+[![](https://github.com/irusri/geniesys/blob/master/docs/images/genie_databases.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/genie_databases.png)  
 
 
 
@@ -67,17 +67,17 @@ $GLOBALS["base_url"]='http://localhost:3000/';
 ```
 **Loading tables**
 
-Following database diagram shows the initial genie database architecture. It will be used with basic GenIECMS tools such as GeneList, gene information pages, autocomlete search and BLAST. 
+Following database diagram shows the initial genie database architecture. It will be used with basic geniesys tools such as GeneList, gene information pages, autocomlete search and BLAST. 
 
 
-[![](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)](https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/GenIE-CMS_V4.png)
+[![](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/GenIE-CMS_V4.png)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/GenIE-CMS_V4.png)
 
-We have to to follow the [data loading](https://geniecms.readthedocs.io/en/latest/plugins/genelist.html) instructions in order to load data into the database tables.
+We have to to follow the [data loading](https://geniesys.readthedocs.io/en/latest/plugins/genelist.html) instructions in order to load data into the database tables.
 
 
 **Configuring genome database**
 
 
-All configuration settings in GenIECMS need to be added into ```/GenIECMS/plugins/settings.php``` file. You need to update ```/GenIECMS/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
+All configuration settings in geniesys need to be added into ```/geniesys/plugins/settings.php``` file. You need to update ```/geniesys/plugins/settings.php``` file with your available details. You can find everything about the integration plugins and how to load data in the plugins section.
 
 
