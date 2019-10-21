@@ -1,18 +1,18 @@
-[![geniesys](https://github.com/irusri/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
+[![geniesys](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
 =======
 <!--[![readthedocs](https://readthedocs.org/projects/geniesys/badge/?version=latest "readthedocs")](http://geniesys.readthedocs.io/en/latest/installation_updates.html)-->
 
 
 <!--| **Quick Installation** | **Demo** | 
 |----------|----------|
-|    <a href="https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/irusri/geniesys/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/irusri/geniesys/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
+|    <a href="https://raw.githubusercontent.com/plantgenie/geniesys/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/plantgenie/geniesys/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/plantgenie/geniesys/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
 -->
 <aside class="notice">
 Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the GenIE-Sys features.
 </aside>
 
 ```shell
-git clone --recursive https://github.com/irusri/geniesys.git
+git clone --recursive https://github.com/plantgenie/geniesys.git
 cd geniesys
 php -S localhost:3000 
 ```
@@ -23,14 +23,14 @@ php -S localhost:3000
 **Make your wish**
 
 
- [![Beerpay](https://beerpay.io/irusri/geniesys/make-wish.svg?style=flat)](https://beerpay.io/irusri/geniesys)
+ [![Beerpay](https://beerpay.io/plantgenie/geniesys/make-wish.svg?style=flat)](https://beerpay.io/plantgenie/geniesys)
 -->
 **GenIE-Sys Development**  
 This is the Development and the latest version of GenIE-Sys. Our main goal is to add admin interface where users can easily create database plus integrate different types of data, create new pages and menus, configure tools and changing website layout by using Themes.
 
 As we mentioned in documentation, we have two ways to start GenIE-Sys:
 
-1.) [Using the Docker image](https://github.com/irusri/Docker4geniesys)   
+1.) [Using the Docker image](https://github.com/plantgenie/Docker4geniesys)   
 2.) [Using standalone webserver](https://geniesys.readthedocs.io/en/latest/installation_updates.html)
 
 However, we need to have an error free GenIE-Sys to running in the backend to compatible with both above situations. For the development purpose I would like to use the docker container, commit and push changes to genie.git and simply remove the container.  
@@ -38,9 +38,9 @@ However, we need to have an error free GenIE-Sys to running in the backend to co
 **How can we make GenIE-Sys development environment with Docker?**
 <pre>
 # Please comment the supporting_files/run.sh line to avoid download the geniesys.git  
-git clone https://github.com/irusri/docker4geniesys.git  
+git clone https://github.com/plantgenie/docker4geniesys.git  
 cd docker4geniesys  
-git submodule add -f https://github.com/irusri/genie.git  
+git submodule add -f https://github.com/plantgenie/genie.git  
 docker build -t genie -f ./Dockerfile .  
 docker run --rm -i -t -p "80:80" -p "3308:3306" -v ${PWD}/genie:/app -v ${PWD}/mysql:/var/lib/mysql -e MYSQL_ADMIN_PASS="mypass" --name genie genie  
 cd genie 
