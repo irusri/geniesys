@@ -7,14 +7,14 @@ Download the GenIE-Sys
 
 You can download the latest version of GenIE-Sys by using the official download link:
 
-[![](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/download.png)](https://github.com/irusri/geniesys/archive/master.zip)
+[![](https://raw.githubusercontent.com/plantgenie/geniesys/master/docs/images/download.png)](https://github.com/plantgenie/geniesys/archive/master.zip)
 
 Please note that the above link will onlu download the source code for the GenIE-Sys. If you need to download the parsing scripts, you need to download it [here](https://github.com/irusri/scripts/archive/master.zip).
 
 If you prefer using the terminal please run to download both the GenIE-Sys and parsing scripts:
 
 ```
-git clone --recursive https://github.com/irusri/geniesys.git
+git clone --recursive https://github.com/plantgenie/geniesys.git
 ```    
 
 ------------------
@@ -39,23 +39,23 @@ Installing GenIE-Sys on a Mac
 ------------------------
 Most Mac users will probably try GenIE-Sys with MAMP.  
 
-[![](https://github.com/irusri/geniesys/blob/master/docs/images/mamp.png?raw=true )](http://www.mamp.info/en/downloads/)
+[![](https://github.com/plantgenie/geniesys/blob/master/docs/images/mamp.png?raw=true )](http://www.mamp.info/en/downloads/)
 
 **Installing MAMP**
 
 Installing MAMP is just a matter of downloading the app from the MAMP website and running the installer. It will install a MAMP app in your Applications folder.
 
-[![](https://github.com/irusri/geniesys/blob/master/docs/images/mamp-02.png?raw=true)](http://www.mamp.info/en/downloads/)
+[![](https://github.com/plantgenie/geniesys/blob/master/docs/images/mamp-02.png?raw=true)](http://www.mamp.info/en/downloads/)
 
 By starting the MAMP app you are also starting your Apache and MySQL server. You should now be able to reach your local server at ```http://localhost:8888```.
 
 It is convenient to change the MySQL and Apache ports to 3306 and 80 respectively to use default MySQL and Apache ports.
 
-[![](https://github.com/irusri/geniesys/blob/master/docs/images/mamp_settings.png?raw=true)](http://www.mamp.info/en/downloads/)
+[![](https://github.com/plantgenie/geniesys/blob/master/docs/images/mamp_settings.png?raw=true)](http://www.mamp.info/en/downloads/)
 
 **Download GenIE-Sys**
 
-[![](https://github.com/irusri/geniesys/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/geniesys/archive/master.zip)
+[![](https://github.com/plantgenie/geniesys/blob/master/docs/images/download.png?raw=true)](https://github.com/irusri/geniesys/archive/master.zip)
 
 **Copy GenIE-Sys to MAMP Web server**
 
