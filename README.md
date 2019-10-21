@@ -1,11 +1,11 @@
-[![GenIECMS](https://github.com/irusri/GenIECMS/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
+[![GenIECMS](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
 =======
 <!--[![readthedocs](https://readthedocs.org/projects/geniecms/badge/?version=latest "readthedocs")](http://geniecms.readthedocs.io/en/latest/installation_updates.html)-->
 
 
 <!--| **Quick Installation** | **Demo** | 
 |----------|----------|
-|    <a href="https://raw.githubusercontent.com/irusri/GenIECMS/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/irusri/GenIECMS/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
+|    <a href="https://raw.githubusercontent.com/plantgenie/geniesys/master/docs/images/Quick_installation.gif" target="_blank"><img src="https://github.com/plantgenie/geniesys/blob/master/docs/images/Quick_installation.gif"></a>      |  <a href="https://eucgenie.org" target="_blank"><img src="https://github.com/plantgenie/geniesys/blob/master/docs/images/genie_demo.png?raw=true"></a>        |  
 -->
 <aside class="notice">
 Following code is good for quick test. However, you need to have working webserver like (MAMP or LAMP) to test the GenIE-Sys features.
@@ -23,7 +23,7 @@ php -S localhost:3000
 **Make your wish**
 
 
- [![Beerpay](https://beerpay.io/irusri/GenIECMS/make-wish.svg?style=flat)](https://beerpay.io/irusri/GenIECMS)
+ [![Beerpay](https://beerpay.io/plantgenie/geniesys/make-wish.svg?style=flat)](https://beerpay.io/plantgenie/geniesys)
 -->
 **GenIE-Sys Development**  
 This is the Development and the latest version of GenIE-Sys. Our main goal is to add admin interface where users can easily create database plus integrate different types of data, create new pages and menus, configure tools and changing website layout by using Themes.
