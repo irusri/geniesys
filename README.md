@@ -12,7 +12,7 @@ Following code is good for quick test. However, you need to have working webserv
 </aside>
 
 ```shell
-git clone --recursive https://github.com/irusri/geniesys.git
+git clone --recursive https://github.com/plantgenie/geniesys.git
 cd geniesys
 php -S localhost:3000 
 ```
