@@ -3,7 +3,7 @@
  * @author		Chanaka Mannapperuma <irusri@gmail.com>
  * @date		2017-03-04
  * @version		Beta 1.0
- * @usage		Main functions for GenIECMS
+ * @usage		Main functions for GenIE-Sys
  * @licence		GNU GENERAL PUBLIC LICENSE
  * @link		https://geniecms.org
  */
