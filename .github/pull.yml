@@ -3,3 +3,4 @@ rules:
   - base: master
     upstream: irusri:master
     mergeMethod: hardreset
+    
