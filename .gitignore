@@ -6,6 +6,7 @@ genie_files
 genie_files/
 data
 plugins/settings.php
+plugins/blast/tmp
 plugins/eximage
 plugins/chrdiagram
 plugins/sequence_search
