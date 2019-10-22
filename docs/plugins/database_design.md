@@ -1,7 +1,7 @@
 Database design
 =====================  
 
-GenIE-Sys is a file-based  System with basic content stored in text files.  MySQL database server is required to load the genomic data and integrate with GenIE-Sys plugins.
+GenIE-Sys has its basic content stored in text files.  MySQL database server is required to load the genomic data and integrate with GenIE-Sys plugins.
 
 You can create a database using a graphical user interface or command line.
 ## Creating a new database using GUI
@@ -16,7 +16,7 @@ Once you navigate to the Home page, you will see options to install the database
 **1.) install Arabidopsis thaliana model species** 
 
 You need to type in the database name, MySQL host, username and password and then click the button "Load Data into the Database."
-  
+
 [![](https://github.com/irusri/geniesys/blob/master/docs/images/install_atg_db.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/install_atg_db.png) 
 
 **2.) install an empty database.**  
