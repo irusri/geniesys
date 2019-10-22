@@ -12,7 +12,7 @@ $hostname=$c['hostname'];
 $c['password'] = 'admin';
 $c['loggedin'] = false;
 $c['page'] = 'home';
-//$d['page']['home'] .= "<h3>Congratulations! You have successfully installed the GenIECMS.</h3><br />\nLogin to the admin panel using the 'Login' link in the footer. The password is admin.<br />\nChange the password as soon as possible.<br /><br />\n\nClick on the content to edit and click outside to save it.<br /><br />Now you successfully install the basic GenIE-CMS in your localhost. Now we need to load databases into MySQL database server. Then edit the plugins/settings.php file accordingly.\n";
+//$d['page']['home'] .= "<h3>Congratulations! You have successfully installed the GenIE-Sys.</h3><br />\nLogin to the admin panel using the 'Login' link in the footer. The password is admin.<br />\nChange the password as soon as possible.<br /><br />\n\nClick on the content to edit and click outside to save it.<br /><br />Now you successfully install the basic GenIE-Sys in your localhost. Now we need to load databases into MySQL database server. Then edit the plugins/settings.php file accordingly.\n";
 //$d['page']['home'] .= '<iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="'.$c['hostname'].'/plugins/admin/front.php?key=<?php echo $tmp_key;"></iframe>';
 $d['page']['example'] = "This is an example page.<br /><br />\n\nTo add a new one, click on the existing pages (in the admin panel) and enter a new one below the others.";
 $d['new_page']['admin'] = "Page <b>".str_replace('-',' ',$rp)."</b> created.<br /><br />\n\nClick here to start editing!";

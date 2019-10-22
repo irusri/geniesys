@@ -25,7 +25,7 @@ use Bio::SeqFeature::Generic;
 
 **Installation**
 
-Download the BLAST tool plugin from [here](https://github.com/irusri/geniesys/tree/master/plugins). Then place it into your `CMS/plugins/` folder.
+Download the BLAST tool plugin from [here](https://github.com/irusri/geniesys/tree/master/plugins). Then place it into your `geniesys/plugins/` folder.
 
 **Adding Datasets**
 

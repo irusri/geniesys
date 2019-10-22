@@ -5,7 +5,7 @@
  * @version		Beta 1.0
  * @usage		Security settings for GenIE-Sys
  * @licence		GNU GENERAL PUBLIC LICENSE
- * @link		https://geniecms.org
+ * @link		https://geniesys.org
  */
 session_start();
 $fieldname = $_REQUEST['fieldname'];
