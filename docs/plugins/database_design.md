@@ -20,7 +20,7 @@ You need to type in the database name, MySQL host, username and password and the
 
 **2.) install an empty database.**  
 
-You need to type in the empty database name, MySQL host, username and password and then click the button "Load Data into the Database."
+You need to type in the empty database name, MySQL host, username and password and then click the button "Load Data into the Database."  
 [![](https://github.com/irusri/geniesys/blob/master/docs/images/install_empty_db.png?raw=true)](https://raw.githubusercontent.com/irusri/geniesys/master/docs/images/install_empty_db.png)  
 
 Once the above processes are completed, you can be able to access the newly created database in MySQL server. 
