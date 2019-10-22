@@ -25,7 +25,7 @@ $c['subside'] = "<h3>ABOUT YOUR WEBSITE</h3><br />\nWebsite description, contact
 $c['description'] = 'Your website description.';
 $c['keywords'] = 'enter, your website, keywords';
 $c['copyright'] = "&copy;  Your website";//'&copy;'. //date('Y') .' Your websit';
-$sig = "Powered by <FONT color='#e15b63'><i class='fa fa-heart' aria-hidden='true'></i></FONT> <a href='http://geniecms.org'>GenIECMS</a>";
+$sig = "Powered by <FONT color='#e15b63'><i class='fa fa-heart' aria-hidden='true'></i></FONT> <a href='http://geniecms.org'>GenIESYS</a>";
 $hook['admin-richText'] = "rte.php";
 $c['initialize_tool_plugin']=false;
 include_once(__DIR__ . DS . 'functions.php');
