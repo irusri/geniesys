@@ -1,6 +1,6 @@
-//Initializing from crud/formbarang
+//Initializing from crud/formUI
 $(function() {
-	$("#formBarang").submit(function() {
+	$("#formUI").submit(function() {
 		if (document.getElementById('namebarangid').value != "") {
 			$.ajax({
 				url: $(this).attr("action"),

@@ -44,7 +44,7 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
 
 ?>
 <script src="plugins/genelist/crud/js/init_form.js" type="text/javascript"></script>
-<form style="height: 36px;margin-bottom:16px" method="post" name="formBarang" action="plugins/genelist/crud/process.php" id="formBarang">
+<form style="height: 36px;margin-bottom:16px" method="post" name="formUI" action="plugins/genelist/crud/process.php" id="formUI">
     <table style="border:1px solid #e15b63;border-radius: 10px;padding: 2px 2px 2px 2px;" width="100%">
         <input type="hidden" name="genebasketid" size="20" value="<?php echo $kode;?>" />
         <tr >
