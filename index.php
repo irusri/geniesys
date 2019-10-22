@@ -16,7 +16,7 @@ $c['page'] = 'home';
 //$d['page']['home'] .= '<iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="'.$c['hostname'].'/plugins/admin/front.php?key=<?php echo $tmp_key;"></iframe>';
 $d['page']['example'] = "This is an example page.<br /><br />\n\nTo add a new one, click on the existing pages (in the admin panel) and enter a new one below the others.";
 $d['new_page']['admin'] = "Page <b>".str_replace('-',' ',$rp)."</b> created.<br /><br />\n\nClick here to start editing!";
-$d['new_page']['visitor'] = "Sorry, but <b>".str_replace('-',' ',$rp)."</b> doesn't exist. :(";
+$d['new_page']['visitor'] = "Page <b>".str_replace('-',' ',$rp)."</b> doesn't exist. Please login and create a new page.";
 $d['default']['content'] = "Click to edit!";
 $c['themeSelect'] = "genie";
 $c['menu'] = "Home<br />\nExample";
@@ -25,7 +25,7 @@ $c['subside'] = "<h3>ABOUT YOUR WEBSITE</h3><br />\nWebsite description, contact
 $c['description'] = 'Your website description.';
 $c['keywords'] = 'enter, your website, keywords';
 $c['copyright'] = "&copy;  Your website";//'&copy;'. //date('Y') .' Your websit';
-$sig = "Powered by <FONT color='#e15b63'><i class='fa fa-heart' aria-hidden='true'></i></FONT> <a href='http://geniecms.org'>GenIESYS</a>";
+$sig = "Powered by <FONT color='#e15b63'><i class='fa fa-heart' aria-hidden='true'></i></FONT> <a href='http://geniesys.org'>GenIE-Sys</a>";
 $hook['admin-richText'] = "rte.php";
 $c['initialize_tool_plugin']=false;
 include_once(__DIR__ . DS . 'functions.php');
