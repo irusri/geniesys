@@ -84,7 +84,7 @@
 
 <div id="alert-error" class="alert alert-error">
   <a onclick="closeme_tip()" class="close" data-dismiss="alert">×</a>
-  <strong>Adding data to JBrowse!</strong><br>Please follow the <a target="_blank"  href="https://geniesys.readthedocs.io/en/latest/plugins/jbrowse.html">GenIE-Sys installation guide</a> and <a target="_blank" href="http://gmod.org/wiki/JBrowse_Configuration_Guide">JBrowse documentation</a> .
+  <strong>By default, necessary files have been installed into the system. However, you need to configure the JBrowse configuration file and add relevant data into it. </strong><br>Please follow the <a target="_blank"  href="https://geniesys.readthedocs.io/en/latest/plugins/jbrowse.html">GenIE-Sys installation guide</a> and <a target="_blank" href="http://gmod.org/wiki/JBrowse_Configuration_Guide">JBrowse documentation</a> .
   </div>
 
     <div id="GenomeBrowser" style="height: 100%; width: 97%; padding: 0; border: 0;margin-left: -30px;margin-top: -20px; background: #fff;"></div>
