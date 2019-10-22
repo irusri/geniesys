@@ -64,7 +64,7 @@ function updategenebasket($genearray)
     if (mysqli_num_rows($check) == 0) {
         // NO DEFAULT GENEBASKETS,INSTERED
         $initcounts = count($genessendaddStringArray);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','default','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','default','$initcounts','$genessendaddString','$ip')") or die("insert failed");
         mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
         //return $genessendaddString;
     } else {
@@ -92,7 +92,7 @@ function updategenebasket($genearray)
             }
         } else {
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("update failed");
+        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
     }
 }
 ####Testing STARTS
@@ -106,7 +106,7 @@ function updategenebasket_testing($genearray,$basket_name_post)
     if (mysqli_num_rows($check) == 0) {
         // NO DEFAULT GENEBASKETS,INSTERED
         $initcounts = count($genessendaddStringArray);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
         mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
         //return $genessendaddString;
     } else {
@@ -134,7 +134,7 @@ function updategenebasket_testing($genearray,$basket_name_post)
             }
         } else {
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("update failed");
+        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
     }
 }
 ####Testing END
@@ -179,7 +179,7 @@ function updategenebasket_2x($genearray,$post_basket_name){
 									}
 						}else{
 							echo "there is no genelist for this species name in genelistdb";
-							  mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
+							  mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
 							  mysqli_query($genelist_connection,"UPDATE defaultgenebaskets, genebaskets SET defaultgenebaskets.gene_basket_id = LAST_INSERT_ID(genebaskets.gene_basket_id) WHERE defaultgenebaskets.ip  = '$ip' and genebaskets.gene_basket_name='$post_basket_name';");
 						}
 
@@ -187,7 +187,7 @@ function updategenebasket_2x($genearray,$post_basket_name){
 				/*}else{
 					//if genelistdb this name exixt update
 					echo "this is not one of the species list";
-					mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
+					mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
 				//	mysqli_query($genelist_connection,"update genebaskets set genelist='$genessendaddString',harga='$initcount' where gene_basket_id='$g_id' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;") or die("update failed");
 							  mysqli_query($genelist_connection,"UPDATE defaultgenebaskets, genebaskets SET defaultgenebaskets.gene_basket_id = LAST_INSERT_ID(genebaskets.gene_basket_id) WHERE defaultgenebaskets.ip  = '$ip' and genebaskets.gene_basket_name='$post_basket_name';");
 
@@ -212,13 +212,13 @@ function updategenebasket_2x($genearray,$post_basket_name){
 
 			}else{
 				echo "insert and insert";
-				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
+				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
 			//$get_genelist_id = "SELECT genebaskets.gene_basket_id FROM genebaskets where and gene_basket_name='$post_basket_name' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;";
         //$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
 			mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$post_basket_name'");
 
 				}
-				/*mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
+				/*mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
 			//$get_genelist_id = "SELECT genebaskets.gene_basket_id FROM genebaskets where and gene_basket_name='$post_basket_name' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;";
         echo "$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die;";
 			mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$post_basket_name'");*/
@@ -263,7 +263,7 @@ function updategenebasket_real($genearray,$post_basket_name){
 
 				}else{
 						echo "genelist name not species ";
-							mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
+							mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
 
 						if(mysqli_num_rows($check_defaultgenebaskets) != 0){
 							echo "there is a default genelist but not any of the aspen species for sure";
@@ -279,7 +279,7 @@ function updategenebasket_real($genearray,$post_basket_name){
 
 		}else{
 			echo "There are no already saved genelist exist for this id";
-		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
+		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
 			//$get_genelist_id = "SELECT genebaskets.gene_basket_id FROM genebaskets where and gene_basket_name='$post_basket_name' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;";
         //$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
 			mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$post_basket_name'");
@@ -311,7 +311,7 @@ function updategenebasket_new($genearray,$basket_name_post)
 		}else{
 			#NO
 		$initcounts = count($genessendaddStringArray);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
         mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$basket_name_post' ORDER BY gene_basket_id DESC Limit 1;");
 		}
 	}else{
@@ -325,7 +325,7 @@ function updategenebasket_new($genearray,$basket_name_post)
 		}else{
 			##NO
 		$initcounts = count($genessendaddStringArray);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
 		}
 
 	}
@@ -354,7 +354,7 @@ function updategenebasket_new($genearray,$basket_name_post)
 			mysqli_query($genelist_connection,"update genebaskets set genelist='$genessendaddString',harga='$initcount' where and gene_basket_name='$post_basket_name' and ip='$ip'") or die("update failed");
 			if(mysqli_num_rows($check_defaultgenebaskets) != 0){
 			}else{
-				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcounts','$genessendaddString','$ip')") or die("insert failed");
 				}
 		}else{
 
@@ -362,13 +362,13 @@ function updategenebasket_new($genearray,$basket_name_post)
   	if(mysqli_num_rows($check_defaultgenebaskets) != 0){
   		 mysqli_query($genelist_connection,"update genebaskets set genelist='$genessendaddString',harga='$initcount' where and gene_basket_name='$post_basket_name' and ip='$ip'") or die("update failed");
 			}else{
-		 mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+		 mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcounts','$genessendaddString','$ip')") or die("insert failed");
 			}
 
 
 			if(mysqli_num_rows($check_defaultgenebaskets) != 0){
 			}else{
-				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcounts','$genessendaddString','$ip')") or die("insert failed");
 				}
 
 
@@ -394,7 +394,7 @@ function updategenebasket_new($genearray,$basket_name_post)
     if (mysqli_num_rows($check) == 0) {
         // NO DEFAULT GENEBASKETS,INSTERED
         $initcounts = count($genessendaddStringArray);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
         mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
         //return $genessendaddString;
     } else {
@@ -426,13 +426,13 @@ function updategenebasket_new($genearray,$basket_name_post)
             }
 		  }else{
 			         $initcounts = count($genessendaddStringArray);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basket_name_post','$initcounts','$genessendaddString','$ip')") or die("insert failed");
        // mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
 			//  mysqli_query($genelist_connection,"update genebaskets set genelist='$genessendaddString',harga='$initcount' where gene_basket_id='$basketid'") or die("update failed");
 		  }
         } else {
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("update failed");
+        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
     }
 }
 #################################################### TESTING END ########################################################################
@@ -482,7 +482,7 @@ function updategenebasketall($updateallarr, $name = FALSE)
 		$checkme_genebasket = mysqli_query($genelist_connection,"select * from genebaskets where ip='$ip' AND gene_basket_name='$name'");
 		if (mysqli_num_rows($checkme_genebasket) == 0 ) {
 		 $initcountsupdate = count($updategenelistArrx);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
 		return $initcountsupdate;
 		}else{
 			$initcount = count($updategenelistArrx);
@@ -499,7 +499,7 @@ function updategenebasketall($updateallarr, $name = FALSE)
 		$checkme_genebasket = mysqli_query($genelist_connection,"select * from genebaskets where ip='$ip' AND gene_basket_name='explot list'");
 		if (mysqli_num_rows($checkme_genebasket) == 0 ) {
 		 $initcountsupdate = count($updategenelistArrx);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
 		return $initcountsupdate;
 		}else{
 			 $gene_AND_default_basket_id_query = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM genebaskets where genebaskets.ip='$ip' AND gene_basket_name='explot list'";
@@ -531,7 +531,7 @@ function updategenebasketall($updateallarr, $name = FALSE)
     if (mysqli_num_rows($checkme) == 0 ) {
         // NO DEFAULT GENEBASKETS,INSTERED
         $initcountsupdate = count($updategenelistArrx);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
         mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
         //return $genessendaddString;
     } else {
@@ -546,7 +546,7 @@ function updategenebasketall($updateallarr, $name = FALSE)
             $clearbasketidu          = $cleardefaultbasketdatau['gene_basket_id'];
             mysqli_query($genelist_connection,"update genebaskets set genelist='$dbgenesStrArrayu',harga='$initcountu' where gene_basket_id='$clearbasketidu'") or die("update failed"); //echo '2'.$updategenelist;
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("update failed");
+        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
     }
 
 	}
@@ -575,7 +575,7 @@ function updategenebasketall_new($updateallarr, $name = FALSE)
 		$checkme_genebasket = mysqli_query($genelist_connection,"select * from genebaskets where ip='$ip' AND gene_basket_name='$name'");
 		if (mysqli_num_rows($checkme_genebasket) == 0 ) {
 		 $initcountsupdate = count($updategenelistArrx);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
 		return $initcountsupdate;
 		}else{
 			$initcount = count($updategenelistArrx);
@@ -592,7 +592,7 @@ function updategenebasketall_new($updateallarr, $name = FALSE)
 		$checkme_genebasket = mysqli_query($genelist_connection,"select * from genebaskets where ip='$ip' AND gene_basket_name='explot list'");
 		if (mysqli_num_rows($checkme_genebasket) == 0 ) {
 		 $initcountsupdate = count($updategenelistArrx);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
 		return $initcountsupdate;
 		}else{
 			 $gene_AND_default_basket_id_query = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM genebaskets where genebaskets.ip='$ip' AND gene_basket_name='explot list'";
@@ -624,7 +624,7 @@ function updategenebasketall_new($updateallarr, $name = FALSE)
     if (mysqli_num_rows($checkme) == 0 ) {
         // NO DEFAULT GENEBASKETS,INSTERED
         $initcountsupdate = count($updategenelistArrx);
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
+        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip')") or die("insert failed");
         mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
         //return $genessendaddString;
     } else {
@@ -639,7 +639,7 @@ function updategenebasketall_new($updateallarr, $name = FALSE)
             $clearbasketidu          = $cleardefaultbasketdatau['gene_basket_id'];
             mysqli_query($genelist_connection,"update genebaskets set genelist='$dbgenesStrArrayu',harga='$initcountu' where gene_basket_id='$clearbasketidu'") or die("update failed"); //echo '2'.$updategenelist;
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("update failed");
+        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
     }
 
 	}
@@ -664,7 +664,7 @@ function sharetable($updateallarr, $name = FALSE, $randid = FALSE)
     $initcountsupdate   = count($updategenelistArrx);
     $mysqldate          = date('Y-m-d H:i:s');
     mysqli_query($genelist_connection,"DELETE FROM share_table WHERE time < (NOW() - INTERVAL 30 DAY) ;");
-    mysqli_query($genelist_connection,"insert into share_table(gene_basket_id,gene_basket_name,harga,genelist,ip,time,randid) values('$kode','$basketname','$initcountsupdate','$genessendaddString','$ip','$mysqldate','$randid')") or die("insert failed");
+    mysqli_query($genelist_connection,"insert into share_table(gene_basket_id,gene_basket_name,harga,genelist,ip,time,randid) values('$kid','$basketname','$initcountsupdate','$genessendaddString','$ip','$mysqldate','$randid')") or die("insert failed");
 }
 function getdefaultsaredgenelist($randid)
 {
@@ -713,7 +713,7 @@ function updategobasket($genearray)
 
     $check = mysqli_query($genelist_connection,"SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'");
     if (mysqli_num_rows($check) == 0) {
-        mysqli_query($genelist_connection,"insert into gobaskets(go_basket_id,go_basket_name,harga,golist,ip) values('$kode','default','$initcounts','$sampleaddString','$ip')") or die("insert failed");		echo $initcounts . '  added(1)';
+        mysqli_query($genelist_connection,"insert into gobaskets(go_basket_id,go_basket_name,harga,golist,ip) values('$kid','default','$initcounts','$sampleaddString','$ip')") or die("insert failed");		echo $initcounts . '  added(1)';
     } else {
         $samplequerystr = "SELECT gobaskets.golist,gobaskets.go_basket_id FROM gobaskets WHERE gobaskets.ip='$ip'";
         $samplequeryresults = mysqli_query($genelist_connection,$samplequerystr) or die("broken connection");

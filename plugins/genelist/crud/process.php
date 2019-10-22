@@ -4,7 +4,7 @@
 	if(isset($_POST))
 	{
 	$action=$_POST['action'];
-	$kode=$_POST['genebasketid'];
+	$kid=$_POST['genebasketid'];
 	$nama=$_POST['namabarang'];
 	$cipher_count=$_POST['harga'];
 
@@ -17,10 +17,10 @@ $ip=$uuid;
 		$initcheck=mysqli_query($genelist_connection,"select * from genebaskets where ip='$ip'");
 				if(mysqli_num_rows($initcheck)<10){
 
-		$check=mysqli_query($genelist_connection,"select * from genebaskets where gene_basket_id='$kode' and ip='$ip'");
+		$check=mysqli_query($genelist_connection,"select * from genebaskets where gene_basket_id='$kid' and ip='$ip'");
 		if(mysqli_num_rows($check)==0)
 		{
-		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$nama','$cipher_count','$name','$ip')") or die("insert failed");
+		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$nama','$cipher_count','$name','$ip')") or die("insert failed");
 		echo 1;
 		}
 		else
@@ -35,20 +35,20 @@ $ip=$uuid;
 	}
 	elseif($action=="update")
 	{
-		mysqli_query($genelist_connection,"update genebaskets set gene_basket_name='$nama' where gene_basket_id='$kode'") or die ("update failed");
+		mysqli_query($genelist_connection,"update genebaskets set gene_basket_name='$nama' where gene_basket_id='$kid'") or die ("update failed");
 		echo 1 ;
 		exit;
 	}
 	elseif($_GET['action']=="updatedefaultgene")
 	{
 		//echo $ip;
-		$kode=intval($_GET['genebasketid']);
+		$kid=intval($_GET['genebasketid']);
 		$check2=mysqli_query($genelist_connection,"select * from defaultgenebaskets where ip='$ip'");
 		if(mysqli_num_rows($check2)==0)
 		{
-		mysqli_query($genelist_connection,"insert into defaultgenebaskets(gene_basket_id,ip) values('$kode','$ip')") or die("insert failed");
+		mysqli_query($genelist_connection,"insert into defaultgenebaskets(gene_basket_id,ip) values('$kid','$ip')") or die("insert failed");
 		}else{
-		mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kode' where ip='$ip'") or die ("update failed");
+		mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
 		}
 		echo 1 ;
 	//	echo "sss";
@@ -56,13 +56,13 @@ $ip=$uuid;
 
 	}elseif($_GET['action']=="delete")
 	{
-		$kode=intval($_GET['genebasketid']);
-		mysqli_query($genelist_connection,"delete from genebaskets where gene_basket_id='$kode'")or die("delete failed");
+		$kid=intval($_GET['genebasketid']);
+		mysqli_query($genelist_connection,"delete from genebaskets where gene_basket_id='$kid'")or die("delete failed");
 
-		//$check3=mysqli_query($genelist_connection,"select * from defaultgenebaskets where gene_basket_id='$kode' and ip='$ip'" );
+		//$check3=mysqli_query($genelist_connection,"select * from defaultgenebaskets where gene_basket_id='$kid' and ip='$ip'" );
 		//if(mysqli_num_rows($check3)!=0)
 		//{
-		mysqli_query($genelist_connection,"delete from defaultgenebaskets where gene_basket_id='$kode'")or die("delete failed");
+		mysqli_query($genelist_connection,"delete from defaultgenebaskets where gene_basket_id='$kid'")or die("delete failed");
 		//}
 
 		//echo "it shold deleted";
@@ -75,12 +75,12 @@ $ip=$uuid;
 		$initcheck2=mysqli_query($genelist_connection,"select * from genebaskets where ip='$ip'");
 				if(mysqli_num_rows($initcheck2)<10){
 
-		if($kode!=0){
+		if($kid!=0){
 			//if($cipher_count!=0){
 
-			mysqli_query($genelist_connection,"insert into genebaskets(genebaskets.genelist,genebaskets.ip,genebaskets.harga,genebaskets.gene_basket_name) SELECT genebaskets.genelist,genebaskets.ip,genebaskets.harga,'$nama' from genebaskets WHERE genebaskets.gene_basket_id='$kode';");
+			mysqli_query($genelist_connection,"insert into genebaskets(genebaskets.genelist,genebaskets.ip,genebaskets.harga,genebaskets.gene_basket_name) SELECT genebaskets.genelist,genebaskets.ip,genebaskets.harga,'$nama' from genebaskets WHERE genebaskets.gene_basket_id='$kid';");
 
-			//mysqli_query($genelist_connection,"update genebaskets set genebaskets.genelist='',genebaskets.harga='' where genebaskets.gene_basket_id='$kode'") or die ("update failed");
+			//mysqli_query($genelist_connection,"update genebaskets set genebaskets.genelist='',genebaskets.harga='' where genebaskets.gene_basket_id='$kid'") or die ("update failed");
 			echo 1;
 
 			//}else{
@@ -90,7 +90,7 @@ $ip=$uuid;
 		echo 'No default gene list selected';
 	}
 		//
-		//echo $kode.$nama;
+		//echo $kid.$nama;
 		exit;
 			}else{
 				echo 'Maximum 10 gene list allowed!';
