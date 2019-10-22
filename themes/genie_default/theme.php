@@ -9,7 +9,7 @@
 	<script src='js/jquery.min.js'></script>
 	<meta name='description' content='".$c['description']."'>
 	<meta name='keywords' content='".$c['keywords']."'>";
-	editTags();
+	edittags();
 ?>
 	 <script src="js/fingerprint.js" type="text/javascript"></script>
 	 <script type="application/javascript">

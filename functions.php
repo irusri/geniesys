@@ -15,7 +15,7 @@ foreach($c as $key => $val) {
 	if ($fval) $c[$key] = $fval;
 	switch ($key) {
 		case 'password':
-			if (!$fval) $c[$key] = savePassword($val);
+			if (!$fval) $c[$key] = savepassword($val);
 			break;
 		case 'loggedin':
 			if (isset($_SESSION['l']) and $_SESSION['l'] == $c['password']) $c[$key] = true;
@@ -26,13 +26,13 @@ foreach($c as $key => $val) {
 			}
 			if (isset($_REQUEST['login'])) {
 				if (is_loggedin()) header('Location: ./');
-				loginForm();
+				loginform();
 			}
 			$lstatus = (is_loggedin()) ? "<a href='$hostname?logout'>Logout</a>" : "<a href='$hostname?login'>Login</a>";
 			break;
 		case 'page':
 			if ($rp) $c[$key] = $rp;
-			$c[$key] = gettheTitle($c[$key]);
+			$c[$key] = getthetitle($c[$key]);
 			if (isset($_REQUEST['login'])) continue;
 			$c['content'] = @file_get_contents("genie_files/".$c[$key]);
 			if (!$c['content']) {
@@ -50,14 +50,14 @@ foreach($c as $key => $val) {
 	}
 }
 
-/*Fire loadPlugins() function*/
-loadPlugins();
+/*Fire loadplugins() function*/
+loadplugins();
 
 /*Load the selected theme from settings menu*/
 include("themes/".$c['themeSelect']."/theme.php");
 
 /*Load plugins while traveling through plugins directory*/
-function loadPlugins(){
+function loadplugins(){
 	global $hook,$c;
 	$cwd = getcwd();
 	if(chdir("./plugins/")){
@@ -74,7 +74,7 @@ function loadPlugins(){
 }
 
 /*Formulate the page titles*/
-function gettheTitle($p){
+function getthetitle($p){
         $p = strip_tags($p);
         preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
         $matches = array_map('strtolower', $matches[0]);
@@ -83,7 +83,7 @@ function gettheTitle($p){
 }
 
 /*Formulate the menu titles*/
-function getthetitleforMenu($p){
+function getthetitleformenu($p){
         $p = strip_tags($p);
         preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
         $matches = $matches[0];
@@ -97,7 +97,7 @@ function is_loggedin(){
         return $c['loggedin'];
 }
 
-function editTags(){
+function edittags(){
         global $hook;
         if(!is_loggedin() && !isset($_REQUEST['login'])) return;
         foreach($hook['admin-head'] as $o){
@@ -111,11 +111,11 @@ function content($id,$content){
 }
 
 /*Rendering the main menu*/
-function genieMenu(){
+function geniemenu(){
         global $c,$hostname;
         $mlist = explode('<br />',$c['menu']);
         for($i=0;$i<count($mlist);$i++){
-                $page = getthetitleforMenu($mlist[$i]);
+                $page = getthetitleformenu($mlist[$i]);
                 if(!$page) continue;
                 if(substr($page,0,1)!="-"){
                         $menu_items= "<li><a target='_parent' href='".$hostname.$page."'>".str_replace('-',' ',$page)."</a></li>";
@@ -132,7 +132,7 @@ function genieMenu(){
 }
 
 /*Rendering the login form*/
-function loginForm(){
+function loginform(){
 	global $c, $msg;
 	$msg = '';
 	if(isset($_POST['sub'])) login();
@@ -156,7 +156,7 @@ function login(){
 		return;
 	}
 	if($_POST['new']){
-		savePassword($_POST['new']);
+		savepassword($_POST['new']);
 		$msg = 'Password changed';
 		return; 
 	}
@@ -166,7 +166,7 @@ function login(){
 }
 
 /*if the passwword file exist use md5 to save the password*/
-function savePassword($p){
+function savepassword($p){
 	$file = @fopen('genie_files/password', 'w');
 	if(!$file){
 		echo "Error opening password. Set correct permissions (644) to the password file.";

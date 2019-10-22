@@ -14,7 +14,7 @@
 		 <meta name='author' content='Chanaka Mannapperuma'>
          <meta name='description' content='".$c['description']."'>
          <meta name='keywords' content='".$c['keywords']."'>";
-         editTags();
+         edittags();
          ?>
       <script type="application/javascript">
          var fp4 = new Fingerprint({screen_resolution: true,ie_activex: true,canvas: true});
@@ -48,7 +48,7 @@
                   <option value="<?php print $k ?>"><?php print ucfirst($v) ?></option>
                   <?php } ?>
                </select>
-               <?php echo '<ul class="egmenu">';genieMenu();echo '</ul>';?>
+               <?php echo '<ul class="egmenu">';geniemenu();echo '</ul>';?>
             </nav>
 
          <?php if(is_loggedin()) {settings();}?>
