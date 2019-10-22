@@ -89,7 +89,6 @@ function updategenebasket($genearray) {
             }
         } else {
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
         
     }
 }
@@ -134,7 +133,6 @@ function updategenebasket_testing($genearray, $basket_name_post) {
             }
         } else {
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
         
     }
 }
@@ -177,14 +175,7 @@ function updategenebasket_fast($genearray, $post_basket_name) {
             mysqli_query($genelist_connection, "insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
             mysqli_query($genelist_connection, "UPDATE defaultgenebaskets, genebaskets SET defaultgenebaskets.gene_basket_id = LAST_INSERT_ID(genebaskets.gene_basket_id) WHERE defaultgenebaskets.ip  = '$ip' and genebaskets.gene_basket_name='$post_basket_name';");
         }
-        /*}else{
-        //if genelistdb this name exixt update
-        echo "this is not one of the species list";
-        mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("insert failed");
-        //	mysqli_query($genelist_connection,"update genebaskets set genelist='$genessendaddString',harga='$initcount' where gene_basket_id='$g_id' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;") or die("update failed");
-         mysqli_query($genelist_connection,"UPDATE defaultgenebaskets, genebaskets SET defaultgenebaskets.gene_basket_id = LAST_INSERT_ID(genebaskets.gene_basket_id) WHERE defaultgenebaskets.ip  = '$ip' and genebaskets.gene_basket_name='$post_basket_name';");
-        
-        }*/
+
     } else {
         $check_genelist = mysqli_query($genelist_connection, "select gene_basket_name,gene_basket_id from genebaskets where ip='$ip' and gene_basket_name='$post_basket_name'");
         if (mysqli_num_rows($check_genelist) != 0) {
