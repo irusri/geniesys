@@ -32,7 +32,7 @@ foreach($c as $key => $val) {
 			break;
 		case 'page':
 			if ($rp) $c[$key] = $rp;
-			$c[$key] = getthetitle($c[$key]);
+			$c[$key] = gettheTitle($c[$key]);
 			if (isset($_REQUEST['login'])) continue;
 			$c['content'] = @file_get_contents("genie_files/".$c[$key]);
 			if (!$c['content']) {
@@ -74,7 +74,7 @@ function loadPlugins(){
 }
 
 /*Formulate the page titles*/
-function getthetitle($p){
+function gettheTitle($p){
         $p = strip_tags($p);
         preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
         $matches = array_map('strtolower', $matches[0]);
@@ -83,7 +83,7 @@ function getthetitle($p){
 }
 
 /*Formulate the menu titles*/
-function getthetitle_for_menu($p){
+function getthetitleforMenu($p){
         $p = strip_tags($p);
         preg_match_all('/([a-z0-9A-Z-_]+)/', $p, $matches);
         $matches = $matches[0];
@@ -115,7 +115,7 @@ function genieMenu(){
         global $c,$hostname;
         $mlist = explode('<br />',$c['menu']);
         for($i=0;$i<count($mlist);$i++){
-                $page = getthetitle_for_menu($mlist[$i]);
+                $page = getthetitleforMenu($mlist[$i]);
                 if(!$page) continue;
                 if(substr($page,0,1)!="-"){
                         $menu_items= "<li><a target='_parent' href='".$hostname.$page."'>".str_replace('-',' ',$page)."</a></li>";
