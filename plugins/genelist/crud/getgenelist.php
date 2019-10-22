@@ -140,7 +140,7 @@ function updategenebasket_testing($genearray, $basket_name_post) {
 }
 ####Testing END
 ################################################### TESTING NEW #################################################################
-function updategenebasket_2x($genearray, $post_basket_name) {
+function updategenebasket_fast($genearray, $post_basket_name) {
     include ("common.php");
     $ip = $uuid;
     $genessendaddStringArray = array_unique($genearray);

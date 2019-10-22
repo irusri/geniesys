@@ -126,9 +126,9 @@ global $user;
 	//updategenebasket_testing($datatables->generate_genelist(),$_COOKIE['select_species']);
 	}else{
 		 if($allow_beta==true){
-				updategenebasket_2x($datatables->generate_genelist(),$tintinvariable,$uuid);
+				updategenebasket_fast($datatables->generate_genelist(),$tintinvariable,$uuid);
 		 }else{
-			 //	updategenebasket_2x($datatables->generate_genelist(),$tintinvariable,$uuid);
+			 //	updategenebasket_fast($datatables->generate_genelist(),$tintinvariable,$uuid);
 			 	updategenebasket($datatables->generate_genelist());
 			 }
 	}
@@ -136,7 +136,7 @@ global $user;
 
 if($_POST['replace_genes']==true){
 //$temparr=array($datatables->generate_genelist());
-updategenebasket_2x($datatables->generate_genelist(),$tintinvariable,$uuid);
+updategenebasket_fast($datatables->generate_genelist(),$tintinvariable,$uuid);
 //print_r($datatables->generate_genelist());
 }
 
