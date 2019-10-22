@@ -1,5 +1,6 @@
+---------------------
 Basic Installation
-=====================  
+--------------------- 
 
 
 ## Installing with MAMP/XAMPP
