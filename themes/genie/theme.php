@@ -48,7 +48,7 @@
                   <option value="<?php print $k ?>"><?php print ucfirst($v) ?></option>
                   <?php } ?>
                </select>
-               <?php echo '<ul class="egmenu">';genie_menu();echo '</ul>';?>
+               <?php echo '<ul class="egmenu">';genieMenu();echo '</ul>';?>
             </nav>
 
          <?php if(is_loggedin()) {settings();}?>

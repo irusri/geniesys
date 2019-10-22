@@ -111,7 +111,7 @@ function content($id,$content){
 }
 
 /*Rendering the main menu*/
-function genie_menu(){
+function genieMenu(){
         global $c,$hostname;
         $mlist = explode('<br />',$c['menu']);
         for($i=0;$i<count($mlist);$i++){
