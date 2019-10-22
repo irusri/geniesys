@@ -7,7 +7,6 @@
    
    installation_updates
    installation
-   updates
    troubleshooting
    advanced_installation
 
