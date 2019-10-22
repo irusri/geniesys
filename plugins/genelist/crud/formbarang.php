@@ -12,7 +12,7 @@ if (isset($_GET['action']) and $_GET['action'] == "update"
     include("koneksi.php");
     $ip = $uuid;
     $str = "select * from genebaskets where gene_basket_id=".intval($_GET['genebasketid']);
-    $res = mysqli_query($genelist_connection,$str) or die("query gagal dijalankan");
+    $res = mysqli_query($genelist_connection,$str) or die("broken connection");
     $data = mysqli_fetch_assoc($res);
     //print_r($data);
     $kode = $data['gene_basket_id'];
@@ -27,7 +27,7 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
     include("koneksi.php");
     $ip = $uuid;
     $savecurrentquery = "SELECT genebaskets.gene_basket_name,genebaskets.harga,defaultgenebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $savecurrent = mysqli_query($genelist_connection,$savecurrentquery) or die("query gagal dijalankan");
+    $savecurrent = mysqli_query($genelist_connection,$savecurrentquery) or die("broken connection");
     if (mysqli_num_rows($savecurrent) != 0) {
         $savedata = mysqli_fetch_assoc($savecurrent);
         $nama = $savedata['gene_basket_name'];

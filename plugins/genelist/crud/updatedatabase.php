@@ -36,7 +36,7 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
     } else {
         //FOUND DEFAULT genes
         $defaultstr = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
         if (mysqli_num_rows($defaultresults) != 0) {
             $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
             $dbgenesStr       = $defaultgeenedata['genelist'];
@@ -66,7 +66,7 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
 	$updategenelistRemoveArr = array_unique($genessendremovetringArr);
 	
     $defaultstrRemove        = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $defaultresultsRemove = mysqli_query($genelist_connection,$defaultstrRemove) or die("query gagal dijalankan");
+    $defaultresultsRemove = mysqli_query($genelist_connection,$defaultstrRemove) or die("broken connection");
     if (mysqli_num_rows($defaultresultsRemove) != 0) {
         $defaultgeeneremovedata = mysqli_fetch_assoc($defaultresultsRemove);
         $dbgenesremoveStr       = $defaultgeeneremovedata['genelist'];
@@ -87,7 +87,7 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
     }
 } else if (isset($_POST['empty_default_basket'])) {
     $cleaarthebasketStr = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $clearthebasketmysql = mysqli_query($genelist_connection,$cleaarthebasketStr) or die("query gagal dijalankan");
+    $clearthebasketmysql = mysqli_query($genelist_connection,$cleaarthebasketStr) or die("broken connection");
     if (mysqli_num_rows($clearthebasketmysql) != 0) {
         $cleardefaultbasketdata = mysqli_fetch_assoc($clearthebasketmysql);
         $clearbasketid          = $cleardefaultbasketdata['gene_basket_id'];
@@ -96,7 +96,7 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
     echo 'please clear me!';
 } else if (isset($_POST['get_default_genes'])) {
     $defaultstr = "SELECT genebaskets.genelist FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+    $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
     if (mysqli_num_rows($defaultresults) != 0) {
         $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
         $genessendStringt = $defaultgeenedata['genelist'];
@@ -111,7 +111,7 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
     $check                      = mysqli_query($genelist_connection,"select * from defaultgenebaskets where ip='$ip'");
     if (mysqli_num_rows($check) != 0) {
         $defaultbasketname = "SELECT genebaskets.gene_basket_name FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultbasketnamemysql = mysqli_query($genelist_connection,$defaultbasketname) or die("query gagal dijalankan");
+        $defaultbasketnamemysql = mysqli_query($genelist_connection,$defaultbasketname) or die("broken connection");
         $defaultgeeneremovedata = mysqli_fetch_assoc($defaultbasketnamemysql);
         $defaultn               = $defaultgeeneremovedata['gene_basket_name'];
         $defaultn .= '1';
@@ -132,7 +132,7 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
     $check                      = mysqli_query($genelist_connection,"select * from defaultgenebaskets where ip='$ip'");
     if (mysqli_num_rows($check) != 0) {
         $defaultbasketname = "SELECT genebaskets.gene_basket_name FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultbasketnamemysql = mysqli_query($genelist_connection,$defaultbasketname) or die("query gagal dijalankan");
+        $defaultbasketnamemysql = mysqli_query($genelist_connection,$defaultbasketname) or die("broken connection");
         $defaultgeeneremovedata = mysqli_fetch_assoc($defaultbasketnamemysql);
         $defaultn               = $defaultgeeneremovedata['gene_basket_name'];
         $defaultn .= '1';

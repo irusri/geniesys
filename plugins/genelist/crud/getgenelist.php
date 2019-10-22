@@ -6,7 +6,7 @@ function getdefaultsamplelist()
     include("koneksi.php");
     $ip            = $uuid;
     $sampleliststr = "SELECT samplebaskets.samplelist,samplebaskets.sample_basket_id FROM samplebaskets WHERE samplebaskets.ip='$ip'";
-    $samplelistresults = mysqli_query($genelist_connection,$sampleliststr) or die("query gagal dijalankan");
+    $samplelistresults = mysqli_query($genelist_connection,$sampleliststr) or die("broken connection");
     if (mysqli_num_rows($samplelistresults) != 0) {
         $defaultsampledata = mysqli_fetch_assoc($samplelistresults);
         $samplesendstringt = $defaultsampledata['samplelist'];
@@ -19,7 +19,7 @@ function getdefaultgolist()
     include("koneksi.php");
     $ip            = $uuid;
     $sampleliststr = "SELECT gobaskets.golist FROM gobaskets WHERE gobaskets.ip='$ip'";
-    $samplelistresults = mysqli_query($genelist_connection,$sampleliststr) or die("query gagal dijalankan");
+    $samplelistresults = mysqli_query($genelist_connection,$sampleliststr) or die("broken connection");
     if (mysqli_num_rows($samplelistresults) != 0) {
         $defaultsampledata = mysqli_fetch_assoc($samplelistresults);
         $samplesendstringt = $defaultsampledata['golist'];
@@ -32,7 +32,7 @@ function getdefaultgenelist()
     include("koneksi.php");
     $ip         = $uuid;
     $defaultstr = "SELECT genebaskets.genelist FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+    $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
     if (mysqli_num_rows($defaultresults) != 0) {
         $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
         $genessendStringt = $defaultgeenedata['genelist'];
@@ -45,7 +45,7 @@ function getdefaultgenelistname()
     include("koneksi.php");
     $ip         = $uuid;
     $defaultstr = "SELECT genebaskets.gene_basket_name FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+    $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
     if (mysqli_num_rows($defaultresults) != 0) {
         $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
         $genessendStringt = $defaultgeenedata['gene_basket_name'];
@@ -70,7 +70,7 @@ function updategenebasket($genearray)
     } else {
         //FOUND DEFAULT genes
         $defaultstr = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
         if (mysqli_num_rows($defaultresults) != 0) {
             $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
             $dbgenesStr       = $defaultgeenedata['genelist'];
@@ -112,7 +112,7 @@ function updategenebasket_testing($genearray,$basket_name_post)
     } else {
         //FOUND DEFAULT genes
         $defaultstr = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
         if (mysqli_num_rows($defaultresults) != 0) {
             $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
             $dbgenesStr       = $defaultgeenedata['genelist'];
@@ -214,7 +214,7 @@ function updategenebasket_2x($genearray,$post_basket_name){
 				echo "insert and insert";
 				mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("data gagal di insert");
 			//$get_genelist_id = "SELECT genebaskets.gene_basket_id FROM genebaskets where and gene_basket_name='$post_basket_name' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;";
-        //$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        //$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
 			mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$post_basket_name'");
 
 				}
@@ -281,7 +281,7 @@ function updategenebasket_real($genearray,$post_basket_name){
 			echo "There are no already saved genelist exist for this id";
 		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kode','$post_basket_name','$initcount','$genessendaddString','$ip')") or die("data gagal di insert");
 			//$get_genelist_id = "SELECT genebaskets.gene_basket_id FROM genebaskets where and gene_basket_name='$post_basket_name' and ip='$ip' ORDER BY gene_basket_id DESC Limit 1;";
-        //$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        //$defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
 			mysqli_query($genelist_connection,"insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$post_basket_name'");
 
 
@@ -400,7 +400,7 @@ function updategenebasket_new($genearray,$basket_name_post)
     } else {
         //FOUND DEFAULT genes
         $defaultstr = "SELECT genebaskets.gene_basket_name,genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
         if (mysqli_num_rows($defaultresults) != 0) {
             $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
             $dbgenesStr       = $defaultgeenedata['genelist'];
@@ -444,7 +444,7 @@ function removegenebasket($removegenearray)
     $genessendremovetringArr = array_unique($removegenearray);
     $genessendremovetring    = implode(",", $genessendremovetringArr);
     $defaultstrRemove        = "SELECT genebaskets.genelist,genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-    $defaultresultsRemove = mysqli_query($genelist_connection,$defaultstrRemove) or die("query gagal dijalankan");
+    $defaultresultsRemove = mysqli_query($genelist_connection,$defaultstrRemove) or die("broken connection");
     if (mysqli_num_rows($defaultresultsRemove) != 0) {
         $defaultgeeneremovedata = mysqli_fetch_assoc($defaultresultsRemove);
         $dbgenesremoveStr       = $defaultgeeneremovedata['genelist'];
@@ -537,7 +537,7 @@ function updategenebasketall($updateallarr, $name = FALSE)
     } else {
         //FOUND DEFAULT genes
         $defaultstru = "SELECT genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultresultsu = mysqli_query($genelist_connection,$defaultstru) or die("query gagal dijalankan");
+        $defaultresultsu = mysqli_query($genelist_connection,$defaultstru) or die("broken connection");
         $dbgenesStrArrayu = implode(",", $updategenelistArrx);
         //EMPTY gene basket
         $initcountu       = count($updategenelistArrx);
@@ -630,7 +630,7 @@ function updategenebasketall_new($updateallarr, $name = FALSE)
     } else {
         //FOUND DEFAULT genes
         $defaultstru = "SELECT genebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
-        $defaultresultsu = mysqli_query($genelist_connection,$defaultstru) or die("query gagal dijalankan");
+        $defaultresultsu = mysqli_query($genelist_connection,$defaultstru) or die("broken connection");
         $dbgenesStrArrayu = implode(",", $updategenelistArrx);
         //EMPTY gene basket
         $initcountu       = count($updategenelistArrx);
@@ -673,7 +673,7 @@ function getdefaultsaredgenelist($randid)
     $checkme = mysqli_query($genelist_connection,"select * from share_table where randid='$randid';");
     if (mysqli_num_rows($checkme) != 0) {
         $defaultstr = "SELECT share_table.genelist FROM share_table where share_table.randid='$randid'";
-        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
         if (mysqli_num_rows($defaultresults) != 0) {
             $defaultgeenedata = mysqli_fetch_assoc($defaultresults);
             $genessendStringt = $defaultgeenedata['genelist'];
@@ -692,7 +692,7 @@ function checksharedlinkexist($randid)
     $checkme = mysqli_query($genelist_connection,"select * from share_table where randid='$randid';");
     if (mysqli_num_rows($checkme) != 0) {
         $defaultstr = "SELECT time FROM share_table where randid='$randid';";
-        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("query gagal dijalankan");
+        $defaultresults = mysqli_query($genelist_connection,$defaultstr) or die("broken connection");
        	$result = mysqli_fetch_assoc($defaultresults);
 	    $datetime = new DateTime($result['time']);
 		echo $datetime->format('Y-m-d');
@@ -716,7 +716,7 @@ function updategobasket($genearray)
         mysqli_query($genelist_connection,"insert into gobaskets(go_basket_id,go_basket_name,harga,golist,ip) values('$kode','default','$initcounts','$sampleaddString','$ip')") or die("data gagal di insert");		echo $initcounts . '  added(1)';
     } else {
         $samplequerystr = "SELECT gobaskets.golist,gobaskets.go_basket_id FROM gobaskets WHERE gobaskets.ip='$ip'";
-        $samplequeryresults = mysqli_query($genelist_connection,$samplequerystr) or die("query gagal dijalankan");
+        $samplequeryresults = mysqli_query($genelist_connection,$samplequerystr) or die("broken connection");
         $samplequerydata = mysqli_fetch_assoc($samplequeryresults);
         $samplelisttmp   = $samplequerydata['golist'];
         $samplelistidtmp = $samplequerydata['go_basket_id'];
@@ -745,11 +745,11 @@ function removegobasket($removegenearray)
 	$samplesremoveArr = array_unique($removegenearray);
 	$sampleremovecount=count($samplesremoveArr);
 	$sampleremovetring = implode(",",$samplesremoveArr);
-	$check2=mysqli_query($genelist_connection,"SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'")  or die("query gagal dijalankan");;
+	$check2=mysqli_query($genelist_connection,"SELECT * FROM gobaskets WHERE gobaskets.ip='$ip'")  or die("broken connection");;
 	  if(mysqli_num_rows($check2)==0){
 		}else{
 			$sampleremovequerystr="SELECT gobaskets.golist,gobaskets.go_basket_id FROM gobaskets WHERE gobaskets.ip='$ip'";
-				$sampleremovequeryresults=mysqli_query($genelist_connection,$sampleremovequerystr) or die("query gagal dijalankan");
+				$sampleremovequeryresults=mysqli_query($genelist_connection,$sampleremovequerystr) or die("broken connection");
 				$sampleremovequerydata=mysqli_fetch_assoc($sampleremovequeryresults);
 				$sampleremovelisttmp=$sampleremovequerydata['golist'];
 				$sampleremovelistidtmp=$sampleremovequerydata['go_basket_id'];
