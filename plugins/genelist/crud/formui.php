@@ -19,7 +19,7 @@ if (isset($_GET['action']) and $_GET['action'] == "update"
     $nama = $data['gene_basket_name'];
     $cipher_count = $data['harga'];
     $action = "update";
-    $simpan = $action;
+    $simp = $action;
     $readonly = "readonly=readonly";
     //setcookie('blabla', $$nama, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
@@ -38,7 +38,7 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
         $cipher_count = $data['harga'];
     }
     $action = "savecurent";
-    $simpan = $action;
+    $simp = $action;
     $readonly = "readonly=readonly";
 }
 
