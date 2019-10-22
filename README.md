@@ -1,6 +1,6 @@
-[![GenIECMS](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
+[![GenIECMS](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html) | [![DOI:10.1101/808881](https://zenodo.org/badge/DOI/10.1007/978-3-319-76207-4_15.svg)](https://doi.org/10.1101/808881)
 =======
-[![DOI:10.1101/808881](https://zenodo.org/badge/DOI/10.1007/978-3-319-76207-4_15.svg)](https://doi.org/10.1101/808881)
+
 <!--[![readthedocs](https://readthedocs.org/projects/geniecms/badge/?version=latest "readthedocs")](http://geniecms.readthedocs.io/en/latest/installation_updates.html)-->
 
 
