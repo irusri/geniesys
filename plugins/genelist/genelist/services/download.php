@@ -99,7 +99,7 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 	$datatables->where('transcript_potri.potri_id in ',$geneids_array_str);
 	}
 	
-	if(checkprefix($onlyconsonants,"atg")==true   ){
+	if(checkprefix($onlyconsonants,"satg")==true   ){
 	$flag=false;
 	$geneids_array = explode(",", $onlyconsonants);
 	$geneids_array_str=implode('","',$geneids_array);
