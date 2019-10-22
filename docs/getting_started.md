@@ -21,6 +21,8 @@ Web resources such as <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/a
 Requirements
 ------------------
 
+**Please do not use Microsoft Edge or Internet Explorer for testing**
+
 To run GenIE-Sys we recommend your host supports the following
 
 * PHP version 5.4+
