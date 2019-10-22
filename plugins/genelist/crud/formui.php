@@ -5,7 +5,7 @@ $action = "new";
 $status = "submit";
 $readonly = "";
 $kid = "";
-$nama = '';
+$lname = '';
 $cipher_count = '';
 if (isset($_GET['action']) and $_GET['action'] == "update"
     and!empty($_GET['genebasketid'])) {
@@ -16,12 +16,12 @@ if (isset($_GET['action']) and $_GET['action'] == "update"
     $data = mysqli_fetch_assoc($res);
     //print_r($data);
     $kid = $data['gene_basket_id'];
-    $nama = $data['gene_basket_name'];
+    $lname = $data['gene_basket_name'];
     $cipher_count = $data['harga'];
     $action = "update";
     $simp = $action;
     $readonly = "readonly=readonly";
-    //setcookie('blabla', $$nama, time() + (86400 * 30), "/"); // 86400 = 1 day
+    //setcookie('blabla', $$lname, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
     include("common.php");
@@ -30,9 +30,9 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
     $savecurrent = mysqli_query($genelist_connection,$savecurrentquery) or die("broken connection");
     if (mysqli_num_rows($savecurrent) != 0) {
         $savedata = mysqli_fetch_assoc($savecurrent);
-        $nama = $savedata['gene_basket_name'];
-        if ($nama == "default") {
-            $nama = "active";
+        $lname = $savedata['gene_basket_name'];
+        if ($lname == "default") {
+            $lname = "active";
         }
         $kid = $savedata['gene_basket_id'];
         $cipher_count = $data['harga'];
@@ -50,7 +50,7 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
         <tr >
             <!-- <td>name</td> -->
             <td>
-                <input id="namebarangid" type="text" name="namabarang" size="28" style="font-size:16px;width:80%;background-color: #fafafa  ; outline: none;border:none;color:blue;font-weight:bold;color:#7ab6ab" value="<?php echo $nama;?>" />&nbsp;
+                <input id="namebarangid" type="text" name="namabarang" size="28" style="font-size:16px;width:80%;background-color: #fafafa  ; outline: none;border:none;color:blue;font-weight:bold;color:#7ab6ab" value="<?php echo $lname;?>" />&nbsp;
                 <!-- <button type="submit" value="" class="btn btn-default"><span id="submitformbtn"></span></button> -->
                 <span class="hint--top" aria-label="Save GeneList"><button class="submitb" type="submit" style="font-size:20px;cursor:pointer;color:#909090"><i class="fa fa-save"></i></button></span>
             </td>

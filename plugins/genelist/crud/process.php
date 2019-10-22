@@ -5,7 +5,7 @@
 	{
 	$action=$_POST['action'];
 	$kid=$_POST['genebasketid'];
-	$nama=$_POST['namabarang'];
+	$lname=$_POST['namabarang'];
 	$cipher_count=$_POST['harga'];
 
 	}
@@ -20,7 +20,7 @@ $ip=$uuid;
 		$check=mysqli_query($genelist_connection,"select * from genebaskets where gene_basket_id='$kid' and ip='$ip'");
 		if(mysqli_num_rows($check)==0)
 		{
-		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$nama','$cipher_count','$name','$ip')") or die("insert failed");
+		mysqli_query($genelist_connection,"insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','$lname','$cipher_count','$name','$ip')") or die("insert failed");
 		echo 1;
 		}
 		else
@@ -35,7 +35,7 @@ $ip=$uuid;
 	}
 	elseif($action=="update")
 	{
-		mysqli_query($genelist_connection,"update genebaskets set gene_basket_name='$nama' where gene_basket_id='$kid'") or die ("update failed");
+		mysqli_query($genelist_connection,"update genebaskets set gene_basket_name='$lname' where gene_basket_id='$kid'") or die ("update failed");
 		echo 1 ;
 		exit;
 	}
@@ -78,7 +78,7 @@ $ip=$uuid;
 		if($kid!=0){
 			//if($cipher_count!=0){
 
-			mysqli_query($genelist_connection,"insert into genebaskets(genebaskets.genelist,genebaskets.ip,genebaskets.harga,genebaskets.gene_basket_name) SELECT genebaskets.genelist,genebaskets.ip,genebaskets.harga,'$nama' from genebaskets WHERE genebaskets.gene_basket_id='$kid';");
+			mysqli_query($genelist_connection,"insert into genebaskets(genebaskets.genelist,genebaskets.ip,genebaskets.harga,genebaskets.gene_basket_name) SELECT genebaskets.genelist,genebaskets.ip,genebaskets.harga,'$lname' from genebaskets WHERE genebaskets.gene_basket_id='$kid';");
 
 			//mysqli_query($genelist_connection,"update genebaskets set genebaskets.genelist='',genebaskets.harga='' where genebaskets.gene_basket_id='$kid'") or die ("update failed");
 			echo 1;
@@ -90,7 +90,7 @@ $ip=$uuid;
 		echo 'No default gene list selected';
 	}
 		//
-		//echo $kid.$nama;
+		//echo $kid.$lname;
 		exit;
 			}else{
 				echo 'Maximum 10 gene list allowed!';
