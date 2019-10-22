@@ -6,7 +6,7 @@ $status = "submit";
 $readonly = "";
 $kode = "";
 $nama = '';
-$harga = '';
+$cipher_count = '';
 if (isset($_GET['action']) and $_GET['action'] == "update"
     and!empty($_GET['genebasketid'])) {
     include("common.php");
@@ -17,7 +17,7 @@ if (isset($_GET['action']) and $_GET['action'] == "update"
     //print_r($data);
     $kode = $data['gene_basket_id'];
     $nama = $data['gene_basket_name'];
-    $harga = $data['harga'];
+    $cipher_count = $data['harga'];
     $action = "update";
     $simpan = $action;
     $readonly = "readonly=readonly";
@@ -35,7 +35,7 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
             $nama = "active";
         }
         $kode = $savedata['gene_basket_id'];
-        $harga = $data['harga'];
+        $cipher_count = $data['harga'];
     }
     $action = "savecurent";
     $simpan = $action;
