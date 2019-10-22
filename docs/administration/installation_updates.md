@@ -11,7 +11,7 @@ Please note that the above link will onlu download the source code for the GenIE
 If you prefer using the terminal please run to download both the GenIE-Sys and parsing scripts:
 
 ```
-git clone --recursive https://github.com/irusri/geniesys.git
+git clone --recursive https://github.com/plantgenie/geniesys.git
 ```    
 
 ------------------
