@@ -9,4 +9,5 @@
    installation
    updates
    troubleshooting
+   advanced_installation
 

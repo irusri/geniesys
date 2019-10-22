@@ -5,7 +5,7 @@
  * @version		Beta 1.0
  * @usage		Main functions for GenIE-Sys
  * @licence		GNU GENERAL PUBLIC LICENSE
- * @link		https://geniecms.org
+ * @link		https://geniesys.org
  */
 /*Load the content based on request from index.php*/
 foreach($c as $key => $val) {
