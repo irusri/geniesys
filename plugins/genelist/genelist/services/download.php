@@ -23,7 +23,7 @@ $keywords =  preg_split("/[\:]+/",trim($_POST['id']));
 
 $datatables = new Datatables();
 
-$tintinvariable="eucgr";
+$tintinvariable="at";
 $table_name="transcript_info";
 
 
