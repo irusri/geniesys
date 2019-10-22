@@ -1,5 +1,5 @@
 <?php
-include("koneksi.php");
+include("common.php");
 $ip = $uuid;
 $action = "new";
 $status = "submit";
@@ -9,7 +9,7 @@ $nama = '';
 $harga = '';
 if (isset($_GET['action']) and $_GET['action'] == "update"
     and!empty($_GET['genebasketid'])) {
-    include("koneksi.php");
+    include("common.php");
     $ip = $uuid;
     $str = "select * from genebaskets where gene_basket_id=".intval($_GET['genebasketid']);
     $res = mysqli_query($genelist_connection,$str) or die("broken connection");
@@ -24,7 +24,7 @@ if (isset($_GET['action']) and $_GET['action'] == "update"
     //setcookie('blabla', $$nama, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
-    include("koneksi.php");
+    include("common.php");
     $ip = $uuid;
     $savecurrentquery = "SELECT genebaskets.gene_basket_name,genebaskets.harga,defaultgenebaskets.gene_basket_id FROM defaultgenebaskets LEFT JOIN genebaskets ON defaultgenebaskets.gene_basket_id=genebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";
     $savecurrent = mysqli_query($genelist_connection,$savecurrentquery) or die("broken connection");

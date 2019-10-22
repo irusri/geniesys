@@ -2,7 +2,7 @@
 if (isset($_GET)) {
     $baskettype = $_GET['id'];
 }
-include("koneksi.php");
+include("common.php");
 $ip = $uuid;
 if ($baskettype == "gene") {
     $getgenelistsql = "SELECT genebaskets.harga FROM genebaskets JOIN defaultgenebaskets ON  genebaskets.gene_basket_id=defaultgenebaskets.gene_basket_id where defaultgenebaskets.ip='$ip'";

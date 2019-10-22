@@ -1,5 +1,5 @@
 <?php
-include("koneksi.php");
+include("common.php");
 $defaultgenebasketname = "";
 $ip = $uuid;
 $str = "select * from genebaskets where ip='$ip'";
