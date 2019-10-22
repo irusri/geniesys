@@ -14,7 +14,7 @@ Installing MAMP is just a matter of downloading the app from the MAMP website an
 
 By starting the MAMP app you are also starting your Apache and MySQL server. You should now be able to reach your local server at ```http://localhost:8888```.
 
-It is convenient to change the MySQL and Apache ports to 3306 and 80 respectively to use default MySQL and Apache ports.
+By default, MAMP uses port 8888 for Apache and port 8889 for MySQL. It is convenient to change the MySQL and Apache ports to 3306 and 80 respectively to use default MySQL and Apache ports.
 
 [![](https://github.com/irusri/geniesys/blob/master/docs/images/mamp_settings.png?raw=true)](http://www.mamp.info/en/downloads/)
 
@@ -26,4 +26,4 @@ It is convenient to change the MySQL and Apache ports to 3306 and 80 respectivel
 
 You will find the source of GenIE-Sys in your download folder. So you just need to Copy GenIE-Sys folder into corresponding ```~/Applications/MAMP/htdocs/``` folder.
 
-That is basically what you need to do in order to install GenIE-Sys on your Mac's local server. You should now be able to access it at: ```http://localhost:8888/geniesys``` in your browser.
+That is basically what you need to do in order to install GenIE-Sys on your Mac's local server. You should now be able to access it at: ```http://localhost/geniesys``` in your browser. Now you can see the essential website up and running. However to configure it correctly please update the configuration file as described in the next section.
