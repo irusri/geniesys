@@ -63,7 +63,7 @@ if (mysqli_num_rows($defaultresults) != 0) {
                }
                ?>
          </td>
-         <td><a href="plugins/genelist/crud/formbarang.php?action=update&genebasketid=<?php echo $data['gene_basket_id'];?>" class="edit">
+         <td><a href="plugins/genelist/crud/formui.php?action=update&genebasketid=<?php echo $data['gene_basket_id'];?>" class="edit">
             <?php
                if($data['gene_basket_id']==$default_g_id){
                	print '<span class="hint--top hint--error" aria-label="Rename GeneList"><font style="color:#FF0000"><i class="tablemenu fa-edit"></i></font></span>';

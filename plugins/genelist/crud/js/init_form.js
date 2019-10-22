@@ -9,7 +9,7 @@ $(function() {
 				success: function(data) {
 					if (data == 1)
 					{
-						$("#content").load("plugins/genelist/crud/listbarang.php");
+						$("#content").load("plugins/genelist/crud/listui.php");
 						page = $(this).attr("href")
 						$("#Formcontent").html("").unload(page);
 						$("#cancelbtn").hide();

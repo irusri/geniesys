@@ -22,7 +22,7 @@ $(function() {
 				type: "GET",
 				success: function(hasil) {
 					if (hasil == 1) {
-						$("#content").load("plugins/genelist/crud/listbarang.php");
+						$("#content").load("plugins/genelist/crud/listui.php");
 						updategenebasket();
 						el.parent().parent().fadeOut('slow');
 					} else {
@@ -41,7 +41,7 @@ $(function() {
 			success: function(hasil) {
 				if (hasil == 1) {
 					page4 = $(this).attr("href");
-					$("#content").load("plugins/genelist/crud/listbarang.php");
+					$("#content").load("plugins/genelist/crud/listui.php");
 					//$("#numberofgenesSpan").html(valuest).load(page4);
 					updategenebasket();
 				} else {

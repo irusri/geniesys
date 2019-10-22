@@ -52,7 +52,7 @@ if($_GET("table")!=undefined){
           success: function(hasil) {
               var numberc = pad2(hasil).replace(/\s/g, "");
               document.getElementById("numberofgenesSpan").innerHTML = numberc;
-              $("#content").load("plugins/genelist/crud/listbarang.php");
+              $("#content").load("plugins/genelist/crud/listui.php");
               /*		var nogenes_blinker = setInterval(function(){ blinker() }, 1000);
 				if(numberc!="00"){
 					clearInterval(nogenes_blinker);
@@ -74,7 +74,7 @@ if($_GET("table")!=undefined){
           success: function(hasil) {
               var numberc = pad2(hasil).replace(/\s/g, "");
               document.getElementById("numberofgenesSpan").innerHTML = numberc;
-              $("#content").load("plugins/genelist/crud/listbarang.php");
+              $("#content").load("plugins/genelist/crud/listui.php");
               //glowme("#numberofgenesSpan");
           }
       });
@@ -99,7 +99,7 @@ if($_GET("table")!=undefined){
       //updategobasket();
       //   updatesamplebasket();
       updategenebasket();
-      //$("#content").load("http://beta.popgenie.org/crud/listbarang.php");
+      //$("#content").load("http://beta.popgenie.org/crud/listui.php");
   }
   $(function() {
       $("a.add").click(function() {
@@ -124,7 +124,7 @@ if($_GET("table")!=undefined){
 
   function clickgenelink() {
       updategenebasket();
-      $("#content").load("plugins/genelist/crud/listbarang.php");
+      $("#content").load("plugins/genelist/crud/listui.php");
   }
 
 
@@ -224,7 +224,7 @@ if($_GET("table")!=undefined){
             adjustPadding();
             $("#editpanel").show()
             updategenebasket3();
-            $("#content").load("plugins/genelist/crud/listbarang.php");
+            $("#content").load("plugins/genelist/crud/listui.php");
             //	console.log($("#genenumber")[0].)
             //	console.log($("#mainspan")[0])
             $("#mainspan").hide();
