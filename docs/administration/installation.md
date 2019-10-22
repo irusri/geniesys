@@ -27,7 +27,7 @@ By default, MAMP uses port 8888 for Apache and port 8889 for MySQL. It is conven
 
 You will find the source of GenIE-Sys in your download folder. So you just need to Copy GenIE-Sys folder into corresponding ```~/Applications/MAMP/htdocs/``` folder.
 
-That is basically what you need to do in order to install GenIE-Sys on your Mac's local server. You should now be able to access it at: ```http://localhost:[port number if it is not 80]/geniesys``` in your browser. Now you can see the essential website up and running. However to configure it correctly please update the configuration file as described in the next section.
+That is basically what you need to do in order to install GenIE-Sys on your Mac's local server. You should now be able to access it at: ```http://localhost:[port number]/geniesys``` in your browser. Now you can see the essential website up and running. However to configure it correctly please update the configuration file as described in the next section.
 
 
 ## Configuration file
@@ -36,11 +36,11 @@ We should update the settings file(```geniesys/plugins/settings.php```) right af
 
 ```php
 /*Define your base url with trailing slash*/
-$GLOBALS["base_url"]='http://localhost:[port number if it is not 80]/geniesys/';
+$GLOBALS["base_url"]='http://localhost:[port number]/geniesys/';
 
 OR
 
-$GLOBALS["base_url"]='http://localhost:[port number if it is not 80]';
+$GLOBALS["base_url"]='http://localhost:[port number]';
 
 ```
 
