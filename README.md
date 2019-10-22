@@ -31,7 +31,7 @@ This is the Development and the latest version of GenIE-Sys. Our main goal is to
 As we mentioned in documentation, we have two ways to start GenIE-Sys:
 
 1.) [Using the Docker image](https://github.com/irusri/Docker4GenIECMS)   
-2.) [Using standalone webserver](https://geniesys.readthedocs.io/en/latest/installation_updates.html)
+2.) [Using standalone webserver](https://geniesys.readthedocs.io/en/latest/administration/installation.html)
 
 However, we need to have an error free GenIE-Sys to running in the backend to compatible with both above situations. For the development purpose I would like to use the docker container, commit and push changes to genie.git and simply remove the container.  
 
