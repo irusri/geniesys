@@ -40,7 +40,7 @@ if (mysqli_num_rows($defaultresults) != 0) {
    <tbody>
       <?php while($data=mysqli_fetch_assoc($res)){?>
       <tr>
-         <td><a onclick="changespeciesdropdown('<?php echo $data['gene_basket_name'];?>')" href="plugins/genelist/crud/proses.php?action=updatedefaultgene&genebasketid=<?php echo $data['gene_basket_id'];?>" id="<?php echo $data['harga'];?>" class="bname"><?php  if($data['gene_basket_name']=="default"){$data['gene_basket_name']="active";}
+         <td><a onclick="changespeciesdropdown('<?php echo $data['gene_basket_name'];?>')" href="plugins/genelist/crud/process.php?action=updatedefaultgene&genebasketid=<?php echo $data['gene_basket_id'];?>" id="<?php echo $data['harga'];?>" class="bname"><?php  if($data['gene_basket_name']=="default"){$data['gene_basket_name']="active";}
             if($data['gene_basket_id']==$default_g_id){
             	print '<font style="color:#FF0000">'.$data['gene_basket_name'].'</font>&nbsp;</a><span class="hint--top hint--error" aria-label="Open '.$data['gene_basket_name'].' gene list" style="cursor: pointer" ><a  href="plugins/genelist/tool.php" data-toggle="modal" data-target="#myModal" onclick="hidemef(this)"  data-refresh="true" class="fa fa-eye" aria-hidden="true"></a></span>';
             }else{
@@ -73,7 +73,7 @@ if (mysqli_num_rows($defaultresults) != 0) {
                ?>
             </a>
          </td>
-         <td><a href="plugins/genelist/crud/proses.php?action=delete&genebasketid=<?php echo $data['gene_basket_id'];?>" class="delete">
+         <td><a href="plugins/genelist/crud/process.php?action=delete&genebasketid=<?php echo $data['gene_basket_id'];?>" class="delete">
             <?php
                if($data['gene_basket_id']==$default_g_id){
                	print '<span class="hint--left hint--error" aria-label="Delete GeneList"><font style="color:#FF0000"><i class="tablemenu fa-trash"></i></font></span>';
