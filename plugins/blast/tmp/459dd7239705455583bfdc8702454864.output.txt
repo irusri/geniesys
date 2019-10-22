@@ -1,5 +1,0 @@
-<img id="blast_image" style="overflow:hidden;top:0px"  usemap="#bgmap00001" border=1/><map name="bgmap00001" id="bgmap00001">
-<area shape="rect" coords="10,0,1010,52" href="jbrowse?loc=No&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
-<area shape="rect" coords="10,58,1006,97" href="jbrowse?loc=ref%7CMA_394599%7C&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
-<area shape="rect" coords="10,100,1006,139" href="jbrowse?loc=ref%7CMA_10428528%7C&tracks=UserBlastResults%2CDNA%2CGenes&data=data%2jbrowse_dataset_directory"  target="_blank"/>
-</map>
