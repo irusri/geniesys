@@ -260,7 +260,7 @@ function updategenebasket_real($genearray, $post_basket_name) {
         mysqli_query($genelist_connection, "insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' and gene_basket_name='$post_basket_name'");
     }
 }
-function updategenebasket_new($genearray, $basket_name_post) {
+function updategenebasket_depreciated($genearray, $basket_name_post) {
     include ("common.php");
     $ip = $uuid;
     $genessendaddStringArray = array_unique($genearray);
@@ -296,21 +296,7 @@ function updategenebasket_new($genearray, $basket_name_post) {
         }
     }
     exit();
-    /*	if(is GeneList exist){
-    if(is Species List exist and is the saving genelist name related to species){
-    Update GeneList for unique user id and by species list name
-    }else{
-    if(is default genelist exist){
-    Update genelist by default genelist id
-    }else{
-    Insert genelist and default genelist
-    }
-    }
-    }else{
-    	Insert into GeneList and GeneList name for unique id
-    }
-    
-    */
+
     $check_genelist_and_species = mysqli_query($genelist_connection, "select * from genebaskets where gene_basket_name REGEXP '^potr[aisx]$' and ip='$ip'");
     $check_defaultgenebaskets = mysqli_query($genelist_connection, "select * from defaultgenebaskets where ip='$ip'");
     if (mysqli_num_rows($check_genelist_and_species) != 0) {
@@ -495,7 +481,7 @@ function updategenebasketall($updateallarr, $name = FALSE) {
     //	return "sss";
     
 }
-function updategenebasketall_new($updateallarr, $name = FALSE) {
+function updategenebasketall_slow($updateallarr, $name = FALSE) {
     if ($name) {
         $basketname = $name;
     } else {
