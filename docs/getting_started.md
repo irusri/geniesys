@@ -21,7 +21,7 @@ Web resources such as <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/a
 Requirements
 ------------------
 
-**Please do not use Microsoft Edge or Internet Explorer for testing. We recommended using Firefox or Google Chrome web browser for testing of the GenIE-Sys.**
+**We recommended using Firefox or Google Chrome web browsers for testing of the GenIE-Sys.Please do not use Microsoft Edge or Internet Explorer.**
 
 To run GenIE-Sys we recommend your host supports the following
 
