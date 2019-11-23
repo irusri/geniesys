@@ -20,8 +20,8 @@ Following steps are important when you need to convert existing JBrowse into Gen
 **Loading data into JBrowse**
 
 ```shell
-bin/prepare-refseqs.pl --fasta ../../data/Egrandis297v2.0.fa
-bin/flatfile-to-json.pl --gff ../../data/Egrandis297v2.0.gene.gff3 --trackLabel E.Genes --trackType CanvasFeatures
+bin/prepare-refseqs.pl --fasta [genome fasta file]
+bin/flatfile-to-json.pl --gff [GFF3 file]] --trackLabel [Label name] --trackType CanvasFeatures
 bin/generate-names.pl -v
 
 ```
