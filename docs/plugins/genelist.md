@@ -119,8 +119,7 @@ Potra000002g31576	Potra000002	52539	53036	+
 Potra000002g31577	Potra000002	55010	55465	+
 
 #Use GFF3 and generate source input file to load into transcript_info mysql table
-#awk '/mRNA/{split($9,a,"ID=");split(a[2],b,";");split(b[1],c,".");print b[1],$1,$4,$5,$7,c[1]}' FS='\t' OFS='\t' input/Potra01-gene-mRNA-wo-intron.gff3 > input/transcript_info.txt
-awk '/mRNA/{split($9,a,"ID=");split(a[2],b,";");split(b[1],c,".");split($9,d,"pacid=");split(d[2],e,";");print b[1]"\t"c[1]"\tdesc\t"$1"\t"$7"\t"$4"\t"$5"\t"e[1]"\t"e[1]"\t"$4"\t"$5}' FS='\t' OFS='\t' input/Potra01-gene-mRNA-wo-intron.gff3 > input/transcript_info.txt
+awk '{if(g3=="gene"){split($9,a,"=");split(a[2],b,";");split(g9,ga,"=");split(ga[2],gb,";");print b[1]"\t"gb[1]"\tDesc\t"$1"\t"$7"\t"g4"\t"g5"\tPAC\tPEP\t"$4"\t"$5};g3=$3;g1=$1;g2=$2;g4=$4;g5=$5;g9=$9}' input/Potra01-gene-mRNA-wo-intron.gff3 > input/transcript_info.txt
 
 #results file(transcript_info.txt) looks like following
 Potra000001g00001.1	Potra000001g00001	desc	Potra000001	-	9066	10255			9066	10255
