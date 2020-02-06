@@ -414,3 +414,9 @@ function updategenebasket3() {
 
   return false;
 }
+
+//READ URL for background image
+function readURL(event){
+  var getImagePath = URL.createObjectURL(event.target.files[0]);  console.log(getImagePath)
+  $('header').css('background', 'url(' + getImagePath + ') repeat-x');
+ }

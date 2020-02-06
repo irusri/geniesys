@@ -25,6 +25,12 @@
       <link rel="stylesheet" href="plugins/genelist/genelist/css/toastr.min.css" type="text/css" media="all">
    </head>
    <body>
+<div style="overflow:hidden;position:absolute;float:right;right:10px;top:100px;background:red"> 
+<form action="upload.php" method="post"  enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" onchange="readURL(event)"  id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form></div>
 
       <div id="body_main_div" style="width:100%;">
          <div class="loader-wrap">
