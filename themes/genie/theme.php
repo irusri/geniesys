@@ -25,12 +25,29 @@
       <link rel="stylesheet" href="plugins/genelist/genelist/css/toastr.min.css" type="text/css" media="all">
    </head>
    <body>
-<div style="overflow:hidden;position:absolute;float:right;right:10px;top:100px;background:red"> 
-<form action="upload.php" method="post"  enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" onchange="readURL(event)"  id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form></div>
+   
+<div id="change_header" style="overflow:hidden;position:absolute;float:right;right:10px;top:100px;background:#fff"> 
+    <label class="custom-file-upload">
+    <input style="display:none" type="file" name="fileToUpload" onchange="readURL(event,'header')"  id="fileToUpload"/>
+    <i class="fa fa-cloud-upload"></i> Change Header image
+   </label>
+
+   <label class="custom-file-upload">
+   <input style="display:none" type="button" onClick="resetBackgroundImage('header')" />
+    <i class="fa fa-undo"></i> Reset header image
+   </label>
+
+   <label class="custom-file-upload">
+    <input style="display:none" type="file" name="fileToUpload_logo" onchange="readURL(event,'logo')"  id="fileToUpload_logo"/>
+    <i class="fa fa-cloud-upload"></i> Change Logo
+   </label>
+
+   <label class="custom-file-upload">
+   <input style="display:none" type="button" onClick="resetBackgroundImage('logo')" />
+    <i class="fa fa-undo"></i> Reset Logo
+   </label>
+</div>
+<?php if(is_loggedin()) {?>  <?php } ?>
 
       <div id="body_main_div" style="width:100%;">
          <div class="loader-wrap">

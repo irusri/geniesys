@@ -11,7 +11,7 @@ header {
     z-index: 999;
     /*background: #FAFEFF;*/
     height:179px;
-    background: #ffffff url(../../../themes/genie/images/back.png) repeat-x;
+    background: #ffffff url(../../../themes/genie/images/tmp.png) repeat-x;
 }
 .my-container img {
     position: absolute;
@@ -901,3 +901,10 @@ margin-bottom:2px;
   color: #b94a48;
   
 }
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+} 

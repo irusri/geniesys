@@ -416,7 +416,38 @@ function updategenebasket3() {
 }
 
 //READ URL for background image
-function readURL(event){
-  var getImagePath = URL.createObjectURL(event.target.files[0]);  console.log(getImagePath)
-  $('header').css('background', 'url(' + getImagePath + ') repeat-x');
+function readURL(event,image_type){
+  console.log(event.target.files[0]);
+  var getImagePath = URL.createObjectURL(event.target.files[0]);  
+  if(image_type=="header"){$('header').css('background', 'url(' + getImagePath + ') repeat-x');}
+  if(image_type=="logo"){$("#logo_img").attr("src",getImagePath);}
+  var file_data = event.target.files[0];//$('.image').prop('files')[0];
+  if(file_data != undefined) {
+      var form_data = new FormData();                  
+      form_data.append('file', file_data);
+      form_data.append('type', image_type);
+      $.ajax({
+          type: 'POST',
+          url: 'themes/genie/upload.php',
+          contentType: false,
+          processData: false,
+          data: form_data,
+          success:function(response) {
+           // console.log(response)
+          }
+      });
+  }
+  return false;
  }
+
+ function resetBackgroundImage(image_type){
+  $.ajax({
+    type: 'POST',
+    url: 'themes/genie/upload.php',
+    data: "reset="+image_type,
+    success:function(response) {
+      location.reload();
+    }
+  });
+ }
+ 
