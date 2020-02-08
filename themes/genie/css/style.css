@@ -22,11 +22,9 @@ header {
     opacity: 0.6;
 }
 body {
-    background: #9EBF6D;
     color: #222;
     font: 12px/20px 'open-sans', Georgia, "Times New Roman", Times, serif;
     /* text-align: center;*/
-
     height: 100%;
     background-color: #9EBF6D;
     margin: 0px;
