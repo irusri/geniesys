@@ -46,7 +46,10 @@
    <input style="display:none" type="button" onClick="resetBackgroundImage('logo')" />
     <i class="fa fa-undo"></i> Reset Logo
    </label>
-</div>
+
+   <input type="color" id="color" value="#49bc58" onchange="getColor()" />
+  
+</div> 
 <?php if(is_loggedin()) {?>  <?php } ?>
 
       <div id="body_main_div" style="width:100%;">

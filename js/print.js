@@ -450,4 +450,9 @@ function readURL(event,image_type){
     }
   });
  }
+
+function getColor() {
+  var color = $("#color").val();
+  $("body").css("background", color);
+}
  
