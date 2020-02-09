@@ -454,6 +454,19 @@ function readURL(event,image_type){
 function getColor() {
   var color = $("#color").val();
   $("body").css("background", color);
-  document.body.style.backgroundColor = "#7ab6ab";
+  $.ajax({
+    type: 'POST',
+    url: 'themes/genie/upload.php',
+    data: "type=color&color="+color,
+    success:function(response) {
+
+      console.log(response)
+    }
+  });
+  
+
 }
+
+
+
  
