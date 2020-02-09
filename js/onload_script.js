@@ -24,7 +24,6 @@ $(window).load(function() {
 });
 
 //readTextFile('genie_files/background');
-
 if (getCookie("bg_color") != undefined) {
   console.log(data);
 }
