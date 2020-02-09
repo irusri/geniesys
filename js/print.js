@@ -459,7 +459,6 @@ function getColor() {
     url: 'themes/genie/upload.php',
     data: "type=color&color="+color,
     success:function(response) {
-
       console.log(response)
     }
   });

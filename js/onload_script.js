@@ -22,6 +22,14 @@ $(window).load(function() {
     }
   });
 });
+
+//readTextFile('genie_files/background');
+
+if (getCookie("bg_color") != undefined) {
+  console.log(data);
+}
+
+
 //$('#myAnchor')[0].click();
 $("#myModal").on("show.bs.modal", function(e) {
   $(".loader-wrap").show();
