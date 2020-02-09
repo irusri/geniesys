@@ -199,4 +199,13 @@ function settings(){
 	echo ' <iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="http://build.plantgenie.org/geniecms.php"></iframe><br>';
 	echo "</div></div>";
 }
+
+//Get bg color
+$getColor=$_POST['bgcolor'];
+if($getColor=="color"){
+    $color_file = fopen("genie_files/background", "r") or die("Unable to open file!");
+    $bgcolor=fgets($color_file);
+    echo $bgcolor;
+    fclose($color_file);
+}
 ?>

@@ -417,7 +417,7 @@ function updategenebasket3() {
 
 //READ URL for background image
 function readURL(event,image_type){
-  console.log(event.target.files[0]);
+ // console.log(event.target.files[0]);
   var getImagePath = URL.createObjectURL(event.target.files[0]);  
   if(image_type=="header"){$('header').css('background', 'url(' + getImagePath + ') repeat-x');}
   if(image_type=="logo"){$("#logo_img").attr("src",getImagePath);}
@@ -459,7 +459,7 @@ function getColor() {
     url: 'themes/genie/upload.php',
     data: "type=color&color="+color,
     success:function(response) {
-      console.log(response)
+     // console.log(response)
     }
   });
   

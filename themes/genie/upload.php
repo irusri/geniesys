@@ -2,6 +2,7 @@
 $reset=$_POST['reset'];
 $imageType=$_POST['type'];
 $tmp_Color=$_POST['color'];
+$getColor=$_POST['bgcolor'];
 
 //Reset header image to default genie theme bckground
 if($reset=="header"){
@@ -51,6 +52,14 @@ if($imageType=="color"){
 	}
 	fwrite($file, $tmp_Color);
 	fclose($file);
+}
+
+//Get bg color
+if($getColor=="color"){
+    $color_file = fopen(dirname(__FILE__)."/../../genie_files/background", "r") or die("Unable to open file!");
+    $bgcolor=fgets($color_file);
+    echo $bgcolor;
+    fclose($color_file);
 }
 
 die();

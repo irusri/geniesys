@@ -25,7 +25,7 @@
       <link rel="stylesheet" href="plugins/genelist/genelist/css/toastr.min.css" type="text/css" media="all">
    </head>
    <body>
-   
+ <?php if(is_loggedin()) {?>   
 <div id="change_header" style="overflow:hidden;position:absolute;float:right;right:10px;top:100px;background:#fff"> 
     <label class="custom-file-upload">
     <input style="display:none" type="file" name="fileToUpload" onchange="readURL(event,'header')"  id="fileToUpload"/>
@@ -50,7 +50,7 @@
    <input type="color" id="color" value="#49bc58" onchange="getColor()" />
   
 </div> 
-<?php if(is_loggedin()) {?>  <?php } ?>
+ <?php } ?>
 
       <div id="body_main_div" style="width:100%;">
          <div class="loader-wrap">

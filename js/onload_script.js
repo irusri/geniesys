@@ -23,11 +23,14 @@ $(window).load(function() {
   });
 });
 
-//readTextFile('genie_files/background');
-if (getCookie("bg_color") != undefined) {
-  console.log(data);
-}
-
+$.ajax({
+  type: 'POST',
+  url: 'functions.php',
+  data: "bgcolor=color",
+  success:function(response) {
+    document.body.style.backgroundColor =response;
+  }
+});
 
 //$('#myAnchor')[0].click();
 $("#myModal").on("show.bs.modal", function(e) {
