@@ -13,5 +13,5 @@ gzip -d Potra02_genes.gff.gz
 gzip -d Potra02_genome.fasta.gz
 ```
 
-### Parse genomes
+### Parse genome
 Now we need to parse GFF3 and FASTA files into requred formats.
