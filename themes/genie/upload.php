@@ -1,8 +1,7 @@
 <?php
 $reset=$_POST['reset'];
 $imageType=$_POST['type'];
-$tmp_Color=$_POST['color'];
-$getColor=$_POST['bgcolor'];
+$tmpColor=$_POST['color'];
 
 //Reset header image to default genie theme bckground
 if($reset=="header"){
@@ -15,7 +14,6 @@ if($reset=="logo"){
     copy('images/plantgeine_logo_backup.png', 'images/plantgeine_logo.png' );
     exit();
 }
-
 
 //Change header image
 if($imageType=="header"){
@@ -50,17 +48,8 @@ if($imageType=="color"){
 		echo "Error opening background. Set correct permissions (644) to the background file.";
 		exit;
 	}
-	fwrite($file, $tmp_Color);
+	fwrite($file, $tmpColor);
 	fclose($file);
 }
-
-//Get bg color
-/* if($getColor=="color"){
-    $color_file = fopen(dirname(__FILE__)."/../../genie_files/background", "r") or die("Unable to open file!");
-    $bgcolor=fgets($color_file);
-    echo $bgcolor;
-    fclose($color_file);
-} */
-
 die();
 ?>
