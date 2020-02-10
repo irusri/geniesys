@@ -9,4 +9,5 @@
    installation
    troubleshooting
    advanced_installation
+   change_theme
 
