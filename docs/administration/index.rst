@@ -10,4 +10,5 @@
    troubleshooting
    advanced_installation
    change_theme
+   load_genome
 
