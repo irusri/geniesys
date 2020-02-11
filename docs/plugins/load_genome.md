@@ -55,18 +55,18 @@ Potra2n1c9	chr1	69471	73884	-
 Potra2n1c10	chr1	74717	75583	+
 
 ## create file for transcript_info table
-awk '$3~/gene/{g=$4" "$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k["Name"], k["Parent"], "desc", $1, $7, g, "PAC", "PEP", $4,$5}' Potra02_genes.gff > transcript_info.txt
+awk 'BEGIN{ OFS = "\t"; }$3~/gene/{g=$4"\t"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k["Name"], k["Parent"], "desc", $1, $7, g, "PAC", "PEP", $4,$5}' Potra02_genes.gff > transcript_info.txt
 $ head transcript_info.txt
-Potra2n1c1.3 Potra2n1c1 desc chr1 - 8865 11259 PAC PEP 8865 10802
-Potra2n1c1.1 Potra2n1c1 desc chr1 - 8865 11259 PAC PEP 8865 11259
-Potra2n1c1.2 Potra2n1c1 desc chr1 - 8865 11259 PAC PEP 8865 11259
-Potra2n1c2.1 Potra2n1c2 desc chr1 + 21121 21603 PAC PEP 21121 21603
-Potra2n1c3.1 Potra2n1c3 desc chr1 - 22295 24697 PAC PEP 22295 24697
-Potra2n1c4.1 Potra2n1c4 desc chr1 + 30731 32811 PAC PEP 30731 32811
-Potra2n1c5.1 Potra2n1c5 desc chr1 + 33508 33833 PAC PEP 33508 33833
-Potra2n1c6.1 Potra2n1c6 desc chr1 - 50823 54726 PAC PEP 50823 54726
-Potra2n1c7.1 Potra2n1c7 desc chr1 + 50901 51116 PAC PEP 50901 51116
-Potra2n1c8.3 Potra2n1c8 desc chr1 - 54928 62450 PAC PEP 54928 61609
+Potra2n1c1.3	Potra2n1c1	desc	chr1	-	8865	11259	PAC	PEP	8865	10802
+Potra2n1c1.1	Potra2n1c1	desc	chr1	-	8865	11259	PAC	PEP	8865	11259
+Potra2n1c1.2	Potra2n1c1	desc	chr1	-	8865	11259	PAC	PEP	8865	11259
+Potra2n1c2.1	Potra2n1c2	desc	chr1	+	21121	21603	PAC	PEP	21121	21603
+Potra2n1c3.1	Potra2n1c3	desc	chr1	-	22295	24697	PAC	PEP	22295	24697
+Potra2n1c4.1	Potra2n1c4	desc	chr1	+	30731	32811	PAC	PEP	30731	32811
+Potra2n1c5.1	Potra2n1c5	desc	chr1	+	33508	33833	PAC	PEP	33508	33833
+Potra2n1c6.1	Potra2n1c6	desc	chr1	-	50823	54726	PAC	PEP	50823	54726
+Potra2n1c7.1	Potra2n1c7	desc	chr1	+	50901	51116	PAC	PEP	50901	51116
+Potra2n1c8.3	Potra2n1c8	desc	chr1	-	54928	62450	PAC	PEP	54928	61609
 ```
 
 ### Create database
@@ -144,3 +144,9 @@ Let's run the following command to update `gene_i` in `transcript_info` table.
 #Finally update the gene_i in transcript_info table using update_gene_i.sh.
 .scripts/update_gene_i.sh
 ```
+
+If above script takes time please try following command on MySQL. This will update the `gene_i` column in `transcript_info` table.
+```shell
+update transcript_info,gene_info set transcript_info.gene_i=gene_info.gene_i where gene_info.gene_id=transcript_info.gene_id;
+```
+
