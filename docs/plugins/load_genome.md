@@ -73,15 +73,15 @@ Potra2n1c10.1	Potra2n1c10	Desc	chr1	+	74717	75583	PAC	PEP	74717	75583
 
 Now we need to create a database. To do this, you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
 ```shell
-## Download dump database for GenIE-Sys
-curl -O https://raw.githubusercontent.com/irusri/scripts/master/dump.sql
+## Download all required scripts and dump database
+$ git clone https://github.com/irusri/scripts.git
 ## Create database for default root user and root password
 $ mysql -u root -proot
 mysql> create database my_genie_sys_database;
 Query OK, 1 row affected (0.01 sec)
 mysql> use my_genie_sys_database;
 Database changed
-mysql> source dump.sql;
+mysql> source scripts/dump.sql;
 ```
 
 ### Loading to primary tables
@@ -89,8 +89,6 @@ mysql> source dump.sql;
 Now we need to load above two files(gene_info.txt and transcript_info.txt) into the newly created database. There is a script(`load_data.sh`) to do this. We can download the script and enter the correct `username, password and database` information to `DB_USER, DB_PASS and DB` parameters respectively.
 
 ```shell
-## Download all required scripts
-$ git clone https://github.com/irusri/scripts.git
 $ head scripts/load_data.sh
 #load_data.sh script
 #!/bin/bash
