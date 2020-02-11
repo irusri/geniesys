@@ -89,8 +89,7 @@ mysql> source scripts/dump.sql;
 Now we need to load above two files(gene_info.txt and transcript_info.txt) into the newly created database. There is a script(`load_data.sh`) to do this. We can download the script and enter the correct `username, password and database` information to `DB_USER, DB_PASS and DB` parameters respectively.
 
 ```shell
-
-$ head scripts/load_data.sh
+$ nano scripts/load_data.sh
 #load_data.sh script
 #!/bin/bash
 #load_data.sh
@@ -106,7 +105,9 @@ TRUNCATE TABLE $1;
 ALTER TABLE $1 AUTO_INCREMENT = 1;
 load data local infile '$2' replace INTO TABLE $1 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
 EOFMYSQL
-
+```
+Run following commands to load  `gene_info.txt` and `transcript_info.txt` into respective tables.
+```shell
 #Load above generated source file into gene_info table
 .scripts/load_data.sh gene_info gene_info.txt
 
