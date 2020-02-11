@@ -55,18 +55,18 @@ Potra2n1c9	chr1	69471	73884	-
 Potra2n1c10	chr1	74717	75583	+
 
 ## create file for transcript_info table
-awk '{if(g3=="gene"){split($9,a,"=");split(a[2],b,";");split(g9,ga,"=");split(ga[2],gb,";");print b[1]"\t"gb[1]"\tDesc\t"$1"\t"$7"\t"g4"\t"g5"\tPAC\tPEP\t"$4"\t"$5};g3=$3;g1=$1;g2=$2;g4=$4;g5=$5;g9=$9}' Potra02_genes.gff > transcript_info.txt
+awk '$3~/gene/{g=$4" "$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k["Name"], k["Parent"], "desc", $1, $7, g, "PAC", "PEP", $4,$5}' Potra02_genes.gff > transcript_info.txt
 $ head transcript_info.txt
-Potra2n1c1.3	Potra2n1c1	Desc	chr1	-	8865	11259	PAC	PEP	8865	10802
-Potra2n1c2.1	Potra2n1c2	Desc	chr1	+	21121	21603	PAC	PEP	21121	21603
-Potra2n1c3.1	Potra2n1c3	Desc	chr1	-	22295	24697	PAC	PEP	22295	24697
-Potra2n1c4.1	Potra2n1c4	Desc	chr1	+	30731	32811	PAC	PEP	30731	32811
-Potra2n1c5.1	Potra2n1c5	Desc	chr1	+	33508	33833	PAC	PEP	33508	33833
-Potra2n1c6.1	Potra2n1c6	Desc	chr1	-	50823	54726	PAC	PEP	50823	54726
-Potra2n1c7.1	Potra2n1c7	Desc	chr1	+	50901	51116	PAC	PEP	50901	51116
-Potra2n1c8.3	Potra2n1c8	Desc	chr1	-	54928	62450	PAC	PEP	54928	61609
-Potra2n1c9.1	Potra2n1c9	Desc	chr1	-	69471	73884	PAC	PEP	69471	73884
-Potra2n1c10.1	Potra2n1c10	Desc	chr1	+	74717	75583	PAC	PEP	74717	75583
+Potra2n1c1.3 Potra2n1c1 desc chr1 - 8865 11259 PAC PEP 8865 10802
+Potra2n1c1.1 Potra2n1c1 desc chr1 - 8865 11259 PAC PEP 8865 11259
+Potra2n1c1.2 Potra2n1c1 desc chr1 - 8865 11259 PAC PEP 8865 11259
+Potra2n1c2.1 Potra2n1c2 desc chr1 + 21121 21603 PAC PEP 21121 21603
+Potra2n1c3.1 Potra2n1c3 desc chr1 - 22295 24697 PAC PEP 22295 24697
+Potra2n1c4.1 Potra2n1c4 desc chr1 + 30731 32811 PAC PEP 30731 32811
+Potra2n1c5.1 Potra2n1c5 desc chr1 + 33508 33833 PAC PEP 33508 33833
+Potra2n1c6.1 Potra2n1c6 desc chr1 - 50823 54726 PAC PEP 50823 54726
+Potra2n1c7.1 Potra2n1c7 desc chr1 + 50901 51116 PAC PEP 50901 51116
+Potra2n1c8.3 Potra2n1c8 desc chr1 - 54928 62450 PAC PEP 54928 61609
 ```
 
 ### Create database
@@ -94,16 +94,16 @@ $ nano scripts/load_data.sh
 #!/bin/bash
 #load_data.sh
 #USAGE: sh load_data.sh [table_name] [filename]
-#sh load_data.sh transcript_info transcript_info.txt
+#sh load_data.sh transcript_info_x /tmp/transcript_info.tsv
 
-DB_USER='your_db_username'
-DB_PASS='your_password'
-DB='database_name'
+DB_USER='root' #'your_db_username'
+DB_PASS='root' #'your_password'
+DB='my_genie_sys_database' #'database_name'
 
-/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+mysql  --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
 TRUNCATE TABLE $1;
 ALTER TABLE $1 AUTO_INCREMENT = 1;
-load data local infile '$2' replace INTO TABLE $1 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+load data local infile '$2' ignore INTO TABLE $1 CHARACTER SET UTF8 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
 EOFMYSQL
 ```
 Run following commands to load  `gene_info.txt` and `transcript_info.txt` into respective tables.
@@ -123,13 +123,13 @@ $ nano scripts/update_gene_i.sh
 #!/bin/bash
 #update_gene_i.sh
 
-DB_USER='your_db_username'
-DB_PASS='your_password'
-DB='database_name'
+DB_USER='root' #'your_db_username'
+DB_PASS='root' #'your_password'
+DB='my_genie_sys_database' #'database_name'
 
 #USAGE: sh update_gene_i.sh
 
-/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
 create temporary table add_gene_i(gene_i MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, genename VARCHAR(40));
 ALTER TABLE add_gene_i AUTO_INCREMENT = 1;
 INSERT INTO add_gene_i(genename) select DISTINCT(gene_id) from transcript_info;
