@@ -53,6 +53,7 @@ Potra2n1c7	chr1	50901	51116	+
 Potra2n1c8	chr1	54928	62450	-
 Potra2n1c9	chr1	69471	73884	-
 Potra2n1c10	chr1	74717	75583	+
+
 ## create file for transcript_info table
 awk '{if(g3=="gene"){split($9,a,"=");split(a[2],b,";");split(g9,ga,"=");split(ga[2],gb,";");print b[1]"\t"gb[1]"\tDesc\t"$1"\t"$7"\t"g4"\t"g5"\tPAC\tPEP\t"$4"\t"$5};g3=$3;g1=$1;g2=$2;g4=$4;g5=$5;g9=$9}' Potra02_genes.gff > transcript_info.txt
 $ head transcript_info.txt
@@ -68,9 +69,9 @@ Potra2n1c9.1	Potra2n1c9	Desc	chr1	-	69471	73884	PAC	PEP	69471	73884
 Potra2n1c10.1	Potra2n1c10	Desc	chr1	+	74717	75583	PAC	PEP	74717	75583
 ```
 
-### Loading to database
+### Create database
 
-Now we need create a database and load above data into the database. To do this you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
+Now we need create a database. To do this you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
 ```shell
 ## Download dump database for GenIE-Sys
 curl -O https://raw.githubusercontent.com/irusri/scripts/master/dump.sql
@@ -81,4 +82,36 @@ Query OK, 1 row affected (0.01 sec)
 mysql> use my_genie_sys_database;
 Database changed
 mysql> source dump.sql;
+```
+
+### Loading to primary tables
+
+Now we need to load above two files(gene_info.txt and transcript_info.txt) into the newly created database. There is a script(`load_data.sh`) to do this. We can download the script and enter correct `username, password and database` information to `DB_USER,DB_PASS and DB` parameters respectively.
+
+```shell
+## Download all required scripts
+$ git clone https://github.com/irusri/scripts.git
+$ head scripts/load_data.sh
+#load_data.sh script
+#!/bin/bash
+#load_data.sh
+#USAGE: sh load_data.sh [table_name] [filename]
+#sh load_data.sh transcript_info transcript_info.txt
+
+DB_USER='your_db_username'
+DB_PASS='your_password'
+DB='database_name'
+
+/usr/bin/mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+TRUNCATE TABLE $1;
+ALTER TABLE $1 AUTO_INCREMENT = 1;
+load data local infile '$2' replace INTO TABLE $1 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+EOFMYSQL
+
+#Load above generated source file into gene_info table
+.scripts/load_data.sh gene_info gene_info.txt
+
+#Load previously generated source file into transcript_info table
+.scripts/load_data.sh transcript_info transcript_info.txt
+
 ```
