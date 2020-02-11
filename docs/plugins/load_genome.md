@@ -1,7 +1,7 @@
 Load novel genome
 ======================
 
-Here is a quick guide to describe how to load a novel genome into GenIE-Sys database or integrate novel genome data with GenIE-Sys installation.
+Here is a quick guide to describe how to load a novel genome into GenIE-Sys database.
 
 ### Download
 Let's assume we need to integrate Populus tremula v2.0 genome into GenIE-System. First, we need to download the required files. The latest version of the GFF3 and FASTA files are available on [PlantGenIE FTP](ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/).
