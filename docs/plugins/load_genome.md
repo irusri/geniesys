@@ -1,10 +1,10 @@
-Load additional genome
+Load novel genome
 ======================
 
-Here is quick guide to describe how to load novel genome into GenIE-Sys database or integrate novel genome data with GenIE-Sys installation.  
+Here is a quick guide to describe how to load a novel genome into GenIE-Sys database or integrate novel genome data with GenIE-Sys installation
 
 ### Download
-Let's assume we need to integrate Populus tremula v2.0 genome into GenIE-System. First we need to download the required files. Latest version of the GFF3 and FASTA files are available on [PlantGenIE FTP](ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/).
+Let's assume we need to integrate Populus tremula v2.0 genome into GenIE-System. First, we need to download the required files. The latest version of the GFF3 and FASTA files are available on [PlantGenIE FTP](ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/).
 
 ```shell
 $ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/gff/Potra02_genes.gff.gz
@@ -38,7 +38,7 @@ TTAGTCTACCAAGGCTGGCTAACCAGAGTATAAATGAGTGACGAGGGATA
 ```
 
 ### Parse genome
-Now we need to parse GFF3 and FASTA files into requred formats. There are two primary tables(transcript_info and gene_info) in the databse.
+Now we need to parse GFF3 and FASTA files into required formats. There are two primary tables(transcript_info and gene_info) in the database.
 ```shell
 ## generate file for gene_info table
 awk '/gene/{split($9,a,"ID=");split(a[2],b,";");print b[1],$1,$4,$5,$7}' FS='\t' OFS='\t' Potra02_genes.gff > gene_info.txt
@@ -71,7 +71,7 @@ Potra2n1c10.1	Potra2n1c10	Desc	chr1	+	74717	75583	PAC	PEP	74717	75583
 
 ### Create database
 
-Now we need create a database. To do this you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
+Now we need to create a database. To do this, you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
 ```shell
 ## Download dump database for GenIE-Sys
 curl -O https://raw.githubusercontent.com/irusri/scripts/master/dump.sql
@@ -86,7 +86,7 @@ mysql> source dump.sql;
 
 ### Loading to primary tables
 
-Now we need to load above two files(gene_info.txt and transcript_info.txt) into the newly created database. There is a script(`load_data.sh`) to do this. We can download the script and enter correct `username, password and database` information to `DB_USER,DB_PASS and DB` parameters respectively.
+Now we need to load above two files(gene_info.txt and transcript_info.txt) into the newly created database. There is a script(`load_data.sh`) to do this. We can download the script and enter the correct `username, password and database` information to `DB_USER, DB_PASS and DB` parameters respectively.
 
 ```shell
 ## Download all required scripts
