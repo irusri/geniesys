@@ -1,7 +1,7 @@
 Load novel genome
 ======================
 
-Here is a quick guide to describe how to load a novel genome into GenIE-Sys database.
+Here is a quick guide to describe how to load a novel genome into GenIE-Sys database. 
 
 ### Download
 Let's assume we need to integrate Populus tremula v2.0 genome into GenIE-System. First, we need to download the required files. The latest version of the GFF3 and FASTA files are available on [PlantGenIE FTP](ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/).
@@ -137,4 +137,10 @@ UPDATE transcript_info INNER join add_gene_i ON add_gene_i.genename = transcript
 drop temporary table add_gene_i;
 EOFMYSQL
 
+```
+
+Let's run the following command to update `gene_i` in `transcript_info` table.
+```shell
+#Finally update the gene_i in transcript_info table using update_gene_i.sh.
+.scripts/update_gene_i.sh
 ```
