@@ -7,8 +7,8 @@ Here is quick guide to describe how to load novel genome into GenIE-Sys database
 Let's assume we need to integrate Populus tremula v2.0 genome into GenIE-System. First we need to download the required files. Latest version of the GFF3 and FASTA files are available on [PlantGenIE FTP](ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/).
 
 ```shell
-$ wget ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/gff/Potra02_genes.gff.gz
-$ wget ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/fasta/Potra02_genome.fasta.gz
+$ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/gff/Potra02_genes.gff.gz
+$ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/fasta/Potra02_genome.fasta.gz
 $ gzip -d Potra02_genes.gff.gz
 $ gzip -d Potra02_genome.fasta.gz
 
@@ -73,4 +73,12 @@ Potra2n1c10.1	Potra2n1c10	Desc	chr1	+	74717	75583	PAC	PEP	74717	75583
 Now we need create a database and load above data into the database. To do this you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
 ```shell
 ## Download dump database for GenIE-Sys
+curl -O https://raw.githubusercontent.com/irusri/scripts/master/dump.sql
+## Create database for default root user and root password
+$ mysql -u root -proot
+mysql> create database my_genie_sys_database;
+Query OK, 1 row affected (0.01 sec)
+mysql> use my_genie_sys_database;
+Database changed
+mysql> source dump.sql;
 ```
