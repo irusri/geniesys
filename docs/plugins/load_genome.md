@@ -218,3 +218,5 @@ We just need to run the script to load `description` into `transcript_info` tabl
 sh scripts/update_description.sh transcript_info Potra22_blast2go_description.txt
 ```
 ### Loading to secondary tables
+
+Secondary table conatins annotation related to the primary tables.
