@@ -168,7 +168,7 @@ Run following command to execute the above script(`update_gene_i_dev.sh`)
 ```shell
 sh scripts/update_gene_i_dev.sh
 ```
-Great!, we have loaded transcript and gene infortmation properly into the database. Now can we load additional information. for example; description to the `transcript_info` table.
+Great! We have loaded transcript and gene infortmation properly into the database. Now can we load additional information. For example; description to the `transcript_info` table.
 
 ```shell
 $ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/annotation/blast2go/Potra22_blast2go_description.txt
@@ -184,3 +184,4 @@ Potra2n581s36024.1	UniRef90_U5GE99Zeta-carotene desaturase n=10 Tax=fabids TaxID
 Potra2n707s36547.1	UniRef90_A0A2K1X8T3AMPKBI domain-containing protein n=5 Tax=Populus TaxID=3689 RepID=A0A2K1X8T3_POPTR
 Potra2n409s35556.1	UniRef90_UPI000B5D6D9FE3 ubiquitin-protein ligase SHPRH isoform X3 n=1 Tax=Manihot esculenta TaxID=3983 RepID=UPI000B5D6D9F
 ```
+
