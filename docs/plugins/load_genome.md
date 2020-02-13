@@ -69,7 +69,7 @@ Potra2n1c7.1	Potra2n1c7	desc	chr1	+	50901	51116	PAC	PEP	50901	51116
 Potra2n1c8.3	Potra2n1c8	desc	chr1	-	54928	62450	PAC	PEP	54928	61609
 ```
 
-### Create database
+### Create a database
 
 Now we need to create a database. To do this, you need a MySQL username and password. If you use the MAMP installation default username and password would be `root`.
 ```shell
@@ -168,4 +168,19 @@ Run following command to execute the above script(`update_gene_i_dev.sh`)
 ```shell
 sh scripts/update_gene_i_dev.sh
 ```
-We have transcript and gene infortmation loaded properly to the database. Let's assume how can we load additional information for example, description to the same tables.
+Great!, we have loaded transcript and gene infortmation properly into the database. Now can we load additional information. for example; description to the `transcript_info` table.
+
+```shell
+$ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/annotation/blast2go/Potra22_blast2go_description.txt
+$ head Potra22_blast2go_description.txt
+Potra2n765s36715.1	UniRef90_B9GWJ3F-box domain-containing protein n=2 Tax=Populus TaxID=3689 RepID=B9GWJ3_POPTR
+Potra2n765s36713.1	Populus trichocarpa uncharacterized LOC112326797 (LOC112326797), ncRNA
+Potra2n765s36713.2	Populus trichocarpa uncharacterized LOC112326797 (LOC112326797), ncRNA
+Potra2n765s36714.1	UniRef90_A0A2K2BA33FAD-binding PCMH-type domain-containing protein n=40 Tax=Populus TaxID=3689 RepID=A0A2K2BA33_POPTR
+Potra2n1433s37070.1	UniRef90_U7E173Protein kinase domain-containing protein (Fragment) n=1 Tax=Populus trichocarpa TaxID=3694 RepID=U7E173_POPTR
+Potra2n581s36023.1	UniRef90_UPI00057ABC08probable LRR receptor-like serine/threonine-protein kinase At4g08850 isoform X1 n=1 Tax=Populus euphratica TaxID=75702 RepID=UPI00057ABC08
+Potra2n581s36025.1	UniRef90_UPI00057B3C83probable LRR receptor-like serine/threonine-protein kinase At4g08850 n=1 Tax=Populus euphratica TaxID=75702 RepID=UPI00057B3C83
+Potra2n581s36024.1	UniRef90_U5GE99Zeta-carotene desaturase n=10 Tax=fabids TaxID=91835 RepID=U5GE99_POPTR
+Potra2n707s36547.1	UniRef90_A0A2K1X8T3AMPKBI domain-containing protein n=5 Tax=Populus TaxID=3689 RepID=A0A2K1X8T3_POPTR
+Potra2n409s35556.1	UniRef90_UPI000B5D6D9FE3 ubiquitin-protein ligase SHPRH isoform X3 n=1 Tax=Manihot esculenta TaxID=3983 RepID=UPI000B5D6D9F
+```
