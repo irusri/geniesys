@@ -146,7 +146,26 @@ Let's run the following command to update `gene_i` in `transcript_info` table.
 ```
 
 If above script takes time please try following command on MySQL. This will update the `gene_i` column in `transcript_info` table.
+
 ```shell
+$ nano scripts/update_gene_i.sh
+#update_gene_i_dev.sh script
+#!/bin/bash
+#update_gene_i_dev.sh
+
+DB_USER='root' #'your_db_username'
+DB_PASS='root' #'your_password'
+DB='my_genie_sys_database' #'database_name'
+
+#USAGE: sh update_gene_i_dev.sh
+
+mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
 update transcript_info,gene_info set transcript_info.gene_i=gene_info.gene_i where gene_info.gene_id=transcript_info.gene_id;
+EOFMYSQL
+
+```
+Run following command to execute the above script(`update_gene_i_dev.sh`) 
+```shell
+sh scripts/update_gene_i_dev.sh
 ```
 We have transcript and gene infortmation loaded properly to the database. Let's assume how can we load additional information for example, description to the same tables.
