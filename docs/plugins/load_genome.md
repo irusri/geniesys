@@ -149,4 +149,4 @@ If above script takes time please try following command on MySQL. This will upda
 ```shell
 update transcript_info,gene_info set transcript_info.gene_i=gene_info.gene_i where gene_info.gene_id=transcript_info.gene_id;
 ```
-
+We have transcript and gene infortmation loaded properly to the database. Let's assume how can we load additional information for example, description to the same tables.
