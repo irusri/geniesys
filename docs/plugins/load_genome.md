@@ -109,10 +109,10 @@ EOFMYSQL
 Run following commands to load  `gene_info.txt` and `transcript_info.txt` into respective tables.
 ```shell
 #Load above generated source file into gene_info table
-.scripts/load_data.sh gene_info gene_info.txt
+sh scripts/load_data.sh gene_info gene_info.txt
 
 #Load previously generated source file into transcript_info table
-.scripts/load_data.sh transcript_info transcript_info.txt
+sh scripts/load_data.sh transcript_info transcript_info.txt
 
 ```
 Now we need to update the `gene_i` parameter in `transcript_info` table. There is a script(`update_gene_i.sh`) in the scripts directory, we just need to enter the correct `username, password and database` information to `DB_USER, DB_PASS and DB` parameters respectively as we did in previous step.
@@ -142,7 +142,7 @@ EOFMYSQL
 Let's run the following command to update `gene_i` in `transcript_info` table.
 ```shell
 #Finally update the gene_i in transcript_info table using update_gene_i.sh.
-.scripts/update_gene_i.sh
+sh scripts/update_gene_i.sh
 ```
 
 If above script takes time please try following command on MySQL. This will update the `gene_i` column in `transcript_info` table.
