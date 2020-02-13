@@ -184,10 +184,10 @@ Potra000002g31575	uncharacterized protein LOC105115090
 Potra000002g31576	conserved unknown protein
 Potra000002g31577	conserved unknown protein
 ```
-There is a script called `update_descriptions.sh` in `geniesys/scripts` folder. The script looks like following.
+There is a script called `update_description.sh` in `geniesys/scripts` folder. The script looks like following.
 ```shell
 #!/bin/bash
-#update_descriptions.sh
+#update_description.sh
 
 DB_USER='your_db_username'
 DB_PASS='your_password'
@@ -200,7 +200,7 @@ DB='database_name'
                 start_0='\033[0;33m'
                 start_2='\033[0;31m'
                 end='\033[0m'
-                echo  "\nUsage:\n$0 ${start}[gene_info/transcript_info] [file_name]${end}\nEx: ${start_2}sh update_descriptions.sh transcript_info/gene_info potra_descriptions.tsv${end}\n\nWhat it does?\n${start_0}This script will create a two columns(ids, descriptions) temporary table and load the [file_name] into it.\nThen it will match ids column in temporary table with transcript_ids/gene_ids and update the gene/transcript descriptions.\nFinally delete the temporary table.\n${end}"
+                echo  "\nUsage:\n$0 ${start}[gene_info/transcript_info] [file_name]${end}\nEx: ${start_2}sh update_description.sh transcript_info/gene_info potra_description.tsv${end}\n\nWhat it does?\n${start_0}This script will create a two columns(ids, description) temporary table and load the [file_name] into it.\nThen it will match ids column in temporary table with transcript_ids/gene_ids and update the gene/transcript description.\nFinally delete the temporary table.\n${end}"
                 exit 1
         fi
 
@@ -213,13 +213,13 @@ UPDATE $1 INNER JOIN tmp_tb on tmp_tb.gene_name = $1.$tmp_field_name SET $1.desc
 DROP TEMPORARY TABLE tmp_tb;
 EOFMYSQL
 ```
-We can use `update_descriptions.sh` script to load descriptions into gene_info and transcript_info tables. 
+We can use `update_description.sh` script to load description into gene_info and transcript_info tables. 
 ```shell
 #Load gene description
-./update_descriptions.sh gene_info potra_transcript_description.txt
+./update_description.sh gene_info potra_transcript_description.txt
 
 #Load transcript description
-./update_descriptions.sh transcript_info potra_gene_description.txt
+./update_description.sh transcript_info potra_gene_description.txt
 
 ```
 Finally update the `gene_i`in `transcript_info` table using `update_gene_i.sh`.
