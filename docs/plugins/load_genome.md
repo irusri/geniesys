@@ -84,7 +84,7 @@ Database changed
 mysql> source scripts/dump.sql;
 ```
 
-### Loading to primary tables
+### Loading primary tables
 
 Now we need to load above two files(gene_info.txt and transcript_info.txt) into the newly created database. There is a script(`load_data.sh`) to do this. We can download the script and enter the correct `username, password and database` information to `DB_USER, DB_PASS and DB` parameters respectively.
 
@@ -217,6 +217,23 @@ We just need to run the script to load `description` into `transcript_info` tabl
 ```shell
 sh scripts/update_description.sh transcript_info Potra22_blast2go_description.txt
 ```
-### Loading to secondary tables
+### Loading secondary tables
+
+Following are the tables available with GenIE-Sys default database. However, it is easy to add more tables depending on the user demands.
+
 
 Secondary table conatins annotation related to the primary tables.
+```shell
+$ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/annotation/blast2go/Potra22_blast2go_GO.txt
+$ head Potra22_blast2go_GO.txt
+Potra2n765s36715.1	GO:0005515
+Potra2n765s36713.1
+Potra2n765s36713.2
+Potra2n765s36714.1	GO:0009690|GO:0016021|GO:0019139|GO:0055114|GO:0071949
+Potra2n1433s37070.1	GO:0004674|GO:0005509|GO:0005524|GO:0005886|GO:0006468|GO:0009069|GO:0016021|GO:0030247
+Potra2n581s36023.1	GO:0004674|GO:0005515|GO:0005524|GO:0005886|GO:0009069|GO:0016021|GO:0046777
+Potra2n581s36025.1	GO:0004674|GO:0005524|GO:0005886|GO:0009069|GO:0016021|GO:0046777
+Potra2n581s36024.1	GO:0006694|GO:0009941|GO:0016117|GO:0016719|GO:0016788|GO:0052886|GO:0052887|GO:0052889|GO:0055114|GO:1901177
+Potra2n707s36547.1	GO:0005515|GO:0016301|GO:0016310
+Potra2n409s35556.1	GO:0004386|GO:0005524|GO:0046872
+```
