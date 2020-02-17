@@ -226,14 +226,72 @@ Secondary table conatins annotation related to the primary tables.
 ```shell
 $ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/annotation/blast2go/Potra22_blast2go_GO.txt
 $ head Potra22_blast2go_GO.txt
-Potra2n765s36715.1	GO:0005515
-Potra2n765s36713.1
-Potra2n765s36713.2
-Potra2n765s36714.1	GO:0009690|GO:0016021|GO:0019139|GO:0055114|GO:0071949
-Potra2n1433s37070.1	GO:0004674|GO:0005509|GO:0005524|GO:0005886|GO:0006468|GO:0009069|GO:0016021|GO:0030247
-Potra2n581s36023.1	GO:0004674|GO:0005515|GO:0005524|GO:0005886|GO:0009069|GO:0016021|GO:0046777
-Potra2n581s36025.1	GO:0004674|GO:0005524|GO:0005886|GO:0009069|GO:0016021|GO:0046777
-Potra2n581s36024.1	GO:0006694|GO:0009941|GO:0016117|GO:0016719|GO:0016788|GO:0052886|GO:0052887|GO:0052889|GO:0055114|GO:1901177
-Potra2n707s36547.1	GO:0005515|GO:0016301|GO:0016310
-Potra2n409s35556.1	GO:0004386|GO:0005524|GO:0046872
+Sequence Name	Annotation GO ID-Annotation GO Term
+Potra2n765s36715.1	GO:0005515-protein binding
+Potra2n765s36714.1	GO:0009690-cytokinin metabolic process
+Potra2n765s36714.1	GO:0016021-integral component of membrane
+Potra2n765s36714.1	GO:0019139-cytokinin dehydrogenase activity
+Potra2n765s36714.1	GO:0055114-oxidation-reduction process
+Potra2n765s36714.1	GO:0071949-FAD binding
+Potra2n1433s37070.1	GO:0004674-protein serine/threonine kinase activity
+Potra2n1433s37070.1	GO:0005509-calcium ion binding
+Potra2n1433s37070.1	GO:0005524-ATP binding
+
+$ awk 'BEGIN{FS="\t";OFS="\t"}{a[$1]=a[$1]?a[$1]";"$2:$2;}END{for (i in a)print i"\t"a[i];}'   Potra22_blast2go_GO.txt > Potrav22_go_desc.txt
+$ head Potrav22_go_desc.txt
+Potra2n5c11384.4	GO:0019904-protein domain specific binding
+Potra2n1c2900.1	GO:0006118-obsolete electron transport;GO:0009055-electron transfer activity;GO:0016021-integral component of membrane;GO:0022900-electron transport chain
+Potra2n12c24161.1	GO:0005789-endoplasmic reticulum membrane;GO:0016021-integral component of membrane
+Potra2n6c13118.1	GO:0003677-DNA binding;GO:0004724-magnesium-dependent protein serine/threonine phosphatase activity;GO:0005963-magnesium-dependent protein serine/threonine phosphatase complex;GO:0006470-protein dephosphorylation;GO:0046872-metal ion binding
+Potra2n6c13118.2	GO:0003677-DNA binding;GO:0004724-magnesium-dependent protein serine/threonine phosphatase activity;GO:0005963-magnesium-dependent protein serine/threonine phosphatase complex;GO:0006470-protein dephosphorylation;GO:0046872-metal ion binding
+Potra2n6c13118.3	GO:0003677-DNA binding;GO:0004724-magnesium-dependent protein serine/threonine phosphatase activity;GO:0005963-magnesium-dependent protein serine/threonine phosphatase complex;GO:0006470-protein dephosphorylation;GO:0046872-metal ion binding
+Potra2n9c19679.1	GO:0016021-integral component of membrane;GO:0016117-carotenoid biosynthetic process;GO:0016166-phytoene dehydrogenase activity;GO:0016757-transferase activity, transferring glycosyl groups;GO:0055114-oxidation-reduction process
+Potra2n14c27340.1	GO:0046872-metal ion binding
+Potra2n9c19679.2	GO:0016021-integral component of membrane;GO:0016117-carotenoid biosynthetic process;GO:0016166-phytoene dehydrogenase activity;GO:0016757-transferase activity, transferring glycosyl groups;GO:0055114-oxidation-reduction process
+Potra2n14c27340.2	GO:0046872-metal ion binding
+```
+Following script can be used to load secondary table into `transcript_go` table. Then update `transcript_i` column.
+
+```shell
+sh scripts/load_data.sh transcript_go Potrav22_go_desc.txt
+```
+
+Then update the `gene_i` or `transcript_i` depending on the table using following script.
+
+```shell
+#!/bin/bash
+#update_annotation_gene.sh
+
+DB_USER='root' #'your_db_username'
+DB_PASS='root' #'your_password'
+DB='my_genie_sys_database' #'database_name'
+
+#USAGE sh update_annotation_gene_i.sh transcript_go
+display_usage() {
+        echo  "\nUsage:\n$0 [table_name] \n"
+        }
+
+# if less than one arguments supplied, display usage
+        if [  $# -le 0 ]
+        then
+                display_usage
+                exit 1
+        fi
+
+count=$(mysql --host=localhost --user=$DB_USER --password=$DB_PASS --database=$DB -sse "SHOW COLUMNS FROM $1 LIKE 'transcript_id';")
+if [ ${#count} -gt 0 ]
+then
+     mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+UPDATE $1 INNER JOIN transcript_info on transcript_info.transcript_id = $1.transcript_id SET $1.transcript_i = transcript_info.transcript_i;
+EOFMYSQL
+else
+     mysql --host=localhost --user=$DB_USER --password=$DB_PASS --local_infile=1 --database=$DB <<EOFMYSQL
+UPDATE $1 INNER JOIN transcript_info on transcript_info.gene_id = $1.gene_id SET $1.gene_i = transcript_info.gene_i;
+EOFMYSQL
+fi
+```
+Let's run following command to execute the script.
+
+```shell
+sh scripts/update_annotation_gene_i.sh transcript_go
 ```
