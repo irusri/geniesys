@@ -292,3 +292,4 @@ Let's run following command to fill the `transcript_i` or `gene_i` column.
 ```shell
 sh scripts/update_annotation_gene_i.sh transcript_go
 ```
+Similalrly when we have annotation based on gene IDs, we have to fill gene_`annotation` tables.
