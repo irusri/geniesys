@@ -293,3 +293,34 @@ Let's run following command to fill the `transcript_i` or `gene_i` column.
 sh scripts/update_annotation_gene_i.sh transcript_go
 ```
 Similalrly when we have annotation based on gene IDs, we have to fill gene_`annotation` tables.
+
+You may also load additional annotation as secondary tables to the GenIE-Sys database. If there is a transcript based annotation, please use the following script to create a corresponding table (please replace `annotation` with the name of the annotation).
+
+```SQL
+-- ----------------------------
+--  Table structure for `transcript_annotation`
+-- ----------------------------
+DROP TABLE IF EXISTS `transcript_annotation`;
+CREATE TABLE `transcript_annotation` (
+  `transcript_id` varchar(255) NOT NULL,
+  `annotation_description` varchar(1000)  DEFAULT '' NOT NULL,
+  `transcript_i` mediumint(20) unsigned DEFAULT 0 NOT NULL,
+  PRIMARY KEY (`transcript_i`,`transcript_id`),
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+```
+If there is a gene-based annotation, please use the following script to create a corresponding table (please replace `annotation` with the name of the annotation).
+
+```SQL
+-- ----------------------------
+--  Table structure for `gene_annotation`
+-- ----------------------------
+DROP TABLE IF EXISTS `gene_annotation`;
+CREATE TABLE `gene_annotation` (
+  `gene_id` varchar(255) NOT NULL,
+  `annotation_description` varchar(1000)  DEFAULT '' NOT NULL,
+  `gene_i` mediumint(20) unsigned DEFAULT 0 NOT NULL,
+  PRIMARY KEY (`gene_i`,`gene_id`),
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 R
+```
+
+Finally you may need to add the new annotation  into `/plugins/genelist/genelist/service/config.php` to make it searchable in the GeneSearch tool.
