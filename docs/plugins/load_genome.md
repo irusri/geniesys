@@ -219,10 +219,7 @@ sh scripts/update_description.sh transcript_info Potra22_blast2go_description.tx
 ```
 ### Loading secondary tables
 
-Following are the tables available with GenIE-Sys default database. However, it is easy to add more tables depending on the user demands.
-
-
-Secondary table conatins annotation related to the primary tables.
+Following are the tables available with GenIE-Sys default database. However, it is easy to add more tables depending on the user demands. Secondary table conatins annotation related to the primary tables.
 ```shell
 $ curl -O ftp://plantgenie.org/Data/PopGenIE/Populus_tremula/v2.2/annotation/blast2go/Potra22_blast2go_GO.txt
 $ head Potra22_blast2go_GO.txt
@@ -250,7 +247,7 @@ Potra2n14c27340.1	GO:0046872-metal ion binding
 Potra2n9c19679.2	GO:0016021-integral component of membrane;GO:0016117-carotenoid biosynthetic process;GO:0016166-phytoene dehydrogenase activity;GO:0016757-transferase activity, transferring glycosyl groups;GO:0055114-oxidation-reduction process
 Potra2n14c27340.2	GO:0046872-metal ion binding
 ```
-Following script can be used to load secondary table into `transcript_go` table. Then update `transcript_i` column.
+As you see the annotation are based on transcript IDs. Therefore, Following script can be used to load secondary table into `transcript_go` table. Then update `transcript_i` column using another script as described below.
 
 ```shell
 sh scripts/load_data.sh transcript_go Potrav22_go_desc.txt
@@ -290,7 +287,7 @@ UPDATE $1 INNER JOIN transcript_info on transcript_info.gene_id = $1.gene_id SET
 EOFMYSQL
 fi
 ```
-Let's run following command to execute the script.
+Let's run following command to fill the `transcript_i` or `gene_i` column.
 
 ```shell
 sh scripts/update_annotation_gene_i.sh transcript_go
