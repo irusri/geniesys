@@ -256,7 +256,7 @@ Following script can be used to load secondary table into `transcript_go` table.
 sh scripts/load_data.sh transcript_go Potrav22_go_desc.txt
 ```
 
-Then update the `gene_i` or `transcript_i` depending on the table using following script.
+Then update the `gene_i` or `transcript_i` depending on the primary usint of the annotation dataset using following script.
 
 ```shell
 #!/bin/bash
