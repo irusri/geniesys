@@ -322,5 +322,4 @@ CREATE TABLE `gene_annotation` (
   PRIMARY KEY (`gene_i`,`gene_id`),
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 ```
-
 Finally you may need to add the new annotation  into `/plugins/genelist/genelist/service/config.php` to make it searchable in the GeneSearch tool.

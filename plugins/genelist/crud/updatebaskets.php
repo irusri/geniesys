@@ -2,6 +2,7 @@
 if (isset($_GET)) {
     $baskettype = $_GET['id'];
 }
+//Update basked based on the request
 include("common.php");
 $ip = $uuid;
 if ($baskettype == "gene") {
