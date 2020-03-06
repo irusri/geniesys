@@ -295,6 +295,68 @@ span.editText textarea {
     background: #fff;
 }
 
+/**Setting DB**/
+.settings_db {
+    position: relative;
+    top: 10px;
+    width: 96%;
+    clear: both;
+    color: #000;
+    height: auto;
+    padding: 5px 0;
+    text-align: center;
+    background: #fff;
+    cursor: pointer;
+    margin-left: 1%;
+    border-bottom: 2px dotted #222;
+}
+div.settings_db div.change_db {
+    width: 96%;
+    text-align: left;
+    margin-left: 1%;
+}
+.clear_db {
+    clear: both;
+}
+span.editText_db {
+    display: block;
+    cursor: pointer;
+}
+span.editText_db textarea {
+    border: 0;
+    padding: 0;
+    width: 100%;
+    resize: none;
+    color: inherit;
+    display: block;
+    overflow: hidden;
+    text-align: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    background-color: transparent;
+}
+.hide_db {
+    margin: 0;
+    width: 100%;
+    display: none;
+}
+.change_db {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-top: 5px;
+    background: #bbcccc;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.change_db select {
+    color: #000;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    background: #fff;
+}
+
+
 
 /*----- MAIN HEADER NAV STRIP -----*/
 

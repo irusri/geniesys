@@ -42,7 +42,7 @@ $path=getcwd()."/".$file_name;
 /*exec("/Applications/MAMP/Library/bin/mysql --host=$host -u $username -p$password $database < $path",$output);*/
 
 $conn = new mysqli($host, $username, $password, $database);
-$conn->query( 'SET @@global.max_allowed_packet = ' . 128 * 1024 * 1024 );
+$conn->query( 'SET @@global.max_allowed_packet = ' . 20 * 1024 * 1024 );
 //$maxp2 = $conn->query( 'SELECT @@global.max_allowed_packet' )->fetch_array();
 $sql = file_get_contents($path);
 if (mysqli_multi_query($conn, $sql)) {
@@ -57,7 +57,7 @@ if (mysqli_multi_query($conn, $sql)) {
             //I just kept this since it seems useful
             //try removing and see for yourself
         }
-    } while (mysqli_next_result($conn));
+    } while (mysqli_next_result($conn)); 
  }
 
 #User permissions:

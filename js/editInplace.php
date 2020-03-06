@@ -26,6 +26,9 @@ $(document).ready(function($){
 	$('.toggle').click(function(){
 		$('.hide').toggle('200');
 	});
+	$('.toggle_db').click(function(){
+		$('.hide_db').toggle('200');
+	});
 });
 
 function nl2br(s){

@@ -77,8 +77,14 @@
                <?php echo '<ul class="egmenu">';geniemenu();echo '</ul>';?>
             </nav>
 
-         <?php if(is_loggedin()) {settings();}?>
+         <?php if(is_loggedin()) {settings();?>
+   <div class='settings_db'>
+	<h3 class='toggle_db'>↕ Database Settings ↕</h3>
+	<div class='hide_db'><div class='change_db border'>
+   <?php include('../plugins/home/admin.php'); ?>
+   </div></div></div> 
          <div class="clear"></div>
+         <?php } ?> 
          <?php
             if( $c['initialize_tool_plugin']==1){
             echo " <div id='plugin_wrapper'  class='plborder'>";
@@ -90,6 +96,10 @@
             <!--ADD FRONT PAGE CONTENT HERE-->
         <?php } ?>   
             <?php if(is_loggedin()) { ?>
+
+
+        <br><br>
+
             <textarea class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
             <script type="text/javascript">
                var key = <?php echo json_encode($c['page']); ?>
@@ -109,6 +119,7 @@
          <div class="push"></div>
          <!--<div class="clear"></div>
             <?php if(is_loggedin()) settings();?>-->
+           
        <!--  <a id="myAnchor" href="plugins/genelist/tool.php" data-toggle="modal" data-target="#myModal" onclick="hidemef(this)" data-refresh="true">TEST</a>-->
          <span id="deletebasket"  style="float:right;right:0px;bottom:0px;width:0px;height:0px;position:relative"></span>
          <div id="myModal" class="modal fade">

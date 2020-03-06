@@ -181,7 +181,7 @@ function savepassword($p){
 function settings(){
 	global $c,$d;
 	echo "<div class='settings'>
-	<h3 class='toggle'>↕ Settings ↕</h3>
+	<h3 class='toggle'>↕ Site Settings ↕</h3>
 	<div class='hide'>
 	<div class='change border'><b>Theme</b>&nbsp;<span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
 	if(chdir("./themes/")){
