@@ -81,9 +81,9 @@
    <div class='settings_db'>
 	<h3 class='toggle_db'>↕ Database Settings ↕</h3>
 	<div class='hide_db'><div class='change_db border'>
-   <?php include('../plugins/home/admin.php'); ?>
+   <?php include('../plugins/home/db_admin.php'); ?>
    </div></div></div> 
-         <div class="clear"></div>
+         <div class="clear"><br></div>
          <?php } ?> 
          <?php
             if( $c['initialize_tool_plugin']==1){

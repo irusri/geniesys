@@ -26,10 +26,22 @@ $(document).ready(function($){
 	$('.toggle').click(function(){
 		$('.hide').toggle('200');
 	});
-	$('.toggle_db').click(function(){
-		$('.hide_db').toggle('200');
+
+	var tmp_flag=true;
+	$('.toggle_db').click(function(e){
+		$('.hide_db').toggle('200', function () {
+				if(tmp_flag==true){
+					$('#wrapper').hide();
+					tmp_flag=false;
+				}else{
+					$('#wrapper').show();
+					tmp_flag=true;
+				}
+  				
+		});
 	});
 });
+
 
 function nl2br(s){
 	return (s + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');

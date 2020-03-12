@@ -466,7 +466,7 @@ for($m=0;$m<count($gene_basket_array);$m++){
 
 
 
-if($iFilteredTotal!=73013 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 ){
+if($iFilteredTotal!=730132 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 ){
 	
       $sOutput = array
       (
