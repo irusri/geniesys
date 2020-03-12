@@ -15,3 +15,4 @@ plugins/exdraw
 scripts/settings.ini
 genie_files/settings
 genie_files/home/service/upload
+genie_files/home/service/upload/*
