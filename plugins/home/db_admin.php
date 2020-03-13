@@ -10,7 +10,7 @@
 <!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
 <button class="upbtn"  id="create_db">create a fresh database</button>
 <button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>
-<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>
+<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; &#9432;
 </br></br>
 <table id="upload_table" style="width:100%">
    <tr style="font-weight:bold" align="left">
@@ -19,16 +19,26 @@
       <th>Upload Annotation</th>
    </tr>
    <tr>
-      <td>
+      <td height="40">
            <!--Progress bar html element-->
-               <progress id = "myProgress" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid"> Upload GFF3 </label> <br/>
+               <progress id = "myProgress" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid"> Upload GFF3  </label> &nbsp; &#9432;   <br/>
       </td>
-      <td><progress id = "myProgress_f" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_f"> Upload FASTA </label></td>
-      <td><progress id = "myProgress_a" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_a"> Upload Annotation </label></input></td>
+      <td><progress id = "myProgress_fp" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_fp"> Upload genome FASTA </label>&nbsp; &#9432;  </td>
+      <td><progress id = "myProgress_a" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_a"> Upload annotation </label>&nbsp; &#9432; </td>
    </tr>
+   <tr>
+       <td height="40"></td>
+       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload transcript FASTA </label>&nbsp; &#9432;</td>
+       <td></td>
+   </tr>
+   <tr>
+       <td height="40"></td>
+       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload protein FASTA </label>&nbsp; &#9432;</td>
+       <td></td>
+   </tr>   
 </table>
 <br><br>
-<a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold">External link to phpMyAdmin page</a>
+<a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
 <script src = "plugins/home/js/genieuc.js"> </script> 
 <script type="application/javascript">
 var mhost;
