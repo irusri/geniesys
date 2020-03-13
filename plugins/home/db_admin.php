@@ -98,18 +98,15 @@ $.genieuc({
         var url = res.url + "?" + Math.random();
 
         toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-top-right","onclick": null,"showDuration": "10000","hideDuration": "1000","timeOut": "40000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
-
         // Already done
         if (status == 2) {
             console.log(2, msg);
             toastr.success("Successfully uploaded", "Success");
         }
-
         // still uploading
         if (status == 1) {
             console.log(1, msg);
         }
-
         // The interface returns an error
         if (status == 0) {
             // Stop upload to trigger $ .upStop function
@@ -117,7 +114,6 @@ $.genieuc({
             console.log(0, msg);
             toastr.error(res.message, "Failure");
         }
-
         // already uploaded
         if (status == 3) {
             Progress(100);
@@ -126,19 +122,16 @@ $.genieuc({
             toastr.success("Successfully uploaded", "Success");
         }
     },
-
     // The upload process is monitored, and the progress bar can be changed according to the current progress value
     upEvent: function(num) { // The value of num is the progress of the upload, from 1 to 100
         Progress(num);
         console.log(num);
     },
-
     // Processing after an error occurs
     upStop: function(errmsg) {
         // Here is just a simple alert result, you can use other pop-up reminder plugins
         alert(errmsg);
     },
-
     // Processing and callback before starting upload, such as progress bar initialization, etc.
     upStart: function() {
         Progress(0);
