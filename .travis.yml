@@ -6,3 +6,5 @@ ignore:
   - *.md
   - scripts/*
   - docs/*
+script:
+  - echo 'GenIE-Sys -  The Genome Integrative Explorer System'
