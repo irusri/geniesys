@@ -1,6 +1,7 @@
 update_git.sh
 update_submodule.sh
 .vscode
+.DS_Store
 password
 genie_files
 genie_files/
