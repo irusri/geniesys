@@ -23,12 +23,12 @@
            <!--Progress bar html element-->
                <progress id = "myProgress" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid"> Upload GFF3  </label> &nbsp; &#9432;   <br/>
       </td>
-      <td><progress id = "myProgress_fp" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_fp"> Upload genome FASTA </label>&nbsp; &#9432;  </td>
+      <td><input placeholder="Path to BLAST directory"  style="width:60%" value="" type="text" id = "upid_fp">  </input>&nbsp; &#9432;  </td>
       <td><progress id = "myProgress_a" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_a"> Upload annotation </label>&nbsp; &#9432; </td>
    </tr>
    <tr>
        <td height="40"></td>
-       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload transcript FASTA </label>&nbsp; &#9432;</td>
+       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload genome FASTA </label>&nbsp; &#9432;</td>
        <td></td>
    </tr>
    <tr>
