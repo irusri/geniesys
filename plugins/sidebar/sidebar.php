@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="plugins/sidebar/css/font-awesome.min.css">
 <link href="plugins/sidebar/css/style_2.css" rel="stylesheet" />
 <script src="plugins/sidebar/js/init.js" type="text/javascript"></script>
-<div id="editpanel" style="background:#fff; ;font-size:14px;overflow:hidden;z-index:9;position:fixed;display:none;width:260px;color:#000;border: 2px solid #e15b63;min-height:200px; ">
+<div id="editpanel" style="background:#fff; ;font-size:14px;overflow:hidden;z-index:9;position:fixed;display:none;min-width:360px;color:#000;border: 2px solid #e15b63;min-height:200px; ">
    <li id="genelistli" style="list-style-type: none;">
       <ul id="numberofgenesSpanDetail" class="notifi">
          <div id="content" style="font-weight:bold">
