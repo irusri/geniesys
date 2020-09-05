@@ -28,14 +28,23 @@
    </tr>
    <tr>
        <td height="40"></td>
-       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload genome FASTA </label>&nbsp; &#9432;</td>
+       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_fg"> Upload genome FASTA </label>&nbsp; &#9432;</td>
        <td></td>
    </tr>
    <tr>
        <td height="40"></td>
-       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload protein FASTA </label>&nbsp; &#9432;</td>
+       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_fp"> Upload protein FASTA </label>&nbsp; &#9432;</td>
        <td></td>
    </tr>   
+
+   <tr>
+       <td height="40"></td>
+       <td><progress id = "myProgress_ft" value = "0" max = "100"> </progress> <span id = "mySpan"> 0% </span><label class="upbtn" id = "upid_ft"> Upload transcript FASTA </label>&nbsp; &#9432;</td>
+       <td></td>
+   </tr>   
+
+ 
+
 </table>
 <br><br>
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
