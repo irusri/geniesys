@@ -48,7 +48,7 @@
 </table>
 <br><br>
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
-<script src = "plugins/home/js/genieuc.js"> </script> 
+<script src = "plugins/home/js/fcup.js"> </script> 
 <script type="application/javascript">
 var mhost;
 var musername;
@@ -104,7 +104,8 @@ function db_operation(action,name){
     mySpan.innerText = value + "%";
     myProgress.value = value;
 }
-$.genieuc({
+/*
+let up = new $.genieuc({
     upId: 'upid', // upload the id of the dom
     upShardSize: '2', // Slice size, (maximum value of a single upload) unit M, default 2M
     upMaxSize: '2000', // upload file size, unit M, no limit
@@ -160,7 +161,7 @@ $.genieuc({
     }
 });
 
-$.genieuc({
+let upid_a = new $.genieuc({
     upId: 'upid_a', // upload the id of the dom
     upShardSize: '2', // Slice size, (maximum value of a single upload) unit M, default 2M
     upMaxSize: '2000', // upload file size, unit M, no limit
@@ -215,6 +216,102 @@ $.genieuc({
         toastr.success("Start uploading", "Success");
     }
 });
+*/
+
+let up = new fcup({
+id: "upid", // Binding id
+url: "plugins/home/service/upload_files.php", // url address
+//checkurl: "server/php_db/check.php", // Check upload url address
+type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
+shardsize: "0.005", // The size of each fragment, the unit is M, the default is 1M
+minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
+maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+// headers: {"version": "fcup-v2.0"}, // Additional file header
+// apped_data: {}, //Additional data for each upload
+// Define error messages
+errormsg: {
+   1000: "Upload id not found",
+   1001: "Type does not allow upload",
+   1002: "Upload file is too small",
+   1003: "Upload file is too large",
+   1004: "Upload request timed out"
+},
+
+// Error message
+error: (msg) => {
+   alert(msg);
+},      
+
+// Initialization event                
+start: () => {
+   console.log('Upload is ready');
+   Progress(0);
+},
+
+// Waiting for upload event, can be used for loading
+beforeSend: () => {
+   console.log('Waiting for request');
+},
+
+// Upload progress event
+progress: (num, other) => {
+   Progress(num);
+   console.log(num);
+   console.log('Upload progress' + num);
+   console.log("Upload type" + other.type);
+   console.log("Uploaded" + other.current);
+   console.log("Remaining uploads" + other.surplus);
+   console.log("Elapsed time" + other.usetime);
+   console.log("estimated time" + other.totaltime);
+},
+
+// Check address callback, used to determine whether the file exists, type, number of currently uploaded pieces and other operations
+checksuccess: (res) => {
+   let data = res ? eval('(' + res + ')') : '';
+   let status = data.status;
+   let url = data.url;
+   let msg = data.message;
+   
+   // Error message 
+   if (status == 1 ) {
+      alert(msg);
+      return false;
+   }
+   
+   // Already uploaded
+   if (status == 2) {
+      Progress(100);
+      $('#pic').attr("src", url);
+      $('#pic').show();
+      alert('Picture already exists');
+      return false;
+   }
+   
+  // If this parameter is provided, it will be prepared for breakpoint upload
+  if(data.file_index){
+     // The initial uploaded slice should start from 1
+     let file_index = data.file_index ? parseInt(data.file_index) : 1;
+     // Set the starting position for uploading slices		   
+     up.setshard(file_index);
+  }   
+  // If there is no error in the interface, it must return true to not terminate the upload
+   return true;
+},
+
+// The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
+success: (res) => {
+   let data = res ? eval('(' + res + ')') : '';
+   let url = data.url + "?" + Math.random();
+   let file_index = data.file_index ? parseInt(data.file_index) : 1;
+   if (data.status == 2) {
+      $('#pic').attr("src", url);
+      $('#pic').show();
+      alert('upload completed');
+   }
+   // If there is no error in the interface, it must return true to not terminate the upload cycle
+   return true;
+}
+});	  
 
 
 </script>
