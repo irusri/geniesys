@@ -1,3 +1,4 @@
+'use strict';
 var genieuc_upload = {
     genieuc: function (config) {
         jQuery.extend(config);
@@ -222,7 +223,7 @@ var genieuc_upload = {
     }
 };
 (function (jQuery) {
-    jQuery.extend(genieuc_upload);
+     jQuery.fn.extend(genieuc_upload);
 })(jQuery);
 
 /*
