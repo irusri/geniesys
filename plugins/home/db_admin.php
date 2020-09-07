@@ -23,7 +23,7 @@
            <!--Progress bar html element-->
                <progress id = "progress_upidgff3" value = "0" max = "100"> </progress> <span id = "mySpan_upidgff3"> 0% </span><button  class="upbtn"  id = "upidgff3"> Upload GFF3  </button> &nbsp; &#9432;   <br/>
       </td>
-      <td><input placeholder="Path to BLAST directory"  style="width:60%" value="" type="text" id = "upid_fp">  </input>&nbsp; &#9432;  </td>
+      <td><input placeholder="Path to BLAST directory"  style="width:60%" value="" type="text" id = "upid_fp_path">  </input>&nbsp; &#9432;  </td>
       <td><progress id = "progress_upid_a" value = "0" max = "100"> </progress> <span id = "mySpan_upid_a"> 0% </span><button  class="upbtn" id = "upid_a"> Upload annotation </button>&nbsp; &#9432; </td>
    </tr>
    <tr>
@@ -33,7 +33,7 @@
    </tr>
    <tr>
        <td height="40"></td>
-       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload protein FASTA </button>&nbsp; &#9432;</td>
+       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload genome FASTA </button>&nbsp; &#9432;</td>
        <td></td>
    </tr>   
 
