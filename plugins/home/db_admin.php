@@ -48,7 +48,7 @@
 </table>
 <br><br>
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
-<script src = "plugins/home/js/fcup.js"> </script> 
+<script src = "plugins/home/js/genieuc.js"> </script> 
 <script type="application/javascript">
 var mhost;
 var musername;
