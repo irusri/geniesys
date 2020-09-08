@@ -116,54 +116,23 @@ id: "upidgff3", // Binding id
     headers: {"version": "genieuc"}, // Additional file header
     // apped_data: {}, //Additional data for each upload
     // Define error messages
-
-
-    errormsg: {
-        1000: "Upload id not found",
-        1001: "Type does not allow upload",
-        1002: "Upload file is too small",
-        1003: "Upload file is too large",
-        1004: "Upload request timed out"
-    },
-
-
-
     // Error message
     error: (msg) => {
       alert(msg);
     },      
-
     // Initialization event                
     start: (that) => {
-        console.log('Upload is readys');
         Progress(0,that.id)
     },
-
-    // Waiting for upload event, can be used for loading
-    beforeSend: () => {
-        console.log('Waiting for request');
-    },
-
     // Upload progress event
     progress: (num, other,that) => {
         Progress(num, that.id);
-        console.log('Upload progress' + num);
-        console.log("Upload type" + other.type);
-        console.log("Uploaded" + other.current);
-        console.log("Remaining uploads" + other.surplus);
-        console.log("Elapsed time" + other.usetime);
-        console.log("estimated time" + other.totaltime);
     },
-
     // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
     success: (res) => {
         let data = res ? eval('(' + res + ')') : '';
-        let url = data.url + "?" + Math.random();
-        let file_index = data.file_index ? parseInt(data.file_index) : 1;
         if (data.status == 2) {
-            $('#pic').attr("src", url);
-            $('#pic').show();
-            alert('upload completed');
+            toastr.success(data.message,"Success");
         }
         // If there is no error in the interface, it must return true to not terminate the upload cycle
         return true;
@@ -200,7 +169,6 @@ id: "upid_a", // Binding id
 
     // Initialization event                
     start: (that) => {
-        console.log('Upload is readys');
         Progress(0,that.id)
     },
 
@@ -265,7 +233,6 @@ id: "upid_fg", // Binding id
 
     // Initialization event                
     start: (that) => {
-        console.log('Upload is readys');
         Progress(0,that.id)
     },
 
@@ -299,7 +266,6 @@ id: "upid_fg", // Binding id
         return true;
     }
 });
-
 
 var upid_fp = new genieuc({
 id: "upid_fp", // Binding id
@@ -331,7 +297,6 @@ id: "upid_fp", // Binding id
 
     // Initialization event                
     start: (that) => {
-        console.log('Upload is readys');
         Progress(0,that.id)
     },
 
@@ -365,7 +330,6 @@ id: "upid_fp", // Binding id
         return true;
     }
 });
-
 
 var upid_ft = new genieuc({
 id: "upid_ft", // Binding id
@@ -397,7 +361,6 @@ id: "upid_ft", // Binding id
 
     // Initialization event                
     start: (that) => {
-        console.log('Upload is readys');
         Progress(0,that.id)
     },
 
@@ -431,6 +394,7 @@ id: "upid_ft", // Binding id
         return true;
     }
 });
+
  
 
 </script>
