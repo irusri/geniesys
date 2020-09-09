@@ -2,8 +2,8 @@
 <span style="overflow: hidden;position: absolute;top:30px" id="error_msg"></span>
 <form  id="db_form">
    <p><label for="host">Host:</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
-   <p><label for="username">Username:</label><input value="root" autocomplete="username" id="musername" placeholder="MySQL username: root" type="text"/> &#9432; This is the default username </p>
-   <p><label for="password">Password:</label><input value="root" autocomplete="password" id="mpassword" placeholder="MySQL password : root" type="text"/> &#9432; This is the default password </p>
+   <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username </p>
+   <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password </p>
    <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be typed in here</p>
 </form>
 <br>
@@ -33,7 +33,7 @@
    </tr>
    <tr>
        <td height="40"></td>
-       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload genome FASTA </button>&nbsp; &#9432;</td>
+       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload protein FASTA </button>&nbsp; &#9432;</td>
        <td></td>
    </tr>   
 
@@ -68,7 +68,7 @@ $("#drop_db").click(function() {
 });
 
 $("#myadmin_links").click(function() {
-  window.open("http://"+$('#mhost').val()+"/phpMyAdmin/db_structure.php?db="+$('#mdbname').val(), '_blank');
+  window.open("http://"+$('#mhost').val()+"/phpmyadmin/db_structure.php?db="+$('#mdbname').val(), '_blank');
 });
 
 db_operation("db_name","check");
@@ -205,7 +205,7 @@ id: "upid_a", // Binding id
 
 var upid_fg = new genieuc({
 id: "upid_fg", // Binding id
-    url: "plugins/home/service/upload_files.php", // url address
+    url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
     type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
     shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M

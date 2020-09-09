@@ -75,15 +75,15 @@ if ($file['error'] == 0) {
         }
         // the number of pieces is equal
         if($index == $total ){  
-          exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$newfile." > ".$newfile."_transcript.tsv");
-          exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"Name\"],$1,$4,$5}' FS='\t' OFS='\t' ".$newfile." > ".$newfile."_gene.tsv");
+         // exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$newfile." > ".$newfile."_transcript.tsv");
+         // exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"Name\"],$1,$4,$5}' FS='\t' OFS='\t' ".$newfile." > ".$newfile."_gene.tsv");
           #awk '$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);print id, $1, $3, $4, $5}' Potrs01b-gene.gff3
           #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
-          exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");
-
-          load_files($newfile."_gene.tsv",'gene_info');
-          load_files($newfile."_transcript.tsv",'transcript_info');
-          load_files($newfile."_color.tsv",' sequence_color');
+          //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");
+          exec("formatdb -p F -i ".$newfile." -n ".$newfile."_genome.fa -o T");
+          //load_files($newfile."_gene.tsv",'gene_info');
+          //load_files($newfile."_transcript.tsv",'transcript_info');
+          //load_files($newfile."_color.tsv",' sequence_color');
           unlink($newfile);
           jsonMsg(2,"done","url");
         }
