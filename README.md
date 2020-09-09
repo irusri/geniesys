@@ -1,9 +1,9 @@
-[![GenIECMS](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
+[![geniesys](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.readthedocs.io/en/latest/index.html) | [Demo](https://eucgenie.org) | [Users](https://geniesys.readthedocs.io/en/latest/clients.html)
 =======
 
 [![DOI:10.1101/808881](https://zenodo.org/badge/DOI/10.1101/808881.svg)](https://doi.org/10.1101/808881)
 
-<!--[![readthedocs](https://readthedocs.org/projects/geniecms/badge/?version=latest "readthedocs")](http://geniecms.readthedocs.io/en/latest/installation_updates.html)-->
+<!--[![readthedocs](https://readthedocs.org/projects/geniesys/badge/?version=latest "readthedocs")](http://geniesys.readthedocs.io/en/latest/installation_updates.html)-->
 
 
 <!--| **Quick Installation** | **Demo** | 
@@ -33,23 +33,23 @@ This is the Development and the latest version of GenIE-Sys. Our main goal is to
 
 As we mentioned in documentation, we have two ways to start GenIE-Sys:
 
-1.) [Using the Docker image](https://github.com/irusri/Docker4GenIECMS)   
+1.) [Using the Docker image](https://github.com/irusri/Docker4geniesys)   
 2.) [Using standalone webserver](https://geniesys.readthedocs.io/en/latest/administration/installation.html)
 
 However, we need to have an error free GenIE-Sys to running in the backend to compatible with both above situations. For the development purpose I would like to use the docker container, commit and push changes to genie.git and simply remove the container.  
 
 **How can we make GenIE-Sys development environment with Docker?**
 <pre>
-# Please comment the supporting_files/run.sh line to avoid download the geniecms.git  
-git clone https://github.com/irusri/docker4geniecms.git  
-cd docker4geniecms  
+# Please comment the supporting_files/run.sh line to avoid download the geniesys.git  
+git clone https://github.com/irusri/docker4geniesys.git  
+cd docker4geniesys  
 git submodule add -f https://github.com/irusri/genie.git  
 docker build -t genie -f ./Dockerfile .  
 docker run --rm -i -t -p "80:80" -p "3308:3306" -v ${PWD}/genie:/app -v ${PWD}/mysql:/var/lib/mysql -e MYSQL_ADMIN_PASS="mypass" --name genie genie  
 cd genie 
 </pre>
 
-When we need to commit changes, please go to `cd docker4geniecms/genie` folder. Never commit from `docker4geniecms` folder. Because it will add genie as a submodule. Incase you mistakenly pushed from `docker4geniecms` folder, please `cd docker4geniecms` and  `git rm genie`. You can access MySQL using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). Some useful docker commands are as follows.
+When we need to commit changes, please go to `cd docker4geniesys/genie` folder. Never commit from `docker4geniesys` folder. Because it will add genie as a submodule. Incase you mistakenly pushed from `docker4geniesys` folder, please `cd docker4geniesys` and  `git rm genie`. You can access MySQL using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). Some useful docker commands are as follows.
 <pre>
 # Must be run first because images are attached to containers
 docker rm -f $(docker ps -a -q)
