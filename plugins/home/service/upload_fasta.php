@@ -81,7 +81,7 @@ if ($file['error'] == 0) {
           #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
           //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");
           exec("formatdb -p F -i ".$newfile." -n ".$newfile."_genome.fa -o T");
-          //load_files($newfile."_gene.tsv",'gene_info');
+          //load_files($newfile."_gene.tsv",'gene_info'); 
           //load_files($newfile."_transcript.tsv",'transcript_info');
           //load_files($newfile."_color.tsv",' sequence_color');
           unlink($newfile);
