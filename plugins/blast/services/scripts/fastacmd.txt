@@ -1,0 +1,161 @@
+fastacmd README 
+===============
+Last updated: 04/09/2003
+
+
+Table of Contents
+
+    Introduction
+
+    Command line options
+
+    Usage
+
+    Return values
+
+    Notes/Troubleshooting
+
+
+
+Introduction
+------------
+
+fastacmd retrives FASTA formatted sequences from a blast database, as long as
+it it was successfully formatted using the '-o' option.  
+
+Command line options
+--------------------
+The fastacmd options are:
+
+fastacmd 2.2.5   arguments:
+
+  -d  Database [String]  Optional
+    default = nr
+  -p  Type of file
+         G - guess mode (look for protein, then nucleotide)
+         T - protein   
+         F - nucleotide [String]  Optional
+    default = G
+  -s  Search string: GIs, accessions and locuses may be used delimited
+      by comma. [String]  Optional
+  -i  Input file wilth GIs/accessions/locuses for batch
+      retrieval [String]  Optional
+  -a  Retrieve duplicate accessions [T/F]  Optional
+    default = F
+  -l  Line length for sequence [Integer]  Optional
+    default = 80
+  -t  Definition line should contain target gi only [T/F]  Optional
+    default = F
+
+  This option is only relevant to non-redundant databases only (ie: 
+  protein nr and pataa, as provided in the NCBI ftp site)
+
+  -o  Output file [File Out]  Optional
+    default = stdout
+  -c  Use Ctrl-A's as non-redundant defline separator [T/F]  Optional
+    default = F
+  -D  Dump the entire database in fasta format [T/F]  Optional
+    default = F
+  -L  Range of sequence to extract (Format: start,stop)
+      0 in 'start' refers to the beginning of the sequence
+      0 in 'stop' refers to the end of the sequence [String]  Optional
+    default = 0,0
+  -S  Strand on subsequence (nucleotide only): 1 is top, 2 is bottom [Integer]
+    default = 1
+  -T  Print taxonomic information for requested sequence(s) [T/F]
+    default = F
+  -I  Print database information only (overrides all other options) [T/F]
+    default = F
+
+Usage
+-----
+
+1.) Retrieving a sequence by gi:
+
+fastacmd -d nt -s 555
+>gi|555|emb|X65215.1|BTMISATN B.taurus microsatellite DNA (624bp)
+ACCTCCACTAGCTTTGTTTGTAGTGATGCTCTGTAGCACCACTGGGAAGCCCTTTAATGAATGTGCCTTTCCGCAAATCA
+CACACACACAAATACACTTATAGAAACAAGGTGATTTTCTTGAAATAATAAAACAAAATTTGGAAGAAGATTTTTACTGT
+CTTAGGAAAAGTAAGGCATTGGAAGGTGGCTAGGTATGACATATGAAGTTGCATTTTAAAACTGGAATTGGACAACTGAT
+ATTCAGTGATATTTATGCTACTACCTTCTAGAATCGAGAGCATGCACCCCACTCTGTACTCTTGCCTGGAGAATCCATGA
+TGAGAGCCTGGTAGGCTGCAGTCCATGGGGTCACACAGAGTCGGACATGACTGAGCGACTTCACTTTCACTTTTCAATTT
+CATGCATTGGAGCCGGAAATGGCAACCCACTCCAGTGTTCTTGCCTGGAGAATCCCAGGGATGGGGAAGCCTGGTGGGCT
+GCTGTCTATGGGGTCGCAGAGAGTCAGACACGACTGAAGTGACTTAGCAGCAACCTTCTGGAATAAACGCCTCAGGCTTT
+AAACTCTGGCTTGACCATTCACTAGCCATGGGATCCACTAGAGTCGACCTGCAGGCATGCAAGC
+
+2.) Printing a summary of database statistics:
+
+fastacmd -d nt -I
+Database: All GenBank+EMBL+DDBJ+PDB sequences (but no EST, STS, GSS, or phase 0,
+1 or 2 HTGS sequences) 
+           1,711,089 sequences; 7,976,531,563 total letters
+
+File name:
+/usr/ncbi/db/blast/nt
+   Date: Mar 26, 2003 10:25 PM    Version: 4    Longest sequence: 1,421,559 bp
+
+
+3.) Obtaining a FASTA file from a blast database:
+
+fastacmd -D -d nt -o nt.fsa
+[output removed for brevity]
+
+4.) Retrieving only part of a sequence:
+
+fastacmd -d nt -s 555 -L0,32
+gi|555:1-32 B.taurus microsatellite DNA (624bp)
+ACCTCCACTAGCTTTGTTTGTAGTGATGCTCT
+
+5.) Retrieving taxonomic information for a given sequence:
+
+fastacmd -d nt -s 555 -T
+NCBI sequence id: gi|555|emb|X65215.1|BTMISATN
+NCBI taxonomy id: 9913
+Common name: cow
+Scientific name: Bos taurus
+
+
+Return values
+-------------
+The following exit values are returned:
+
+     0     Completed successfully
+
+     1     An error occurred
+
+     2     Blast database was not found
+
+     3     Failed search (accession, gi, taxonomy info)
+
+     4     No taxonomy database was found
+
+
+Notes/Troubleshooting
+---------------------
+
+A) Taxonomy information
+
+In order to access to the taxonomy information using fastacmd, the blast
+databases should have been obtained from the NCBI ftp site
+(ftp://ftp.ncbi.nih.gov/blast/db) and an additional set of
+files are needed. These files are archived as taxdb.tar.gz under the same
+directory as the blast databases on the NCBI ftp site.
+Please install these files in the same directory as the blast databases (and
+do not forget to update your ncbi configuration file to point to this
+directory). 
+Here are some of the error messages one might encounter when accessing the
+taxonomy information from the blast databases:
+
+fastacmd -d testdb -s 555 -T
+[fastacmd] ERROR: Taxonomy information not encoded in your blast database.
+
+This blast database does not contain the taxonomy id encoded for this
+gi/accession. Only preformatted blast databases provided by the NCBI contain 
+taxonomy identifiers encoded (formatdb cannot add this).
+
+
+fastacmd -d patnt -s 412262 -T
+[fastacmd] ERROR: Taxonomy information is not available. Please download it from
+ftp://ftp.ncbi.nih.gov/blast/db/taxdb.tar.gz
+
+Download the required files and install them as described above.
