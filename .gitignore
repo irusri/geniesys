@@ -16,3 +16,4 @@ plugins/exdraw
 scripts/settings.ini
 genie_files/settings
 plugins/home/service/upload
+plugins/home/service/formatdb.log
