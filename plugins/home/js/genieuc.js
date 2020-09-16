@@ -330,6 +330,7 @@
             this.reStatus = true;
             this.shardTime = 0;
             this.file = file;
+
           
             this.size = file.size;
             this.filename = file.name;

@@ -207,10 +207,10 @@ var upid_fg = new genieuc({
 id: "upid_fg", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
+    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
     shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "200", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     // apped_data: {}, //Additional data for each upload
     // Define error messages

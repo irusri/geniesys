@@ -18,7 +18,7 @@ function jsonMsg($status,$message,$url=''){
    $arr['message'] = $message;
    $arr['url'] = $url;
    echo json_encode($arr);
-   die();
+  // die();
 }
 
 if(!$file || !$name){
@@ -53,6 +53,19 @@ clearstatcache($newfile);
    jsonMsg(3,'Already uploaded');          
 }*/
 
+function br2nl ( $string, $separator = PHP_EOL )
+{
+    $separator = in_array($separator, array("\n", "\r", "\r\n", "\n\r", chr(30), chr(155), PHP_EOL)) ? $separator : PHP_EOL;  // Checks if provided $separator is valid.
+    return preg_replace('/\<br(\s*)?\/?\>/i', $separator, $string);
+}
+
+/*
+function nl2br2($string) {
+    $string = str_replace(array("\r\n", "\r", "\n"), "<br />", $string);
+    return $string;
+  }
+  */
+
 /** Determine whether to upload repeatedly  **/
 // check whether the file stream uploaded
 if ($file['error'] == 0) {
@@ -69,7 +82,14 @@ if ($file['error'] == 0) {
     }     
     //  If the current number of pieces is less than or equal to the total number of pieces, continue to add after the file
     if($index <= $total){
-        $content = file_get_contents($file['tmp_name']);
+        //$content = file_get_contents($file['tmp_name']);
+        //$content=nl2br2($content);
+        $myfile = fopen($newfile, "r") or die("Unable to open file!");
+        $content=fread($myfile,filesize($newfile));
+        fclose($myfile);
+
+        // echo "ssss";
+        //$content =str_replace(array("\r\n", "\r", "\n"), "<br />", $content );
         if (!file_put_contents($newfile, $content, FILE_APPEND)) {
           jsonMsg(0,'Cannot write to file');
         }
@@ -79,12 +99,15 @@ if ($file['error'] == 0) {
          // exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"Name\"],$1,$4,$5}' FS='\t' OFS='\t' ".$newfile." > ".$newfile."_gene.tsv");
           #awk '$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);print id, $1, $3, $4, $5}' Potrs01b-gene.gff3
           #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
-          //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");
-          exec("formatdb -p F -i ".$newfile." -n ".$newfile."_genome.fa -o T");
+          //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");  
+          exec("../../blast/services/scripts/bin/formatdb -p F -i ".$newfile." -n upload/genome -o T");
+           // exec("cd upload"); 
+           // exec("mv ".$newfile." upload/genome.fa");         
+            //exec("sh upload/run.sh");  
           //load_files($newfile."_gene.tsv",'gene_info'); 
           //load_files($newfile."_transcript.tsv",'transcript_info');
           //load_files($newfile."_color.tsv",' sequence_color');
-          unlink($newfile);
+         // unlink($newfile);
           jsonMsg(2,"done","url");
         }
         jsonMsg(1,'uploading');
