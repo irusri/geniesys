@@ -338,7 +338,7 @@ span.editText_db textarea {
 .hide_db {
     margin: 0;
     width: 100%;
-    display: none;
+   /* display: none;*/
 }
 .change_db {
     width: 100%;

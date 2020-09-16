@@ -11,6 +11,18 @@ $total = isset($_POST['file_total']) ? $_POST['file_total']:0;// Total number of
 $index = isset($_POST['file_index']) ? $_POST['file_index']:0;  // Current number of slices
 $md5   = isset($_POST['file_md5']) ? $_POST['file_md5'] : 0; // md5 value of the file
 $size  = isset($_POST['file_size']) ?  $_POST['file_size'] : null; // file size
+$apped_data  = isset($_POST['apped_data']) ?  $_POST['apped_data'] : null; // file size
+
+
+
+//echo stripslashes(json_encode($apped_data))["data_type"];
+//$data = json_decode(json_encode($apped_data), true, JSON_UNESCAPED_SLASHES);
+//$songData = explode(',', $apped_data); 
+//$data = json_decode(json_encode($apped_data), true, JSON_UNESCAPED_SLASHES);
+//echo json_decode(json_encode($apped_data), true, JSON_UNESCAPED_SLASHES);
+
+//exit();
+ 
 
 // output json information
 function jsonMsg($status,$message,$url=''){
@@ -100,7 +112,11 @@ if ($file['error'] == 0) {
           #awk '$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);print id, $1, $3, $4, $5}' Potrs01b-gene.gff3
           #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
           //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");  
-          exec("../../blast/services/scripts/bin/formatdb -p F -i ".$newfile." -n upload/genome -o T");
+        if($apped_data=="protein"){
+            exec("../../blast/services/scripts/bin/formatdb -p T -i ".$newfile." -n upload/protein -o T");
+        }else{
+            exec("../../blast/services/scripts/bin/formatdb -p F -i ".$newfile." -n upload/".$apped_data." -o T");
+        }
            // exec("cd upload"); 
            // exec("mv ".$newfile." upload/genome.fa");         
             //exec("sh upload/run.sh");  

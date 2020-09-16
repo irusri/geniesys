@@ -10,39 +10,46 @@
 <!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
 <button class="upbtn"  id="create_db">create a fresh database</button>
 <button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>
-<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; &#9432;
+<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; </span> 
 </br></br>
 <table id="upload_table" style="width:100%">
    <tr style="font-weight:bold" align="left">
       <th>Upload GFF3</th>
-      <th>Upload FASTA</th>
+      <th >Upload FASTA</th>
       <th>Upload Annotation</th>
    </tr>
    <tr>
       <td height="40">
            <!--Progress bar html element-->
-               <progress id = "progress_upidgff3" value = "0" max = "100"> </progress> <span id = "mySpan_upidgff3"> 0% </span><button  class="upbtn"  id = "upidgff3"> Upload GFF3  </button> &nbsp; &#9432;   <br/>
+               <progress id = "progress_upidgff3" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upidgff3"> 0% </span><button  class="upbtn"  id = "upidgff3"> Upload GFF3  </button> &nbsp; <span class="help_span">&#9432; </span>  <br/>
       </td>
-      <td><input placeholder="Path to BLAST directory"  style="width:60%" value="" type="text" id = "upid_fp_path">  </input>&nbsp; &#9432;  </td>
-      <td><progress id = "progress_upid_a" value = "0" max = "100"> </progress> <span id = "mySpan_upid_a"> 0% </span><button  class="upbtn" id = "upid_a"> Upload annotation </button>&nbsp; &#9432; </td>
+      <td><input placeholder="Path to BLAST directory"  style="width:60%" value="" type="text" id = "upid_fp_path">  </input>&nbsp; <span class="help_span">&#9432; </span>   </td>
+      <td><progress id = "progress_upid_a" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upid_a"> 0% </span><button  class="upbtn" id = "upid_a"> Upload annotation </button>&nbsp; <span class="help_span">&#9432; </span>  </td>
    </tr>
-   <tr>
+   <tr >
        <td height="40"></td>
-       <td><progress id = "progress_upid_fg" value = "0" max = "100"> </progress> <span id = "mySpan_upid_fg"> 0% </span><button class="upbtn" id = "upid_fg"> Upload genome FASTA </button>&nbsp; &#9432;</td>
+       <td><progress id = "progress_upid_fg" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"  id = "mySpan_upid_fg"> 0% </span><button class="upbtn" id = "upid_fg"> Upload genome FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
    </tr>
+
+
    <tr>
        <td height="40"></td>
-       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload protein FASTA </button>&nbsp; &#9432;</td>
+       <td><progress id = "progress_upid_ft" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upid_ft"> 0% </span><button class="upbtn" id = "upid_ft"> Upload transcript FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
    </tr>   
 
    <tr>
        <td height="40"></td>
-       <td><progress id = "progress_upid_ft" value = "0" max = "100"> </progress> <span id = "mySpan_upid_ft"> 0% </span><button class="upbtn" id = "upid_ft"> Upload transcript FASTA </button>&nbsp; &#9432;</td>
+       <td ><progress id = "progress_upid_fc" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"   id = "mySpan_upid_fc"> 0% </span><button class="upbtn" id = "upid_fc"> Upload CDS FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
    </tr>   
 
+   <tr>
+       <td height="40"></td>
+       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"  id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload protein FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
+       <td></td>
+   </tr>   
  
 
 </table>
@@ -114,7 +121,7 @@ id: "upidgff3", // Binding id
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
     maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
-    // apped_data: {}, //Additional data for each upload
+    apped_data: "gff3", //Additional data for each upload 
     // Define error messages
     // Error message
     error: (msg) => {
@@ -143,12 +150,12 @@ var upid_a = new genieuc({
 id: "upid_a", // Binding id
     url: "plugins/home/service/upload_files.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
+    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
     shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
     maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
-    // apped_data: {}, //Additional data for each upload
+    apped_data: "annotation", //Additional data for each upload
     // Define error messages
 
 
@@ -212,7 +219,7 @@ id: "upid_fg", // Binding id
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
     maxsize: "200", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
-    // apped_data: {}, //Additional data for each upload
+    apped_data: "genomic", //Additional data for each upload
     // Define error messages
 
 
@@ -269,14 +276,14 @@ id: "upid_fg", // Binding id
 
 var upid_fp = new genieuc({
 id: "upid_fp", // Binding id
-    url: "plugins/home/service/upload_files.php", // url address
+    url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
+    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
     shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
     maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
-    // apped_data: {}, //Additional data for each upload
+    apped_data: "protein", //Additional data for each upload
     // Define error messages
 
 
@@ -333,14 +340,78 @@ id: "upid_fp", // Binding id
 
 var upid_ft = new genieuc({
 id: "upid_ft", // Binding id
-    url: "plugins/home/service/upload_files.php", // url address
+    url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
+    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
     shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
     maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
-    // apped_data: {}, //Additional data for each upload
+    apped_data: "transcript", //Additional data for each upload
+    // Define error messages
+
+
+    errormsg: {
+        1000: "Upload id not found",
+        1001: "Type does not allow upload",
+        1002: "Upload file is too small",
+        1003: "Upload file is too large",
+        1004: "Upload request timed out"
+    },
+
+
+
+    // Error message
+    error: (msg) => {
+      alert(msg);
+    },      
+
+    // Initialization event                
+    start: (that) => {
+        Progress(0,that.id)
+    },
+
+    // Waiting for upload event, can be used for loading
+    beforeSend: () => {
+        console.log('Waiting for request');
+    },
+
+    // Upload progress event
+    progress: (num, other,that) => {
+        Progress(num, that.id);
+        console.log('Upload progress' + num);
+        console.log("Upload type" + other.type);
+        console.log("Uploaded" + other.current);
+        console.log("Remaining uploads" + other.surplus);
+        console.log("Elapsed time" + other.usetime);
+        console.log("estimated time" + other.totaltime);
+    },
+
+    // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
+    success: (res) => {
+        let data = res ? eval('(' + res + ')') : '';
+        let url = data.url + "?" + Math.random();
+        let file_index = data.file_index ? parseInt(data.file_index) : 1;
+        if (data.status == 2) {
+            $('#pic').attr("src", url);
+            $('#pic').show();
+            alert('upload completed');
+        }
+        // If there is no error in the interface, it must return true to not terminate the upload cycle
+        return true;
+    }
+});
+
+var upid_ft = new genieuc({
+id: "upid_fc", // Binding id
+    url: "plugins/home/service/upload_fasta.php", // url address
+    //checkurl: "server/php_db/check.php", // Check upload url address
+    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
+    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
+    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    headers: {"version": "genieuc"}, // Additional file header
+    apped_data: "cds", //Additional data for each upload
     // Define error messages
 
 

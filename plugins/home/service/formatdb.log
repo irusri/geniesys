@@ -1,0 +1,214 @@
+
+========================[ Sep 16, 2020  8:30 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 40 sequences in volume 0
+
+========================[ Sep 16, 2020  8:32 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 40 sequences in volume 0
+
+========================[ Sep 16, 2020  8:36 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 80 sequences in volume 0
+
+========================[ Sep 16, 2020 10:04 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 160 sequences in volume 0
+
+========================[ Sep 16, 2020 10:08 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 40 sequences in volume 0
+
+========================[ Sep 16, 2020 10:08 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 80 sequences in volume 0
+
+========================[ Sep 16, 2020 10:08 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/cds.fasta.fasta"
+Formatted 160 sequences in volume 0
+
+========================[ Sep 16, 2020 10:08 AM ]========================
+Version 2.2.8 [Jan-05-2004]
+Started database file "upload/protein.fasta.fasta"
+WARNING: [000.000] Sequence number 1 (lcl|Potra2n765s36715.1), 97 illegal characters were removed:
+13 Es, 13 Fs, 18 Is, 27 Ls, 15 Ps, 11 Qs
+
+WARNING: [000.000] Sequence number 2 (lcl|Potra2n765s36713.1), 33 illegal characters were removed:
+6 Es, 8 Fs, 5 Is, 8 Ls, 4 Ps, 2 Qs
+
+WARNING: [000.000] Sequence number 3 (lcl|Potra2n765s36713.2), 6 illegal characters were removed:
+1 F, 1 I, 2 Ls, 2 Ps
+
+WARNING: [000.000] Sequence number 4 (lcl|Potra2n765s36714.1), 271 illegal characters were removed:
+38 Es, 44 Fs, 44 Is, 75 Ls, 38 Ps, 32 Qs
+
+WARNING: [000.000] Sequence number 5 (lcl|Potra2n1433s37070.1), 135 illegal characters were removed:
+18 Es, 16 Fs, 25 Is, 36 Ls, 18 Ps, 22 Qs
+
+WARNING: [000.000] Sequence number 6 (lcl|Potra2n581s36023.1), 320 illegal characters were removed:
+43 Es, 34 Fs, 56 Is, 127 Ls, 38 Ps, 22 Qs
+
+WARNING: [000.000] Sequence number 7 (lcl|Potra2n581s36025.1), 166 illegal characters were removed:
+27 Es, 19 Fs, 35 Is, 53 Ls, 22 Ps, 10 Qs
+
+WARNING: [000.000] Sequence number 8 (lcl|Potra2n581s36024.1), 196 illegal characters were removed:
+26 Es, 31 Fs, 27 Is, 62 Ls, 28 Ps, 22 Qs
+
+WARNING: [000.000] Sequence number 9 (lcl|Potra2n707s36547.1), 45 illegal characters were removed:
+7 Es, 3 Fs, 4 Is, 12 Ls, 15 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 10 (lcl|Potra2n409s35556.1), 82 illegal characters were removed:
+22 Es, 9 Fs, 15 Is, 20 Ls, 5 Ps, 11 Qs
+
+WARNING: [000.000] Sequence number 11 (lcl|Potra2n541s35905.1), 19 illegal characters were removed:
+2 Fs, 3 Is, 4 Ls, 8 Ps, 2 Qs
+
+WARNING: [000.000] Sequence number 12 (lcl|Potra2n541s35906.1), 19 illegal characters were removed:
+2 Fs, 3 Is, 4 Ls, 8 Ps, 2 Qs
+
+WARNING: [000.000] Sequence number 13 (lcl|Potra2n268s35171.1), 95 illegal characters were removed:
+27 Es, 5 Fs, 12 Is, 26 Ls, 9 Ps, 16 Qs
+
+WARNING: [000.000] Sequence number 14 (lcl|Potra2n268s35171.2), 95 illegal characters were removed:
+27 Es, 5 Fs, 12 Is, 26 Ls, 9 Ps, 16 Qs
+
+WARNING: [000.000] Sequence number 15 (lcl|Potra2n268s35171.3), 185 illegal characters were removed:
+31 Es, 17 Fs, 41 Is, 69 Ls, 11 Ps, 16 Qs
+
+WARNING: [000.000] Sequence number 16 (lcl|Potra2n268s35171.4), 196 illegal characters were removed:
+35 Es, 18 Fs, 43 Is, 70 Ls, 12 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 17 (lcl|Potra2n268s35171.5), 196 illegal characters were removed:
+35 Es, 18 Fs, 43 Is, 70 Ls, 12 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 18 (lcl|Potra2n606s36124.1), 37 illegal characters were removed:
+5 Es, 5 Fs, 8 Is, 10 Ls, 5 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 19 (lcl|Potra2n606s36124.2), 37 illegal characters were removed:
+5 Es, 5 Fs, 8 Is, 10 Ls, 5 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 20 (lcl|Potra2n606s36124.3), 37 illegal characters were removed:
+5 Es, 5 Fs, 8 Is, 10 Ls, 5 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 21 (lcl|Potra2n606s36123.1), 279 illegal characters were removed:
+46 Es, 31 Fs, 48 Is, 91 Ls, 36 Ps, 27 Qs
+
+WARNING: [000.000] Sequence number 22 (lcl|Potra2n606s36123.2), 260 illegal characters were removed:
+39 Es, 30 Fs, 45 Is, 88 Ls, 35 Ps, 23 Qs
+
+WARNING: [000.000] Sequence number 23 (lcl|Potra2n606s36123.3), 240 illegal characters were removed:
+41 Es, 30 Fs, 47 Is, 74 Ls, 30 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 24 (lcl|Potra2n606s36123.4), 179 illegal characters were removed:
+37 Es, 15 Fs, 34 Is, 53 Ls, 22 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 25 (lcl|Potra2n606s36123.5), 189 illegal characters were removed:
+39 Es, 16 Fs, 30 Is, 59 Ls, 26 Ps, 19 Qs
+
+WARNING: [000.000] Sequence number 26 (lcl|Potra2n606s36123.6), 118 illegal characters were removed:
+9 Es, 20 Fs, 20 Is, 43 Ls, 16 Ps, 10 Qs
+
+WARNING: [000.000] Sequence number 27 (lcl|Potra2n606s36123.7), 39 illegal characters were removed:
+2 Es, 8 Fs, 11 Is, 10 Ls, 7 Ps, 1 Q
+
+WARNING: [000.000] Sequence number 28 (lcl|Potra2n1551s37135.1), 258 illegal characters were removed:
+49 Es, 37 Fs, 26 Is, 52 Ls, 55 Ps, 39 Qs
+
+WARNING: [000.000] Sequence number 29 (lcl|Potra2n1041s36943.1), 76 illegal characters were removed:
+13 Es, 12 Fs, 7 Is, 19 Ls, 15 Ps, 10 Qs
+
+WARNING: [000.000] Sequence number 30 (lcl|Potra2n765s36715.1), 97 illegal characters were removed:
+13 Es, 13 Fs, 18 Is, 27 Ls, 15 Ps, 11 Qs
+
+WARNING: [000.000] Sequence number 31 (lcl|Potra2n765s36713.1), 33 illegal characters were removed:
+6 Es, 8 Fs, 5 Is, 8 Ls, 4 Ps, 2 Qs
+
+WARNING: [000.000] Sequence number 32 (lcl|Potra2n765s36713.2), 6 illegal characters were removed:
+1 F, 1 I, 2 Ls, 2 Ps
+
+WARNING: [000.000] Sequence number 33 (lcl|Potra2n765s36714.1), 271 illegal characters were removed:
+38 Es, 44 Fs, 44 Is, 75 Ls, 38 Ps, 32 Qs
+
+WARNING: [000.000] Sequence number 34 (lcl|Potra2n1433s37070.1), 135 illegal characters were removed:
+18 Es, 16 Fs, 25 Is, 36 Ls, 18 Ps, 22 Qs
+
+WARNING: [000.000] Sequence number 35 (lcl|Potra2n581s36023.1), 320 illegal characters were removed:
+43 Es, 34 Fs, 56 Is, 127 Ls, 38 Ps, 22 Qs
+
+WARNING: [000.000] Sequence number 36 (lcl|Potra2n581s36025.1), 166 illegal characters were removed:
+27 Es, 19 Fs, 35 Is, 53 Ls, 22 Ps, 10 Qs
+
+WARNING: [000.000] Sequence number 37 (lcl|Potra2n581s36024.1), 196 illegal characters were removed:
+26 Es, 31 Fs, 27 Is, 62 Ls, 28 Ps, 22 Qs
+
+WARNING: [000.000] Sequence number 38 (lcl|Potra2n707s36547.1), 45 illegal characters were removed:
+7 Es, 3 Fs, 4 Is, 12 Ls, 15 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 39 (lcl|Potra2n409s35556.1), 82 illegal characters were removed:
+22 Es, 9 Fs, 15 Is, 20 Ls, 5 Ps, 11 Qs
+
+WARNING: [000.000] Sequence number 40 (lcl|Potra2n541s35905.1), 19 illegal characters were removed:
+2 Fs, 3 Is, 4 Ls, 8 Ps, 2 Qs
+
+WARNING: [000.000] Sequence number 41 (lcl|Potra2n541s35906.1), 19 illegal characters were removed:
+2 Fs, 3 Is, 4 Ls, 8 Ps, 2 Qs
+
+WARNING: [000.000] Sequence number 42 (lcl|Potra2n268s35171.1), 95 illegal characters were removed:
+27 Es, 5 Fs, 12 Is, 26 Ls, 9 Ps, 16 Qs
+
+WARNING: [000.000] Sequence number 43 (lcl|Potra2n268s35171.2), 95 illegal characters were removed:
+27 Es, 5 Fs, 12 Is, 26 Ls, 9 Ps, 16 Qs
+
+WARNING: [000.000] Sequence number 44 (lcl|Potra2n268s35171.3), 185 illegal characters were removed:
+31 Es, 17 Fs, 41 Is, 69 Ls, 11 Ps, 16 Qs
+
+WARNING: [000.000] Sequence number 45 (lcl|Potra2n268s35171.4), 196 illegal characters were removed:
+35 Es, 18 Fs, 43 Is, 70 Ls, 12 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 46 (lcl|Potra2n268s35171.5), 196 illegal characters were removed:
+35 Es, 18 Fs, 43 Is, 70 Ls, 12 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 47 (lcl|Potra2n606s36124.1), 37 illegal characters were removed:
+5 Es, 5 Fs, 8 Is, 10 Ls, 5 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 48 (lcl|Potra2n606s36124.2), 37 illegal characters were removed:
+5 Es, 5 Fs, 8 Is, 10 Ls, 5 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 49 (lcl|Potra2n606s36124.3), 37 illegal characters were removed:
+5 Es, 5 Fs, 8 Is, 10 Ls, 5 Ps, 4 Qs
+
+WARNING: [000.000] Sequence number 50 (lcl|Potra2n606s36123.1), 279 illegal characters were removed:
+46 Es, 31 Fs, 48 Is, 91 Ls, 36 Ps, 27 Qs
+
+WARNING: [000.000] Sequence number 51 (lcl|Potra2n606s36123.2), 260 illegal characters were removed:
+39 Es, 30 Fs, 45 Is, 88 Ls, 35 Ps, 23 Qs
+
+WARNING: [000.000] Sequence number 52 (lcl|Potra2n606s36123.3), 240 illegal characters were removed:
+41 Es, 30 Fs, 47 Is, 74 Ls, 30 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 53 (lcl|Potra2n606s36123.4), 179 illegal characters were removed:
+37 Es, 15 Fs, 34 Is, 53 Ls, 22 Ps, 18 Qs
+
+WARNING: [000.000] Sequence number 54 (lcl|Potra2n606s36123.5), 189 illegal characters were removed:
+39 Es, 16 Fs, 30 Is, 59 Ls, 26 Ps, 19 Qs
+
+WARNING: [000.000] Sequence number 55 (lcl|Potra2n606s36123.6), 118 illegal characters were removed:
+9 Es, 20 Fs, 20 Is, 43 Ls, 16 Ps, 10 Qs
+
+WARNING: [000.000] Sequence number 56 (lcl|Potra2n606s36123.7), 39 illegal characters were removed:
+2 Es, 8 Fs, 11 Is, 10 Ls, 7 Ps, 1 Q
+
+WARNING: [000.000] Sequence number 57 (lcl|Potra2n1551s37135.1), 258 illegal characters were removed:
+49 Es, 37 Fs, 26 Is, 52 Ls, 55 Ps, 39 Qs
+
+WARNING: [000.000] Sequence number 58 (lcl|Potra2n1041s36943.1), 76 illegal characters were removed:
+13 Es, 12 Fs, 7 Is, 19 Ls, 15 Ps, 10 Qs
+
+Formatted 58 sequences in volume 0
