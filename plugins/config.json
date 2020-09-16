@@ -4,10 +4,31 @@
 		{
 			"number": 1,
 			"group_name": "Genomes",
-			"dataset_path":"/mnt/crick/data/FTP_Indices/Populus_trichocarpa/BLAST/nucleotide/genomes/Ptrichocarpa_210_hardmasked",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/genome",
 			"molecule_type":"nucleotide",
+			"user_friendly_name":"Genomes"
+		},
+		{
+			"number": 2,
+			"group_name": "Genomes",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/transcript",
+			"molecule_type":"nucleotide",
+			"user_friendly_name":"Transcripts"
+		},
+		{
+			"number": 3,
+			"group_name": "Genomes",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/cds",
+			"molecule_type":"nucleotide",
+			"user_friendly_name":"CDS"
+		},
+		{
+			"number": 4,
+			"group_name": "Genomes",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/protein",
+			"molecule_type":"peptide",
 			"user_friendly_name":"Populus trichocarpa(v3.0) Hardmasked"
 		}
 	],
 	"default_jbrowse_dataset_directory":"Fptr"
-	}
+	} 

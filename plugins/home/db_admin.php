@@ -23,7 +23,7 @@
            <!--Progress bar html element-->
                <progress id = "progress_upidgff3" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upidgff3"> 0% </span><button  class="upbtn"  id = "upidgff3"> Upload GFF3  </button> &nbsp; <span class="help_span">&#9432; </span>  <br/>
       </td>
-      <td><input placeholder="Path to BLAST directory"  style="width:60%" value="" type="text" id = "upid_fp_path">  </input>&nbsp; <span class="help_span">&#9432; </span>   </td>
+      <td><input disabled placeholder="Path to BLAST directory"  style="width:60%" value="/plugins/home/service/upload" type="text" id = "upid_fp_path">  </input>&nbsp; <span class="help_span">&#9432; </span>   </td>
       <td><progress id = "progress_upid_a" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upid_a"> 0% </span><button  class="upbtn" id = "upid_a"> Upload annotation </button>&nbsp; <span class="help_span">&#9432; </span>  </td>
    </tr>
    <tr >
