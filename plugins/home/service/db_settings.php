@@ -120,7 +120,7 @@ function load_sql($host, $username, $password,$database,$get_name){
     $script_path=getcwd()."/".$file_name;
 
     $conn = new mysqli($host, $username, $password, $database);
-    $conn->query( 'SET @@global.max_allowed_packet = ' . 20 * 1024 * 1024 );
+    $conn->query( 'SET @@global.max_allowed_packet = ' . 100 * 1024 * 1024 );
     //$maxp2 = $conn->query( 'SELECT @@global.max_allowed_packet' )->fetch_array();
     $sql = file_get_contents($script_path);
     if (mysqli_multi_query($conn, $sql)) {
@@ -144,8 +144,7 @@ function load_sql($host, $username, $password,$database,$get_name){
     $conn->query("GRANT ALL ON ".$database.".* TO geniecmsuser@'".$host."';"); //ALL replace with SELECT
     //$conn->query("GRANT INSERT,UPDATE,DELETE ON ".$database.".genebaskets TO geniecmsuser@'".$host."';");
     //$conn->query("GRANT INSERT,UPDATE,DELETE ON ".$database.".defaultgenebaskets TO geniecmsuser@'".$host."';");
-     exec("rm -r $file_name");
-
+    exec("rm -r $file_name");
 }
 
 /*if the settings file exist save the settings*/
