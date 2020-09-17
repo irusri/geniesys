@@ -117,7 +117,7 @@ id: "upidgff3", // Binding id
     url: "plugins/home/service/upload_files.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
     type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
-    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    shardsize: "10", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
     maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
@@ -150,10 +150,10 @@ var upid_a = new genieuc({
 id: "upid_a", // Binding id
     url: "plugins/home/service/upload_files.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
-    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    type: "zip,txt,pdf,sql,gff3,gff,fasta,fa", // Limit upload type, empty without limit
+    shardsize: "8", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "2000", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     apped_data: "annotation", //Additional data for each upload
     // Define error messages
@@ -214,10 +214,10 @@ var upid_fg = new genieuc({
 id: "upid_fg", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
-    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    type: "zip,txt,pdf,sql,gff3,gff,fasta,fa", // Limit upload type, empty without limit
+    shardsize: "20", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "200", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "400", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     apped_data: "genomic", //Additional data for each upload
     // Define error messages
@@ -278,10 +278,10 @@ var upid_fp = new genieuc({
 id: "upid_fp", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
-    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    type: "zip,txt,pdf,sql,gff3,gff,fasta,fa", // Limit upload type, empty without limit
+    shardsize: "10", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "200", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     apped_data: "protein", //Additional data for each upload
     // Define error messages
@@ -342,10 +342,10 @@ var upid_ft = new genieuc({
 id: "upid_ft", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
-    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    type: "zip,txt,pdf,sql,gff3,gff,fasta,fa", // Limit upload type, empty without limit
+    shardsize: "10", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "200", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     apped_data: "transcript", //Additional data for each upload
     // Define error messages
@@ -406,10 +406,10 @@ var upid_ft = new genieuc({
 id: "upid_fc", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
-    type: "zip,txt,pdf,sql,gff3,gff,fasta", // Limit upload type, empty without limit
-    shardsize: "0.5", // The size of each fragment, the unit is M, the default is 1M
+    type: "zip,txt,pdf,sql,gff3,gff,fasta,fa", // Limit upload type, empty without limit
+    shardsize: "10", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "200", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     apped_data: "cds", //Additional data for each upload
     // Define error messages

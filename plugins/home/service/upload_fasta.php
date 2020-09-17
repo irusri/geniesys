@@ -13,8 +13,6 @@ $md5   = isset($_POST['file_md5']) ? $_POST['file_md5'] : 0; // md5 value of the
 $size  = isset($_POST['file_size']) ?  $_POST['file_size'] : null; // file size
 $apped_data  = isset($_POST['apped_data']) ?  $_POST['apped_data'] : null; // file size
 
-
-
 //echo stripslashes(json_encode($apped_data))["data_type"];
 //$data = json_decode(json_encode($apped_data), true, JSON_UNESCAPED_SLASHES);
 //$songData = explode(',', $apped_data); 
@@ -30,7 +28,7 @@ function jsonMsg($status,$message,$url=''){
    $arr['message'] = $message;
    $arr['url'] = $url;
    echo json_encode($arr);
-  // die();
+  die();
 }
 
 if(!$file || !$name){
@@ -81,6 +79,9 @@ function nl2br2($string) {
 /** Determine whether to upload repeatedly  **/
 // check whether the file stream uploaded
 if ($file['error'] == 0) {
+
+
+    
     // Create if the file does not exist
     if (!file_exists($newfile)) {
         if (!move_uploaded_file($file['tmp_name'], $newfile)) {
@@ -96,9 +97,16 @@ if ($file['error'] == 0) {
     if($index <= $total){
         //$content = file_get_contents($file['tmp_name']);
         //$content=nl2br2($content);
-        $myfile = fopen($newfile, "r") or die("Unable to open file!");
-        $content=fread($myfile,filesize($newfile));
-        fclose($myfile);
+  
+        ini_set('upload_max_filesize', '500M');
+        ini_set('post_max_size', '500M');
+        ini_set('max_input_time', 10000);
+        ini_set('max_execution_time', 10000);
+
+       // $myfile = fopen($newfile, "r") or die("Unable to open file!");
+       // $content = file_get_contents($newfile);
+        //$content=fread($myfile,1000000);
+        //fclose($myfile);
 
         // echo "ssss";
         //$content =str_replace(array("\r\n", "\r", "\n"), "<br />", $content );

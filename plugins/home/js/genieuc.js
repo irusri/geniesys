@@ -7,9 +7,9 @@
         };		
         this.datas = [];
         this.id = ''; 
-        this.shardsize = '2';
+        this.shardsize = '10';
         this.minsize;
-        this.maxsize = "200";
+        this.maxsize = "400";
 		// Check url
         this.checkurl = '';		
         this.url = '';
@@ -330,7 +330,6 @@
             this.reStatus = true;
             this.shardTime = 0;
             this.file = file;
-
           
             this.size = file.size;
             this.filename = file.name;
