@@ -1,19 +1,34 @@
 <?php
 $post_id=trim($_POST['id']);
 $seq_type=trim($_POST['seq_type']);
-include('settings.php'); 
+$species=trim($_POST['species']);
 $table_name="transcript_info";
 $id_type="";
  
-//mysqli connection from main settings file. database is popgeniegenepages
-#$private_url = parse_url($db_url['genelist']);
-#mysqli_connect($private_url['host'], $private_url['user'], $private_url['pass']) or die(mysqli_error());
-#mysqli_select_db(str_replace('/', '', $private_url['path'])) or die(mysqli_error());
-#$cordinatestable="sequence_color"; 
+function checkprefix($source, $prefix) {
+    if (str_startswith($source, $prefix)) {
+       return true;
+    } else {
+       return false;
+    }
+}
+function str_startswith($source, $prefix)
+{
+   return strncmp($source, $prefix, strlen($prefix)) == 0;
+}
+
+/*
+ * Database connection from plugins/settings.php 
+ */	  
+include('settings.php'); 
+$private_url = parse_url($db_url['genelist']);
+$GLOBALS["genelist_connection"]=mysqli_connect($private_url['host'], $private_url['user'], $private_url['pass'],str_replace('/', '', $private_url['path'])) or die(mysqli_error());
+
+$cordinatestable="sequence_color"; 
 
 //Initial check whether given ID exsist on our Database
 if(isset($post_id) && $post_id != ''){
-	$initcheck=mysqli_query("SELECT * FROM ".$table_name." WHERE transcript_id='$post_id' or gene_id='$post_id'");
+	$initcheck=mysqli_query($GLOBALS["genelist_connection"],"SELECT * FROM ".$table_name." WHERE transcript_id='$post_id' or gene_id='$post_id'");
 	if(mysqli_num_rows($initcheck)!=0){
 		$init_id = strtolower($post_id);
 		$pattern = '/^[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[0-9]?[0-9]$/';
@@ -27,10 +42,10 @@ if(isset($post_id) && $post_id != ''){
 		}
 }
 
-if($id_type=="transcript" ||  $id_type=="gene"){
-	$basic_results = mysqli_query("SELECT * FROM ".$table_name." WHERE transcript_id='$post_id' or gene_id='$post_id' order by transcript_id asc limit 1");
+if($id_type=="transcript" ||  $id_type=="gene" ){
+	$basic_results = mysqli_query($GLOBALS["genelist_connection"],"SELECT * FROM ".$table_name." WHERE transcript_id='$post_id' or gene_id='$post_id' order by transcript_id asc limit 1");
 	$g = 0;
-	while ($basic_results_rows = mysqli_fetch_array($basic_results)) { 
+	while ($basic_results_rows = mysqli_fetch_array($basic_results)) {
 		$gene_id=$basic_results_rows['gene_id'];
 		$transcript_id=$basic_results_rows['transcript_id'];
 		$chromosome_name=$basic_results_rows['chromosome_name'];
@@ -39,58 +54,62 @@ if($id_type=="transcript" ||  $id_type=="gene"){
 		$gene_end=$basic_results_rows['gene_end'];
 		$transcript_start=$basic_results_rows['transcript_start'];
 		$transcript_end=$basic_results_rows['transcript_end'];
+		$peptide_name=$basic_results_rows['peptide_name'];
 		$g++;
 	}
 }
 
-if($strand=="-1"){
+if($strand=="-1" || $strand=="-"){
   	$plus_minus="2";  
    }else{
 	$plus_minus="1"; 
    }
 
-$config_path = file_get_contents("../config.json");
+
+$config_path = file_get_contents("../../config.json");
 $json_path = json_decode($config_path, true);
 $replacements=$json_path['datasets'];
 
 for($j=0;$j<count($replacements);$j++){
-		if($replacements[$j]['genome_blast_dataset_path']!=null){
-		$genomic_path_variable=$replacements[$j]['genome_blast_dataset_path'];
+		if($replacements[$j]['group_name']=="Genomes" ){
+		$genomic_path_variable=$replacements[$j]['dataset_path'];
 		}
-		if($replacements[$j]['cds_blast_dataset_path']!=null){
-		$cds_path_variable=$replacements[$j]['cds_blast_dataset_path'];
+		if($replacements[$j]['group_name']=="CDS" ){
+		$cds_path_variable=$replacements[$j]['dataset_path'];
 		}
-		if($replacements[$j]['transcript_blast_dataset_path']!=null){
-		$transcript_path_variable=$replacements[$j]['transcript_blast_dataset_path'];
+		if($replacements[$j]['group_name']=="Transcripts" ){
+		$transcript_path_variable=$replacements[$j]['dataset_path'];
 		}
-		if($replacements[$j]['protein_blast_dataset_path']!=null){
-		$protein_path_variable=$replacements[$j]['protein_blast_dataset_path'];
+		if($replacements[$j]['group_name']=="Protein" ){
+		$protein_path_variable=$replacements[$j]['dataset_path'];
 		}
 	}
 
 //extract genomic sequence
+
 $picea_basic_end2="10000000000";
-exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."' -D 0;",$outputr);
+//echo "../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."' -D 0;";
+exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."';",$outputr);
 
 for ($xd = 1; $xd <= count($outputr); $xd++) {
 	$genomic_sequence.=$outputr[$xd];
 }
 
 //extract cds sequence
-exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$cds_path_variable' -s '".$transcript_id."'  -D 0;",$outputcds);
+exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$cds_path_variable' -s '".$transcript_id."' ;",$outputcds);
 
 for ($xcds = 1; $xcds <= count($outputcds); $xcds++) {
 	$cds_sequence.=$outputcds[$xcds];
 }
 
  //extract transcript sequence
- exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$transcript_path_variable' -s '".$transcript_id."'  -D 0;",$outputtranscript);
+ exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$transcript_path_variable' -s '".$transcript_id."' ;",$outputtranscript);
 for ($xtranscript = 1; $xtranscript <= count($outputtranscript); $xtranscript++) {
 	$sequencetranscriptstr.=$outputtranscript[$xtranscript];
 }
 
  //extract protein sequence
-exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$protein_path_variable' -s '".$transcript_id.".p'  -D 0;",$outputprotein);
+exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$protein_path_variable' -s '".$transcript_id."' ;",$outputprotein);
 for ($xprotein = 1; $xprotein <= count($outputprotein); $xprotein++) {
 	$sequenceproteinstr.=$outputprotein[$xprotein];
 }
@@ -100,15 +119,15 @@ for ($xprotein = 1; $xprotein <= count($outputprotein); $xprotein++) {
 $datasignaltranscriptstart=$gene_start;
 $datasignaltranscriptend=$gene_end;
 
+
 if($strand=="-1" || $strand=="-"){$tmpstrand="-";}else{$tmpstrand="+";}
 
 				if($tmpstrand=="-"){ 
-				     $genepagecordintionquery = mysqli_query("select feature,start_point,end_point from ".$cordinatestable." where id='$transcript_id' AND feature !='exon' AND feature !='mRNA'  AND feature !='intraon' order by end_point DESC") or die(mysqli_error()); //Chanaka removed by 6th of March  order by start_point DESC;
+				     $genepagecordintionquery = mysqli_query($GLOBALS["genelist_connection"],"select feature,start_point,end_point from ".$cordinatestable." where id='$transcript_id' AND feature !='exon' AND feature !='mRNA'  AND feature !='intraon' order by end_point DESC") or die(mysqli_error()); //Chanaka removed by 6th of March  order by start_point DESC;
 				}else{
-				     $genepagecordintionquery = mysqli_query("select feature,start_point,end_point from ".$cordinatestable." where id='$transcript_id' AND feature !='exon' AND feature !='mRNA' AND feature !='intron'  order by start_point ASC;") or die(mysqli_error());					
+				     $genepagecordintionquery = mysqli_query($GLOBALS["genelist_connection"],"select feature,start_point,end_point from ".$cordinatestable." where id='$transcript_id' AND feature !='exon' AND feature !='mRNA' AND feature !='intron'  order by start_point ASC;") or die(mysqli_error());					
 				}
-					 
-	   $geneseqflagnumber=0;
+			
                 while ($genepageseqcordinaterows = mysqli_fetch_array($genepagecordintionquery)) {
                     $geneseqchildren[$geneseqflagnumber]->genepagecordregion=$genepagecordregion=$genepageseqcordinaterows['feature'];
 				if($tmpstrand=="+"){	
@@ -120,7 +139,7 @@ if($strand=="-1" || $strand=="-"){$tmpstrand="-";}else{$tmpstrand="+";}
 				}
 					$genseqarray[] = $geneseqchildren[$geneseqflagnumber];
 					$geneseqflagnumber++;
-                }				
+                }			
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

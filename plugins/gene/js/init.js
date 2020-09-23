@@ -98,7 +98,7 @@ function get_basic_info(id){
         success: function (data) {
 			if(JSON.parse(data)['error']!=null){
 				$('#tab-container').hide();
-				$('#title').html("<font color='red'>Incorrect Eucalyptus grandis id "+JSON.parse(data)['error']+'</font>');
+				$('#title').html("<font color='red'>Incorrect Arabidopsis thaliana id "+JSON.parse(data)['error']+'</font>');
 				return false;
 			}
 			$('#description').html(JSON.parse(data)['basic_data'][0].description);
@@ -109,11 +109,11 @@ function get_basic_info(id){
 			$('#other_tids').html(JSON.parse(data)['basic_data'][0].other_transcripts);
 
 			if(JSON.parse(data)['basic_data'][0].input_type=="transcript"){
-			$('#title').html("Eucalyptus grandis gene model "+JSON.parse(data)['basic_data'][0].transcript_id);
+			$('#title').html("Arabidopsis thaliana gene model "+JSON.parse(data)['basic_data'][0].transcript_id);
 			$('#start').html(JSON.parse(data)['basic_data'][0].transcript_start);
 			$('#end').html(JSON.parse(data)['basic_data'][0].transcript_end);
 			}else{
-			$('#title').html("Eucalyptus grandis gene "+JSON.parse(data)['basic_data'][0].gene_id);
+			$('#title').html("Arabidopsis thaliana gene "+JSON.parse(data)['basic_data'][0].gene_id);
 			$('#start').html(JSON.parse(data)['basic_data'][0].gene_start);
 			$('#end').html(JSON.parse(data)['basic_data'][0].gene_end);
 			}

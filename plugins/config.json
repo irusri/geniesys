@@ -4,25 +4,25 @@
 		{
 			"number": 1,
 			"group_name": "Genomes",
-			"dataset_path":"/app/geniesys/plugins/home/service/upload/genome",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/artha/genome",
 			"molecule_type":"nucleotide",
 			"user_friendly_name":"Arabidopsis thaliana Genomes"
 		},{
 			"number": 2,
 			"group_name": "Transcripts",
-			"dataset_path":"/app/geniesys/plugins/home/service/upload/transcript",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/artha/transcript",
 			"molecule_type":"nucleotide",
 			"user_friendly_name":"Arabidopsis thaliana Transcripts"
 		},{
 			"number": 3,
 			"group_name": "CDS",
-			"dataset_path":"/app/geniesys/plugins/home/service/upload/cds",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/artha/cds",
 			"molecule_type":"nucleotide",
 			"user_friendly_name":"Arabidopsis thaliana CDS"
 		},{
 			"number": 4,
 			"group_name": "Protein",
-			"dataset_path":"/app/geniesys/plugins/home/service/upload/protein",
+			"dataset_path":"/app/geniesys/plugins/home/service/upload/artha/protein",
 			"molecule_type":"protein",
 			"user_friendly_name":"Arabidopsis thaliana protein"
 		}
