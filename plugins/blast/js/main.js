@@ -45,14 +45,10 @@ function populate_datasets() {
 						}
 						
                     }
-                    /* } else {
-        $select.append(option);
-    }  
-	*/
-				    //$("#database_type option[value=blstp]").prop("selected", true);
+
                    $("#Datasets option:selected").prop("selected", false);
                    $("#Datasets option:first").prop("selected", "selected");
-                  // $("#Datasets option:last").remove();
+
                 });
 
                 $select.find("optgroup").each(function(e,a) {
@@ -75,10 +71,7 @@ function populate_datasets() {
             document.getElementById("database_type").value="blastp";
 			blast_program="";
         }
-        
-        
 
-       // 
 	
     }
     /**Toggle advanced option**/
