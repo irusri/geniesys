@@ -6,28 +6,25 @@
 			"group_name": "Genomes",
 			"dataset_path":"/app/geniesys/plugins/home/service/upload/genome",
 			"molecule_type":"nucleotide",
-			"user_friendly_name":"Genomes"
-		},
-		{
+			"user_friendly_name":"Arabidopsis thaliana Genomes"
+		},{
 			"number": 2,
-			"group_name": "Genomes",
+			"group_name": "Transcripts",
 			"dataset_path":"/app/geniesys/plugins/home/service/upload/transcript",
 			"molecule_type":"nucleotide",
-			"user_friendly_name":"Transcripts"
-		},
-		{
+			"user_friendly_name":"Arabidopsis thaliana Transcripts"
+		},{
 			"number": 3,
-			"group_name": "Genomes",
+			"group_name": "CDS",
 			"dataset_path":"/app/geniesys/plugins/home/service/upload/cds",
 			"molecule_type":"nucleotide",
-			"user_friendly_name":"CDS"
-		},
-		{
+			"user_friendly_name":"Arabidopsis thaliana CDS"
+		},{
 			"number": 4,
-			"group_name": "Genomes",
+			"group_name": "Protein",
 			"dataset_path":"/app/geniesys/plugins/home/service/upload/protein",
-			"molecule_type":"peptide",
-			"user_friendly_name":"Populus trichocarpa(v3.0) Hardmasked"
+			"molecule_type":"protein",
+			"user_friendly_name":"Arabidopsis thaliana protein"
 		}
 	],
 	"default_jbrowse_dataset_directory":"Fptr"

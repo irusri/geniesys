@@ -12,18 +12,22 @@ function populate_datasets() {
             success: function(data) {
                 $select.css("height", data.selection_box[0].height).css("width", data.selection_box[0].width)
                 $select.html('');
+
                 $.each(data.datasets, function(key, cat) {
                     var option = "<option  value='" + cat.number + "'>" + cat.user_friendly_name + "</option>";
                     var group = cat.group_name;
+                   
                     if ($("#database_type option:selected").val().match(/blastn|tblastn|tblastx/g) && cat.molecule_type == "nucleotide") {
                         if ($select.find("optgroup[label='" + group + "']").length === 0) {
-                            $select.append("<optgroup label='" + group + "' />");
+                            $select.append("<optgroup label='" + group + "' />");//console.log($select.find("optgroup")[0].label)
                         }
+                        
                         $select.find("optgroup[label='" + group + "']").append(option);
+                        
 						$("#protein_btn").hide();
 						$("#genomic_btn").show();
 						$("#transcript_btn").show();
-						$("#cds_btn").show();
+                        $("#cds_btn").show();
                     }
                     
                     if ($("#database_type option:selected").val().match(/^blastx|blastp/g) && cat.molecule_type == "protein") {
@@ -31,6 +35,7 @@ function populate_datasets() {
                             $select.append("<optgroup label='" + group + "' />");
                         }
                         $select.find("optgroup[label='" + group + "']").append(option);
+
 						 $("#protein_btn").show();
 						$("#genomic_btn").hide();
 						$("#transcript_btn").hide();
@@ -47,18 +52,33 @@ function populate_datasets() {
 				    //$("#database_type option[value=blstp]").prop("selected", true);
                    $("#Datasets option:selected").prop("selected", false);
                    $("#Datasets option:first").prop("selected", "selected");
+                  // $("#Datasets option:last").remove();
                 });
+
+                $select.find("optgroup").each(function(e,a) {
+                    if(a.label==""){
+                        this.remove();
+                    }
+                });
+
+                
             },
             error: function() {
                 $select.html('<option id="-1">none available</option>');
             }
+
+
+            
         });
 	
 		if(blast_program=="blastp"){
             document.getElementById("database_type").value="blastp";
 			blast_program="";
-		}
+        }
+        
+        
 
+       // 
 	
     }
     /**Toggle advanced option**/
