@@ -2,8 +2,8 @@
 /*Process POST variables and attach to blast variable string*/
 $tmp_array=array();
 $tmp_random_id=get_random_id();
-$par="blastall -m 7 -a 3 "; 
-$par2="fastacmd ";
+$par="scripts/bin/blastall -m 7 -a 3 "; 
+$par2="scripts/bin/fastacmd ";
 foreach($_POST as $name => $value) {
 	array_push($tmp_array,"$name : $value");
 	switch ($name) {
@@ -55,7 +55,7 @@ foreach($_POST as $name => $value) {
         	$par .= " -d '";
 			$par2 .=" -d '";
 			/*Read the config.json file to get dataset path(s) based on selected dataset number(s)*/
-			$string = file_get_contents($_SERVER['DOCUMENT_ROOT']."/plugins/config.json");
+			$string = file_get_contents("../../config.json");
 			$json_a = json_decode($string, true);
 			
 			foreach ($json_a['datasets'] as $name => $value) {
@@ -94,7 +94,6 @@ foreach($_POST as $name => $value) {
 		break;
 	}
 }
-
 exec("tsp ".$par,$queue_id);
 $return_array=array('uuid'=>$tmp_random_id,'qid'=>$queue_id,'program'=>$program_name);
 echo json_encode($return_array);

@@ -18,3 +18,6 @@
 2020-09-23 15:53:07,698 INFO spawned: 'mysqld' with pid 47
 2020-09-23 15:53:09,139 INFO success: apache2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2020-09-23 15:53:09,139 INFO success: mysqld entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-09-23 19:04:52,539 INFO reaped unknown pid 1126 (exit status 0)
+2020-09-23 19:14:13,526 INFO reaped unknown pid 1322 (exit status 0)
+2020-09-23 19:16:48,756 INFO reaped unknown pid 1348 (exit status 0)
