@@ -11,7 +11,7 @@
 <button class="upbtn"  id="create_db">create a fresh database</button>
 <button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>
 <button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; </span> 
-<button class="upbtn"  id="download_indices">Download indices</button>
+<button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 
 </br></br>
 <table id="upload_table" style="width:100%">
@@ -66,12 +66,12 @@ var mdbname;
 
 
 $("#download_indices").click(function() {
-    download_files("create_database","dump");
+    download_indices("create_database","dump");
 });
 
 
-//Check database
-function download_files(action,name){
+//Download indices
+function download_indices(action,name){
     mhost= $('#mhost').val();
     musername= $('#musername').val();
     mpasswd= $('#mpassword').val();
@@ -79,17 +79,18 @@ function download_files(action,name){
     var finalvarx= "host="+mhost+"&username="+musername+"&password="+mpasswd+"&database="+mdbname+"&action="+action+"&name="+name;	
    $.ajax({
        type: "POST",
-       url: "plugins/home/service/db_settings.php",
+       url: "plugins/home/service/download_indices.php",
        data: (finalvarx),
        dataType: 'json',   
        success: function (data) {
         toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-top-right","onclick": null,"showDuration": "10000","hideDuration": "1000","timeOut": "40000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
-        if(data.status=="success"){
-          toastr.success(data.message,"Success");
-        }else{
-          toastr.error(data.message,"Failure");
-          }
-          if(action=="db_name"){$("#mdbname").val(data.name);}
+       console.log(data)
+        if(data>10){
+        toastr.success("download and indexed fasta files","Success");
+       }else{
+        toastr.error("remote server failed","Failure");
+       }
+        
         }
    });
 }
@@ -104,6 +105,7 @@ $("#create_db").click(function() {
 
 $("#create_db_arabidopsis").click(function() {
     db_operation("create_database","artha");
+    download_indices("create_database","dump");
 });
 
 $("#drop_db").click(function() {
