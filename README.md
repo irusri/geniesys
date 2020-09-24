@@ -40,16 +40,22 @@ However, we need to have an error free GenIE-Sys to running in the backend to co
 
 **How can we make GenIE-Sys development environment with Docker?**
 <pre>
-# Please comment the supporting_files/run.sh line to avoid download the geniesys.git  
+# With docker-compose 
 git clone https://github.com/irusri/docker4geniesys.git  
 cd docker4geniesys  
-git submodule add -f https://github.com/irusri/genie.git  
+docker-compose up
+
+************** OR **************
+
+# Without docker-compose 
+git clone https://github.com/irusri/docker4geniesys.git  
+cd docker4geniesys  
 docker build -t genie -f ./Dockerfile .  
 docker run --rm -i -t -p "80:80" -p "3308:3306" -v ${PWD}/genie:/app -v ${PWD}/mysql:/var/lib/mysql -e MYSQL_ADMIN_PASS="mypass" --name genie genie  
 cd genie 
 </pre>
 
-When we need to commit changes, please go to `cd docker4geniesys/genie` folder. Never commit from `docker4geniesys` folder. Because it will add genie as a submodule. Incase you mistakenly pushed from `docker4geniesys` folder, please `cd docker4geniesys` and  `git rm genie`. You can access MySQL using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). Some useful docker commands are as follows.
+When we need to commit changes, please go to `cd docker4geniesys/geniesys` folder. Never commit from `docker4geniesys` folder. Because it will add genie as a submodule. Incase you mistakenly pushed from `docker4geniesys` folder, please `cd docker4geniesys` and  `git rm genie`. You can access MySQL using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). Some useful docker commands are as follows.
 <pre>
 # Must be run first because images are attached to containers
 docker rm -f $(docker ps -a -q)
