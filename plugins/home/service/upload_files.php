@@ -39,14 +39,20 @@ if(!in_array($ext,$imgarr)){
 
 //  In actual use, use md5 to name the file, which can reduce conflicts
 $file_name = $name.'.'.$ext;
-$newfile = 'upload/'.$file_name;
+$newfile = 'upload/artha/'.$file_name;
 
 // file accessible address
-$url = 'upload/'.$file_name;
+$url = 'upload/artha/'.$file_name;
 
 /**  Determine whether to upload repeatedly **/
 //clear file status
 clearstatcache($newfile);
+
+
+ini_set('upload_max_filesize', '500M');
+ini_set('post_max_size', '500M');
+ini_set('max_input_time', 10000);
+ini_set('max_execution_time', 10000);
 
 // The file size is the same, indicating that it has been uploaded
 /*if(is_file($newfile) && ($size == filesize($newfile))){

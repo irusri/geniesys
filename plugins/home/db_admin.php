@@ -105,7 +105,7 @@ $("#create_db").click(function() {
 
 $("#create_db_arabidopsis").click(function() {
     db_operation("create_database","artha");
-    download_indices("create_database","dump");
+   
 });
 
 $("#drop_db").click(function() {
@@ -134,6 +134,7 @@ function db_operation(action,name){
         toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-top-right","onclick": null,"showDuration": "10000","hideDuration": "1000","timeOut": "40000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
         if(data.status=="success"){
           toastr.success(data.message,"Success");
+          download_indices("create_database","dump");
         }else{
           toastr.error(data.message,"Failure");
           }
@@ -155,9 +156,9 @@ id: "upidgff3", // Binding id
     url: "plugins/home/service/upload_files.php", // url address
     //checkurl: "server/php_db/check.php", // Check upload url address
     type: "zip,txt,pdf,sql,gff3,gff", // Limit upload type, empty without limit
-    shardsize: "10", // The size of each fragment, the unit is M, the default is 1M
+    shardsize: "8", // The size of each fragment, the unit is M, the default is 1M
     minsize: '', // The minimum number of files to upload M, the unit is M, the default is none
-    maxsize: "20", // The maximum number of files uploaded is M, the unit is M, the default is 200M
+    maxsize: "2000", // The maximum number of files uploaded is M, the unit is M, the default is 200M
     headers: {"version": "genieuc"}, // Additional file header
     apped_data: "gff3", //Additional data for each upload 
     // Define error messages

@@ -49,10 +49,10 @@ if(!in_array($ext,$imgarr)){
 
 //  In actual use, use md5 to name the file, which can reduce conflicts
 $file_name = $name.'.'.$ext;
-$newfile = 'upload/'.$file_name;
+$newfile = 'upload/artha/'.$file_name;
 
 // file accessible address
-$url = 'upload/'.$file_name;
+$url = 'upload/artha/'.$file_name;
 
 /**  Determine whether to upload repeatedly **/
 //clear file status
@@ -121,9 +121,9 @@ if ($file['error'] == 0) {
           #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
           //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");  
         if($apped_data=="protein"){
-            exec("../../blast/services/scripts/bin/formatdb -p T -i ".$newfile." -n upload/protein -o T");
+            exec("../../blast/services/scripts/bin/formatdb -p T -i ".$newfile." -n upload/artha/protein -o T");
         }else{
-            exec("../../blast/services/scripts/bin/formatdb -p F -i ".$newfile." -n upload/".$apped_data." -o T");
+            exec("../../blast/services/scripts/bin/formatdb -p F -i ".$newfile." -n upload/artha/".$apped_data." -o T");
         }
            // exec("cd upload"); 
            // exec("mv ".$newfile." upload/genome.fa");         
