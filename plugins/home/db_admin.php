@@ -11,6 +11,8 @@
 <button class="upbtn"  id="create_db">create a fresh database</button>
 <button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>
 <button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; </span> 
+<button class="upbtn"  id="download_indices">Download indices</button>
+
 </br></br>
 <table id="upload_table" style="width:100%">
    <tr style="font-weight:bold" align="left">
@@ -61,6 +63,40 @@ var mhost;
 var musername;
 var mpasswd;
 var mdbname;
+
+
+$("#download_indices").click(function() {
+    download_files("create_database","dump");
+});
+
+
+//Check database
+function download_files(action,name){
+    mhost= $('#mhost').val();
+    musername= $('#musername').val();
+    mpasswd= $('#mpassword').val();
+    mdbname= $('#mdbname').val();
+    var finalvarx= "host="+mhost+"&username="+musername+"&password="+mpasswd+"&database="+mdbname+"&action="+action+"&name="+name;	
+   $.ajax({
+       type: "POST",
+       url: "plugins/home/service/db_settings.php",
+       data: (finalvarx),
+       dataType: 'json',   
+       success: function (data) {
+        toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-top-right","onclick": null,"showDuration": "10000","hideDuration": "1000","timeOut": "40000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
+        if(data.status=="success"){
+          toastr.success(data.message,"Success");
+        }else{
+          toastr.error(data.message,"Failure");
+          }
+          if(action=="db_name"){$("#mdbname").val(data.name);}
+        }
+   });
+}
+
+
+
+
 
 $("#create_db").click(function() {
     db_operation("create_database","dump");
