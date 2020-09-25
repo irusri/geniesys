@@ -105,7 +105,7 @@ $("#create_db").click(function() {
 
 $("#create_db_arabidopsis").click(function() {
     db_operation("create_database","artha");
-   
+    download_indices("create_database","dump"); 
 });
 
 $("#drop_db").click(function() {
@@ -134,7 +134,6 @@ function db_operation(action,name){
         toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-top-right","onclick": null,"showDuration": "10000","hideDuration": "1000","timeOut": "40000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
         if(data.status=="success"){
           toastr.success(data.message,"Success");
-          download_indices("create_database","dump");
         }else{
           toastr.error(data.message,"Failure");
           }
