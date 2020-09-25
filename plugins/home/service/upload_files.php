@@ -39,10 +39,10 @@ if(!in_array($ext,$imgarr)){
 
 //  In actual use, use md5 to name the file, which can reduce conflicts
 $file_name = $name.'.'.$ext;
-$newfile = 'upload/artha/'.$file_name;
+$newfile = 'upload/'.$file_name;
 
 // file accessible address
-$url = 'upload/artha/'.$file_name;
+$url = 'upload/'.$file_name;
 
 /**  Determine whether to upload repeatedly **/
 //clear file status
