@@ -399,11 +399,12 @@ function givemethesequence(){
 		var picea_basic_end=parseInt(gene_end);
 		var ustream=parseInt(ustream_tmp);
 		var dstream=parseInt(dstream_tmp);
-		var plus_minus=parseInt(strand);
+		var plus_minus=strand;
+
 
 $.ajax({
         type: "GET",
-        url: "plugins/autocomplete/test/retrieveflanksequence.php",
+        url: "plugins/gene/services/retrieveflanksequence.php",
        	data: {
            	ustream: ustream,
 			dstream: dstream,

@@ -228,7 +228,7 @@ var upid_fg = new genieuc({
     headers: {
         "version": "genieuc"
     }, // Additional file header
-    apped_data: "genomic", //Additional data for each upload
+    apped_data: "genome", //Additional data for each upload
     // Define error messages
 
 
@@ -427,7 +427,7 @@ var upid_ft = new genieuc({
         "version": "genieuc"
     }, // Additional file header
     apped_data: "cds", //Additional data for each upload
-    // Define error messages
+    // Define error messages 
 
 
     errormsg: {

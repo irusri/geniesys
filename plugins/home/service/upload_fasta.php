@@ -95,7 +95,7 @@ if ($file['error'] == 0) {
     }     
     //  If the current number of pieces is less than or equal to the total number of pieces, continue to add after the file
     if($index <= $total){
-        //$content = file_get_contents($file['tmp_name']);
+        $content = file_get_contents($file['tmp_name']);
         //$content=nl2br2($content);
   
         ini_set('upload_max_filesize', '500M');
