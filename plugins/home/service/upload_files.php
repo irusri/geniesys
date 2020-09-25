@@ -83,13 +83,11 @@ if ($file['error'] == 0) {
         if($index == $total ){  
           exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$newfile." > ".$newfile."_transcript.tsv");
           exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"Name\"],$1,$4,$5}' FS='\t' OFS='\t' ".$newfile." > ".$newfile."_gene.tsv");
-          #awk '$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);print id, $1, $3, $4, $5}' Potrs01b-gene.gff3
-          #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
           exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");
 
-          load_files($newfile."_gene.tsv",'gene_info');
-          load_files($newfile."_transcript.tsv",'transcript_info');
-          load_files($newfile."_color.tsv",' sequence_color');
+         load_files($newfile."_gene.tsv",'gene_info');
+         load_files($newfile."_transcript.tsv",'transcript_info');
+         load_files($newfile."_color.tsv",' sequence_color');
           unlink($newfile);
           jsonMsg(2,"done","url");
         }
@@ -104,32 +102,33 @@ function load_files($input_file,$table_name){
   //Build the connection
   include('../../../plugins/settings.php'); 
   $private_url = parse_url($db_url['genelist']);
+  //print_r($private_url );
   $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
   // Check connection
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   } 	
-
+mysqli_options($conn, MYSQLI_OPT_LOCAL_INFILE, true);
   //Truncate and load table	
 $query= <<<eof
 TRUNCATE TABLE $table_name;
 ALTER TABLE $table_name AUTO_INCREMENT = 1;
-load data local infile '$input_file' ignore  INTO TABLE $table_name CHARACTER SET UTF8 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+LOAD DATA LOCAL INFILE '$input_file' ignore  INTO TABLE $table_name CHARACTER SET UTF8 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
 eof;
-  /* execute multi query */
-  if (mysqli_multi_query($conn, $query)) {
-  do {
-      /* store first result set */
-      if ($result = mysqli_store_result($conn)) {
-          //do nothing since there's nothing to handle
-          mysqli_free_result($result);
-      }
-      /* print divider */
-      if (mysqli_more_results($conn)) {
-          //I just kept this since it seems useful
-          //try removing and see for yourself
-      }
-  } while (mysqli_next_result($conn));
-  }
-  mysqli_close($conn); 
+    /* execute multi query */
+    if (mysqli_multi_query($conn, $query)) {
+    do {
+        /* store first result set */
+        if ($result = mysqli_store_result($conn)) {
+            //do nothing since there's nothing to handle
+            mysqli_free_result($result);
+        }
+        /* print divider */
+        if (mysqli_more_results($conn)) {
+            //I just kept this since it seems useful
+            //try removing and see for yourself
+        }
+    } while (mysqli_next_result($conn));
+    }
+    mysqli_close($conn); 
 }
