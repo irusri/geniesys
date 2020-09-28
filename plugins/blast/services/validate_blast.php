@@ -73,6 +73,7 @@ function blast_result_xml($outfile) {
   }
   $xml_in    = simplexml_load_file($outfile, 'SimpleXMLElement');
   $algorithm = (string)$xml_in->BlastOutput_program;
+  $q_id =  (string)$xml_in->{"BlastOutput_query-def"};
   $xml       = $xml_in->BlastOutput_iterations;
   //is either an object (one query) or an array. so convert to array.
   $array_iterations = get_object_vars($xml);
@@ -96,13 +97,14 @@ function blast_result_xml($outfile) {
     $iteration_data_array = get_object_vars($iteration_obj);
 
     $query_id = $iteration_data_array['Iteration_query-ID'] .' '. $iteration_data_array['Iteration_query-def'];
+    if($query_id==" "){$query_id=$q_id;} 
     $query_id = preg_replace('/\s*lcl\|\d+_\d+\s*/', '', $query_id);
    // $query_id = preg_replace('/\s*lcl\|s*/', '', $query_id);
     //$query_id = preg_replace('/\s*lcl\|s*/', '', $query_id);
 	//$query_id = str_ireplace('T', 'u', $query_id);
     $query_id = str_replace('No definition line found', '', $query_id);
     if (empty($query_id)) {
-      $query_id = "User query $query_rank";
+      $query_id = "User query $query_rank"; 
     }
     if (!empty($iteration_data_array['Iteration_message'])) {
      // drupal_set_message(t('%a : %b for %query_id', array('%query_id' => $query_id, '%a' => $algorithm, '%b' => $iteration_data_array['Iteration_message'])), 'error');
