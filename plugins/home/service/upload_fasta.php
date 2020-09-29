@@ -28,7 +28,7 @@ function jsonMsg($status,$message,$url=''){
    $arr['message'] = $message;
    $arr['url'] = $url;
    echo json_encode($arr);
-  die();
+ 
 }
 
 if(!$file || !$name){
@@ -95,7 +95,7 @@ if ($file['error'] == 0) {
     }     
     //  If the current number of pieces is less than or equal to the total number of pieces, continue to add after the file
     if($index <= $total){
-        $content = file_get_contents($file['tmp_name']);
+       // $content = file_get_contents($file['tmp_name']);
         //$content=nl2br2($content);
   
         ini_set('upload_max_filesize', '500M');
@@ -103,36 +103,17 @@ if ($file['error'] == 0) {
         ini_set('max_input_time', 10000);
         ini_set('max_execution_time', 10000);
 
-       // $myfile = fopen($newfile, "r") or die("Unable to open file!");
-       // $content = file_get_contents($newfile);
-        //$content=fread($myfile,1000000);
-        //fclose($myfile);
-
-        // echo "ssss";
-        //$content =str_replace(array("\r\n", "\r", "\n"), "<br />", $content );
-       // if (!file_put_contents($newfile, $content, FILE_APPEND)) {
-         // jsonMsg(0,'Cannot write to file');
-       // }
+ 
         // the number of pieces is equal
         if($index == $total ){  
-         // exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$newfile." > ".$newfile."_transcript.tsv");
-         // exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"Name\"],$1,$4,$5}' FS='\t' OFS='\t' ".$newfile." > ".$newfile."_gene.tsv");
-          #awk '$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);print id, $1, $3, $4, $5}' Potrs01b-gene.gff3
-          #awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k["Name"]:id=k["ID"]);gsub("three_prime_UTR","3UTR",$3);gsub("five_prime_UTR","5UTR",$3);print id, $1, $3, $4, $5}' OFS="\t"
-          //exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ".$newfile." > ".$newfile."_color.tsv");  
         if($apped_data=="protein"){
             exec("../../blast/services/scripts/bin/formatdb -p T -i ".$newfile." -n upload/artha/protein -o T");
         }else{
             exec("../../blast/services/scripts/bin/formatdb -p F -i ".$newfile." -n upload/artha/".$apped_data." -o T");
         }
-           // exec("cd upload"); 
-           // exec("mv ".$newfile." upload/genome.fa");         
-            //exec("sh upload/run.sh");  
-          //load_files($newfile."_gene.tsv",'gene_info'); 
-          //load_files($newfile."_transcript.tsv",'transcript_info');
-          //load_files($newfile."_color.tsv",' sequence_color');
-         // unlink($newfile);
+         unlink($newfile);
           jsonMsg(2,"done","url");
+          die();
         }
         jsonMsg(1,'uploading');
     }               
