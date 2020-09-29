@@ -18,7 +18,7 @@ function jsonMsg($status,$message,$url=''){
    $arr['message'] = $message;
    $arr['url'] = $url;
    echo json_encode($arr);
-   die();
+  // die();
 }
 
 if(!$file || !$name){
@@ -53,7 +53,7 @@ ini_set('upload_max_filesize', '500M');
 ini_set('post_max_size', '500M');
 ini_set('max_input_time', 10000);
 ini_set('max_execution_time', 10000);
-
+ini_set('memory_limit', '1000M');
 // The file size is the same, indicating that it has been uploaded
 /*if(is_file($newfile) && ($size == filesize($newfile))){
    jsonMsg(3,'Already uploaded');          
@@ -75,10 +75,10 @@ if ($file['error'] == 0) {
     }     
     //  If the current number of pieces is less than or equal to the total number of pieces, continue to add after the file
     if($index <= $total){
-        $content = file_get_contents($file['tmp_name']);
-        if (!file_put_contents($newfile, $content, FILE_APPEND)) { 
-          jsonMsg(0,'Cannot write to file');
-        }
+       // $content = file_get_contents($file['tmp_name']);
+        //if (!file_put_contents($newfile, $content, FILE_APPEND)) { 
+         // jsonMsg(0,'Cannot write to file');
+        //}
         // the number of pieces is equal
         if($index == $total ){  
           exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"Name\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$newfile." > ".$newfile."_transcript.tsv");
@@ -88,8 +88,9 @@ if ($file['error'] == 0) {
          load_files($newfile."_gene.tsv",'gene_info');
          load_files($newfile."_transcript.tsv",'transcript_info');
          load_files($newfile."_color.tsv",' sequence_color');
-          unlink($newfile);
+          //unlink($newfile);
           jsonMsg(2,"done","url");
+          die();
         }
         jsonMsg(1,'uploading');
     }               

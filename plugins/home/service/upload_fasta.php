@@ -110,9 +110,9 @@ if ($file['error'] == 0) {
 
         // echo "ssss";
         //$content =str_replace(array("\r\n", "\r", "\n"), "<br />", $content );
-        if (!file_put_contents($newfile, $content, FILE_APPEND)) {
-          jsonMsg(0,'Cannot write to file');
-        }
+       // if (!file_put_contents($newfile, $content, FILE_APPEND)) {
+         // jsonMsg(0,'Cannot write to file');
+       // }
         // the number of pieces is equal
         if($index == $total ){  
          // exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$newfile." > ".$newfile."_transcript.tsv");
