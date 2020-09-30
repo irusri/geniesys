@@ -220,3 +220,7 @@
 2020-09-28 19:45:37,532 INFO success: apache2 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2020-09-28 19:45:37,533 INFO success: mysqld entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2020-09-28 19:47:11,753 INFO reaped unknown pid 529 (exit status 0)
+2020-09-30 06:40:30,151 WARN received SIGTERM indicating exit request
+2020-09-30 06:40:30,200 INFO waiting for apache2, mysqld to die
+2020-09-30 06:40:31,209 INFO stopped: mysqld (exit status 0)
+2020-09-30 06:40:31,439 INFO stopped: apache2 (exit status 0)
