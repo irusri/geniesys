@@ -145,6 +145,13 @@ function load_sql($host, $username, $password,$database,$get_name){
     //$conn->query("GRANT INSERT,UPDATE,DELETE ON ".$database.".genebaskets TO geniecmsuser@'".$host."';");
     //$conn->query("GRANT INSERT,UPDATE,DELETE ON ".$database.".defaultgenebaskets TO geniecmsuser@'".$host."';");
     exec("rm -r $file_name");
+
+
+    if (!file_exists('upload')) {
+        mkdir('upload', 0777, true);
+    }
+
+
 }
 
 /*if the settings file exist save the settings*/
