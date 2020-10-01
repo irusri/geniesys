@@ -12,7 +12,8 @@ var seq_array_tmp="";
 $(document).ready( function() {
  $('#tab-container').easytabs({
 		animationSpeed: "fast",
-		 updateHash: true
+		 updateHash: false
+		// animate({scrollTop: 0}, 0)
 		});
 	
 	var current_tab = $("#tab-container li.tab.active a").attr("href");

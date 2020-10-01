@@ -1,4 +1,39 @@
-<?php?><h3>Loading novel genome to GenIE-Sys database. Follow the steps one at a time.</h3>
+
+<link rel="stylesheet" type="text/css" href="plugins/gene/css/style2.css" />
+<script type="text/javascript" src="plugins/gene/js/jquery.hashchange.min.js"></script>
+<script type="text/javascript" src="plugins/gene/js/jquery.easytabs.min.js"></script>
+
+<div id="tab-container" class='tab-container'>
+     <ul class='etabs'>
+     <li class='tab'><a href="#page">Edit page</a></li>
+       <li class='tab'><a href="#site">Site settings</a></li>
+       <li class='tab'><a href="#db">Database settings</a></li>
+     </ul>
+    <div class='panel-container'>
+      <div id="page"> <br>
+       <!--page section start-->
+       <br><br>
+               <textarea class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
+               <script type="text/javascript">
+                  var key = <?php echo json_encode($c['page']); ?>
+               </script>
+               <button id="btn_submit" onclick="save(key);">save</button>
+               <?php  include('themes/genie/msg_box.php'); ?>
+       <!--page section ended-->
+      </div> 
+      <div id="site"> <br>
+       <!--site section start-->
+      <?php 
+settings();
+?>
+       <!--site section ended-->
+
+</div>
+
+
+      <div id="db"><br>
+      <!--db section start-->
+      <h3>Loading novel genome to GenIE-Sys database. Follow the steps one at a time.</h3>
 <span style="overflow: hidden;position: absolute;top:30px" id="error_msg"></span>
 <form  id="db_form">
    <p><label for="host">Host:</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
@@ -59,3 +94,28 @@
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
 <script src = "plugins/home/js/genieuc.js"> </script> 
 <script src = "plugins/home/js/db_admin.js"> </script> 
+
+      <!--db section ended-->
+      </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+$('#tab-container').easytabs({
+	animationSpeed: "fast",
+         updateHash: false,
+       
+        }
+
+
+        
+);
+
+$('.prevent-default').click(function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+</script>
+

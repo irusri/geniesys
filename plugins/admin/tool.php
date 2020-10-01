@@ -7,9 +7,6 @@ setcookie('genie_key', $tmp_key);?>
 </iframe>
 
 <br>
-
-
-
 <script src="plugins/admin/js/init.js" type="application/javascript"></script>
 <div id="post_information" style="display:none">
 You can access the database in using <a target="_blank" href="http://localhost/phpmyadmin">phpMyAdmin</a><br>
@@ -26,9 +23,6 @@ $GLOBALS["base_url"]='http://localhost';
 </pre>
 Further customisation please go to GenIE-Sys documentation <a target="_blank" href="https://geniesys.readthedocs.io/en/latest">https://geniesys.readthedocs.io/en/latest/</a>
 </div>
-
-
-
 
 
 <?php if(is_loggedin()) { ?>

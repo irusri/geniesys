@@ -181,8 +181,8 @@ function savepassword($p){
 function settings(){
 	global $c,$d;
 	echo "<div class='settings'>
-	<h3 class='toggle'>↕ Site Settings ↕</h3>
-	<div class='hide'>
+	
+
 	<div class='change border'><b>Theme</b>&nbsp;<span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
 	if(chdir("./themes/")){
 		$dirs = glob('*', GLOB_ONLYDIR);
@@ -197,7 +197,7 @@ function settings(){
 		echo "<div class='change border'>Edit the ".$key."<span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></div>";
 	}
 	//echo ' <iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="http://build.plantgenie.org/geniecms.php"></iframe><br>';
-	echo "</div></div>";
+	echo "</div>";
 }
 
 //Get bg color

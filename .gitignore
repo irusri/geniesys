@@ -20,4 +20,4 @@ plugins/home/service/formatdb.log
 genie_files/settings
 test.sh
 supervisord.log
-supervisord.pid  
+supervisord.pid

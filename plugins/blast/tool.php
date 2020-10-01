@@ -166,8 +166,5 @@ $blast_string="";
 <script type="application/javascript" src="plugins/blast/js/lib/vfs_fonts.js"></script>
 <script type="application/javascript" src="plugins/blast/js/lib/buttons.html5.min.js"></script>
 
-
-
-
 <script src="plugins/blast/js/main.js" type="application/javascript"></script>
 <script type="application/javascript"></script>
