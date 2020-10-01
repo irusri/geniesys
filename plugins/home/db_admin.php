@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="plugins/gene/css/style2.css" />
+<link rel="stylesheet" type="text/css" href="plugins/home/css/admin.css" />
 <script type="text/javascript" src="plugins/gene/js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="plugins/gene/js/jquery.easytabs.min.js"></script>
 

@@ -233,7 +233,7 @@ span.editText textarea {
 
 .settings {
     position: relative;
-    top: 10px;
+
     width: 98%;
     clear: both;
     color: #000;
@@ -248,7 +248,7 @@ span.editText textarea {
 div.settings div.change {
     width: 75%;
     text-align: left;
-    margin-left: 10%;
+  
 }
 .clear {
     clear: both;

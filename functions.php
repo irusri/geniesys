@@ -181,8 +181,6 @@ function savepassword($p){
 function settings(){
 	global $c,$d;
 	echo "<div class='settings'>
-	
-
 	<div class='change border'><b>Theme</b>&nbsp;<span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
 	if(chdir("./themes/")){
 		$dirs = glob('*', GLOB_ONLYDIR);
@@ -192,11 +190,11 @@ function settings(){
 		}
 	}
 	echo "</select></span></div>
-	<div class='change border'><b>Navigation <small>(hint: add your page below and <a href='javascript:location.reload(true);'>click here to refresh</a>)</small></b><br /><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div>";
+	<div class='change border'><b>Navigation <small>(hint: add your page below and <a href='javascript:location.reload(true);'>click here to refresh</a>)</small>
+	</b><br /><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div>";
 	foreach(array('title','description','keywords','copyright') as $key){
 		echo "<div class='change border'>Edit the ".$key."<span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></div>";
 	}
-	//echo ' <iframe id="build_frame" width="100%" height="900px"  frameborder="0" src="http://build.plantgenie.org/geniecms.php"></iframe><br>';
 	echo "</div>";
 }
 
