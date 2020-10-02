@@ -8,6 +8,9 @@
      <li class='tab'><a href="#page">Edit page</a></li>
        <li class='tab'><a href="#site">Site settings</a></li>
        <li class='tab'><a href="#db">Database settings</a></li>
+       <li class='tab'><a href="#annotation">Annotation</a></li>
+       <li class='tab'><a href="#expression">Expression</a></li>
+       <li class='tab'><a href="#summary">Summary</a></li>
      </ul>
     <div class='panel-container'>
       <div id="page"> <br>
@@ -97,6 +100,17 @@ settings();
 
       <!--db section ended-->
       </div>
+
+      <div id="annotation"><br>A</div>
+
+      <div id="expression"><br>E</div>
+
+      <div id="summary"><br>S</div>
+
+
+
+
+
     </div>
 </div>
 

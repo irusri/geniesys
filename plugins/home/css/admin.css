@@ -1,11 +1,11 @@
 /* Example Styles for Demo */
-.etabs { margin: 0; padding: 0; height:29px; }
+.etabs { margin: 0; padding: 0; height:29px; margin-left: 20px;margin-top: 20px;}
 .tab { display: inline-block;  background: #eee; border:solid 1px #999;   -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; }
 .tab a { font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; }
 .tab a:hover { text-decoration: underline; }
 .tab.active { background: #fff;  position: relative;   border-color: #666; border-bottom:solid 1px #FFF;  }
 .tab a.active { font-weight: bold; }
-.tab-container .panel-container { background: #fff; border: solid #666 1px;   padding: 10px; padding-top:0px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; width:100% }
+.tab-container .panel-container { height: auto;overflow: hidden; margin-left: 20px;background: #fff; border: solid #666 1px;   padding: 10px; padding-top:0px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; width:95% }
 
 
 /* Styles for alternate tabActiveClass */
@@ -268,4 +268,8 @@ background-color:
 .utr3Even {
 background-color: 
 #E9D2E4;
+}
+
+#db_form label{
+    float: right;
 }

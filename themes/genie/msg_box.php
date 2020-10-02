@@ -27,6 +27,9 @@
 			cursor:pointer;
 			background:#D7D8D7;
 			text-transform: capitalize;
+			float:right;
+	
+			
 		}
 </style>
 
