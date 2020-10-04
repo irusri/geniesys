@@ -101,16 +101,18 @@ settings();
       <!--db section ended-->
       </div>
 
-      <div id="annotation"><br>A</div>
-
-      <div id="expression"><br>E</div>
-
-      <div id="summary"><br>S</div>
-
-
-
-
-
+      <div id="annotation"><br>Annotation</div>
+       <!--annotation section started-->
+        <!--annotation section ended-->
+        </div>
+      <div id="expression"><br>Expression
+             <!--expression section started-->
+        <!--expression section ended-->
+        </div>
+      <div id="summary"><br>Summary
+             <!--summary section started-->
+        <!--summary section ended-->
+        </div>
     </div>
 </div>
 
@@ -121,9 +123,6 @@ $('#tab-container').easytabs({
          updateHash: false,
        
         }
-
-
-        
 );
 
 $('.prevent-default').click(function(e) {
