@@ -77,13 +77,14 @@
                include_once("plugins/".$c['tool_plugin']."/tool.php");
                echo "</div>";
                }else{?>
-            <div id="wrapper" class="border">
+           
                <?php if($_SERVER["REQUEST_URI"] =="/"){?>
                <!--ADD FRONT PAGE CONTENT HERE-->
                <?php } ?>   
                <?php if(is_loggedin()) { ?>
                
                <?php }else{ ?>
+                  <div id="wrapper" class="border">
                <?php content($c['page'],$c['content']);?>
                <?php } ?>
             </div>
