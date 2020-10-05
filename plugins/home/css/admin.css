@@ -273,3 +273,12 @@ background-color:
 #db_form label{
     float: left;
 }
+
+.change {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-top: 5px;
+    background: #fff;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}

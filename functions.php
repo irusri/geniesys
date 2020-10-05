@@ -180,7 +180,7 @@ function savepassword($p){
 /*Rendering the main settings this will appear nce user logged into the genie*/
 function settings(){
 	global $c,$d;
-	echo "<div class='settings'>
+	echo "<div class='db_form'>
 	<div class='change border'><b>Theme</b>&nbsp;<span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
 	if(chdir("./themes/")){
 		$dirs = glob('*', GLOB_ONLYDIR);
