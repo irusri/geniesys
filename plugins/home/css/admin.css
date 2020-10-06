@@ -286,3 +286,31 @@ span.editText {
     display: block;
     cursor: pointer;
 }
+
+
+
+#db_form{
+	padding: 1px;
+	text-align: left;
+	margin: auto;
+	display: table; 
+	margin-left:10px;
+	font-size: 16px;
+	
+}
+#db_form>p{
+display: table-row;
+font-size: 16px;
+
+}
+#db_form input{
+	display: table-cell; 
+	font-size: 16px;
+	width:240px;
+}
+
+
+#db_form label{
+	display: table-cell;width:140px;
+
+}
