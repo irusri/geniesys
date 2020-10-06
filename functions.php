@@ -180,8 +180,8 @@ function savepassword($p){
 /*Rendering the main settings this will appear nce user logged into the genie*/
 function settings(){
 	global $c,$d;
-	echo "<div class='db_form'>
-	<div class='change border'><b>Theme</b>&nbsp;<span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
+	echo "<div class='db_form'><table width='80%' style='margin-left:20px'><tr><td>
+	<div class='change border'><b>Theme</b>&nbsp;</td><td><span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
 	if(chdir("./themes/")){
 		$dirs = glob('*', GLOB_ONLYDIR);
 		foreach($dirs as $val){
@@ -189,13 +189,14 @@ function settings(){
 			echo '<option value="'.$val.'"'.$select.'>'.$val."</option>\n";
 		}
 	}
-	echo "</select></span></div>
-	<div class='change border'><b>Navigation <small>(hint: add your page below and <a href='javascript:location.reload(true);'>click here to refresh</a>)</small>
-	</b><br /><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div>";
+	echo "</select></span></div></td></tr><tr><td>
+	<div ><b>Navigation <small>(hint: add your page below and <a href='javascript:location.reload(true);'>click here to refresh</a>)</small>
+	</td><td><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div></td></tr>";
+	
 	foreach(array('title','description','keywords','copyright') as $key){
-		echo "<div class='change border'>Edit the ".$key."<span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></div>";
+		echo "<tr><td width='200px'><div><strong>Edit the ".$key."</td><td><span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></strong></div></td></tr>";
 	}
-	echo "</div>";
+	echo "</table></div>";
 }
 
 //Get bg color

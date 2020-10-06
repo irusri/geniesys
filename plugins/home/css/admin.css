@@ -281,3 +281,8 @@ background-color:
     margin-top: 5px;
     background: #fff;
 }
+
+span.editText {
+    display: block;
+    cursor: pointer;
+}

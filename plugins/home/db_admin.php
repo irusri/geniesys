@@ -29,6 +29,8 @@
       <?php 
 settings();
 ?>
+  <button id="btn_submit"  onclick='javascript:location.reload(true);'>save</button>
+
        <!--site section ended-->
 
 </div>
@@ -38,13 +40,22 @@ settings();
       <!--db section start-->
       <h3>Loading novel genome to GenIE-Sys database. Follow the steps one at a time.</h3>
 <span style="overflow: hidden;position: absolute;top:30px" id="error_msg"></span>
+
 <form  id="db_form">
-   <p><label for="host">Host:</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
+   <p><label for="host">Host:&nbsp;&nbsp;&nbsp;</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
    <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username </p>
    <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password </p>
    <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be typed in here</p>
 </form>
 <br>
+<div style="border:dotted thin black;width:60%;border-radius:5px;padding:6px">
+<h4>Clone from the PlantGenIE core species</h4>
+<button class="upbtn"  id="potra">Populus tremula</button>
+<button class="upbtn"  id="piabi">Picea abies</button>
+<button class="upbtn"  id="artha">Arbidopsis thaliana</button>
+<button class="upbtn"  id="eugra">Eucalyptus grandis</button></br></br>
+</div>
+</br></br>
 <!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
 <button class="upbtn"  id="create_db">create a fresh database</button>
 <button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>
@@ -121,7 +132,7 @@ settings();
 <script type="text/javascript">
 $('#tab-container').easytabs({
 	animationSpeed: "fast",
-         updateHash: false,
+        // updateHash: false,
        
         }
 );
