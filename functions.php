@@ -202,7 +202,7 @@ function settings(){
 //Get bg color
 $getColor=$_POST['bgcolor'];
 if($getColor=="color"){
-    $color_file = fopen("genie_files/background", "r") or die("Unable to open file!");
+    $color_file = fopen("genie_files/background", "w") or die("Unable to open file!");
     $bgcolor=fgets($color_file);
     echo $bgcolor;
     fclose($color_file);
