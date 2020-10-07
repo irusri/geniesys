@@ -69,6 +69,7 @@ db_operation("db_name", "check");
 
 //Check database
 function db_operation(action, name) {
+    on_disable_b_and_c_clicked();
     mhost = $('#mhost').val();
     musername = $('#musername').val();
     mpasswd = $('#mpassword').val();
@@ -96,12 +97,21 @@ function db_operation(action, name) {
             }
             if (data.status == "success") {
                 toastr.success(data.message, "Success");
+                
+                if(data.name!=""){
+                enable_all();}
             } else {
                 toastr.error(data.message, "Failure");
+                on_disable_b_and_c_clicked();
             }
             if (action == "db_name") {
                 $("#mdbname").val(data.name);
             }
+           
+        },
+        error: function (data) { 
+           if(data.status!=""){
+            on_disable_b_and_c_clicked();}
         }
     });
 }
@@ -512,7 +522,7 @@ $('.prevent-default').click(function(e) {
 }
 
 
-on_disable_b_and_c_clicked();
+//on_disable_b_and_c_clicked();
 function on_disable_b_and_c_clicked()
 {
   var tabs = $('#tab-container');

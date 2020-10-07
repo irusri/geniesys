@@ -48,15 +48,15 @@ if ($get_action == "create_database") {
             $sql = "CREATE DATABASE " . $database;
             // $sql = "CREATE DATABASE ".$database.";GRANT SELECT ON ".$database.".* TO ".$username."@'".$host."';GRANT INSERT,UPDATE,DELETE ON ".$database.".genebaskets TO ".$username."@'".$host."';GRANT INSERT,UPDATE,DELETE ON ".$database.".defaultgenebaskets TO ".$username."@'".$host."';";
             if ($link->query($sql) === true) {
-                jsonMsg('success', "<strong>" . $database . "</strong> database was created");
+                jsonMsg('success', "<strong>" . $database . "</strong> database was created",$database );
                 mysqli_close($link);
                 load_sql($host, $username, $password, $database, $get_name);
             } else {
-                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database");
+                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database",$database );
                 mysqli_close($link);
             }
         } else {
-            jsonMsg('error', "Database <strong>" . $database . "</strong> already exist");
+            jsonMsg('error', "Database <strong>" . $database . "</strong> already exist",$database );
             mysqli_close($link);
         }
     }
