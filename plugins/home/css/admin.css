@@ -283,11 +283,25 @@ background-color:
 }
 
 span.editText {
-    display: block;
-    cursor: pointer;
+	display: block;
+	cursor: pointer;
+	border:solid thin black;
 }
 
-
+span.editText textarea {
+	border: 0;
+	padding: 0;
+	width: 100%;
+	resize: none;
+	color: inherit;
+	display: block;
+	overflow: hidden;
+	font-size: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	background-color: transparent;
+	
+}
 
 #db_form{
 	padding: 1px;
@@ -313,4 +327,15 @@ font-size: 16px;
 #db_form label{
 	display: table-cell;width:140px;
 
+} 
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+ul.etabs li.disabled a
+{
+    color: #aaa;
+    cursor: default;
 }

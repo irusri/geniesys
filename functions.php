@@ -181,7 +181,7 @@ function savepassword($p){
 function settings(){
 	global $c,$d;
 	echo "<div class='db_form'><table width='80%' style='margin-left:20px'><tr><td>
-	<div class='change border'><b>Theme</b>&nbsp;</td><td><span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
+	<div ><b>Theme</b>&nbsp;</td><td><span id='themeSelect'><select name='themeSelect' onchange='fieldSave(\"themeSelect\",this.value);'>";
 	if(chdir("./themes/")){
 		$dirs = glob('*', GLOB_ONLYDIR);
 		foreach($dirs as $val){

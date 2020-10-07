@@ -480,3 +480,66 @@ var upid_ft = new genieuc({
         return true;
     }
 });
+
+
+
+var tabs = $('#tab-container');
+$('#tab-container').easytabs({
+	animationSpeed: "fast",
+        // updateHash: false,
+       
+        }
+);
+
+
+tabs.easytabs({ animate: false });  
+tabs.bind("easytabs:before", function (e, clicked) {
+    if(clicked.parent().hasClass('disabled')) {
+        return false;
+    }
+});
+
+$('.prevent-default').click(function(e) {
+        e.preventDefault();
+        return false;
+    });
+
+
+    function enable_all()
+{
+  var tabs = $('#tab-container');
+  disable_easytabs(tabs, []); 
+}
+
+
+on_disable_b_and_c_clicked();
+function on_disable_b_and_c_clicked()
+{
+  var tabs = $('#tab-container');
+  disable_easytabs(tabs, [3,4,5]);
+  return false;
+}
+
+
+
+function disable_easytabs(tabs, indexes)
+{
+    var lis = tabs.children('ul').children();
+    var index = 0;
+    lis.each(function()
+    {
+        var li = $(this);
+        var a = li.children('a');
+        var disabled = $.inArray(index, indexes) != -1;
+        if (disabled)
+        {
+            li.addClass('disabled');            
+        }
+        else
+        {
+            li.removeClass('disabled');            
+        }
+        index++;
+    });
+}
+

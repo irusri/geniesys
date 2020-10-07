@@ -48,6 +48,12 @@ settings();
    <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be typed in here</p>
 </form>
 <br>
+<!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
+<button class="upbtn"  id="create_db">create a fresh database</button>
+<!--<button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>-->
+<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; First you have to create a database or use the existing database.</span> 
+<button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
+<br><br>
 <div style="border:dotted thin black;width:60%;border-radius:5px;padding:6px">
 <h4>Clone from the PlantGenIE core species</h4>
 <button class="upbtn"  id="potra">Populus tremula</button>
@@ -56,13 +62,14 @@ settings();
 <button class="upbtn"  id="eugra">Eucalyptus grandis</button></br></br>
 </div>
 </br></br>
-<!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
-<button class="upbtn"  id="create_db">create a fresh database</button>
-<button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>
-<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; </span> 
-<button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 
-</br></br>
+      <!--db section ended-->
+      </div>
+
+      <div id="annotation"><br>
+
+        <!--annotation section started-->
+      </br></br>
 <table id="upload_table" style="width:100%">
    <tr style="font-weight:bold" align="left">
       <th>Upload GFF3</th>
@@ -106,15 +113,15 @@ settings();
 </table>
 <br><br>
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
-<script src = "plugins/home/js/genieuc.js"> </script> 
-<script src = "plugins/home/js/db_admin.js"> </script> 
 
-      <!--db section ended-->
-      </div>
 
-      <div id="annotation"><br>Annotation</div>
-       <!--annotation section started-->
-        <!--annotation section ended-->
+    
+    
+            <!--annotation section ended-->
+    
+    </div>
+     
+
    
       <div id="expression"><br>Expression
              <!--expression section started-->
@@ -129,18 +136,6 @@ settings();
 </div>
 
 
-<script type="text/javascript">
-$('#tab-container').easytabs({
-	animationSpeed: "fast",
-        // updateHash: false,
-       
-        }
-);
-
-$('.prevent-default').click(function(e) {
-        e.preventDefault();
-        return false;
-    });
-
-</script>
+<script src = "plugins/home/js/genieuc.js"> </script> 
+<script src = "plugins/home/js/db_admin.js"> </script> 
 
