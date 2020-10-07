@@ -501,8 +501,11 @@ $('#tab-container').easytabs({
 );
 
 
+
 tabs.easytabs({ animate: false });  
 tabs.bind("easytabs:before", function (e, clicked) {
+   // $("#main_editor").val(editor_content);
+   // console.log(editor_content)
     if(clicked.parent().hasClass('disabled')) {
         return false;
     }
@@ -554,3 +557,5 @@ function disable_easytabs(tabs, indexes)
     });
 }
 
+
+//console.log(editor_content)

@@ -3,6 +3,9 @@
 <script type="text/javascript" src="plugins/gene/js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="plugins/gene/js/jquery.easytabs.min.js"></script>
 
+<script type="text/javascript">
+    var editor_content = "<?php echo content($c['page'],$c['content']);?>"; 
+</script>
 <div id="tab-container" class='tab-container'>
      <ul class='etabs'>
      <li class='tab'><a href="#page">Edit page</a></li>
@@ -16,7 +19,7 @@
       <div id="page"> <br>
        <!--page section start-->
        <br><br>
-               <textarea class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
+               <textarea id="main_editor" class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
                <script type="text/javascript">
                   var key = <?php echo json_encode($c['page']); ?>
                </script>
