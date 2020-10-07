@@ -55,7 +55,7 @@ settings();
 <button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 <br><br>
 <div id="clone_div" style="border:dotted thin black;width:60%;border-radius:5px;padding:6px;display:none">
-<h4>Clone from the PlantGenIE core species</h4>
+<h4>Clone from the PlantGenIE core species. This includes all the annotation and expression data.</h4>
 <button class="upbtn"  id="potra">Populus tremula</button>
 <button class="upbtn"  id="piabi">Picea abies</button>
 <button class="upbtn"  id="artha">Arbidopsis thaliana</button>

@@ -190,7 +190,7 @@ function settings(){
 		}
 	}
 	echo "</select></span></div></td></tr><tr><td>
-	<div ><b>Navigation <small>(hint: add your page below and <a href='javascript:location.reload(true);'>click here to refresh</a>)</small>
+	<div ><b>Navigation  <br><small><font color='red'>You can create two-level menu links with the current version of the GenIE-Sys. Sublevel menu follows the <b>-</b> as prefix but there is no prefix needed for primary level links.</font></small> 
 	</td><td><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div></td></tr>";
 	
 	foreach(array('title','description','keywords','copyright') as $key){
