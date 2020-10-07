@@ -44,8 +44,8 @@ settings();
 <form  id="db_form">
    <p><label for="host">Host:&nbsp;&nbsp;&nbsp;</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
    <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username (MAMP uses root as default username) </p>
-   <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password (MAMP uses root as default password</p>
-   <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be typed in here</p>
+   <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password (MAMP uses root as default password)</p>
+   <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be type in here</p>
 </form>
 <br>
 <!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
@@ -54,15 +54,16 @@ settings();
 <button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; First you have to create a database or use the existing database.</span> 
 <button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 <br><br>
-<div style="border:dotted thin black;width:60%;border-radius:5px;padding:6px">
+<div id="clone_div" style="border:dotted thin black;width:60%;border-radius:5px;padding:6px;display:none">
 <h4>Clone from the PlantGenIE core species</h4>
 <button class="upbtn"  id="potra">Populus tremula</button>
 <button class="upbtn"  id="piabi">Picea abies</button>
 <button class="upbtn"  id="artha">Arbidopsis thaliana</button>
 <button class="upbtn"  id="eugra">Eucalyptus grandis</button></br></br>
 </div>
-</br></br>
+</br></br> 
 
+<a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right;cursor:pointer">External link to phpMyAdmin page >></a><br>
       <!--db section ended-->
       </div>
 
@@ -111,11 +112,10 @@ settings();
  
 
 </table>
+
+
+
 <br><br>
-<a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right">External link to phpMyAdmin page >></a><br>
-
-
-    
     
             <!--annotation section ended-->
     

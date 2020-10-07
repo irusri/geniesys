@@ -97,7 +97,6 @@ function db_operation(action, name) {
             }
             if (data.status == "success") {
                 toastr.success(data.message, "Success");
-                
                 if(data.name!=""){
                 enable_all();}
             } else {
@@ -517,6 +516,7 @@ $('.prevent-default').click(function(e) {
 
     function enable_all()
 {
+    $("#clone_div").show(); 
   var tabs = $('#tab-container');
   disable_easytabs(tabs, []); 
 }
@@ -525,6 +525,7 @@ $('.prevent-default').click(function(e) {
 //on_disable_b_and_c_clicked();
 function on_disable_b_and_c_clicked()
 {
+    $("#clone_div").hide(); 
   var tabs = $('#tab-container');
   disable_easytabs(tabs, [3,4,5]);
   return false;
