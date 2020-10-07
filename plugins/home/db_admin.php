@@ -43,8 +43,8 @@ settings();
 
 <form  id="db_form">
    <p><label for="host">Host:&nbsp;&nbsp;&nbsp;</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
-   <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username </p>
-   <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password </p>
+   <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username (MAMP uses root as default username) </p>
+   <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password (MAMP uses root as default password</p>
    <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be typed in here</p>
 </form>
 <br>
