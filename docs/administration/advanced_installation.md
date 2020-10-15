@@ -1,8 +1,8 @@
-Advanced Installation
+Installation
 =====================  
 
 
-## Docker installation 
+## Install with Docker 
 
 For Developers and Contricutors
 

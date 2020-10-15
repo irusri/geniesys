@@ -5,7 +5,7 @@
 .. toctree::
    :maxdepth: 4
    
-   installation_updates
+   #installation_updates
    advanced_installation
    installation
    troubleshooting
