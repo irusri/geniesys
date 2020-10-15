@@ -4,7 +4,7 @@ Install with MAMP/XAMPP
 ------------------------
 
 
-## Installing with MAMP/XAMPP
+**Installing with MAMP/XAMPP**
   
 Most Mac users will probably try GenIE-Sys with MAMP/LAMP.  
 
