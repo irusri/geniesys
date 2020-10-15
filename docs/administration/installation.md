@@ -47,33 +47,3 @@ Next, we need to create a MySQL database and load our data.
 
 
 
-## Updates
-
-**Manual updates**
-
-GenIE-Sys can be updated manually using latest ZIP file from [GitHub](https://github.com/irusri/geniesys/archive/master.zip). Please backup your older version of  ```geniesys/plugins/settings.php``` and ```geniesys/genie_files``` before you do the latest update. First unzip the genie.zip file from your download folder and move into the Web Server server. Finally copy the ```geniesys/plugins/settings.php``` and ```geniesys/genie_files``` into latest version of GenIE-Sys.
-
-**Updates using Git**
-
-Here is the easy way to update GenIE-Sys using git submodules:
-
-```
-cd geniesys
-git checkout master
-git pull
-git submodule foreach --recursive git checkout master
-git submodule foreach --recursive git pull
-```
-------------------------
-Running from Command Line
-------------------------
-If you want to use PHP's built-in server (**not recommended**), just use following lines to install GenIE-Sys. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
-
-```
-git clone --recursive https://github.com/irusri/geniesys.git
-cd geniesys
-php -S localhost:3000
-```
-You should now be able to access GenIE-Sys at: ```http://localhost:3000``` in your browser.
-
-
