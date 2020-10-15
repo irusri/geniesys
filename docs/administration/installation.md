@@ -65,5 +65,15 @@ git submodule foreach --recursive git checkout master
 git submodule foreach --recursive git pull
 ```
 
+## Running from Command Line
+
+If you want to use PHP's built-in server (**not recommended**), just use following lines to install GenIE-Sys. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
+
+```
+git clone --recursive https://github.com/irusri/geniesys.git
+cd geniesys
+php -S localhost:3000
+```
+You should now be able to access GenIE-Sys at: ```http://localhost:3000``` in your browser.
 
 

@@ -35,13 +35,3 @@ docker attach 890fa15eeef6126b668f4b0fcb7a38b33eaff0
 Now we can start the real development and push changes into genie.
 
 
-## Running from Command Line
-
-If you want to use PHP's built-in server (**not recommended**), just use following lines to install GenIE-Sys. This is only for the initial test installation, in order to make a full functional website you have to install Webbserver package such as MAMP or LAMP.
-
-```
-git clone --recursive https://github.com/irusri/geniesys.git
-cd geniesys
-php -S localhost:3000
-```
-You should now be able to access GenIE-Sys at: ```http://localhost:3000``` in your browser.
