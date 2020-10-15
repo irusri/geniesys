@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="plugins/home/css/admin.css" />
 <script type="text/javascript" src="plugins/gene/js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="plugins/gene/js/jquery.easytabs.min.js"></script>
-
 <script type="text/javascript">
     var editor_content = "<?php echo content($c['page'],$c['content']);?>"; 
 </script>
@@ -17,33 +16,26 @@
      </ul>
     <div class='panel-container'>
       <div id="page"> <br>
-       <!--page section start-->
+       <!--page section start id="main_editor"-->
        <br><br>
-               <textarea id="main_editor" class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
+       <textarea  class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
                <script type="text/javascript">
                   var key = <?php echo json_encode($c['page']); ?>
                </script>
                <button id="btn_submit" onclick="save(key);">save</button>
-               <?php  include('themes/genie/msg_box.php'); ?>
+               <?php  include('themes/genie/msg_box.php'); ?> 
        <!--page section ended-->
       </div> 
       <div id="site"> <br>
        <!--site section start-->
-      <?php 
-settings();
-?>
-  <button id="btn_submit"  onclick='javascript:location.reload(true);'>save</button>
-
+<?php settings();?>
+<button id="btn_submit"  onclick='javascript:location.reload(true);'>save</button>
        <!--site section ended-->
-
 </div>
-
-
       <div id="db"><br>
       <!--db section start-->
       <h3>Loading novel genome to GenIE-Sys database. Follow the steps one at a time.</h3>
 <span style="overflow: hidden;position: absolute;top:30px" id="error_msg"></span>
-
 <form  id="db_form">
    <p><label for="host">Host:&nbsp;&nbsp;&nbsp;</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
    <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username (MAMP uses root as default username) </p>
@@ -59,19 +51,16 @@ settings();
 <br><br>
 <div id="clone_div" style="border:dotted thin black;width:60%;border-radius:5px;padding:6px;display:none">
 <h4>Clone from the PlantGenIE core species. This includes all the annotation and expression data.</h4>
-<button class="upbtn"  id="potra">Populus tremula</button>
-<button class="upbtn"  id="piabi">Picea abies</button>
-<button class="upbtn"  id="artha">Arbidopsis thaliana</button>
-<button class="upbtn"  id="eugra">Eucalyptus grandis</button></br></br>
+<button class="upbtn" onClick="clone_genome(this)"  id="potra">Populus tremula</button>
+<button class="upbtn" onClick="clone_genome(this)" id="piabi">Picea abies</button>
+<button class="upbtn" onClick="clone_genome(this)"  id="artha">Arbidopsis thaliana</button>
+<button class="upbtn" onClick="clone_genome(this)"  id="eugra">Eucalyptus grandis</button></br></br>
 </div>
 </br></br> 
-
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right;cursor:pointer">External link to phpMyAdmin page >></a><br>
       <!--db section ended-->
       </div>
-
       <div id="annotation"><br>
-
         <!--annotation section started-->
       </br></br>
 <table id="upload_table" style="width:100%">
@@ -93,52 +82,36 @@ settings();
        <td><progress id = "progress_upid_fg" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"  id = "mySpan_upid_fg"> 0% </span><button class="upbtn" id = "upid_fg"> Upload genome FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
    </tr>
-
-
    <tr>
        <td height="40"></td>
        <td><progress id = "progress_upid_ft" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upid_ft"> 0% </span><button class="upbtn" id = "upid_ft"> Upload transcript FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
-   </tr>   
-
+   </tr>
    <tr>
        <td height="40"></td>
        <td ><progress id = "progress_upid_fc" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"   id = "mySpan_upid_fc"> 0% </span><button class="upbtn" id = "upid_fc"> Upload CDS FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
    </tr>   
-
    <tr>
        <td height="40"></td>
        <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"  id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload protein FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
        <td></td>
    </tr>   
- 
-
 </table>
-
-
-
 <br><br>
-    
-            <!--annotation section ended-->
-    
+     <!--annotation section ended-->
     </div>
-     
-
-   
       <div id="expression"><br>Expression
-             <!--expression section started-->
+        <!--expression section started-->
         <!--expression section ended-->
-        </div>
+      </div>
       <div id="summary"><br>Summary
-             <!--summary section started-->
+        <!--summary section started-->
         <!--summary section ended-->
-        </div>
+      </div>
     </div>
     <br>
 </div>
-
-
 <script src = "plugins/home/js/genieuc.js"> </script> 
 <script src = "plugins/home/js/db_admin.js"> </script> 
 

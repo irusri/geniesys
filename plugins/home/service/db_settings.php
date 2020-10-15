@@ -43,6 +43,7 @@ if ($get_action == "create_database") {
     if (!$link) {
         jsonMsg('error', "Wrong username and or password");
         exit;
+        
     } else {
         if (!mysqli_select_db($link, $database)) {
             $sql = "CREATE DATABASE " . $database;

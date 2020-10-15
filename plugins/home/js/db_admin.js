@@ -61,6 +61,15 @@ $("#drop_db").click(function () {
     db_operation("drop_database", "drop");
 });
 
+
+/** CLoning buttons **/
+function clone_genome(t) {
+   //console.log(t.id)
+   
+   db_operation("create_database", t.id);
+};
+
+
 $("#myadmin_links").click(function () {
     window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
 });
