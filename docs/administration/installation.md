@@ -1,5 +1,7 @@
+
+------------------------
 Install with MAMP/XAMPP 
-=====================  
+------------------------
 
 
 ## Installing with MAMP/XAMPP

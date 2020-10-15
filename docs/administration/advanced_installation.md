@@ -1,6 +1,7 @@
-Install with Docker 
-=====================  
 
+------------------------
+Install with Docker 
+------------------------
 
 ## Install with Docker 
 
