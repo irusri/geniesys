@@ -3,7 +3,6 @@
 Install with Docker 
 ------------------------
 
-**Install with Docker**
 
 For Developers and Contricutors
 
