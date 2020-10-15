@@ -6,9 +6,10 @@
    :maxdepth: 4
    
    installation_updates
+   advanced_installation
    installation
    troubleshooting
-   advanced_installation
+  
    change_theme
    load_genome
 
