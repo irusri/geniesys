@@ -97,27 +97,3 @@ git submodule foreach --recursive git pull
 
 Please contact us:```contact@geniecms.org```
 
-
-.. tabs::
-
-   .. tab:: |org_brand|
-
-      * 15 minutes build time
-      * 3GB of memory
-      * 2 concurrent builds
-
-      We can increase build limits on a per-project basis.
-      Send an email to support@readthedocs.org providing a good reason why your documentation needs more resources.
-
-      If your business is hitting build limits hosting documentation on Read the Docs,
-      please consider :doc:`Read the Docs for Business </commercial/index>`
-      which has much higher build resources.
-
-   .. tab:: |com_brand|
-
-      * 30 minutes build time
-      * 7GB of memory
-      * 4 concurrent builds
-
-      If you are having trouble with your documentation builds,
-      you can reach our support at support@readthedocs.com.
