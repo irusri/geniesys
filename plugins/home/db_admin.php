@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" type="text/css" href="plugins/home/css/admin.css" />
 <script type="text/javascript" src="plugins/gene/js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="plugins/gene/js/jquery.easytabs.min.js"></script>
@@ -114,4 +113,3 @@
 </div>
 <script src = "plugins/home/js/genieuc.js"> </script> 
 <script src = "plugins/home/js/db_admin.js"> </script> 
-

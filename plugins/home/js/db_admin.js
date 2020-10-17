@@ -2,13 +2,9 @@ var mhost;
 var musername;
 var mpasswd;
 var mdbname;
-
-
 $("#download_indices").click(function () {
     download_indices("create_database", "dump");
 });
-
-
 //Download indices
 function download_indices(action, name) {
     mhost = $('#mhost').val();
@@ -42,40 +38,28 @@ function download_indices(action, name) {
             } else {
                 toastr.error("remote server failed", "Failure");
             }
-
         }
     });
 }
-
-
 $("#create_db").click(function () {
     db_operation("create_database", "dump");
 });
-
 $("#create_db_arabidopsis").click(function () {
     db_operation("create_database", "artha");
     download_indices("create_database", "dump");
 });
-
 $("#drop_db").click(function () {
     db_operation("drop_database", "drop");
 });
-
-
 /** CLoning buttons **/
 function clone_genome(t) {
    //console.log(t.id)
-   
    db_operation("create_database", t.id);
 };
-
-
 $("#myadmin_links").click(function () {
     window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
 });
-
 db_operation("db_name", "check");
-
 //Check database
 function db_operation(action, name) {
     on_disable_b_and_c_clicked();
@@ -115,7 +99,6 @@ function db_operation(action, name) {
             if (action == "db_name") {
                 $("#mdbname").val(data.name);
             }
-           
         },
         error: function (data) { 
            if(data.status!=""){
@@ -123,16 +106,13 @@ function db_operation(action, name) {
         }
     });
 }
-
 //Upload progress component
- 
 function Progress(value, domname) {
     var myProgress = document.getElementById("progress_" + domname);
     var mySpan = document.getElementById("mySpan_" + domname);
     mySpan.innerText = value + "%";
     myProgress.value = value;
 }
-
 var upidgff3 = new genieuc({
     id: "upidgff3", // Binding id
     url: "plugins/home/service/upload_files.php", // url address
@@ -168,7 +148,6 @@ var upidgff3 = new genieuc({
         return true;
     }
 });
-
 var upid_a = new genieuc({
     id: "upid_a", // Binding id
     url: "plugins/home/service/upload_files.php", // url address
@@ -182,8 +161,6 @@ var upid_a = new genieuc({
     }, // Additional file header
     apped_data: "annotation", //Additional data for each upload
     // Define error messages
-
-
     errormsg: {
         1000: "Upload id not found",
         1001: "Type does not allow upload",
@@ -191,24 +168,18 @@ var upid_a = new genieuc({
         1003: "Upload file is too large",
         1004: "Upload request timed out"
     },
-
-
-
     // Error message
     error: (msg) => {
         alert(msg);
     },
-
     // Initialization event                
     start: (that) => {
         Progress(0, that.id)
     },
-
     // Waiting for upload event, can be used for loading
     beforeSend: () => {
         console.log('Waiting for request');
     },
-
     // Upload progress event
     progress: (num, other, that) => {
         Progress(num, that.id);
@@ -219,7 +190,6 @@ var upid_a = new genieuc({
         console.log("Elapsed time" + other.usetime);
         console.log("estimated time" + other.totaltime);
     },
-
     // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
     success: (res) => {
         let data = res ? eval('(' + res + ')') : '';
@@ -234,7 +204,6 @@ var upid_a = new genieuc({
         return true;
     }
 });
-
 var upid_fg = new genieuc({
     id: "upid_fg", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
@@ -248,8 +217,6 @@ var upid_fg = new genieuc({
     }, // Additional file header
     apped_data: "genome", //Additional data for each upload
     // Define error messages
-
-
     errormsg: {
         1000: "Upload id not found",
         1001: "Type does not allow upload",
@@ -257,24 +224,18 @@ var upid_fg = new genieuc({
         1003: "Upload file is too large",
         1004: "Upload request timed out"
     },
-
-
-
     // Error message
     error: (msg) => {
         alert(msg);
     },
-
     // Initialization event                
     start: (that) => {
         Progress(0, that.id)
     },
-
     // Waiting for upload event, can be used for loading
     beforeSend: () => {
         console.log('Waiting for request');
     },
-
     // Upload progress event
     progress: (num, other, that) => {
         Progress(num, that.id);
@@ -285,7 +246,6 @@ var upid_fg = new genieuc({
         console.log("Elapsed time" + other.usetime);
         console.log("estimated time" + other.totaltime);
     },
-
     // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
     success: (res) => {
         let data = res ? eval('(' + res + ')') : '';
@@ -300,7 +260,6 @@ var upid_fg = new genieuc({
         return true;
     }
 });
-
 var upid_fp = new genieuc({
     id: "upid_fp", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
@@ -314,8 +273,6 @@ var upid_fp = new genieuc({
     }, // Additional file header
     apped_data: "protein", //Additional data for each upload
     // Define error messages
-
-
     errormsg: {
         1000: "Upload id not found",
         1001: "Type does not allow upload",
@@ -323,24 +280,18 @@ var upid_fp = new genieuc({
         1003: "Upload file is too large",
         1004: "Upload request timed out"
     },
-
-
-
     // Error message
     error: (msg) => {
         alert(msg);
     },
-
     // Initialization event                
     start: (that) => {
         Progress(0, that.id)
     },
-
     // Waiting for upload event, can be used for loading
     beforeSend: () => {
         console.log('Waiting for request');
     },
-
     // Upload progress event
     progress: (num, other, that) => {
         Progress(num, that.id);
@@ -351,7 +302,6 @@ var upid_fp = new genieuc({
         console.log("Elapsed time" + other.usetime);
         console.log("estimated time" + other.totaltime);
     },
-
     // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
     success: (res) => {
         let data = res ? eval('(' + res + ')') : '';
@@ -366,7 +316,6 @@ var upid_fp = new genieuc({
         return true;
     }
 });
-
 var upid_ft = new genieuc({
     id: "upid_ft", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
@@ -380,8 +329,6 @@ var upid_ft = new genieuc({
     }, // Additional file header
     apped_data: "transcript", //Additional data for each upload
     // Define error messages
-
-
     errormsg: {
         1000: "Upload id not found",
         1001: "Type does not allow upload",
@@ -389,24 +336,18 @@ var upid_ft = new genieuc({
         1003: "Upload file is too large",
         1004: "Upload request timed out"
     },
-
-
-
     // Error message
     error: (msg) => {
         alert(msg);
     },
-
     // Initialization event                
     start: (that) => {
         Progress(0, that.id)
     },
-
     // Waiting for upload event, can be used for loading
     beforeSend: () => {
         console.log('Waiting for request');
     },
-
     // Upload progress event
     progress: (num, other, that) => {
         Progress(num, that.id);
@@ -417,7 +358,6 @@ var upid_ft = new genieuc({
         console.log("Elapsed time" + other.usetime);
         console.log("estimated time" + other.totaltime);
     },
-
     // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
     success: (res) => {
         let data = res ? eval('(' + res + ')') : '';
@@ -432,7 +372,6 @@ var upid_ft = new genieuc({
         return true;
     }
 });
-
 var upid_ft = new genieuc({
     id: "upid_fc", // Binding id
     url: "plugins/home/service/upload_fasta.php", // url address
@@ -446,8 +385,6 @@ var upid_ft = new genieuc({
     }, // Additional file header
     apped_data: "cds", //Additional data for each upload
     // Define error messages 
-
-
     errormsg: {
         1000: "Upload id not found",
         1001: "Type does not allow upload",
@@ -455,24 +392,18 @@ var upid_ft = new genieuc({
         1003: "Upload file is too large",
         1004: "Upload request timed out"
     },
-
-
-
     // Error message
     error: (msg) => {
         alert(msg);
     },
-
     // Initialization event                
     start: (that) => {
         Progress(0, that.id)
     },
-
     // Waiting for upload event, can be used for loading
     beforeSend: () => {
         console.log('Waiting for request');
     },
-
     // Upload progress event
     progress: (num, other, that) => {
         Progress(num, that.id);
@@ -483,7 +414,6 @@ var upid_ft = new genieuc({
         console.log("Elapsed time" + other.usetime);
         console.log("estimated time" + other.totaltime);
     },
-
     // The upload success callback, the callback will cycle according to the slice, to terminate the upload cycle, you must return false, and always return true in the case of success;
     success: (res) => {
         let data = res ? eval('(' + res + ')') : '';
@@ -498,19 +428,12 @@ var upid_ft = new genieuc({
         return true;
     }
 });
-
-
-
 var tabs = $('#tab-container');
 $('#tab-container').easytabs({
 	animationSpeed: "fast",
         // updateHash: false,
-       
         }
 );
-
-
-
 tabs.easytabs({ animate: false });  
 tabs.bind("easytabs:before", function (e, clicked) {
    // $("#main_editor").val(editor_content);
@@ -519,21 +442,16 @@ tabs.bind("easytabs:before", function (e, clicked) {
         return false;
     }
 });
-
 $('.prevent-default').click(function(e) {
         e.preventDefault();
         return false;
     });
-
-
     function enable_all()
 {
     $("#clone_div").show(); 
   var tabs = $('#tab-container');
   disable_easytabs(tabs, []); 
 }
-
-
 //on_disable_b_and_c_clicked();
 function on_disable_b_and_c_clicked()
 {
@@ -542,9 +460,6 @@ function on_disable_b_and_c_clicked()
   disable_easytabs(tabs, [3,4,5]);
   return false;
 }
-
-
-
 function disable_easytabs(tabs, indexes)
 {
     var lis = tabs.children('ul').children();
@@ -565,6 +480,4 @@ function disable_easytabs(tabs, indexes)
         index++;
     });
 }
-
-
 //console.log(editor_content)

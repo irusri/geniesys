@@ -1,11 +1,8 @@
 find_dump_file();
-
 var myVar = setInterval(find_dump_file, 3000);
-
 function myStopFunction() {
     clearInterval(myVar);
 }
-
 function find_dump_file(){
     if(getCookie("genie_key") != undefined) {
         var key=getCookie("genie_key");
@@ -21,13 +18,10 @@ function find_dump_file(){
             }else{
                 download_file(key,data.responseText);
                 clearInterval(myVar);
-                
             }
-           
 		}
 	});
 }
-
 function download_file(key,file_name){
     //console.log("download",key,file_name);
     var finalvarx= "key="+key+"&file_name="+file_name;
@@ -42,10 +36,6 @@ function download_file(key,file_name){
             $("#species_name").html(file_name.split(".")[0].trim());
            // $("#post_information").show();
            // $("#build_frame").hide();
-           
 		}
 	});
-
 }
-
-

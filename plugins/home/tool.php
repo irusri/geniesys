@@ -65,7 +65,6 @@
       <div id="stop-03"><i class="material-icons">check</i></div>
     </div>
     <div class="genie-messaging">
-  
 <!--	    <div style="width: 100%;height: 300px;position: absolute;overflow: hidden background: red;display: none;" id="first"></div>
 ´		<div style="width: 100%;height: 300px;position: absolute;overflow: hidden background: blue;display: none;" id="first"></div>
 		<div style="width: 100%;height: 300px;position: absolute;overflow: hidden background: green;display: none;" id="first"></div>
@@ -89,4 +88,3 @@ var key="<?php echo trim($_GET['key'])?>";
 </script>
 <script src="plugins/home/js/home.js"></script>
 </html>
-
