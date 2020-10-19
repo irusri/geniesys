@@ -1,5 +1,4 @@
 var select_text='<select id="datasetmenu"   name="datasetmenu_3" style="width: 260px;font-size:16px" > <option value="" >- CHOOSE DATASET -</option><option selected="" value="Athaliana_447">Athaliana Araport11</option><option value="Athaliana_167">Athaliana TAIR10</option><option value="Egrandis_297">Egrandis v2.0</option><option value="Ptrichocarpa_210">Ptrichocarpa v3.0</option> <option value="Ptrichocarpa_444">Ptrichocarpa v3.1</option><option value="Zmays_284">Zmays Ensembl-18</option><option value="Atrichopoda_291">Atrichopoda v1.0</option></select>';	
-	
 function rainbowHide() {
   $(".genie-illustration--rainbow svg").attr("class", "hide");
 }
@@ -8,14 +7,11 @@ function rainbowFadeOutDown() {
 }
 function rainbowFadeInUp() {
   $(".genie-illustration--rainbow svg").attr("class", "animated fadeInUp");
-	
 }
-
 // Clicking on the timeline truck stops
 var rainbowActivation = false;
 /*Initialize just show the message to selected the species and the dropdown*/
 datasetselector(1);	
-
 var selected_species="null";	
 var selected_species_name="null";
 var selected_species_1="null";	
@@ -23,7 +19,6 @@ var selected_species_name_1="null";
 var new_db_name="null";
 var key;
 var service_url="http://build.plantgenie.org/";
-
 /*Main function to do different task depending on the id
 id1= Display basic information and Download the database depending on the selection
 id2= Get database information, create the database and grant user permissions
@@ -73,9 +68,7 @@ function datasetselector(a){
 		$("#headline-01").html();//"Select species from the list to download");	
 		$("#headline-02").html("");			
 	}
-	
 }
-
 var uniqueId;
 /*Changing of species selection drodown*/ 
 $('#datasetmenu').on('change', function(e) {
@@ -92,8 +85,6 @@ $('#datasetmenu').on('change', function(e) {
     key=uniqueId=selected_species;
     if(selected_species==""){key="dump";}   
 });
-
-
 /*
 Clcking the download button. This should download either correct database or the empty database from the server.
 */
@@ -103,13 +94,11 @@ function downloadTheSpecies(tmp_id){
 	selected_species_1="Athaliana_447";
     selected_species_name_1="Athaliana Araport11";
     key=uniqueId=selected_species;
-
     console.log(tmp_id)
    $(".loader-wrap").show();
    $("#headline-01").html("Downloading ...");
     $("#message-01").html("");
     $("#message-02").html("");
-
     $(".genie-modal--tracking-intro").addClass( "genie-state-02" ).removeClass( "genie-state-01 genie-state-03" );
     if (rainbowActivation == true) {
         rainbowFadeOutDown();
@@ -118,7 +107,6 @@ function downloadTheSpecies(tmp_id){
     if(tmp_id==1){key=uniqueId;selected_species=selected_species_1;selected_species_name=selected_species_name_1};
     finalize_database();
 }
-
 var tmp_existence;
 //Create directory based on key which is an unique id
 function finalize_database(){
@@ -144,10 +132,8 @@ function finalize_database(){
                     $(".loader-wrap").hide();
                 }*/
 			}
-			
 		});
 }
-
 var mhost;
 var musername;
 var mpasswd;
@@ -186,7 +172,6 @@ function loadintoLocalDB(existence){
        }
      });
 }
-
 /**Download files whenits success*/
 function download_file(){
     var finalvarx= "key="+key+"&file_name="+key+".sql&host="+mhost+"&username="+musername+"&password="+mpasswd+"&database="+mdbname;
@@ -208,15 +193,12 @@ function download_file(){
             //$("#species_name").html(file_name.split(".")[0].trim());
            // $("#post_information").show();
            // $("#build_frame").hide();
-           
 		}
 	});
 }
-
 //$("#headline-02").html("Downloads");
 //$("#message-02").html("Raw data is available in <a target='_blank' href='http://build.plantgenie.org/tmp/"+key+"'>this URL</a><br>");
 //$("#message-02").html("Raw data is available in <a target='_blank' href='http://build.plantgenie.org/tmp/"+key+"'>this URL</a><br>You can download the database <a target='_blank' href='http://build.plantgenie.org/tmp/"+key+"'>here</a>");
- 
 var genie_tables = ['transcript_info', 'gene_info','gene_go','gene_pfam','gene_kegg']; 
 //create files after creating a folder
 function create_files(){
@@ -232,7 +214,6 @@ var tmparr=[];
 	});
 }
 }
-
 //callback iterating for-loop of table names
 function create_a_database_callback(table, one_table_success) {
     var finalvarx= table+"=true&source="+selected_species+"&dataset="+key;		
@@ -246,8 +227,6 @@ function create_a_database_callback(table, one_table_success) {
        }
      });
    }
-   
-   
    //create a database using key
    function create_a_database(){
    var finalvarx= "database_name="+key;
@@ -260,15 +239,11 @@ function create_a_database_callback(table, one_table_success) {
                for(var i=0;i<genie_tables.length;i++){
                    load_databases(genie_tables[i]);	
                }
-               
            }
-           
        });
    }
-   
    //Load databases
    function load_databases(ele){
-       
        var finalvarx= "table_name="+ele+"&source="+key+"&folder="+key;
        $.ajax({
            type: "POST",
@@ -281,7 +256,6 @@ function create_a_database_callback(table, one_table_success) {
            }
        });
    }
-   
    function update_gene_i(){
        var finalvarx= "table_name=transcript_info&source="+key+"&folder="+key;
        $.ajax({
@@ -293,7 +267,6 @@ function create_a_database_callback(table, one_table_success) {
            }
        });
    }
-   
    function dump_database(){
        var finalvarx= "key="+key+"&table_name="+key;
        $.ajax({
@@ -310,46 +283,29 @@ function create_a_database_callback(table, one_table_success) {
                download_file();
            }
        });
-       
    }
-   
-
-
-
-
-
 // Left & right button navigation
 /*$( "#btn-left" ).click( function() {
   if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-02" ) ) {
     $(".genie-modal--tracking-intro").addClass( "genie-state-01" ).removeClass( "genie-state-02" );
 	  rainbowHide();
-	 
   }
   else if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-03" ) ) {
     $(".genie-modal--tracking-intro").addClass( "genie-state-02" ).removeClass( "genie-state-03" );
 	  rainbowFadeOutDown();
-	 
   }
- 
 });
-
-
 $( "#btn-right" ).click( function() {
   if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-01" ) ) {
     $(".genie-modal--tracking-intro").addClass( "genie-state-02" ).removeClass( "genie-state-01" );
 	  rainbowHide();
-	 
   }
   else if ( $( ".genie-modal--tracking-intro" ).hasClass( "genie-state-02" ) ) {
     $(".genie-modal--tracking-intro").addClass( "genie-state-03" ).removeClass( "genie-state-02" );
 	  rainbowFadeInUp();
 	  datasetselector(8)
   }
- 
 });
-
-
-
 function gotolast(t){
   $(".genie-modal--tracking-intro").addClass( "genie-state-03" ).removeClass( "genie-state-01 genie-state-02" );
 	rainbowFadeInUp();
@@ -358,15 +314,9 @@ function gotolast(t){
 	}else{
 		datasetselector(3)
 	}
-	
 	rainbowActivation = true;	
-	
 }
-
 */
-
-
-
 function saveSettings(){
     var finalvarx= "settings="+mdbname;
 	$.ajax({
@@ -377,13 +327,11 @@ function saveSettings(){
 		complete: function (data) {
            // console.log(data);
             location.reload();
-         
             //$("#db_name_1").html(file_name.split(".")[0].trim());
             //$("#db_name_2").html(file_name.split(".")[0].trim());
             //$("#species_name").html(file_name.split(".")[0].trim());
            // $("#post_information").show();
            // $("#build_frame").hide();
-           
 		}
 	});
 }
