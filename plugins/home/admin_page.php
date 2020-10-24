@@ -9,7 +9,7 @@
      <li class='tab'><a href="#page">Edit page</a></li>
        <li class='tab'><a href="#site">Site settings</a></li>
        <li class='tab'><a href="#db">Database settings</a></li>
-       <li class='tab'><a href="#annotation">Annotation</a></li>
+       <li  class='tab'><a href="#annotation">Annotation</a></li>
        <li class='tab'><a href="#expression">Expression</a></li>
        <li class='tab'><a href="#summary">Summary</a></li>
      </ul>
@@ -63,12 +63,10 @@
         <!--annotation section started-->
       </br></br>
 
+<button onClick="check_files();"  class="upbtn"  id = "upidgff3">Check initial files</button>
+
 <ol>
-  <li>Check files in the data folder.  <button onClick="check_files();"  class="upbtn"  id = "upidgff3">check_initial_files</button></li>
-
-
-
-
+  <li>Check files in the data folder.  <button onClick="check_files();"  class="upbtn"  id = "upidgff3">Check initial files</button></li>
   <li>make correct files using gff3 files.</li>
   <li>load gff3 files into databases.</li>
   <li>make indices of fasta files.</li>

@@ -18,7 +18,7 @@ $get_name = $_POST['name'];
 }
 $scanned_directory = array_diff($files, array('..', '.'));
 $required_files=array('cds.fa','gene.gff3','genome.fa','protein.fa','transcript.fa');
-
 echo json_encode(array_diff($required_files, $scanned_directory));
+
 
 ?>
