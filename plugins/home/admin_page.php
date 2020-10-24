@@ -61,10 +61,10 @@
       </div>
       <div id="annotation"><br>
         <!--annotation section started-->
-      </br></br>
 
-<button onClick="check_files();"  class="upbtn"  id = "upidgff3">Check initial files</button>
-
+<span id="check_files_span">
+There are some missing files in the data directory. Please upload the following files into data directory and refresh this page again. <br><span style="color:red" id="missing_files"></span>
+</span>
 <ol>
   <li>Check files in the data folder.  </li>
   <li>make correct files using gff3 files.</li>

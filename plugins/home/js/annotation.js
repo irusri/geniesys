@@ -1,4 +1,4 @@
-function check_files() {
+function check_filess() {
     mhost = $('#mhost').val();
     musername = $('#musername').val();
     mpasswd = $('#mpassword').val();
@@ -16,7 +16,7 @@ function check_files() {
                 generate_indices();
             }else{
                 console.log(data)
-                toastr.success("missing files", "Failure");
+                toastr.error("missing files", "Failure"); 
             }
            
               
