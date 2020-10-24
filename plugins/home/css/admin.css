@@ -343,5 +343,6 @@ ul.etabs li.disabled a
 
 #check_files_span{
 	font-size:16px;
+	display:none;
 
 }
