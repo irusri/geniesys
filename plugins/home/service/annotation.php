@@ -9,14 +9,16 @@ $database = trim($_POST['database']);
 $get_action = $_POST['action'];
 $get_name = $_POST['name'];
 
- $data_dir=dirname(__FILE__)."/../../../data";
+ $data_dir=dirname(__FILE__)."/../../../data/";
  if (!file_exists($data_dir)) {
     mkdir($data_dir, 0777);
     echo "The data directory was successfully created.";
     exit;
 } else {
     echo "The data directory exists.";
-    $files=scandir($data_dir);
+    $files=scandir($data_dir, 1);
 }
+$scanned_directory = array_diff($files, array('..', '.'));
+echo json_encode($scanned_directory);
 
 ?>
