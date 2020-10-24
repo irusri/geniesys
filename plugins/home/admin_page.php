@@ -66,54 +66,12 @@
 <button onClick="check_files();"  class="upbtn"  id = "upidgff3">Check initial files</button>
 
 <ol>
-  <li>Check files in the data folder.  <button onClick="check_files();"  class="upbtn"  id = "upidgff3">Check initial files</button></li>
+  <li>Check files in the data folder.  </li>
   <li>make correct files using gff3 files.</li>
   <li>load gff3 files into databases.</li>
   <li>make indices of fasta files.</li>
 <ol>
 
-<table id="upload_table" style="width:100%">
-<tr style="font-weight:bold" align="left">
-
-<tr>
-
-
-
-
-   <tr style="font-weight:bold" align="left">
-      <th>Upload GFF3</th>
-      <th >Upload FASTA</th>
-      <th>Upload Annotation</th>
-   </tr>
-   <tr>
-      <td height="40">
-           <!--Progress bar html element-->
-               <progress id = "progress_upidgff3" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upidgff3"> 0% </span><button  class="upbtn"  id = "upidgff3"> Upload GFF3  </button> &nbsp; <span class="help_span">&#9432; </span>  <br/>
-      </td>
-      <td><input disabled placeholder="Path to BLAST directory"  style="width:60%" value="/plugins/home/service/upload" type="text" id = "upid_fp_path">  </input>&nbsp; <span class="help_span">&#9432; </span>   </td>
-      <td><progress id = "progress_upid_a" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upid_a"> 0% </span><button  class="upbtn" id = "upid_a"> Upload annotation </button>&nbsp; <span class="help_span">&#9432; </span>  </td>
-   </tr>
-   <tr >
-       <td height="40"></td>
-       <td><progress id = "progress_upid_fg" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"  id = "mySpan_upid_fg"> 0% </span><button class="upbtn" id = "upid_fg"> Upload genome FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
-       <td></td>
-   </tr>
-   <tr>
-       <td height="40"></td>
-       <td><progress id = "progress_upid_ft" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block" id = "mySpan_upid_ft"> 0% </span><button class="upbtn" id = "upid_ft"> Upload transcript FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
-       <td></td>
-   </tr>
-   <tr>
-       <td height="40"></td>
-       <td ><progress id = "progress_upid_fc" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"   id = "mySpan_upid_fc"> 0% </span><button class="upbtn" id = "upid_fc"> Upload CDS FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
-       <td></td>
-   </tr>   
-   <tr>
-       <td height="40"></td>
-       <td><progress id = "progress_upid_fp" value = "0" max = "100"> </progress> <span style="width: 40px; display: inline-block"  id = "mySpan_upid_fp"> 0% </span><button class="upbtn" id = "upid_fp"> Upload protein FASTA </button>&nbsp; <span class="help_span">&#9432; </span> </td>
-       <td></td>
-   </tr>   
-</table>
 <br><br>
      <!--annotation section ended-->
     </div>
