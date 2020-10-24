@@ -346,3 +346,98 @@ ul.etabs li.disabled a
 	display:none;
 
 }
+
+
+
+  
+  .tasks-title {
+	line-height: inherit;
+	font-size: 14px;
+	font-weight: bold;
+	color: inherit;
+  }
+  
+  
+  
+  .tasks-lists:before {
+	content: '';
+	display: block;
+	height: 3px;
+	background: #8c959d;
+	border-radius: 1px;
+	-webkit-box-shadow: 0 6px #8c959d, 0 -6px #8c959d;
+	box-shadow: 0 6px #8c959d, 0 -6px #8c959d;
+  }
+  
+  .tasks-list-item {
+	display: block;
+	line-height: 24px;
+	padding: 12px 15px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+  
+  .tasks-list-item + .tasks-list-item {
+	border-top: 1px solid #f0f2f3;
+  }
+  
+  .tasks-list-cb {
+	display: none;
+  }
+  
+  .tasks-list-mark {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 12px;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #c4cbd2;
+	border-radius: 12px;
+  }
+  
+  .tasks-list-mark:before {
+	content: '';
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -5px 0 0 -6px;
+	height: 4px;
+	width: 8px;
+	border: solid #39ca74;
+	border-width: 0 0 4px 4px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+  }
+  
+  .tasks-list-cb:checked ~ .tasks-list-mark {
+	border-color: #39ca74;
+  }
+  
+  .tasks-list-cb:checked ~ .tasks-list-mark:before {
+	display: block;
+  }
+  
+  
+  
+  .tasks-list-desc {
+	font-weight: bold;
+	color: #8a9a9b;
+  }
+  
+  .tasks-list-cb:checked ~ .tasks-list-desc {
+	color: #34bf6e;
+	text-decoration: line-through;
+  }
+  
+  
+  
+  
+  

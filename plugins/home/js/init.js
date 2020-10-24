@@ -2,7 +2,7 @@
 var tabs = $("#tab-container");
 $("#tab-container").easytabs({
   animationSpeed: "fast",
-  updateHash: false,
+  //updateHash: false,
 });
 
 tabs.easytabs({ animate: false });
@@ -67,6 +67,7 @@ function tab_opration(str){
       case "Annotation":
         db_operation("db_name", "check");
         check_files();
+        
         break;  
       case "Expression":
       // code block
@@ -120,16 +121,19 @@ function clone_genome(t) {
          dataType: 'json',
          success: function (data) {
           $(".loader-wrap").hide();
-          
+         
+
             toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
              if (data.status == "success") {
                  toastr.success(data.message, "Success");
                  if(data.name!=""){
-                    
-                 enable_all();}
+                 enable_all();
+                 if(name=="check" && $("#tab-container .tab.active")[0].innerText =="Annotation"){$("#database_checkbox").prop("checked", true);}
+                }
              } else {
                  toastr.error(data.message, "Failure");
                  on_disable_b_and_c_clicked();
+                 $("#database_checkbox").prop("checked", false)
              }
              if (action == "db_name") {
                  $("#mdbname").val(data.name);
@@ -185,12 +189,14 @@ function check_files() {
           if(data.length==0){
             $("#check_files_span").html("Now you have all the required files in the data directory");
               toastr.success("Now you have all the required files", "Success");
-              //generate_indices();
+              if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", true);}
+              generate_indices();
           }else{
               console.log(data)
               $("#check_files_span").show();
              $("#missing_files").html(data.join(','));
               toastr.warning("There are some missing files, please upload them to data directory", "Missing files");
+              if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", false);}
           }
       }
   });
@@ -215,7 +221,7 @@ function generate_indices(){
           toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
           if(data.length==0){
               toastr.success("Now you have all the required files", "Success");
-              generate_indices();
+              //generate_indices();
           }else{
               console.log(data)
              $("#missing_files").html(data.join(','));

@@ -65,12 +65,34 @@
 <span id="check_files_span">
 There are some missing files in the data directory. Please upload the following files into data directory and refresh this page again. <br><span style="color:red" id="missing_files"></span>
 </span>
-<ol>
-  <li>Check files in the data folder.  </li>
-  <li>make correct files using gff3 files.</li>
-  <li>load gff3 files into databases.</li>
-  <li>make indices of fasta files.</li>
-<ol>
+
+<label class="tasks-list-item">
+        <input id="database_checkbox" type="checkbox"  onchange="db_operation('db_name', 'check');" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check database connection</span><span id="study_waiting"/>
+      </label>
+      <label class="tasks-list-item">
+        <input id="files_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check files in the data folder</span><span id="sample_waiting"/>
+      </label>
+      <label class="tasks-list-item">
+        <input id="prepare_checkbox" type="checkbox"  onchange="generate_indices()" name="task_1" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Generate correct files</span><span id="experiment_waiting"/>
+      </label>
+
+       <label class="tasks-list-item">
+        <input id="submission_checkbox" type="checkbox" onchange="generating_xmls($(this))" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Load data into database</span><span id="submission_waiting"/>
+      </label>
+       <label class="tasks-list-item">
+        <input id="run_checkbox" type="checkbox" onchange="generating_xmls($(this))" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Generate FASTA indices</span><span id="run_waiting"/>
+      </label> 
+      
 
 <br><br>
      <!--annotation section ended-->

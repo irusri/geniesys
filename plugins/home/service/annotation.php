@@ -23,10 +23,7 @@ if($get_action=="check_files"){
     }
     $scanned_directory = array_diff($files, array('..', '.'));
     echo json_encode(array_diff($required_files, $scanned_directory));
-    if(count(array_diff($required_files, $scanned_directory))==0){
-        exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . $data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
-        exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
-    }
+
 }
 
 
@@ -39,11 +36,16 @@ if ($get_action == "prepare_files") {
         return;
     }
 
-    move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $_FILES['file']['name']);
+    if(count(array_diff($required_files, $scanned_directory))==0){
+        exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . $data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
+        exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
+    }
 
-    exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_transcript.tsv");
-    exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_gene.tsv");
-    load_files('upload/' . $_FILES['file']['name'] . "_gene.tsv", 'gene_info');
+   // move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $_FILES['file']['name']);
+
+    //exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_transcript.tsv");
+    //exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_gene.tsv");
+    //load_files('upload/' . $_FILES['file']['name'] . "_gene.tsv", 'gene_info');
 }
 
 
