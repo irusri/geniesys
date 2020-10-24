@@ -20,3 +20,4 @@ genie_files/settings
 test.sh
 supervisord.log
 supervisord.pid
+data
