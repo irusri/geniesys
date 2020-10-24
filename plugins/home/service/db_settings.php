@@ -36,6 +36,7 @@ if ($get_action == "db_name") {
     }
 }
 
+
 //Create a new database depending on the given name
 if ($get_action == "create_database") {
     //Make a connection
@@ -57,12 +58,15 @@ if ($get_action == "create_database") {
                 mysqli_close($link);
             }
         } else {
-            jsonMsg('error', "Database <strong>" . $database . "</strong> already exist",$database );
+            jsonMsg('success', "Database <strong>" . $database . "</strong> already exist",$database );
             mysqli_close($link);
         }
     }
 
 }
+
+
+
 
 //Drop exsisting database
 if ($get_action == "drop_database") {
@@ -82,6 +86,42 @@ if ($get_action == "drop_database") {
         }
     }
 }
+
+//clone_database
+if ($get_action == "clone_database") {
+    $link = mysqli_connect($host, $username, $password);
+    if (!$link) {
+        jsonMsg('error', "Wrong username and or password");
+        exit;
+    } else {
+        if (!mysqli_select_db($link, $database)) {
+            $sql = "CREATE DATABASE " . $database;
+            if ($link->query($sql) === true) {
+                jsonMsg('success', "<strong>" . $database . "</strong> database was created  with $get_name data",$database );
+                mysqli_close($link);
+                load_sql($host, $username, $password, $database, $get_name);
+            } else {
+                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database",$database );
+                mysqli_close($link);
+            }
+        } else {
+            $sqlx = "DROP DATABASE " . $database;
+            if ($link->query($sqlx) === true) {
+                $link->query($sqlx);
+                $sql = "CREATE DATABASE " . $database;
+                jsonMsg('success', "<strong>" . $database . "</strong> already exist but created a new database with $get_name data",$database );
+                mysqli_close($link);
+                load_sql($host, $username, $password, $database, $get_name);
+            } else {
+                jsonMsg('error', "Not enough permssion to drop or create <strong>" . $database . "</strong> database",$database );
+                mysqli_close($link);
+            }
+            mysqli_close($link);
+        }
+    }
+
+}
+
 
 // load MySQL dump file into the database
 function load_sql($host, $username, $password, $database, $get_name)

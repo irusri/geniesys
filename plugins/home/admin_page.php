@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="plugins/home/css/admin.css" />
-<script type="text/javascript" src="plugins/gene/js/jquery.hashchange.min.js"></script>
-<script type="text/javascript" src="plugins/gene/js/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="plugins/home/js/jquery.hashchange.min.js"></script>
+<script type="text/javascript" src="plugins/home/js/jquery.easytabs.min.js"></script> 
 <script type="text/javascript">
     var editor_content = "<?php echo content($c['page'],$c['content']);?>"; 
 </script>
@@ -62,7 +62,26 @@
       <div id="annotation"><br>
         <!--annotation section started-->
       </br></br>
+
+<ol>
+  <li>Check files in the data folder.  <button  class="upbtn"  id = "upidgff3">check_initial_files</button></li>
+
+
+
+
+  <li>make correct files using gff3 files.</li>
+  <li>load gff3 files into databases.</li>
+  <li>make indices of fasta files.</li>
+<ol>
+
 <table id="upload_table" style="width:100%">
+<tr style="font-weight:bold" align="left">
+
+<tr>
+
+
+
+
    <tr style="font-weight:bold" align="left">
       <th>Upload GFF3</th>
       <th >Upload FASTA</th>
@@ -111,5 +130,5 @@
     </div>
     <br>
 </div>
-<script src = "plugins/home/js/genieuc.js"> </script> 
-<script src = "plugins/home/js/db_admin.js"> </script> 
+<script src="plugins/home/js/init.js"></script>
+<script src="plugins/home/js/annotation.js"></script>

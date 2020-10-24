@@ -69,7 +69,7 @@
                <?php echo '<ul class="egmenu">';geniemenu();echo '</ul>';?>
             </nav>
             <?php if(is_loggedin()) {;?>
-                     <?php include_once('plugins/home/db_admin.php'); ?>
+                     <?php include_once('plugins/home/admin_page.php'); ?>
             <?php } ?> 
             <?php
                if( $c['initialize_tool_plugin']==1){
