@@ -5,7 +5,6 @@ update_submodule.sh
 password
 genie_files
 genie_files/
-data/*
 plugins/settings.php
 plugins/blast/tmp
 plugins/eximage
