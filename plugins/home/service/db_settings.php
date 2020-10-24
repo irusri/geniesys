@@ -87,6 +87,7 @@ if ($get_action == "drop_database") {
     }
 }
 
+
 //clone_database
 if ($get_action == "clone_database") {
     $link = mysqli_connect($host, $username, $password);

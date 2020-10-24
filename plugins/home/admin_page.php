@@ -64,7 +64,7 @@
       </br></br>
 
 <ol>
-  <li>Check files in the data folder.  <button  class="upbtn"  id = "upidgff3">check_initial_files</button></li>
+  <li>Check files in the data folder.  <button onClick="check_files();"  class="upbtn"  id = "upidgff3">check_initial_files</button></li>
 
 
 

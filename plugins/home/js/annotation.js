@@ -1,7 +1,4 @@
-
-
-
-function download_indices(action, name) {
+function check_files(action, name) {
     mhost = $('#mhost').val();
     musername = $('#musername').val();
     mpasswd = $('#mpassword').val();
@@ -9,7 +6,7 @@ function download_indices(action, name) {
     var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=" + action + "&name=" + name;
     $.ajax({
         type: "POST",
-        url: "plugins/home/service/download_indices.php",
+        url: "plugins/home/service/annotation.php",
         data: (finalvarx),
         dataType: 'json',
         success: function (data) {
