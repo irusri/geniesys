@@ -12,11 +12,9 @@ function check_files(action, name) {
         success: function (data) {
             toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
             console.log(data)
-            if (data > 10) {
+           
                 toastr.success("download and indexed fasta files", "Success");
-            } else {
-                toastr.error("remote server failed", "Failure");
-            }
+           
         }
     });
 }
