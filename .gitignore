@@ -21,3 +21,4 @@ test.sh
 supervisord.log
 supervisord.pid
 data
+plugins/home_old
