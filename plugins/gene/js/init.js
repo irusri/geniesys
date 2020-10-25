@@ -47,12 +47,14 @@ if (typeof $_GET('id') != 'undefined') {
 
 
 function get_sequence_info(){
+		//$(".loader-wrap").show();
 		var data_p="id="+$_GET('id');
 	    $.ajax({
         type: "POST",
 		data: (data_p),
         url: "plugins/gene/services/sequence.php",
         success: function (data) {
+			$(".loader-wrap").hide();
 			$('#genomicsequencediv').html(JSON.parse(data)['genomic_data']);
 			$('#cdssequencediv').html(JSON.parse(data)['cds_sequence']);
 			$('#transcriptequencediv').html(JSON.parse(data)['transcript_sequence']);
@@ -453,9 +455,7 @@ function send_to_blast(program_string){
     program_element.value=blast_program;
     program_element.name="program";
     form.appendChild(program_element);	
-	
-    document.body.appendChild(form);
-
+	document.body.appendChild(form);
     form.submit();
 
 }
