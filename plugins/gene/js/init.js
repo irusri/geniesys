@@ -43,14 +43,6 @@ if (typeof $_GET('id') != 'undefined') {
 	$('#title').html("<font color='red'>Something went wrong, try again or contact website administrator!</font>");
 	return false;
 	}
-
-
-	
-
-	
-	
-	
-
 });
 
 
@@ -65,29 +57,19 @@ function get_sequence_info(){
 			$('#cdssequencediv').html(JSON.parse(data)['cds_sequence']);
 			$('#transcriptequencediv').html(JSON.parse(data)['transcript_sequence']);
 			$('#proteinsequencediv').html(JSON.parse(data)['protein_sequence']);
-
 			$('#genom_strand').html((strand=="-1")?"-":"+");
-
-		//	console.log(strand)
 
 			$('#genomic_number').html("><strong>"+JSON.parse(data)['genomic_header']+"</strong> ["+JSON.parse(data)['genomic_data_length']+ " nucleotides] ");
 			$('#protein_number').html("><strong>"+JSON.parse(data)['transcript_id']+".p</strong> ["+JSON.parse(data)['protein_sequence_length']+ " residues] ");
 			$('#transcript_number').html("><strong>"+JSON.parse(data)['transcript_id']+"</strong> ["+JSON.parse(data)['transcript_sequence_length']+ " nucleotides] ");
 			$('#cds_number').html("><strong>"+JSON.parse(data)['transcript_id']+"</strong> ["+JSON.parse(data)['cds_sequence_length']+ " nucleotides] ");
 			seq_array_tmp=JSON.parse(data)['genseqarray'];
-				     selectAndHighlightRangeforTranscript('transcriptequencediv', 424, 470,seq_array_tmp);
-//selectAndHighlightRange('cdssequencediv', 424, 470);
-selectAndHighlightRange('genomicsequencediv', 424, 470,seq_array_tmp);
-
-
-				}
+			selectAndHighlightRangeforTranscript('transcriptequencediv', 424, 470,seq_array_tmp);
+			//selectAndHighlightRange('cdssequencediv', 424, 470);
+			selectAndHighlightRange('genomicsequencediv', 424, 470,seq_array_tmp);
+			}
 		});
-
-		
 }
-
-
-
 
 //Get the basic information
 function get_basic_info(id){
@@ -133,16 +115,12 @@ function get_basic_info(id){
 			gene_start=JSON.parse(data)['basic_data'][0].gene_start;
 			gene_end=JSON.parse(data)['basic_data'][0].gene_end;
 			strand=JSON.parse(data)['basic_data'][0].strand;
-
-
 			//console.log(JSON.parse(data)['basic_data'][0].potri_id)
 			 },
 			 error: function (jqXHR, exception) {
 				console.log(jqXHR,exception)
-				}
+			}
    });
-
-
 }
 
 //Sequence information
@@ -151,13 +129,10 @@ function downloadInnerHtml(filename, elId, mimeType) {
     var sequence = document.getElementById(elId).textContent;
     var link = document.createElement('a');
     mimeType = mimeType || 'text/plain';
-
     link.setAttribute('download', filename);
     link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(header+sequence));
     link.click();
 }
-
-
 
 //Very cool custom functions to $_GET http variables
 function $_GET(q, s) {
@@ -166,10 +141,7 @@ function $_GET(q, s) {
     return (s = s.replace('?', '&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
 }
 
-
-
 //////////Sequence Color
-
 function getTextNodesIn(node) {
     var textNodes = [];
     if (node.nodeType == 3) {
@@ -207,7 +179,6 @@ function setSelectionRange(el, start, end) {
             charCount = endCharCount;
 
         }
-
         var sel = window.getSelection();
         sel.removeAllRanges();
         sel.addRange(range);
@@ -220,8 +191,6 @@ function setSelectionRange(el, start, end) {
         textRange.select();
     }
 }
-
-
 
 function makeEditableAndHighlight(colour) {
     sel = window.getSelection();
@@ -258,7 +227,6 @@ function highlight(colour) {
         range.execCommand("BackColor", false, colour);
     }
 }
-
 
 
 function selectAndHighlightRange2(id) {
@@ -364,9 +332,7 @@ function selectAndHighlightRangeforTranscript(id, start, end,seq_array_tmp) {
 		 setSelectionRange(document.getElementById(id), 0, -1);
    		//highlight("#A4D4B0");
 
-
 }
-
 
 
 var tmp_flag;
@@ -375,7 +341,6 @@ var tmp_flag;
 	var dstreamstr_old;
 
 function givemethesequence(){
-
 		var ustream_tmp=document.getElementById('ustream').value;
 		var dstream_tmp=document.getElementById('dstream').value;
 		var picea_basic_start_tmp="";//<?php echo json_encode($ResultArray['Gene_Start']);?>;
@@ -431,9 +396,6 @@ $.ajax({
 
 		 ustreamstr_old=data.ustreamstr;
 		dstreamstr_old=data.dstreamstr;
-
-
-
             }
         }
     });
