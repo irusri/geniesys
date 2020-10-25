@@ -32,15 +32,14 @@ if ($plus_minus == "-1" || $plus_minus == "-") {
 }
 
 if ($plus_minus == 2) {
-    $ustream_start = $picea_basic_end + 1;
+    $ustream_start = $picea_basic_end + 1; 
     $ustream_end = $picea_basic_end + $ustream;
-
-    exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'" . $ustream_start . ',' . $ustream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_ustream);
+    exec("../../blast/services/scripts/bin/fastacmd -d  ".dirname(__FILE__)."/../../../".$genomic_path_variable."' -L'" . $ustream_start . ',' . $ustream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_ustream);
 
     $dstream_start = $picea_basic_start - $dstream;
     $dstream_end = $picea_basic_start - 1;
 
-    exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'" . $dstream_start . ',' . $dstream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_dstream);
+    exec("../../blast/services/scripts/bin/fastacmd -d  '".dirname(__FILE__)."/../../../".$genomic_path_variable."' -L'" . $dstream_start . ',' . $dstream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_dstream);
 
 } else {
 
@@ -48,7 +47,7 @@ if ($plus_minus == 2) {
         $ustream_start = $picea_basic_start - $ustream;
         $ustream_end = $picea_basic_start - 1;
 
-        exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'" . $ustream_start . ',' . $ustream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_ustream);
+        exec("../../blast/services/scripts/bin/fastacmd -d  '".dirname(__FILE__)."/../../../".$genomic_path_variable."' -L'" . $ustream_start . ',' . $ustream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_ustream);
     } else {
         $output_ustream[1] = "";
 
@@ -57,7 +56,7 @@ if ($plus_minus == 2) {
     $dstream_start = $picea_basic_end + 1;
     $dstream_end = $picea_basic_end + $dstream;
 
-    exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'" . $dstream_start . ',' . $dstream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_dstream);
+    exec("../../blast/services/scripts/bin/fastacmd -d  '".dirname(__FILE__)."/../../../".$genomic_path_variable."' -L'" . $dstream_start . ',' . $dstream_end . "' -S '" . $plus_minus . "'  -l 1000000000 -s '" . $picea_basic_chromosome . "' ;", $output_dstream);
 
     if (strlen($output_ustream[1]) > $ustream + 1) {
         $output_ustream[1] = "";
