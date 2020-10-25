@@ -27,16 +27,21 @@ if($get_action=="check_files"){
 
 //Prepare GFF3 file
 if ($get_action == "prepare_files") {
-   // if(count(array_diff($required_files, $scanned_directory))==0){
-        exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . $data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
-        exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
-    //}
-    echo json_encode("testing");
+        exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"ID\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"Name\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
+        exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"Name\"],$1,$4,$5}' FS='\t' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
+        exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"Name\"]:id=k[\"ID\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/color.tsv");
+        echo json_encode("Done!");
 }
 
 // Load files into the database
 if ($get_action == "load_files") {
     load_files($data_dir ."/gene.tsv", 'gene_info');
+    load_files($data_dir ."/transcript.tsv", 'transcript_info');
+    load_files($data_dir ."/color.tsv", 'sequence_color');
+    sleep(6);
+    unlink($data_dir ."/gene.tsv");
+    unlink($data_dir ."/transcript.tsv");
+    unlink($data_dir ."/color.tsv");
 }
 
 //Loading tables
@@ -71,3 +76,15 @@ function load_files($input_file,$table_name){
       mysqli_close($conn); 
   }
   
+  // Generate indices for BLAST and sequence search tool
+if ($get_action == "generate_indices") {
+     $blast_dir=$data_dir."/blast"; 
+    if (!file_exists($blast_dir)) {
+        mkdir($blast_dir, 0777);
+    } 
+    exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/genomic.fa -n ".$blast_dir."/genomic -o T");
+    exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/transcript.fa -n ".$blast_dir."/transcript -o T");
+    exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/cds.fa -n ".$blast_dir."/cds -o T");
+    exec("../../blast/services/scripts/bin/formatdb -p T -i ".$data_dir."/protein.fa -n ".$blast_dir."/protein -o T");
+    echo "done!";
+  }

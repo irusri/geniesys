@@ -87,7 +87,7 @@ There are some missing files in the data directory. Please upload the following 
         <span class="tasks-list-desc">Load data into the database</span><span id="load_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
        <label class="tasks-list-item">
-        <input id="fasta_checkbox" type="checkbox" onchange="generating_fasta()" name="task_3" value="1" class="tasks-list-cb">
+        <input id="fasta_checkbox" type="checkbox" onchange="generate_fasta_indices()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
         <span class="tasks-list-desc">Generate FASTA indices</span><span id="fasta_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label> 

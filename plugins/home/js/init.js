@@ -51,8 +51,10 @@ tabs.bind('easytabs:after', function(e, clicked, targetPanel, data) {
   tab_opration(clicked[0].outerText)
 });
 
+// Realoading admin page will fire this function
 tab_opration($("#tab-container .tab.active")[0].innerText);
 
+// Tab change operation
 function tab_opration(str){
     switch(str) {
       case "Edit page":
@@ -80,8 +82,6 @@ function tab_opration(str){
     }
 }
 
-
-
 /** DATABASE **/
 $("#create_db").click(function () {
     db_operation("create_database", "dump");
@@ -98,12 +98,10 @@ $("#drop_db").click(function () {
 function clone_genome(t) {
     db_operation("clone_database", t.id);
  };
+
  $("#myadmin_links").click(function () {
      window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
  });
-
- //db_operation("db_name", "check");
- //db_operation("db_name", "check");
 
  //Check database
  function db_operation(action, name) {
@@ -170,15 +168,15 @@ function download_indices(action, name) {
         }
     });
 }
- 
 
 /** ANNOTATION **/
+// Check files are in the data folder
 function check_files() {
   mhost = $('#mhost').val();
   musername = $('#musername').val();
   mpasswd = $('#mpassword').val();
   mdbname = $('#mdbname').val();
-  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=check_files" ;//+ action + "&name=" + name;
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=check_files" ;
   $("#files_waiting").show();
   $.ajax({
       type: "POST",
@@ -189,7 +187,6 @@ function check_files() {
           toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
           if(data.length==0){
             $("#check_files_span").html("Now you have all the required files in the data directory");
-             //generate_files();
             if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", true);
               $("#files_waiting").hide();
             }
@@ -199,20 +196,19 @@ function check_files() {
               $("#check_files_span").show();
              $("#missing_files").html(data.join(','));
               toastr.warning("There are some missing files, please upload them to data directory", "Missing files");
-              //if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", false);}
           }
       }
   });
 }
 
-// generate suitable files in correct formats
+// Generate suitable files in correct formats
 function generate_files(){
   $("#prepare_waiting").show();
   mhost = $('#mhost').val();
   musername = $('#musername').val();
   mpasswd = $('#mpassword').val();
   mdbname = $('#mdbname').val();
-  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=prepare_files" ;//+ action + "&name=" + name;
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=prepare_files" ;
   $.ajax({
       type: "POST",
       url: "plugins/home/service/annotation.php",
@@ -225,34 +221,31 @@ function generate_files(){
   });  
   }
 
-
 // Load files into the database
   function load_database(){
-    $(".loader-wrap").show();
+    $("#load_waiting").show();
     mhost = $('#mhost').val();
     musername = $('#musername').val();
     mpasswd = $('#mpassword').val();
     mdbname = $('#mdbname').val();
-    var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=load_files" ;//+ action + "&name=" + name;
+    var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=load_files" ;
     $.ajax({
         type: "POST",
         url: "plugins/home/service/annotation.php",
         data: (finalvarx),
         dataType: 'json',
         success: function (data) {
-         $(".loader-wrap").hide();
-          console.log(data)
-           // toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
+          $("#load_waiting").hide();
             if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#load_checkbox").prop("checked", true);}
         },
         complete: function(xhr, textStatus) {
-          console.log(xhr.status);
-          $(".loader-wrap").hide();
+          
+          $("#load_waiting").hide();
       } 
     });  
     }
 
-
+// Refresh if there in no content added in home page
 function fill_input_text(){
   if($("#tab-container .tab.active")[0].innerText =="Edit page"){
     if(CKEDITOR.instances.editor!=undefined){
@@ -261,4 +254,22 @@ function fill_input_text(){
   }
 }
 
+// Generate fatsa indices for BLAST
+function generate_fasta_indices(){
+  $("#fasta_waiting").show();
+  var finalvarx = "action=generate_indices" ;
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/annotation.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        $("#fasta_waiting").hide();
+      },
+      complete: function(xhr, textStatus) {
+        $("#fasta_waiting").hide();
+    } 
+  });  
+  }
 
+/** EXPRESSION **/
