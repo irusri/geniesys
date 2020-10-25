@@ -11,7 +11,6 @@
        <li class='tab'><a href="#db">Database settings</a></li>
        <li  class='tab'><a href="#annotation">Annotation</a></li>
        <li class='tab'><a href="#expression">Expression</a></li>
-       <li class='tab'><a href="#summary">Summary</a></li>
      </ul>
     <div class='panel-container'>
       <div id="page"> <br>
@@ -101,10 +100,7 @@ There are some missing files in the data directory. Please upload the following 
         <!--expression section started-->
         <!--expression section ended-->
       </div>
-      <div id="summary"><br>Summary
-        <!--summary section started-->
-        <!--summary section ended-->
-      </div>
+
     </div>
     <br>
 </div>

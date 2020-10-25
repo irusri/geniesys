@@ -31,15 +31,8 @@ if ($get_action == "prepare_files") {
         exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . $data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
         exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
     //}
-
     echo json_encode("testing");
-   // move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $_FILES['file']['name']);
-
-    //exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_transcript.tsv");
-    //exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_gene.tsv");
-    //load_files('upload/' . $_FILES['file']['name'] . "_gene.tsv", 'gene_info');
 }
-
 
 // Load files into the database
 if ($get_action == "load_files") {
@@ -48,17 +41,13 @@ if ($get_action == "load_files") {
 
 //Loading tables
 function load_files($input_file,$table_name){
-    //Build the connection
     include('../../../plugins/settings.php'); 
     $private_url = parse_url($db_url['genelist']);
-    //print_r($private_url );
     $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 	
   mysqli_options($conn, MYSQLI_OPT_LOCAL_INFILE, true);
-    //Truncate and load table	
   $query= <<<eof
   TRUNCATE TABLE $table_name;
   ALTER TABLE $table_name AUTO_INCREMENT = 1;
@@ -80,8 +69,5 @@ function load_files($input_file,$table_name){
       } while (mysqli_next_result($conn));
       }
       mysqli_close($conn); 
-
-
-      //echo "done";
   }
   
