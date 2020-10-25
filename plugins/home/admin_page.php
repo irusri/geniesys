@@ -16,7 +16,7 @@
       <div id="page"> <br>
        <!--page section start id="main_editor"-->
        <br><br>
-       <textarea  class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
+       <textarea class="ckeditor" name="editor"><?php content($c['page'],$c['content']);?></textarea>
                <script type="text/javascript">
                   var key = <?php echo json_encode($c['page']); ?>
                </script>
@@ -84,7 +84,7 @@ There are some missing files in the data directory. Please upload the following 
        <label class="tasks-list-item">
         <input id="load_checkbox" type="checkbox" onchange="load_database()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Load data into database</span><span id="load_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+        <span class="tasks-list-desc">Load data into the database</span><span id="load_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
        <label class="tasks-list-item">
         <input id="fasta_checkbox" type="checkbox" onchange="generating_fasta()" name="task_3" value="1" class="tasks-list-cb">

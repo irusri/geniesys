@@ -56,7 +56,7 @@ tab_opration($("#tab-container .tab.active")[0].innerText);
 function tab_opration(str){
     switch(str) {
       case "Edit page":
-       
+       fill_input_text();
         break;
       case "Site settings":
         // code block
@@ -251,5 +251,14 @@ function generate_files(){
       } 
     });  
     }
+
+
+function fill_input_text(){
+  if($("#tab-container .tab.active")[0].innerText =="Edit page"){
+    if(CKEDITOR.instances.editor!=undefined){
+    location.reload();
+    }
+  }
+}
 
 
