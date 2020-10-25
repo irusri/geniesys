@@ -57,12 +57,11 @@ foreach($_POST as $name => $value) {
 			/*Read the config.json file to get dataset path(s) based on selected dataset number(s)*/
 			$string = file_get_contents("../../config.json");
 			$json_a = json_decode($string, true);
-			
 			foreach ($json_a['datasets'] as $name => $value) {
 				for($k=0;$k<count($tmp_datasets);$k++){
 					if(json_encode($value['number'])==$tmp_datasets[$k]){
-						$par .= $value['dataset_path']." ";
-						$par2 .= $value['dataset_path']." ";
+						$par .= dirname(__FILE__)."/../../../".$value['dataset_path']." ";
+						$par2 .= dirname(__FILE__)."/../../../".$value['dataset_path']." ";
 						}
 				}
 				
@@ -73,6 +72,9 @@ foreach($_POST as $name => $value) {
 			if (!file_exists('../tmp')) {
     			mkdir('../tmp', 0777, true);
 			}
+
+
+
 			$my_submission_file = $tmp_random_id.'.submission';
 			$handle_submission = fopen('../tmp/'.$my_submission_file, 'w') or die('Cannot open file:  '.$my_submission_file); //open file for writing ('w','r','a')...
 			$data_to_write_submission = trim($par2);

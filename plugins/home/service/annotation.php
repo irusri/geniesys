@@ -82,9 +82,12 @@ if ($get_action == "generate_indices") {
     if (!file_exists($blast_dir)) {
         mkdir($blast_dir, 0777);
     } 
-    exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/genomic.fa -n ".$blast_dir."/genomic -o T");
+    exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/genome.fa -n ".$blast_dir."/genome -o T");
     exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/transcript.fa -n ".$blast_dir."/transcript -o T");
     exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/cds.fa -n ".$blast_dir."/cds -o T");
     exec("../../blast/services/scripts/bin/formatdb -p T -i ".$data_dir."/protein.fa -n ".$blast_dir."/protein -o T");
+
+    chmod($blast_dir, 0777);
+
     echo "done!";
   }

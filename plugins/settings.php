@@ -26,7 +26,6 @@ if(isset($_COOKIE['genie_select_species'])) {
 /*Please state the mysql username and password for above databases. It's important to grant only SELECT permissio to all the tables except defaultgenebaskets and genebasket tables*/
 global $db_url;
 $db_url=  array ('genelist'=>'mysqli://geniecmsuser:geniepass@localhost/'.$selected_database);
-//$db_url=  array ('genelist'=>'mysqli://geniecms:geniepass@spruce.plantphys.umu.se/'.$selected_database);
 
 /*Define your base url with trailing slash*/
 $GLOBALS["base_url"]='http://localhost:'.$_SERVER['SERVER_PORT'].'/geniesys/';
