@@ -56,7 +56,7 @@ tab_opration($("#tab-container .tab.active")[0].innerText);
 function tab_opration(str){
     switch(str) {
       case "Edit page":
-        // code block
+       
         break;
       case "Site settings":
         // code block
@@ -179,6 +179,7 @@ function check_files() {
   mpasswd = $('#mpassword').val();
   mdbname = $('#mdbname').val();
   var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=check_files" ;//+ action + "&name=" + name;
+  $("#files_waiting").show();
   $.ajax({
       type: "POST",
       url: "plugins/home/service/annotation.php",
@@ -188,25 +189,25 @@ function check_files() {
           toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
           if(data.length==0){
             $("#check_files_span").html("Now you have all the required files in the data directory");
-              toastr.success("Now you have all the required files", "Success");
-              if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", true);}
-              generate_indices();
+             //generate_files();
+            if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", true);
+              $("#files_waiting").hide();
+            }
+            
           }else{
               console.log(data)
               $("#check_files_span").show();
              $("#missing_files").html(data.join(','));
               toastr.warning("There are some missing files, please upload them to data directory", "Missing files");
-              if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", false);}
+              //if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", false);}
           }
       }
   });
 }
 
-function generate_indices(){
-  // Here we have make relevant files using gff3 files
-  // Then load them into the database
-  // update gene_i
-  // make blast indices.
+// generate suitable files in correct formats
+function generate_files(){
+  $("#prepare_waiting").show();
   mhost = $('#mhost').val();
   musername = $('#musername').val();
   mpasswd = $('#mpassword').val();
@@ -218,15 +219,37 @@ function generate_indices(){
       data: (finalvarx),
       dataType: 'json',
       success: function (data) {
-          toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
-          if(data.length==0){
-              toastr.success("Now you have all the required files", "Success");
-              //generate_indices();
-          }else{
-              console.log(data)
-             $("#missing_files").html(data.join(','));
-              toastr.warning("There are some missing files, please upload them to data directory", "Missing files");
-          }
+        $("#prepare_waiting").hide();
+          if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#prepare_checkbox").prop("checked", true);}
       }
   });  
   }
+
+
+// Load files into the database
+  function load_database(){
+    $(".loader-wrap").show();
+    mhost = $('#mhost').val();
+    musername = $('#musername').val();
+    mpasswd = $('#mpassword').val();
+    mdbname = $('#mdbname').val();
+    var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=load_files" ;//+ action + "&name=" + name;
+    $.ajax({
+        type: "POST",
+        url: "plugins/home/service/annotation.php",
+        data: (finalvarx),
+        dataType: 'json',
+        success: function (data) {
+         $(".loader-wrap").hide();
+          console.log(data)
+           // toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
+            if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#load_checkbox").prop("checked", true);}
+        },
+        complete: function(xhr, textStatus) {
+          console.log(xhr.status);
+          $(".loader-wrap").hide();
+      } 
+    });  
+    }
+
+

@@ -23,24 +23,16 @@ if($get_action=="check_files"){
     }
     $scanned_directory = array_diff($files, array('..', '.'));
     echo json_encode(array_diff($required_files, $scanned_directory));
-
 }
 
-
-//Upload GFF3 file
+//Prepare GFF3 file
 if ($get_action == "prepare_files") {
-
-    if ($_FILES["file"]["size"] == 0) {
-/*     if (!(in_array($_FILES['file']['type'], $arr_file_types))) {*/
-        echo "false";
-        return;
-    }
-
-    if(count(array_diff($required_files, $scanned_directory))==0){
+   // if(count(array_diff($required_files, $scanned_directory))==0){
         exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . $data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
         exec("awk '/gene/{split($9,a,\"ID=\");split(a[2],b,\";\");print b[1],$1,$4,$5}' FS='\t' OFS='\t' " . $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
-    }
+    //}
 
+    echo json_encode("testing");
    // move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $_FILES['file']['name']);
 
     //exec("awk '$3==\"gene\"{g=$4\" \"$5}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"ID\"], k[\"Parent\"], \"desc\", $1, $7, $4, $5, g}' " . 'upload/' . $_FILES['file']['name'] . " >" . 'upload/' . $_FILES['file']['name'] . "_transcript.tsv");
@@ -49,51 +41,47 @@ if ($get_action == "prepare_files") {
 }
 
 
-//Loading tables
-function load_files($input_file, $table_name){
-    //$input_file=getcwd().'/../tmp/'.$folder.'/'.$table_name.'.txt';
-    // $database=$source;
-    echo $input_file, $table_name;
+// Load files into the database
+if ($get_action == "load_files") {
+    load_files($data_dir ."/gene.tsv", 'gene_info');
+}
 
+//Loading tables
+function load_files($input_file,$table_name){
     //Build the connection
-    include dirname(__FILE__) . '/geniesys/plugins/settings.php';
+    include('../../../plugins/settings.php'); 
     $private_url = parse_url($db_url['genelist']);
+    //print_r($private_url );
     $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-    }
-
-    //Truncate and load table
-    $query = <<<eof
-TRUNCATE TABLE $table_name;
-ALTER TABLE $table_name AUTO_INCREMENT = 1;
-load data local infile '$input_file' ignore  INTO TABLE $table_name CHARACTER SET UTF8 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
-eof;
-    /* execute multi query */
-    if (mysqli_multi_query($conn, $query)) {
-        do {
-            /* store first result set */
-            if ($result = mysqli_store_result($conn)) {
-                //do nothing since there's nothing to handle
-                mysqli_free_result($result);
-            }
-            /* print divider */
-            if (mysqli_more_results($conn)) {
-                //I just kept this since it seems useful
-                //try removing and see for yourself
-            }
-        } while (mysqli_next_result($conn));
-    }
-    mysqli_close($conn);
-}
-
+    } 	
+  mysqli_options($conn, MYSQLI_OPT_LOCAL_INFILE, true);
+    //Truncate and load table	
+  $query= <<<eof
+  TRUNCATE TABLE $table_name;
+  ALTER TABLE $table_name AUTO_INCREMENT = 1;
+  LOAD DATA LOCAL INFILE '$input_file' ignore  INTO TABLE $table_name CHARACTER SET UTF8 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+  eof;
+      /* execute multi query */
+      if (mysqli_multi_query($conn, $query)) {
+      do {
+          /* store first result set */
+          if ($result = mysqli_store_result($conn)) {
+              //do nothing since there's nothing to handle
+              mysqli_free_result($result);
+          }
+          /* print divider */
+          if (mysqli_more_results($conn)) {
+              //I just kept this since it seems useful
+              //try removing and see for yourself
+          }
+      } while (mysqli_next_result($conn));
+      }
+      mysqli_close($conn); 
 
 
-
-
-
-
-
-
-?>
+      //echo "done";
+  }
+  

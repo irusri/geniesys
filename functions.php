@@ -190,11 +190,15 @@ function settings(){
 		}
 	}
 	echo "</select></span></div></td></tr><tr><td>
-	<div ><b>Navigation  <br><small><font color='red'>You can create two-level menu links with the current version of the GenIE-Sys. Sublevel menu follows the <b>-</b> as prefix but there is no prefix needed for primary level links.</font></small> 
+	<div ><b>Navigation  <br><small><font color='red'>You can create two-level menu links with the current version of the GenIE-Sys. Unlike the primary menu items, the sub-level menu links are followed by the <b>-</b> prefix..</font></small> 
 	</td><td><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div></td></tr>";
 	
 	foreach(array('title','description','keywords','copyright') as $key){
-		echo "<tr><td width='200px'><div><strong>Edit the ".$key."</td><td><span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></strong></div></td></tr>";
+		if($key=="copyright"){
+			echo "<tr><td width='200px'><div><strong>Edit the footer</td><td><span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></strong></div></td></tr>";
+		}else{
+			echo "<tr><td width='200px'><div><strong>Edit the ".$key."</td><td><span title='".$d['default'][$key]."' id='".$key."' class='editText'>".$c[$key]."</span></strong></div></td></tr>";
+		}
 	}
 	echo "</table></div>";
 }

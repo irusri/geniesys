@@ -69,28 +69,28 @@ There are some missing files in the data directory. Please upload the following 
 <label class="tasks-list-item">
         <input id="database_checkbox" type="checkbox"  onchange="db_operation('db_name', 'check');" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check database connection</span><span id="study_waiting"/>
+        <span class="tasks-list-desc">Check database connection</span><span id="database_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
       <label class="tasks-list-item">
         <input id="files_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check files in the data folder</span><span id="sample_waiting"/>
+        <span class="tasks-list-desc">Check all required files are in the data folder</span><span id="files_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
       <label class="tasks-list-item">
-        <input id="prepare_checkbox" type="checkbox"  onchange="generate_indices()" name="task_1" value="1" class="tasks-list-cb" >
+        <input id="prepare_checkbox" type="checkbox"  onchange="generate_files()" name="task_1" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Generate correct files</span><span id="experiment_waiting"/>
+        <span class="tasks-list-desc">Parsing source files into correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
 
        <label class="tasks-list-item">
-        <input id="submission_checkbox" type="checkbox" onchange="generating_xmls($(this))" name="task_3" value="1" class="tasks-list-cb">
+        <input id="load_checkbox" type="checkbox" onchange="load_database()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Load data into database</span><span id="submission_waiting"/>
+        <span class="tasks-list-desc">Load data into database</span><span id="load_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
        <label class="tasks-list-item">
-        <input id="run_checkbox" type="checkbox" onchange="generating_xmls($(this))" name="task_3" value="1" class="tasks-list-cb">
+        <input id="fasta_checkbox" type="checkbox" onchange="generating_fasta()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Generate FASTA indices</span><span id="run_waiting"/>
+        <span class="tasks-list-desc">Generate FASTA indices</span><span id="fasta_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label> 
       
 

@@ -235,7 +235,7 @@ function load_files($input_file, $table_name)
 {
     //$input_file=getcwd().'/../tmp/'.$folder.'/'.$table_name.'.txt';
     // $database=$source;
-    echo $input_file, $table_name;
+    //echo $input_file, $table_name;
 
     //Build the connection
     include dirname(__FILE__) . '/geniesys/plugins/settings.php';
