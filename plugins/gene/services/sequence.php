@@ -88,28 +88,28 @@ for($j=0;$j<count($replacements);$j++){
 //extract genomic sequence
 
 $picea_basic_end2="10000000000";
-//echo "../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."' -D 0;";
-exec("../../blast/services/scripts/bin/fastacmd -d  '$genomic_path_variable' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."';",$outputr);
+//echo "../../blast/services/scripts/bin/fastacmd -d  '".dirname(__FILE__)."/../../../".$genomic_path_variable."' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."';";
+exec("../../blast/services/scripts/bin/fastacmd -d  '".dirname(__FILE__)."/../../../".$genomic_path_variable."' -L'".$gene_start.','.$gene_end."' -S '".$plus_minus."'  -l 1000000000000000000 -s '".$chromosome_name."';",$outputr);
 
 for ($xd = 1; $xd <= count($outputr); $xd++) {
 	$genomic_sequence.=$outputr[$xd];
 }
 
 //extract cds sequence
-exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$cds_path_variable' -s '".$transcript_id."' ;",$outputcds);
+exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d  '".dirname(__FILE__)."/../../../".$cds_path_variable."' -s '".$transcript_id."' ;",$outputcds);
 
 for ($xcds = 1; $xcds <= count($outputcds); $xcds++) {
 	$cds_sequence.=$outputcds[$xcds];
 }
 
  //extract transcript sequence
- exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$transcript_path_variable' -s '".$transcript_id."' ;",$outputtranscript);
+ exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '".dirname(__FILE__)."/../../../".$transcript_path_variable."' -s '".$transcript_id."' ;",$outputtranscript);
 for ($xtranscript = 1; $xtranscript <= count($outputtranscript); $xtranscript++) {
 	$sequencetranscriptstr.=$outputtranscript[$xtranscript];
 }
 
  //extract protein sequence
-exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d '$protein_path_variable' -s '".$transcript_id."' ;",$outputprotein);
+exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d  '".dirname(__FILE__)."/../../../".$protein_path_variable."' -s '".$transcript_id."' ;",$outputprotein);
 for ($xprotein = 1; $xprotein <= count($outputprotein); $xprotein++) {
 	$sequenceproteinstr.=$outputprotein[$xprotein];
 }
