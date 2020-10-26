@@ -67,11 +67,12 @@ function tab_opration(str){
         db_operation("db_name", "check");
         break;
       case "Annotation":
-        db_operation("db_name", "check");
+       // db_operation("db_name", "check");
         check_files();
         
         break;  
       case "Expression":
+        check_expression_files();
       // code block
         break; 
       case "Summary":
@@ -102,6 +103,12 @@ function clone_genome(t) {
  $("#myadmin_links").click(function () {
      window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
  });
+ $("#myadmin_links_annotation").click(function () {
+  window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
+});
+$("#myadmin_links_expression").click(function () {
+  window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
+});
 
  //Check database
  function db_operation(action, name) {
@@ -274,4 +281,58 @@ function generate_fasta_indices(){
 
 /** EXPRESSION **/
 // Check if the experiment and expression files are exist
+function check_expression_files() { 
+  mhost = $('#mhost').val();
+  musername = $('#musername').val();
+  mpasswd = $('#mpassword').val();
+  mdbname = $('#mdbname').val();
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=check_files" ;
+  $("#check_experiment_waiting").show();
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/expression.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+          if(data.length==0){
+            //$("#check_files_span").html("Now you have all the required files in the data directory");
+            $("#expression_error").hide();
+            if($("#tab-container .tab.active")[0].innerText =="Expression"){$("#check_experiment_checkbox").prop("checked", true);
+              $("#check_experiment_waiting").hide();
+            }
+          }else{
+            
+              $("#expression_error").show();
+             $("#expression_error").html("Warning! There are some missing files "+JSON.stringify(data)+ ". Please upload them into the data directory.");
+             // toastr.warning("There are some missing files, please upload them to data directory", "Missing files");
+          }
+      }
+  });
+}
 
+// Load files into the database
+function load_expression_table(tmp_name){
+  $("#expression_info").hide()
+  $("#"+tmp_name+"_waiting").show();
+  mhost = $('#mhost').val();
+  musername = $('#musername').val();
+  mpasswd = $('#mpassword').val();
+  mdbname = $('#mdbname').val();
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=load_files&name="+tmp_name ;
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/expression.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        $("#"+tmp_name+"_waiting").hide();
+        if(tmp_name=="expression"){$("#expression_info").show();}
+          if($("#tab-container .tab.active")[0].innerText =="Expression"){$("#load_"+tmp_name+"_checkbox").prop("checked", true); }
+      },
+      complete: function(xhr, textStatus) {
+        if($("#tab-container .tab.active")[0].innerText =="Expression"){$("#load_"+tmp_name+"_checkbox").prop("checked", true); }
+        if(tmp_name=="expression"){$("#expression_info").show();}
+        $("#"+tmp_name+"_waiting").hide();
+    } 
+  });  
+  }

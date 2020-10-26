@@ -437,7 +437,7 @@ ul.etabs li.disabled a
 	text-decoration: line-through;
   }
   
-  #fasta_waiting, #load_waiting, #prepare_waiting,  #files_waiting, #database_waiting{
+  #fasta_waiting, #load_waiting, #prepare_waiting,  #files_waiting, #database_waiting, #expression_waiting, #experiment_waiting{
 	  display: none;
   }
   

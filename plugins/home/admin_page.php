@@ -60,16 +60,13 @@
       </div>
       <div id="annotation"><br>
         <!--annotation section started-->
+        <div style="padding:4px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:12px"> Please click the checkboxes one after the other and wait till the previous one is completed before go to the next one.</div>
 
 <span id="check_files_span">
 There are some missing files in the data directory. Please upload the following files into data directory and refresh this page again. <br><span style="color:red" id="missing_files"></span>
 </span>
 
-<label class="tasks-list-item">
-        <input id="database_checkbox" type="checkbox"  onchange="db_operation('db_name', 'check');" name="task_3" value="1" class="tasks-list-cb">
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check database connection</span><span id="database_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
+
       <label class="tasks-list-item">
         <input id="files_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
@@ -79,6 +76,11 @@ There are some missing files in the data directory. Please upload the following 
         <input id="prepare_checkbox" type="checkbox"  onchange="generate_files()" name="task_1" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
         <span class="tasks-list-desc">Parsing source files into correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="database_checkbox" type="checkbox"  onchange="db_operation('db_name', 'check');" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check database connection</span><span id="database_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
 
        <label class="tasks-list-item">
@@ -98,46 +100,36 @@ There are some missing files in the data directory. Please upload the following 
       load best blast <br>
       update gene_i<br>
 
-
+      <a target="_blank" id="myadmin_links_annotation" style="color:blue;font-weight:bold;float:right;cursor:pointer">Check whether the data correctly loaded into the annotation tables >></a><br>
      <!--annotation section ended-->
     </div>
       <div id="expression"><br>
 
-<div style="padding:4px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:12px"> You need to follow the file specifications in order to correctly load the expression data into the GenIE-Sys database. Therefore, please use the standard templates for preparing the experiment.tsv and expression.tsv files. 
-Here (experiment.tsv  expression.tsv) you can download the template files.</div>
-
-      <label class="tasks-list-item">
-        <input id="check_experiment_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check experiment file is exsist</span><span id="check_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
-      <label class="tasks-list-item">
-        <input id="check_format_experiment_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check the format of the file</span><span id="check_format_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
-      <label class="tasks-list-item">
-        <input id="load_experiment_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check the format of the file</span><span id="load_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
-      <label class="tasks-list-item">
-        <input id="check_expression_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check expression file is exsist</span><span id="check_expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
-      <label class="tasks-list-item">
-        <input id="check_format_expression_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check the format of the file</span><span id="check_format_expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
-      <label class="tasks-list-item">
-        <input id="load_expression_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check the format of the file</span><span id="load_expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
       
+<div style="padding:4px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:12px"> You need to follow the file specifications to correctly loading expression data into the GenIE-Sys database. Therefore, please use the standard templates for preparing the experiment and expression files. 
+Here (experiment.tsv  expression.tsv) you can download the template files. Then upload them to geniesys/data folder.</div><br>
 
+<div id="expression_error" style="padding:6px;background:#ffa500;color:#ffffff;border-radius:5px;padding:6px;font-size:12px;display:none"> </div>
+
+      <label class="tasks-list-item">
+        <input id="check_experiment_checkbox" type="checkbox"  onchange="check_expression_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check the experiment and expression files are exsist</span><span id="check_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="load_experiment_checkbox" type="checkbox"  onchange="load_expression_table('experiment')" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Load the experiment file into the experiment table</span><span id="experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="load_expression_checkbox" type="checkbox"  onchange="load_expression_table('expression')" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Load the expression file into the expression table</span><span id="expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+
+      <div id="expression_info" style="padding:6px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:10px;display:none"> Now you need to add expression tools. For example: navigate to the Site settings tab abd add <b>explot</b>. </div>
+      
+      <a target="_blank" id="myadmin_links_expression" style="color:blue;font-weight:bold;float:right;cursor:pointer">Check whether the data correctly loaded into the experiment and expression tables >></a><br>
         <!--expression section started-->
         <!--expression section ended-->
       </div>
