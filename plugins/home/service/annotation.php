@@ -91,3 +91,70 @@ if ($get_action == "generate_indices") {
 
     echo "done!";
   }
+
+
+//Update gene_i in annotation tables
+if ($get_action == "update_gene_i") {
+//"gene_pfam", "gene_go", "gene_kegg","gene_maize",
+$gene_annotation_table_array = array( "transcript_info");     
+include('../../../plugins/settings.php'); 
+$private_url = parse_url($db_url['genelist']);
+$conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 	
+for($i=0;$i<count($gene_annotation_table_array);$i++){
+    $gene_annotation_sql="UPDATE $gene_annotation_table_array[$i] INNER JOIN gene_info on gene_info.gene_id = $gene_annotation_table_array[$i].gene_id SET $gene_annotation_table_array[$i].gene_i = gene_info.gene_i;";
+        
+        if ($conn->query($gene_annotation_sql) === TRUE) {
+            echo "gene_i updated in $gene_annotation_table_array[$i]";
+        } else {
+            echo "Error updating table: ".$gene_annotation_table_array[$i]." " . $conn->error;
+        }	
+    }
+    
+    
+    /* close connection */
+    mysqli_close($conn);
+  }
+
+  // Load description
+  if ($get_action == "update_description") {
+      $a='gene_info';
+    $b=$data_dir ."/gene_description.tsv";
+    $tmp_field_name="gene_id";
+
+    include('../../../plugins/settings.php'); 
+    $private_url = parse_url($db_url['genelist']);
+    $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 	
+  mysqli_options($conn, MYSQLI_OPT_LOCAL_INFILE, true);
+  $query= <<<eof
+  DROP TEMPORARY TABLE  IF EXISTS tmp_tb ;
+  UPDATE $a SET description = '';
+  CREATE TEMPORARY TABLE tmp_tb(gene_name VARCHAR(255),annotation VARCHAR(500), PRIMARY KEY(gene_name)) ENGINE=MyISAM;
+  LOAD DATA LOCAL INFILE '$b' replace INTO TABLE tmp_tb fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+  UPDATE $a INNER JOIN tmp_tb on tmp_tb.gene_name = $a.$tmp_field_name SET $a.description = tmp_tb.annotation;
+  DROP TEMPORARY TABLE tmp_tb; 
+  eof;
+      /* execute multi query */
+      if (mysqli_multi_query($conn, $query)) {
+      do {
+          /* store first result set */
+          if ($result = mysqli_store_result($conn)) {
+              //do nothing since there's nothing to handle
+              mysqli_free_result($result);
+          }
+          /* print divider */
+          if (mysqli_more_results($conn)) {
+              //I just kept this since it seems useful
+              //try removing and see for yourself
+          }
+      } while (mysqli_next_result($conn));
+      }
+      mysqli_close($conn); 
+     
+
+  }

@@ -126,9 +126,7 @@ $("#myadmin_links_expression").click(function () {
          dataType: 'json',
          success: function (data) {
           $(".loader-wrap").hide();
-         
-
-            toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
+//            toastr.options = { "closeButton": false, "debug": false, "positionClass": "toast-top-right", "onclick": null, "showDuration": "10000", "hideDuration": "1000", "timeOut": "40000", "extendedTimeOut": "0", "showEasing": "linear", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut" }
              if (data.status == "success") {
                  toastr.success(data.message, "Success");
                  if(data.name!=""){
@@ -278,6 +276,53 @@ function generate_fasta_indices(){
     } 
   });  
   }
+
+
+function annotation_update_gene_i(){
+  $("#update_gene_i_waiting").show();
+  mhost = $('#mhost').val();
+  musername = $('#musername').val();
+  mpasswd = $('#mpassword').val();
+  mdbname = $('#mdbname').val(); 
+
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=update_gene_i" ; 
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/annotation.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        $("#update_gene_i_waiting").hide();
+      },
+      complete: function(xhr, textStatus) {
+        $("#update_gene_i_waiting").hide();
+    } 
+  }); 
+}
+
+
+function annotation_update_description(){
+  $("#update_description_waiting").show();
+  mhost = $('#mhost').val();
+  musername = $('#musername').val();
+  mpasswd = $('#mpassword').val();
+  mdbname = $('#mdbname').val(); 
+
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=update_description" ; 
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/annotation.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        $("#update_description_waiting").hide();
+      },
+      complete: function(xhr, textStatus) {
+        $("#update_description_waiting").hide();
+    } 
+  }); 
+}
+
 
 /** EXPRESSION **/
 // Check if the experiment and expression files are exist

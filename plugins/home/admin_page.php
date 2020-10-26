@@ -66,7 +66,11 @@
 There are some missing files in the data directory. Please upload the following files into data directory and refresh this page again. <br><span style="color:red" id="missing_files"></span>
 </span>
 
-
+<label class="tasks-list-item">
+        <input id="database_checkbox" type="checkbox"  onchange="db_operation('db_name', 'check');" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check database connection</span><span id="database_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
       <label class="tasks-list-item">
         <input id="files_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
@@ -77,11 +81,7 @@ There are some missing files in the data directory. Please upload the following 
         <span class="tasks-list-mark"></span>
         <span class="tasks-list-desc">Parsing source files into correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
-      <label class="tasks-list-item">
-        <input id="database_checkbox" type="checkbox"  onchange="db_operation('db_name', 'check');" name="task_3" value="1" class="tasks-list-cb">
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check database connection</span><span id="database_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label>
+
 
        <label class="tasks-list-item">
         <input id="load_checkbox" type="checkbox" onchange="load_database()" name="task_3" value="1" class="tasks-list-cb">
@@ -99,6 +99,19 @@ There are some missing files in the data directory. Please upload the following 
       load_annnotation <br>
       load best blast <br>
       update gene_i<br>
+      <label class="tasks-list-item">
+        <input id="update_gene_i_checkbox" type="checkbox" onchange="annotation_update_gene_i()" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Update database indices</span><span id="update_gene_i_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label> 
+      <label class="tasks-list-item">
+        <input id="update_description_checkbox" type="checkbox" onchange="annotation_update_description()" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Update database indices</span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label> 
+
+      
+
 
       <a target="_blank" id="myadmin_links_annotation" style="color:blue;font-weight:bold;float:right;cursor:pointer">Check whether the data correctly loaded into the annotation tables >></a><br>
      <!--annotation section ended-->
@@ -127,7 +140,7 @@ Here (experiment.tsv  expression.tsv) you can download the template files. Then 
         <span class="tasks-list-desc">Load the expression file into the expression table</span><span id="expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
 
-      <div id="expression_info" style="padding:6px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:10px;display:none"> Now you need to add expression tools. For example: navigate to the Site settings tab abd add <b>explot</b>. </div>
+      <div id="expression_info" style="padding:6px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:10px;display:none"> Congratulations! Now you can add expression tools to the main menu. Go to the Site settings tab and add <b>explot</b> to the navigation text area as a separate menu link. </div>
       
       <a target="_blank" id="myadmin_links_expression" style="color:blue;font-weight:bold;float:right;cursor:pointer">Check whether the data correctly loaded into the experiment and expression tables >></a><br>
         <!--expression section started-->
