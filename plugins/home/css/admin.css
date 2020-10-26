@@ -439,7 +439,4 @@ ul.etabs li.disabled a
   
   #fasta_waiting, #load_waiting, #prepare_waiting,  #files_waiting, #database_waiting, #expression_waiting, #experiment_waiting{
 	  display: none;
-  }
-  
-  
-  
+  }  
