@@ -92,11 +92,52 @@ There are some missing files in the data directory. Please upload the following 
         <span class="tasks-list-desc">Generate FASTA indices</span><span id="fasta_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label> 
       
+      <b>To do :</b> <br>
+      load description<br>
+      load_annnotation <br>
+      load best blast <br>
+      update gene_i<br>
 
-<br><br>
+
      <!--annotation section ended-->
     </div>
-      <div id="expression"><br>Expression
+      <div id="expression"><br>
+
+<div style="padding:4px;background:#808080;color:#ffffff;border-radius:5px;padding:6px;font-size:12px"> You need to follow the file specifications in order to correctly load the expression data into the GenIE-Sys database. Therefore, please use the standard templates for preparing the experiment.tsv and expression.tsv files. 
+Here (experiment.tsv  expression.tsv) you can download the template files.</div>
+
+      <label class="tasks-list-item">
+        <input id="check_experiment_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check experiment file is exsist</span><span id="check_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="check_format_experiment_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check the format of the file</span><span id="check_format_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="load_experiment_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check the format of the file</span><span id="load_experiment_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="check_expression_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check expression file is exsist</span><span id="check_expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="check_format_expression_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check the format of the file</span><span id="check_format_expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      <label class="tasks-list-item">
+        <input id="load_expression_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Check the format of the file</span><span id="load_expression_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label>
+      
+
         <!--expression section started-->
         <!--expression section ended-->
       </div>

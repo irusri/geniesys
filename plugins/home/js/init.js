@@ -273,3 +273,5 @@ function generate_fasta_indices(){
   }
 
 /** EXPRESSION **/
+// Check if the experiment and expression files are exist
+
