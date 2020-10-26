@@ -8,6 +8,7 @@ var transcript_start="";
 var transcript_end=""
 var strand=""
 var seq_array_tmp="";
+
 //Document Ready function
 $(document).ready( function() {
  $('#tab-container').easytabs({
