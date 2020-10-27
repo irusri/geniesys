@@ -74,45 +74,56 @@ There are some missing files in the data directory. Please upload the following 
       <label class="tasks-list-item">
         <input id="files_checkbox" type="checkbox"  onchange="check_files()" name="task_2" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Check all required files are in the data folder</span><span id="files_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+        <span class="tasks-list-desc">Check all required files are included in the data folder</span><span id="files_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
       <label class="tasks-list-item">
         <input id="prepare_checkbox" type="checkbox"  onchange="generate_files()" name="task_1" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Parsing source files into correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+        <span class="tasks-list-desc">Parse source files into correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
 
 
        <label class="tasks-list-item">
         <input id="load_checkbox" type="checkbox" onchange="load_database()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Load data into the database</span><span id="load_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+        <span class="tasks-list-desc">Store primary data into the database</span><span id="load_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
-       <label class="tasks-list-item">
+
+      <label class="tasks-list-item">
+        <input id="update_description_checkbox" type="checkbox" onchange="annotation_update_description()" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Store gene and transcript description into the database</span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label> 
+
+
+      <label class="tasks-list-item">
+        <input id="update_extra_annotation_checkbox" type="checkbox" onchange="annotation_update_extra_annotation()" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Store extra annotation Pfam/GO/Kegg into the database</span><span id="update_extra_annotation_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label> 
+
+
+
+      <label class="tasks-list-item">
+        <input id="update_best_blast_checkbox" type="checkbox" onchange="annotation_update_best_blast()" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Store best BLAST annotation into the database</span><span id="update_best_blast_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label> 
+
+      
+
+      <label class="tasks-list-item">
+        <input id="update_gene_i_checkbox" type="checkbox" onchange="annotation_update_gene_i()" name="task_3" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Update  and optimise database indices for quick search</span><span id="update_gene_i_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+      </label> 
+ 
+
+      <label class="tasks-list-item">
         <input id="fasta_checkbox" type="checkbox" onchange="generate_fasta_indices()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
         <span class="tasks-list-desc">Generate FASTA indices</span><span id="fasta_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label> 
-      
-      <b>To do :</b> <br>
-      load description<br>
-      load_annnotation <br>
-      load best blast <br>
-      update gene_i<br>
-      <label class="tasks-list-item">
-        <input id="update_gene_i_checkbox" type="checkbox" onchange="annotation_update_gene_i()" name="task_3" value="1" class="tasks-list-cb">
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Update database indices</span><span id="update_gene_i_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label> 
-      <label class="tasks-list-item">
-        <input id="update_description_checkbox" type="checkbox" onchange="annotation_update_description()" name="task_3" value="1" class="tasks-list-cb">
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Update database indices</span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
-      </label> 
-
-      
-
-
       <a target="_blank" id="myadmin_links_annotation" style="color:blue;font-weight:bold;float:right;cursor:pointer">Check whether the data correctly loaded into the annotation tables >></a><br>
      <!--annotation section ended-->
     </div>

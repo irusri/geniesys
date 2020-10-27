@@ -112,18 +112,18 @@ for($i=0;$i<count($gene_annotation_table_array);$i++){
             echo "Error updating table: ".$gene_annotation_table_array[$i]." " . $conn->error;
         }	
     }
-    
-    
     /* close connection */
     mysqli_close($conn);
   }
 
-  // Load description
+  // Load description both transcripts and genes
   if ($get_action == "update_description") {
-      $a='gene_info';
-    $b=$data_dir ."/gene_description.tsv";
-    $tmp_field_name="gene_id";
+    load_description($data_dir ."/gene_description.tsv","gene_info","gene_id");
+    load_description($data_dir ."/transcript_description.tsv","transcript_info","transcript_id");
+  }
 
+// Function to load the description
+function load_description($file_name,$table_name,$field_name){  
     include('../../../plugins/settings.php'); 
     $private_url = parse_url($db_url['genelist']);
     $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
@@ -132,13 +132,14 @@ for($i=0;$i<count($gene_annotation_table_array);$i++){
     } 	
   mysqli_options($conn, MYSQLI_OPT_LOCAL_INFILE, true);
   $query= <<<eof
-  DROP TEMPORARY TABLE  IF EXISTS tmp_tb ;
-  UPDATE $a SET description = '';
+  DROP TEMPORARY TABLE IF EXISTS tmp_tb;
+  UPDATE $table_name SET description = '';
   CREATE TEMPORARY TABLE tmp_tb(gene_name VARCHAR(255),annotation VARCHAR(500), PRIMARY KEY(gene_name)) ENGINE=MyISAM;
-  LOAD DATA LOCAL INFILE '$b' replace INTO TABLE tmp_tb fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
-  UPDATE $a INNER JOIN tmp_tb on tmp_tb.gene_name = $a.$tmp_field_name SET $a.description = tmp_tb.annotation;
-  DROP TEMPORARY TABLE tmp_tb; 
+  LOAD DATA LOCAL INFILE '$file_name' replace INTO TABLE tmp_tb CHARACTER SET UTF8 fields terminated by '\t' LINES TERMINATED BY '\n' ignore 0 lines;
+  UPDATE $table_name INNER JOIN tmp_tb on tmp_tb.gene_name = $table_name.$field_name SET $table_name.description = tmp_tb.annotation;
+  DROP TEMPORARY TABLE tmp_tb;
   eof;
+
       /* execute multi query */
       if (mysqli_multi_query($conn, $query)) {
       do {
@@ -155,6 +156,6 @@ for($i=0;$i<count($gene_annotation_table_array);$i++){
       } while (mysqli_next_result($conn));
       }
       mysqli_close($conn); 
-     
+}
 
-  }
+// Load extra annotation

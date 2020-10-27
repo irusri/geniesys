@@ -435,8 +435,8 @@ ul.etabs li.disabled a
   .tasks-list-cb:checked ~ .tasks-list-desc {
 	color: #34bf6e;
 	text-decoration: line-through;
-  }
+  } 
   
-  #fasta_waiting, #load_waiting, #prepare_waiting,  #files_waiting, #database_waiting, #expression_waiting, #experiment_waiting, #update_gene_i_waiting, #update_description_waiting{
+  #fasta_waiting, #load_waiting, #prepare_waiting,  #files_waiting, #database_waiting, #expression_waiting, #experiment_waiting, #update_gene_i_waiting, #update_description_waiting, #update_extra_annotation_waiting, #update_best_blast_waiting{
 	  display: none;
   }  
