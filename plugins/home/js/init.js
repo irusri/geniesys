@@ -343,7 +343,20 @@ function annotation_update_extra_annotation(){
 
 // Load BLAST indices
 function annotation_update_best_blast(){
-  
+  $("#update_best_blast_waiting").show();
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=load_best_blast" ; 
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/annotation.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        $("#update_best_blast_waiting").hide();
+      },
+      complete: function(xhr, textStatus) {
+        $("#update_best_blast_waiting").hide();
+    } 
+  }); 
 }
 
 

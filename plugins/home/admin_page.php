@@ -92,7 +92,7 @@ There are some missing files in the data directory. Please upload the following 
       <label class="tasks-list-item">
         <input id="update_description_checkbox" type="checkbox" onchange="annotation_update_description()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Store description (gene and transcript) into the database. </span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span> 
+        <span class="tasks-list-desc">Store description (gene and transcript) into the database </span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span> 
         <!--<a href='javascript:go_to_help(this);'>(help)</a>-->
       </label> 
 

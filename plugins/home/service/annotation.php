@@ -96,7 +96,7 @@ if ($get_action == "generate_indices") {
 //Update gene_i in annotation tables
 if ($get_action == "update_gene_i") {
 //"gene_pfam", "gene_go", "gene_kegg","gene_maize",
-$gene_annotation_table_array = array( "transcript_info");     
+$gene_annotation_table_array = array(  "gene_pfam","gene_go", "gene_kegg","transcript_info","gene_populus","gene_spruce","gene_atg");     
 include('../../../plugins/settings.php'); 
 $private_url = parse_url($db_url['genelist']);
 $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
@@ -164,4 +164,12 @@ if ($get_action == "load_extra_annotations") {
     load_files($data_dir ."/gene_pfam.tsv", 'gene_pfam');
     load_files($data_dir ."/gene_kegg.tsv", 'gene_kegg');
 
+}
+
+
+// Load best BLAST
+if ($get_action == "load_best_blast") {
+    load_files($data_dir ."/gene_populus.tsv", 'gene_populus');
+    load_files($data_dir ."/gene_spruce.tsv", 'gene_spruce');
+    load_files($data_dir ."/gene_arabidopsis.tsv", 'gene_atg');
 }
