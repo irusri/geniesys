@@ -79,7 +79,7 @@ There are some missing files in the data directory. Please upload the following 
       <label class="tasks-list-item">
         <input id="prepare_checkbox" type="checkbox"  onchange="generate_files()" name="task_1" value="1" class="tasks-list-cb" >
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Parse source files into correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+        <span class="tasks-list-desc">Parse gene.gff3 file into the correct formats</span><span id="prepare_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label>
 
 
@@ -92,7 +92,8 @@ There are some missing files in the data directory. Please upload the following 
       <label class="tasks-list-item">
         <input id="update_description_checkbox" type="checkbox" onchange="annotation_update_description()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Store gene and transcript description into the database</span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
+        <span class="tasks-list-desc">Store description (gene and transcript) into the database. </span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span> 
+        <!--<a href='javascript:go_to_help(this);'>(help)</a>-->
       </label> 
 
 
@@ -102,15 +103,11 @@ There are some missing files in the data directory. Please upload the following 
         <span class="tasks-list-desc">Store extra annotation Pfam/GO/Kegg into the database</span><span id="update_extra_annotation_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label> 
 
-
-
       <label class="tasks-list-item">
         <input id="update_best_blast_checkbox" type="checkbox" onchange="annotation_update_best_blast()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
         <span class="tasks-list-desc">Store best BLAST annotation into the database</span><span id="update_best_blast_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span>
       </label> 
-
-      
 
       <label class="tasks-list-item">
         <input id="update_gene_i_checkbox" type="checkbox" onchange="annotation_update_gene_i()" name="task_3" value="1" class="tasks-list-cb">

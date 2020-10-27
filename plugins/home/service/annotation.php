@@ -159,3 +159,9 @@ function load_description($file_name,$table_name,$field_name){
 }
 
 // Load extra annotation
+if ($get_action == "load_extra_annotations") {
+    load_files($data_dir ."/gene_go.tsv", 'gene_go');
+    load_files($data_dir ."/gene_pfam.tsv", 'gene_pfam');
+    load_files($data_dir ."/gene_kegg.tsv", 'gene_kegg');
+
+}

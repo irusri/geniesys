@@ -277,7 +277,7 @@ function generate_fasta_indices(){
   });  
   }
 
-
+// Update gene i in transcript_info table
 function annotation_update_gene_i(){
   $("#update_gene_i_waiting").show();
   mhost = $('#mhost').val();
@@ -300,7 +300,7 @@ function annotation_update_gene_i(){
   }); 
 }
 
-
+// Update gene and transcript description
 function annotation_update_description(){
   $("#update_description_waiting").show();
   mhost = $('#mhost').val();
@@ -322,6 +322,30 @@ function annotation_update_description(){
     } 
   }); 
 }
+
+// Load extra annotation KEGG/Pfam/GO
+function annotation_update_extra_annotation(){
+  $("#update_extra_annotation_waiting").show();
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=load_extra_annotations" ; 
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/annotation.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        $("#update_extra_annotation_waiting").hide();
+      },
+      complete: function(xhr, textStatus) {
+        $("#update_extra_annotation_waiting").hide();
+    } 
+  }); 
+}
+
+// Load BLAST indices
+function annotation_update_best_blast(){
+  
+}
+
 
 
 /** EXPRESSION **/
@@ -381,3 +405,11 @@ function load_expression_table(tmp_name){
     } 
   });  
   }
+
+
+
+// Help
+
+function go_to_help(t){
+  console.log(t)
+}
