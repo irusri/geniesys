@@ -53,6 +53,7 @@ if($_GET("table")!=undefined){
               var numberc = pad2(hasil).replace(/\s/g, "");
               document.getElementById("numberofgenesSpan").innerHTML = numberc;
               $("#content").load("plugins/genelist/crud/listui.php");
+  
               /*		var nogenes_blinker = setInterval(function(){ blinker() }, 1000);
 				if(numberc!="00"){
 					clearInterval(nogenes_blinker);
@@ -67,6 +68,7 @@ if($_GET("table")!=undefined){
   }
 
   function updategenebasketx() {
+      
       //$("#numberofgenesSpan").illuminate();
       $.ajax({
           url: "plugins/genelist/crud/updatebaskets.php?id=gene",

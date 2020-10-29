@@ -301,6 +301,10 @@
   
 });
 
+
+
+
+
 var MAIN_GENELIST;
 
 var fp4 = new Fingerprint({screen_resolution: true});
@@ -308,6 +312,83 @@ var MAIN_FINGERPRINT=fp4.get().toString();
 var MAIN_GENELIST_DATABASE="plantgenie_genelist";
 var MAIN_GENELIST_TABLE="popgenie_potri_v31";
 //var MAIN_HOME_PAGE_TREE_PREFIX="z_testing_"; //Only for PopGenIE and ConGenIE home page animation
+
+
+
+//Follwoing variables can be changed from the sidebar.js	
+var MAIN_ACTIVE_GENELIST="";	
+var MAIN_ACTIVE_GENELIST_ID="";
+var MAIN_ACTIVE_GENELIST_NAME="";	
+var current_opration="";
+
+
+var main_active_genelist_found=new Boolean(false);
+var main_all_genelist_found=new Boolean(false);
+
+//Set cookies if not already available
+setCookie('fingerprint',MAIN_FINGERPRINT,7);
+setCookie('genelist_database',MAIN_GENELIST_DATABASE,7); 
+//setCookie('genie_select_species',MAIN_GENELIST_TABLE,7); 
+
+
+
+var MAIN_GENIE_ARRAY = [];
+var MAIN_ACTIVE_GENELIST_ARRAY = [];
+var MAIN_ACTIVE_OBJ = {};
+var MAIN_ALL_OBJ = {};
+
+var array_listener = function(arr, callback) {
+    arr.push = function(e) {
+        Array.prototype.push.call(arr, e);
+        callback(arr);
+    };
+};
+
+
+$("#side_menu_waiting").show();
+array_listener(MAIN_GENIE_ARRAY, function(newArray) {
+	MAIN_GENELIST_TABLE=newArray[0]
+	setCookie('genie_select_species',MAIN_GENELIST_TABLE,7);
+
+
+});
+
+
+array_listener(MAIN_ACTIVE_GENELIST_ARRAY, function(newArray) {
+  maingetactiveDB(function(activedb) {
+    tmp_selected_species_abb=activedb[0]['abbreviation'];
+    setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
+    if (typeof reinitTool == 'function') { 
+      MAIN_GENELIST=MAIN_ACTIVE_GENELIST_ARRAY[0];
+      reinitTool(newArray); 
+      //console.log(activedb)
+			//console.log("reinitTool from print.js")
+		}
+  });
+
+});	 
+
+
+if($_GET('species')!= undefined) {
+  maingetAllDB(function(activedb) {
+      Object.keys(activedb).map(function(i, j) {
+          if($_GET('species')==activedb[i]["abbreviation"]){
+              setCookie("genie_select_species", activedb[i]['db'], 10); 
+          }
+      });
+  });
+}
+
+
+//if($_GET('species')!= undefined) {
+maingetactiveDB(function(activedb) {
+    setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
+});
+//}
+
+
+
+
 
 
 //var fp1 = new Fingerprint();
@@ -484,6 +565,30 @@ function getColor() {
 }
 
 
+
+
+
+
+/***
+ **Get Experiments
+
+function maingetAllExpriments2(all_genelist_func) {
+	MAIN_GENELIST_TABLE = getCookie('genie_select_species')
+	$.ajax({
+		url: "//api.plantgenie.org/experiment/get_all?name=" + MAIN_GENELIST_TABLE,
+		type: "GET",
+		success: all_genelist_func,
+		error: function(request, error) { 
+
+      //console.log( error);
+      alert("No experiments are available for this species. Please select another species.");
+      setCookie("genie_select_species", "beta_plantgenie_potra_v22", 10);
+      //window.location.href =  "?species=potra#"; 
+      location.reload();
+		}
+	});
+}
+  ***/
 /***
  **Get database
  ***/
