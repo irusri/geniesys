@@ -15,6 +15,9 @@ $(window).load(function() {
     setCookie("genie_select_species", this.value, 10);
     //$('input:radio[name="genie"][value=' + this.value + ']').attr('checked', true);
     updategenebasket();
+
+
+    
     if (this.value == "egrandis") {
       document.body.style.backgroundColor = "#7ab6ab";
     } else {
@@ -22,6 +25,9 @@ $(window).load(function() {
     }
   });
 });
+
+
+
 
 $.ajax({
   type: 'POST',
@@ -474,3 +480,5 @@ window.sr = ScrollReveal();
 sr.reveal(".search", image_class_animate);
 //sr.reveal('#wrapper', image_class_animate2);
 //sr.reveal('#site_footer', { delay: 2000, scale: 0.9 });
+
+

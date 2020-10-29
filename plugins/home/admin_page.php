@@ -1,9 +1,6 @@
 <link rel="stylesheet" type="text/css" href="plugins/home/css/admin.css" />
 <script type="text/javascript" src="plugins/home/js/jquery.hashchange.min.js"></script>
 <script type="text/javascript" src="plugins/home/js/jquery.easytabs.min.js"></script> 
-<script type="text/javascript">
-    var editor_content = "<?php echo content($c['page'],$c['content']);?>"; 
-</script>
 <div id="tab-container" class='tab-container'>
      <ul class='etabs'>
      <li class='tab'><a href="#page">Edit page</a></li>

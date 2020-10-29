@@ -92,6 +92,17 @@ function updategenebasket($genearray) {
         
     }
 }
+
+function get_expression_experiments() {
+    include ("common.php");
+    $ip = $uuid;
+    $defaultstr = "SELECT experiment_name, experiment_value FROM experiment where visibility='true' and tool_category='expression'";
+    $defaultresults = mysqli_query($genelist_connection, $defaultstr) or die("broken connection");
+    for ($set = array (); $row = $defaultresults->fetch_assoc(); $set[] = $row);
+    return $set;
+}
+
+
 ####Testing STARTS
 function updategenebasket_testing($genearray, $basket_name_post) {
     include ("common.php");

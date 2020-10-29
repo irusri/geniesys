@@ -293,8 +293,22 @@
     }
   };
 
+  
   return Fingerprint;
+
+
+
+  
 });
+
+var MAIN_GENELIST;
+
+var fp4 = new Fingerprint({screen_resolution: true});
+var MAIN_FINGERPRINT=fp4.get().toString();
+var MAIN_GENELIST_DATABASE="plantgenie_genelist";
+var MAIN_GENELIST_TABLE="popgenie_potri_v31";
+//var MAIN_HOME_PAGE_TREE_PREFIX="z_testing_"; //Only for PopGenIE and ConGenIE home page animation
+
 
 //var fp1 = new Fingerprint();
 // var fp2 = new Fingerprint({canvas: true});
@@ -400,6 +414,9 @@ function glowme(id) {
     );
 }
 
+
+
+
 function updategenebasket3() {
   $.ajax({
     url: "plugins/genelist/crud/updatebaskets.php?id=gene",
@@ -467,5 +484,30 @@ function getColor() {
 }
 
 
+/***
+ **Get database
+ ***/
+function maingetAllExpriments(all_genelist_func) {
+	$.ajax({
+		url: "plugins/genelist/crud/api.php?id=experiment",
+		type: "GET",
+		success: all_genelist_func,
+		error: function(request, error) {
+			console.log(request, error);
+		}
+	});
+}
 
- 
+/***
+ **Get active database
+ ***/
+function maingetactiveDB(all_genelist_func) {
+	$.ajax({
+		url: "plugins/genelist/crud/api.php?id=gene_all",
+		type: "GET",
+		success: all_genelist_func,
+		error: function(request, error) {
+			console.log(request, error); 
+		}
+	});
+}
