@@ -1,8 +1,4 @@
-<?php
-include("plugins/genelist/crud/getgenelist.php");
-$experimentarr=get_expression_experiments();
-?>
-<div class="ui tiny buttons" style="overflow: hidden;top:240px;left:320px;position:absolute;z-index: 99999;background: #FFFFFF">
+   <div class="ui tiny buttons" style="overflow: hidden;top:240px;left:320px;position:absolute;z-index: 99999;background: #FFFFFF">
   <!--  <div  id="no_replicates" class="ui positive button">Show Mean values</div>
     <div class="or"></div>
     <div id="replicates" class="ui button" style="border-top-right-radius: 2px;border-bottom-right-radius: 2px">Show Replicates</div>
@@ -310,8 +306,8 @@ from <a href="/genelist">here</a.</p>
 <label s="" style="font-style:italic" for="norwood">NorWood</label></div>
 <div><input onchange="changeview('exatlas');" type="radio" id="exatlas" name="datasource" class="radio">
 <label s="" style="font-style:italic" for="exatlas">P. abies exAtlas</label></div>-->
-</div></br></br></br>
-</br></br><br></br></br></br></br>
+</div></br></br>
+</br></br>
 <!-- <div id="datatype">  <input type="radio" name="typergb" id="vstvalue" class="radio" value="vst"  checked/>
     <label for="vstvalue">VST</label></div><div>
     <input type="radio" name="typergb" id="tpmvalue"   value="tpm"  class="radio" />

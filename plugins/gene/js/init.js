@@ -13,7 +13,7 @@ var seq_array_tmp="";
 $(document).ready( function() {
  $('#tab-container').easytabs({
 		animationSpeed: "fast",
-		 updateHash: false
+		 updateHash: true
 		// animate({scrollTop: 0}, 0)
 		});
 	
@@ -48,7 +48,7 @@ if (typeof $_GET('id') != 'undefined') {
 
 
 function get_sequence_info(){
-		//$(".loader-wrap").show();
+		$(".loader-wrap").show();
 		var data_p="id="+$_GET('id');
 	    $.ajax({
         type: "POST",
@@ -239,15 +239,12 @@ function selectAndHighlightRange2(id) {
 			console.log(tones[i]["genepagecordstart"], parseInt(tones[i]["genepagecordend"]+1));
   		setSelectionRange(document.getElementById(id), parseInt(tones[i]["genepagecordstart"]), parseInt(tones[i]["genepagecordend"]+1));//+39
 
-
-
 		 if(tones[i]["genepagecordregion"]=="3UTR"){
 			highlight("#E9D2E4");
 		 }
 		  if(tones[i]["genepagecordregion"]=="CDS"){
 			 highlight("#AABADD");
 		 }
-
 
 		  if(tones[i]["genepagecordregion"]=="5UTR"){
  		  highlight("#A4D4B0");
@@ -269,8 +266,6 @@ function selectAndHighlightRange(id, start, end,seq_array_tmp) {
 			if(id=='cdssequencediv'){
 				highlight("#AABADD");
 			}else{
-
-
 		 if(tones[i]["genepagecordregion"]=="3UTR"){
 			highlight("#E9D2E4");
 		 }else if(tones[i]["genepagecordregion"]=="CDS"){

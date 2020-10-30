@@ -355,6 +355,7 @@ array_listener(MAIN_GENIE_ARRAY, function(newArray) {
 
 
 array_listener(MAIN_ACTIVE_GENELIST_ARRAY, function(newArray) {
+  console.log("newArray")
   maingetactiveDB(function(activedb) {
     tmp_selected_species_abb=activedb[0]['abbreviation'];
     setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
