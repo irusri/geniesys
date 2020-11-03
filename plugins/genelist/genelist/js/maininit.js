@@ -902,7 +902,7 @@ $(document).ready(function() {
               hideMethod: "fadeOut"
             };
             toastr.info(
-              "Please enter a gene id (such as Potri.004G059600) or synonym (such as cesa) to search all database fields.",
+              "Please enter a gene id (such as AT3G18110) or synonym (such as cesa) to search all database fields.",
               "Start your search"
             );
           }

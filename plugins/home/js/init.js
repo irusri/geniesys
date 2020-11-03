@@ -100,8 +100,13 @@ $("#drop_db").click(function () {
 
 // Cloning 
 function clone_genome(t) {
-  alert("This button will allow you to clone the existing "+t.id+" database in the future","clone download")
-   // db_operation("clone_database", t.id);
+  //alert("This button will allow you to clone the existing "+t.id+" database in the future","clone download")
+  if( t.id=="artha"){
+    db_operation("clone_database", t.id);
+  }else{
+    alert("This button will allow you to clone the existing "+t.id+" database in the future","clone download");
+  }
+  
  };
 
  $("#myadmin_links").click(function () {
