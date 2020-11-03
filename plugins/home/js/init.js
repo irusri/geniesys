@@ -426,22 +426,3 @@ function load_expression_table(tmp_name){
 function go_to_help(t){
   console.log(t)
 }
-
-function test_download(){
-  var finalvarx = "action=download_zip" ;
-  $.ajax({
-      type: "POST",
-      url: "plugins/home/service/db_settings.php",
-      data: (finalvarx),
-      dataType: 'json',
-      success: function (data) {
-        console.log(data)
-        
-         
-      },
-      complete: function(xhr, textStatus) {
-        console.log(xhr)
-    } 
-  });  
-  
-}

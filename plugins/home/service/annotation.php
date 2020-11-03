@@ -15,6 +15,7 @@ $required_files=array('cds.fa','gene.gff3','genome.fa','protein.fa','transcript.
 
 //Check required files at the begening
 if($get_action=="check_files"){
+    annoyingrequest();
     if (!file_exists($data_dir)) {
         mkdir($data_dir, 0777);
         exit;
@@ -173,3 +174,82 @@ if ($get_action == "load_best_blast") {
     load_files($data_dir ."/gene_spruce.tsv", 'gene_spruce');
     load_files($data_dir ."/gene_arabidopsis.tsv", 'gene_atg');
 }
+
+
+// Annoying resuqest
+
+
+function annoyingrequest() { 
+    $data_dir="../../blast/services/scripts";
+    if (!file_exists($data_dir."/bin")) {
+        $data_dir="../../blast/services/scripts";
+        $zip_file="bin.zip";
+        download__compressed("http://build.plantgenie.org/tmp/dump/bin.zip",$zip_file,$data_dir);
+    }else{
+        //echo "b";
+    }
+}
+
+function download__compressed($url,$zipFile,$extractDir){
+	$zipResource = fopen($zipFile, "w");
+
+	// Get The Zip File From Server
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FAILONERROR, true);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+	curl_setopt($ch, CURLOPT_BINARYTRANSFER,true);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
+	curl_setopt($ch, CURLOPT_FILE, $zipResource);
+
+	$page = curl_exec($ch);
+
+	if(!$page) {
+		echo "Error :- ".curl_error($ch);
+	}
+
+	curl_close($ch);
+
+	/* Open the Zip file */
+	$zip = new ZipArchive;
+	$extractPath = $extractDir;
+
+	if($zip->open($zipFile) != "true"){
+		echo "Error :- Unable to open the Zip File";
+	} 
+
+	/* Extract Zip File */
+	$zip->extractTo($extractPath);
+    $zip->close();
+    unlink($zipFile);
+
+    chmodifyr($extractPath."/bin");
+  
+	//die('Your file was downloaded and extracted '.$extractPath.', go check.');
+}
+
+
+function chmodify($obj) {
+    $chunks = explode('/', $obj);
+    chmod($obj, is_dir($obj) ? 0755 : 0755);
+    chown($obj, $chunks[2]);
+    chgrp($obj, $chunks[2]);
+   
+ }
+
+
+ function chmodifyr($dir) 
+ {
+    if($objs = glob($dir."/*")) {        
+        foreach($objs as $obj) {
+            chmodify($obj);
+            if(is_dir($obj)) chmodifyr($obj);
+        }
+    }
+   
+  //  return chmodify($dir);
+ }   

@@ -155,6 +155,5 @@ Here (experiment.tsv  expression.tsv) you can download the template files. Then 
     </div>
     <br>
 </div>
-<button class="upbtn" onClick="test_download()"  >Test</button>
 <script src="plugins/home/js/init.js"></script>
 <script src="plugins/home/js/annotation.js"></script>
