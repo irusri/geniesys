@@ -8,6 +8,7 @@
        <li class='tab'><a href="#db">Database settings</a></li>
        <li  class='tab'><a href="#annotation">Annotation</a></li>
        <li class='tab'><a href="#expression">Expression</a></li>
+       <li class='tab'><a href="#network">Network</a></li>
      </ul>
     <div class='panel-container'>
       <div id="page"> <br>
@@ -150,6 +151,9 @@ Here (experiment.tsv  expression.tsv) you can download the template files. Then 
       <a target="_blank" id="myadmin_links_expression" style="color:blue;font-weight:bold;float:right;cursor:pointer">Check whether the data correctly loaded into the experiment and expression tables >></a><br>
         <!--expression section started-->
         <!--expression section ended-->
+      </div>
+
+      <div id="network"><br>
       </div>
 
     </div>

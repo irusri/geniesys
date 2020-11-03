@@ -17,12 +17,15 @@ $(".prevent-default").click(function (e) {
   return false;
 });
 
+
 function enable_all() {
   $("#clone_div").show();
   var tabs = $("#tab-container");
   disable_easytabs(tabs, []);
+  disable_easytabs(tabs, [4,5]);
 }
 
+disable_easytabs(tabs, [4,5]);
 //Disable tabs on_disable_b_and_c_clicked();
 function on_disable_b_and_c_clicked() {
   $("#clone_div").hide();
@@ -97,7 +100,8 @@ $("#drop_db").click(function () {
 
 // Cloning 
 function clone_genome(t) {
-    db_operation("clone_database", t.id);
+  alert("This button will allow you to clone the existing "+t.id+" database in the future","clone download")
+   // db_operation("clone_database", t.id);
  };
 
  $("#myadmin_links").click(function () {
