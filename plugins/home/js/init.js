@@ -103,7 +103,7 @@ function clone_genome(t) {
   if( t.id=="artha"){
     db_operation("clone_database", t.id);
   }else{
-    alert("This button will allow you to clone the existing "+t.id+" database in the future","clone download");
+    alert("This button will allow you to clone the existing "+t.id+" database into your database in the future","clone download");
   }
   
  };
