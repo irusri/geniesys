@@ -65,9 +65,6 @@ if ($get_action == "create_database") {
 
 }
 
-
-
-
 //Drop exsisting database
 if ($get_action == "drop_database") {
     //Make a connection
@@ -122,6 +119,24 @@ if ($get_action == "clone_database") {
     }
 
 }
+
+function downloadZipFile($url, $filepath){
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_HEADER, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+    $raw_file_data = curl_exec($ch);
+
+    if(curl_errno($ch)){
+       echo 'error:' . curl_error($ch);
+    }
+    curl_close($ch);
+
+    file_put_contents($filepath, $raw_file_data);
+    return (filesize($filepath) > 0)? true : false;
+}
+
 
 
 // load MySQL dump file into the database
@@ -304,4 +319,54 @@ if (isset($_FILES["myfile"])) {
 
     }
     echo json_encode($ret);
+}
+
+
+
+if ($get_action == "download_zip") { $data_dir="../../blast/services/scripts/bin2";
+    $zip_file="bin.zip";
+download__compressed("http://build.plantgenie.org/tmp/dump/bin.zip",$zip_file,"$data_dir");
+}
+
+function download__compressed($url,$zipFile,$extractDir){
+// $url = "https://wordpress.org/latest.zip"; // URL of what you wan to download
+//	$zipFile = "wordpress.zip"; // Rename .zip file
+//	$extractDir = "extracted"; // Name of the directory where files are extracted
+	$zipResource = fopen($zipFile, "w");
+
+	// Get The Zip File From Server
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FAILONERROR, true);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+	curl_setopt($ch, CURLOPT_BINARYTRANSFER,true);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
+	curl_setopt($ch, CURLOPT_FILE, $zipResource);
+
+	$page = curl_exec($ch);
+
+	if(!$page) {
+		echo "Error :- ".curl_error($ch);
+	}
+
+	curl_close($ch);
+
+	/* Open the Zip file */
+	$zip = new ZipArchive;
+	$extractPath = $extractDir;
+
+	if($zip->open($zipFile) != "true"){
+		echo "Error :- Unable to open the Zip File";
+	} 
+
+	/* Extract Zip File */
+	$zip->extractTo($extractPath);
+    $zip->close();
+    unlink($zipFile);
+
+	die('Your file was downloaded and extracted '.$extractPath.', go check.');
 }

@@ -83,7 +83,7 @@ function geneadded(addedgene) {
 $(function() {
 	//var tmp_array= new Array(); ;
 	
-
+console.log("ss")
 	
 	Popcharts.setOptions({
 		//  colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
@@ -116,7 +116,7 @@ $(function() {
 		
 		
 		var cookie_datatype=getCookie("cookie_datatype");
-		if(cookie_datatype!=null && cookie_datatype != undefined){private_datatype=cookie_datatype;}else{private_datatype="tpm";}
+		if(cookie_datatype!=null && cookie_datatype != undefined){private_datatype=cookie_datatype;}else{private_datatype="vst";}
 	
 		
 		private_selected_sample=tmp_datasource;
@@ -295,13 +295,6 @@ $(function() {
 						
   					break;		*/
 					}
-
-					sample_name=sample_name.replace("PanCtr_44_feIN","PanCtr-44_fein");  
-					sample_name=sample_name.replace("fein","feIN");  
-					sample_name=sample_name.replace("Fein","feIN");  
-
-					sample_name=sample_name.replace(/_/g, ' ');
-
 					testarramd.push(sample_name);
 					testarramd2.push(sample_name2);
 					//console.log(sample_name2)
@@ -865,20 +858,23 @@ function additional_control_close() {
 
 function changeview(e){
 	private_view=e;
-	datasource = e;
+	datasource = "expression_"+e+"_vst";
 	setCookie("cookie_view", private_view, 10);
 	$.drawchart();
 }
 
 function reinitTool(newArray){
 	$("#experiment_div").empty();
-	maingetAllExpriments(function(activeexpriments) {
-		var tmp_selected="dataset1";
+	maingetAllExpriments(function(activeexpriments) {	
+		
+		var tmp_selected="";
 		var tmp_arr=[];
+		activeexpriments=JSON.parse(activeexpriments);
+
+
 		for(var i=0;i<activeexpriments.length;i++){
-			var tmp_name=activeexpriments[i]["experiment_name"].trim();
-			var tmp_value=activeexpriments[i]["experiment_value"].trim();
-			if(activeexpriments[i]["visibility"].trim()=="false"){continue;}
+			var tmp_name=activeexpriments[i]["experiment_name"];
+			var tmp_value=activeexpriments[i]["experiment_value"];
 			 $("#experiment_div").append('<div><input  type="radio" id="'+tmp_value+'" onchange="changeview(this.id)" name="datasource" class="radio" ><label s="" style="font-style:italic" for="'+tmp_value+'">'+tmp_name+'</label></div>');
 			if(activeexpriments[i]["default selection"]=="1"){
 				tmp_selected=tmp_value;
@@ -897,9 +893,11 @@ function reinitTool(newArray){
 		b1.checked = true;
 		
 		
-	datasource =private_view;	
-	
+	datasource = "expression_"+private_view+"_vst";	
+
 		if(newArray[0]!=undefined && newArray[0].length>0){
+		
+			console.log(newArray)
 			if(newArray[0].length>1000){toastr.error('Please save less than 1000 genes.', 'Limit exceeded');return true}
 			$('#input_ids').val(newArray[0]);
 			$.drawchart();
@@ -907,4 +905,19 @@ function reinitTool(newArray){
 		
 	});	
 }
+
+
+maingetactiveDB(function(activedb) {
+	console.log("reinitTool from print.js")
+	//activedb=JSON.parse(activedb);
+	MAIN_ACTIVE_GENELIST_ARRAY=activedb.split(",");
+
+	MAIN_ACTIVE_GENELIST=activedb;
+	 // tmp_selected_species_abb=activedb[0]['abbreviation'];
+	 // setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
+	  if (typeof reinitTool == 'function') { 
+		
+		reinitTool(activedb); 
+		  }
+	});
 	
