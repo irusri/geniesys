@@ -22,7 +22,7 @@ if($get_action=="check_files"){
     } else {
         $files=scandir($data_dir, 1);
     }
-    $scanned_directory = array_diff($files, array('..', '.'));
+    $scanned_directory = array_diff($files, array('..', '.')); 
     echo json_encode(array_diff($required_files, $scanned_directory));
 }
 
