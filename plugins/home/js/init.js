@@ -205,9 +205,10 @@ function check_files() {
             }
             
           }else{
-              console.log(data)
+              
               $("#check_files_span").show();
-             $("#missing_files").html(data.join(','));
+              if(data!=null){
+             $("#missing_files").html((JSON.stringify(data)).split(','));}
               toastr.warning("There are some missing files, please upload them to data directory", "Missing files");
           }
       }

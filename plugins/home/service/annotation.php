@@ -35,6 +35,11 @@ if ($out_exec[0]==""){
     $name="Name";$name2="Name";
 }
     exec("awk '$3==\"gene\"{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];g=$4\"\t\"$5;h=l[\"$name2\"]}$3~/RNA$/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1]; print k[\"$name\"], h, \"desc\", $1, $7, g, \"\", \"\", $4, $5 }'  FS='\t' OFS='\t' ".$data_dir ."/gene.gff3  >" . $data_dir. "/transcript.tsv");
+
+    if (filesize($data_dir ."/transcript.tsv")==0){
+        exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"$name\"],l[\"$name\"],\"desc\",$1,$7,$4,$5,\"\",\"\",$4,$5}' FS='\t' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/transcript.tsv");
+    }
+   
     exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"$name\"],$1,$4,$5}' FS='\t' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
     exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"$name\"]:id=k[\"$name2\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/color.tsv");
     echo json_encode($name); 
@@ -45,6 +50,8 @@ if ($get_action == "load_files") {
     load_files($data_dir ."/gene.tsv", 'gene_info');
     load_files($data_dir ."/transcript.tsv", 'transcript_info');
     load_files($data_dir ."/color.tsv", 'sequence_color');
+
+
     sleep(6);
     unlink($data_dir ."/gene.tsv");
     unlink($data_dir ."/transcript.tsv");
