@@ -15,7 +15,7 @@ $required_files=array('cds.fa','gene.gff3','genome.fa','protein.fa','transcript.
 
 //Check required files at the begening
 if($get_action=="check_files"){
-    annoyingrequest(); 
+     annoyingrequest();  
     if (!file_exists($data_dir)) {
         mkdir($data_dir, 0777);
         exit;
@@ -38,7 +38,6 @@ if ($out_exec[0]==""){
     if (filesize($data_dir ."/transcript.tsv")==0){
         exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"$name\"],l[\"$name\"],\"desc\",$1,$7,$4,$5,\"\",\"\",$4,$5}' FS='\t' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/transcript.tsv");
     }
-   
     exec("awk '/gene/{split($9,c,/[;=]/);for(j=1;j in c;j+=2)l[c[j]]=c[j+1];print l[\"$name\"],$1,$4,$5}' FS='\t' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/gene.tsv");
     exec("awk '!/#/&&$3!~/gene/{split($9,a,/[;=]/);for(i=1;i in a;i+=2)k[a[i]]=a[i+1];($3!~/RNA$/?id=k[\"$name\"]:id=k[\"$name2\"]);gsub(\"three_prime_UTR\",\"3UTR\",$3);gsub(\"five_prime_UTR\",\"5UTR\",$3);print id, $1, $3, $4, $5}' OFS='\t' ". $data_dir ."/gene.gff3 >" . $data_dir . "/color.tsv");
     echo json_encode($name); 
@@ -92,7 +91,9 @@ function load_files($input_file,$table_name){
   // Generate indices for BLAST and sequence search tool
 if ($get_action == "generate_indices") {
      $blast_dir=$data_dir."/blast"; 
-   
+     ini_set('max_execution_time', 300);
+     ini_set('memory_limit', '-1');
+     annoyingrequest(); 
     if (!file_exists($blast_dir)) {
         mkdir($blast_dir, 0777);
     } 
@@ -100,13 +101,11 @@ if ($get_action == "generate_indices") {
     exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/transcript.fa -n ".$blast_dir."/transcript -o T");
     exec("../../blast/services/scripts/bin/formatdb -p F -i ".$data_dir."/cds.fa -n ".$blast_dir."/cds -o T");
     exec("../../blast/services/scripts/bin/formatdb -p T -i ".$data_dir."/protein.fa -n ".$blast_dir."/protein -o T");
-
     chmod($blast_dir, 0777);
-
     echo "done!";
   }
 
-
+ 
 //Update gene_i in annotation tables
 if ($get_action == "update_gene_i") {
 //"gene_pfam", "gene_go", "gene_kegg","gene_maize",
@@ -193,38 +192,39 @@ if ($get_action == "load_best_blast") {
 
 
 function annoyingrequest() { 
-    $data_dir="../../blast/services/scripts";
+    ini_set('max_execution_time', 300);
+    $data_dir=dirname(__FILE__)."../../blast/services/scripts"; 
     if (!file_exists($data_dir."/bin")) {
         $data_dir="../../blast/services/scripts";
         $zip_file="bin.zip";
         download__compressed("http://build.plantgenie.org/tmp/dump/bin.zip",$zip_file,$data_dir);
     }else{
-        //echo "b";
-    }
+        //echo "b"; 
+    } 
 }
 
 function download__compressed($url,$zipFile,$extractDir){
+    ini_set('max_execution_time', 300); 
 	$zipResource = fopen($zipFile, "w");
+    
+    // Get The Zip File From Server
+    $ch = curl_init();
 
-	// Get The Zip File From Server
-	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FAILONERROR, true);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 	curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 	curl_setopt($ch, CURLOPT_BINARYTRANSFER,true);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
 	curl_setopt($ch, CURLOPT_FILE, $zipResource);
-
-	$page = curl_exec($ch);
-
+    $page = curl_exec($ch);
+    
 	if(!$page) {
 		echo "Error :- ".curl_error($ch);
 	}
-
 	curl_close($ch);
 
 	/* Open the Zip file */
@@ -233,7 +233,7 @@ function download__compressed($url,$zipFile,$extractDir){
 
 	if($zip->open($zipFile) != "true"){
 		echo "Error :- Unable to open the Zip File";
-	} 
+	}
 
 	/* Extract Zip File */
 	$zip->extractTo($extractPath);
@@ -241,7 +241,6 @@ function download__compressed($url,$zipFile,$extractDir){
     unlink($zipFile);
 
     chmodifyr($extractPath."/bin");
-  
 	//die('Your file was downloaded and extracted '.$extractPath.', go check.');
 }
 

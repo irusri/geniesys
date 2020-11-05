@@ -203,9 +203,8 @@ function check_files() {
             if($("#tab-container .tab.active")[0].innerText =="Annotation"){$("#files_checkbox").prop("checked", true);
               $("#files_waiting").hide();
             }
-            
-          }else{
-              
+      
+          }else{   
               $("#check_files_span").show();
               if(data!=null){
              $("#missing_files").html((JSON.stringify(data)).split(','));}
