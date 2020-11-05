@@ -15,7 +15,7 @@ $required_files=array('cds.fa','gene.gff3','genome.fa','protein.fa','transcript.
 
 //Check required files at the begening
 if($get_action=="check_files"){
-   
+    annoyingrequest(); 
     if (!file_exists($data_dir)) {
         mkdir($data_dir, 0777);
         exit;
@@ -92,7 +92,7 @@ function load_files($input_file,$table_name){
   // Generate indices for BLAST and sequence search tool
 if ($get_action == "generate_indices") {
      $blast_dir=$data_dir."/blast"; 
-     annoyingrequest(); 
+   
     if (!file_exists($blast_dir)) {
         mkdir($blast_dir, 0777);
     } 
