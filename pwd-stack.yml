@@ -1,0 +1,11 @@
+geniesys:
+    image: irusri/docker4geniesys
+    restart: always
+    environment:
+      - MYSQL_ADMIN_PASS=mypass
+    ports:
+      - "80:80"
+      - "3002:3306"
+    volumes:
+      - ${PWD}/geniesys:/app/geniesys
+      - ${PWD}/mysql:/var/lib/mysql
