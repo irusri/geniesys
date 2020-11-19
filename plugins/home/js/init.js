@@ -109,13 +109,13 @@ function clone_genome(t) {
  };
 
  $("#myadmin_links").click(function () {
-     window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
+     window.open("/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
  });
  $("#myadmin_links_annotation").click(function () {
-  window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
+  window.open("/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
 });
 $("#myadmin_links_expression").click(function () {
-  window.open("http://" + $('#mhost').val() + "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
+  window.open( "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
 });
 
  //Check database

@@ -9,7 +9,7 @@ setcookie('genie_key', $tmp_key);?>
 <br>
 <script src="plugins/admin/js/init.js" type="application/javascript"></script>
 <div id="post_information" style="display:none">
-You can access the database in using <a target="_blank" href="http://localhost/phpmyadmin">phpMyAdmin</a><br>
+You can access the database in using <a target="_blank" href="/phpmyadmin">phpMyAdmin</a><br>
 <pre>
 username: admin
 password: mypass
