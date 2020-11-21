@@ -1,37 +1,22 @@
-<!--<button  type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
---><div  type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#"></a></div>
+<div  type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#"></a></div>
 <?php
 ?>
-<!--<div id="test-popup" class="white-popup mfp-hide"> @import "sites/all/themes/admire_grunge/genelist/css/demo_page.css";-->
 <style type="text/css">
 	@import "plugins/genelist/genelist/css/demo_table.css";
 	@import "plugins/genelist/genelist/css/TableTools.css"; 
 </style>
 <script type="text/javascript">
-	
    var species_selection = "<?php echo $_COOKIE['select_species']; ?>";
 </script>
  <script src="plugins/genelist/genelist/js/jquery/jquery-1.8.3.js"></script>
  <script src="plugins/genelist/genelist/js/jquery/jquery-ui.js"></script>
-<!--<script src="http://beta.congenie.org/sites/all/themes/admire_grunge/tabs/vendor/jquery-1.8.3.js"></script>
-<script src="http://beta.congenie.org/sites/all/themes/admire_grunge/tabs/vendor/jquery-1.8.3.js"></script>
-  <script src="http://beta.congenie.org/sites/all/themes/admire_grunge/tabs/vendor/jquery-ui.js"></script>-->
-<!--<script type="text/javascript" language="javascript" src="/misc/jquery.js"></script>-->
 <script src="plugins/genelist/genelist/js/jquery.dataTables.js"></script>
 <script src="plugins/genelist/genelist/js/FixedColumns.js"></script>
 <script src='plugins/genelist/genelist/js/ColVis.js'></script>
 <script src='plugins/genelist/genelist/js/ZeroClipboard.js'></script>
 <script src="plugins/genelist/genelist/js/TableTools.min.js"></script>
-<!--<script src="http://datatables.net/extras/thirdparty/ColReorderWithResize/ColReorderWithResize.js">demo_table.css:641, maininit.js:570:        'sDom': 'TC<\'clear\'>Rlfrtip',
-        'sScrollX': '100%',
-	//	 "sScrollY": "0px",
-
-          "sScrollXInner": "100%",</script>-->
-
 <script src='plugins/genelist/genelist/js/toastr.min.js'></script>
 <link rel="stylesheet" href="plugins/genelist/genelist/css/toastr.min.css" type="text/css" media="all">
-
-
 <script type="text/javascript" src="plugins/genelist/genelist/js/css/wHumanMsg.js"></script>
 <link href="plugins/genelist/genelist/js/css/wHumanMsg.css" media="screen" type="text/css" rel="stylesheet">
 <script src='plugins/genelist/genelist/js/maininit.js'></script>
@@ -41,16 +26,7 @@
 <?php echo $_GET['_term'];?>
 <font color="#FF0000"><a id="loadexamplebtn"  title="Click here to load example gene list." style="cursor:pointer;text-decoration:none;z-index:10000">Load Example</a></font>
 <textarea  multiple="multiple"  placeholder="Type in here to search all database fields " id="myInputTextField" value="" style="width:100%;;max-height:500px;min-height:40px;"  ></textarea><?php } ?>
-<!--<font color="#999999">*please use <strong>desc:</strong> prefix for search description.e.g: desc:drought</font>-->
 </div>
-<script>
-//console.log(fp4.get());
-$(window).load(function() {
-	/*var element = $('#poplink');
-    var href = $(element).attr("nodeurl");
-    var options = {width: '400px', hijackDestination: false, href: "/genelist"};
-    Popups.openPath(element, options);*/   });
-</script>
   <div   style="height:88%;" id="dt_example">
     <div style="height:88%;" id="container">
           <table  id='tblPrueba2' name='tblPrueba2' class='dataTable' >
@@ -60,7 +36,6 @@ $(window).load(function() {
             </th>
              <th class=''>
          </th>
-
              <th  class=''>
               <input type='hidden' id='_search_gene_initVal' value='Filter Gene' />
               <input type='hidden' id='_search_gene_index' value='2' />
