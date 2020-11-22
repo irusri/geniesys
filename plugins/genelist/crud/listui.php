@@ -29,14 +29,6 @@ if (mysqli_num_rows($defaultresults) != 0) {
 	?>
 <script src="plugins/genelist/crud/js/init_list.js" type="text/javascript"></script>
 <table style="border-color:none" width="100%" border="0" cellpadding="0" cellspacing="0">
-   <!-- <thead>
-      <tr bgcolor="#CCCCCC">
-         <th>genelist name</th>
-         <th>genes</th>
-         <th width="50">rename</th>
-         <th width="50">delete</th>
-      </tr>
-   </thead> -->
    <tbody>
       <?php while($data=mysqli_fetch_assoc($res)){?>
       <tr>

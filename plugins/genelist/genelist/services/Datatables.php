@@ -350,38 +350,8 @@
 				 $row_val["check_box_value"]=true;
 		  	}
 		  }
-		  
-	/*	  print_r( $row_val["ids"]);
-		  
-		if(count($rResult->result_array())<=count($gene_basket_array)){
-		for($m=0;$m<count($gene_basket_array);$m++){
-			if($row_val["ids"]==$gene_basket_array[$m]){
-				 $row_val["check_box_value"]=true;
-		  	}else{
-			}
-		  }
-		}else{
-			echo "ss";
-			for($n=0;$n<100;$n++){
-			if($row_val["ids"]==$gene_basket_array[$n]){
-				 $row_val["check_box_value"]=true;
-		  	}else{
-			}
-		  }
-			
-		}*/
-	//	$tmparr[$row_key] =$row_val["ID"];
-		
-		 
-		// if($row_val["check_box_value"]==true)
-        	$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
-		 //}else{
-		   //$aaData[$row_key] =  "xx";
-		 //}
-		
-		//print_r($row_key );
-//echo (  array_values($row_val).$row_val["ID"]. $row_val["check_box_value"]);
 
+        	$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
         foreach($this->add_columns as $field => $val)
           if($this->check_mDataprop())
             $aaData[$row_key][$field] = $this->exec_replace($val, $aaData[$row_key]);
@@ -400,52 +370,6 @@
 
       $sColumns = array_diff($this->columns, $this->unset_columns);
       $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
-
-
-/*for($j=0;$j<count($tmparr);$j++){
-	$aaData[$j]="kk";	
-}
-*/
-
-
-//for($j=0;$j<count($aaData);$j++){
-	//echo $aaData[$j][0];
-	
-	//array_push($tmparr, $aaData[$j][0]);	
-//}
-//$result_basket_array=array_intersect($gene_basket_array,$tmparr);
-//print_r($result_basket_array);
-//print_r($tmparr);
-//print_r($gene_basket_array);
-
-/*if(count($aaData)>count($gene_basket_array)){
-	for($j=0;$j<count($aaData);$j++){
-		for($m=0;$m<count($gene_basket_array);$m++){
-			if($aaData[$j][0]==$gene_basket_array[$m]){
-				// $row_val["check_box_value"]=true;
-				//echo $gene_basket_array[$m];
-				 $aaData[$j]["check_box_value"]=true;
-		  	}else{
-				
-			}
-		  }
-		}
-}else{
-	
-for($m=0;$m<count($gene_basket_array);$m++){
-		for($j=0;$j<count($aaData);$j++){
-				if($aaData[$j][0]==$gene_basket_array[$m]){
-					// $row_val["check_box_value"]=true;
-					//echo $gene_basket_array[$m];
-					 $aaData[$j]["check_box_value"]=true;
-				}else{
-					
-				}
-			  }
-		}
-
-}*/
-
 
 
 if($iFilteredTotal!=730132 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 ){
@@ -477,11 +401,6 @@ if($iFilteredTotal!=730132 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 )
         return json_encode($sOutput);
       else
         return $this->jsonify($sOutput);
-		
-
-
-
-
     }
 
 
@@ -570,44 +489,11 @@ if($iFilteredTotal!=730132 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 )
       {
         ////$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
 		$aaData[$row_key] = $row_val[ID];
-		
-        //foreach($this->add_columns as $field => $val)
-          //if($this->check_mDataprop())
-            //$aaData[$row_key][$field] = $this->exec_replace($val, $aaData[$row_key]);
-          //else
-            //$aaData[$row_key][] = $this->exec_replace($val, $aaData[$row_key]);
 
-        //foreach($this->edit_columns as $modkey => $modval)
-          //foreach($modval as $val)
-            //$aaData[$row_key][($this->check_mDataprop())? $modkey : array_search($modkey, $this->columns)] = $this->exec_replace($val, $aaData[$row_key]);
-
-        //$aaData[$row_key] = array_diff_key($aaData[$row_key], ($this->check_mDataprop())? $this->unset_columns : array_intersect($this->columns, $this->unset_columns));
-
-        //if(!$this->check_mDataprop())
-          //$aaData[$row_key] = array_values($aaData[$row_key]);
       }
 
-    //  $sColumns = array_diff($this->columns, $this->unset_columns);
-     // $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
-////$sOutput = array($aaData);
 	return $aaData;
-      //$sOutput = array
-      //(
-        /*'sEcho'                => intval($this->input('sEcho')),
-        'iTotalRecords'        => $iTotal,
-        'iTotalDisplayRecords' => $iFilteredTotal,
-        'aaData'               => $aaData,
-        'sColumns'             => implode(',', $sColumns)*/
-      //);
-
-     // if(strtolower($charset) == 'utf-8')
-        //return json_encode($sOutput);
-     // else
-     //   return $this->jsonify($sOutput);
     }
-
-
-
 
 
  /**
@@ -631,47 +517,16 @@ if($iFilteredTotal!=730132 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 )
 
       foreach($rResult->result_array() as $row_key => $row_val)
       {
-		/*   for($h=0;$h<count($intersect_mysql_viscol_keys);$h++){
-			   		 if($intersect_mysql_viscol_keys[$h]== $row_key ){
-						}
-
-		   }*/
-		//  print_r( $row_key);
-		 /* for($m=0;$m<count($gene_basket_array);$m++){
-			  if($row_val["ID"]==$gene_basket_array[$m]){
-				 $row_val["check_box_value"]=true;
-		  	}
-		  }*/
-		 
 		  for($h=0;$h<count($intersect_mysql_viscol_keys);$h++){
 		  $aaData[$row_key][$h] = $row_val[$intersect_mysql_viscol_keys[$h]];
 		  }
 		  
-	//echo ($row_val[$row_key]);	  
-  //$this->columns=array_intersect($this->columns,$intersect_mysql_viscol_keys);
-    //    	$aaData[$row_key] = ($this->check_mDataprop())? $row_val : array_values($row_val);
-
-        //foreach($this->add_columns as $field => $val)
-          //if($this->check_mDataprop())
-            //$aaData[$row_key][$field] = $this->exec_replace($val, $aaData[$row_key]);
-          //else
-            //$aaData[$row_key][] = $this->exec_replace($val, $aaData[$row_key]);
-
-        //foreach($this->edit_columns as $modkey => $modval)
-          //foreach($modval as $val)
-            //$aaData[$row_key][($this->check_mDataprop())? $modkey : array_search($modkey, $this->columns)] = $this->exec_replace($val, $aaData[$row_key]);
-
-        //$aaData[$row_key] = array_diff_key($aaData[$row_key], ($this->check_mDataprop())? $this->unset_columns : array_intersect($this->columns, $this->unset_columns));
-
-        //if(!$this->check_mDataprop())
-          //$aaData[$row_key] = array_values($aaData[$row_key]);
-		 
-      }
+	    }
 
       $sColumns = array_diff($this->columns, $this->unset_columns);
       $sColumns = array_merge_recursive($sColumns, array_keys($this->add_columns));
 	   $sColumns=array_intersect( $sColumns,$intersect_mysql_viscol_keys);
-//print_r(  $sColumns);
+
 
       $sOutput = array
       (
@@ -682,15 +537,9 @@ if($iFilteredTotal!=730132 && $iFilteredTotal!=90435 && $iFilteredTotal!=52826 )
         'sColumns'             => implode(',', $sColumns)
       );
 
-return ($aaData);
-      //if(strtolower($charset) == 'utf-8')
-        //return json_encode($sOutput);
-     // else
-       // return $this->jsonify($sOutput);
+    return ($aaData);
+
     }
-
-
-
 
     /**
     * Get result count
