@@ -23,16 +23,16 @@ function changedbsource(sel_genome) {
 function $_GET(q, s) {
   s = s ? s : window.location.search;
   var re = new RegExp("&" + q + "(?:=([^&]*))?(?=&|$)", "i");
-  return (s = s.replace("?", "&").match(re))
-    ? typeof s[1] == "undefined"
-      ? ""
-      : decodeURIComponent(s[1])
-    : undefined;
+  return (s = s.replace("?", "&").match(re)) ?
+    typeof s[1] == "undefined" ?
+    "" :
+    decodeURIComponent(s[1]) :
+    undefined;
 }
 
-$.fn.getColumnsShown = function(dTable) {
+$.fn.getColumnsShown = function (dTable) {
   var vCols = [];
-  $.each(dTable.fnSettings().aoColumns, function(c) {
+  $.each(dTable.fnSettings().aoColumns, function (c) {
     if (dTable.fnSettings().aoColumns[c].bVisible === true && c != 1) {
       vCols = vCols.concat(dTable.fnSettings().aoColumns[c].sTitle);
     }
@@ -46,8 +46,7 @@ function handleAjaxError(xhr, textStatus, error) {
 
   } else {
     hm_basic.wHumanMsg(
-      "An error occurred on the server. Please try again in a minute.",
-      {
+      "An error occurred on the server. Please try again in a minute.", {
         theme: "red",
         opacity: 1,
         displayLength: 200
@@ -57,15 +56,15 @@ function handleAjaxError(xhr, textStatus, error) {
   tblPrueba2.fnProcessingIndicator(false);
 }
 
-jQuery.fn.dataTableExt.oApi.fnProcessingIndicator = function(oSettings, onoff) {
+jQuery.fn.dataTableExt.oApi.fnProcessingIndicator = function (oSettings, onoff) {
   if (typeof onoff == "undefined") {
     onoff = true;
   }
   this.oApi._fnProcessingDisplay(oSettings, onoff);
 };
 
-$(document).ready(function() {
-  $("#loadexamplebtn").click(function() {
+$(document).ready(function () {
+  $("#loadexamplebtn").click(function () {
     $("#myInputTextField").val(
       "cellulose"
     );
@@ -75,7 +74,7 @@ $(document).ready(function() {
   /*
    * Main search support
    */
-  $("#myInputTextField").keyup(function() {
+  $("#myInputTextField").keyup(function () {
     tblPrueba2.fnFilter($(this).val(), $("#myInputTextField").val());
 
 
@@ -103,7 +102,7 @@ $(document).ready(function() {
     invalid_boolean = false;
   });
 
-  $("input[name=popr]:radio").on("change", function() {
+  $("input[name=popr]:radio").on("change", function () {
     tblPrueba2.fnFilter($(this).val(), $("#myInputTextField").val());
   });
 
@@ -111,20 +110,20 @@ $(document).ready(function() {
    * Column search support
    */
   $("#tblPrueba2 thead input")
-    .keyup(function() {
+    .keyup(function () {
       /* Filter on the column (the index) of this element */
       tblPrueba2.fnFilter($(this).val(), $("#_" + this.id + "_index").val());
 
       //tblPrueba2.fnFilter( $(this).val(),4 );
     })
-    .focus(function() {
+    .focus(function () {
       if ($(this).hasClass("search_init")) {
         $(this).removeClass("search_init");
         $(this).val("");
       }
     })
 
-    .blur(function(i) {
+    .blur(function (i) {
       if ($(this).val() === "") {
         $(this).addClass("search_init");
         $(this).val($("#_" + this.id + "_initVal").val());
@@ -150,14 +149,13 @@ $(document).ready(function() {
       type: "POST",
       url: "plugins/genelist/genelist/services/search.php",
       data: finalvarx,
-      success: function(data) {
+      success: function (data) {
         //console.log(data);
         if (data.trim() == "null") {
           hm_1.wHumanMsg(
             "Sorry! It appears that you entered the wrong table id(" +
-              $_GET("table") +
-              "). Please check with person who created this table.",
-            {
+            $_GET("table") +
+            "). Please check with person who created this table.", {
               theme: "red",
               opacity: 1,
               displayLength: 3000000
@@ -166,9 +164,8 @@ $(document).ready(function() {
         } else {
           hm_1.wHumanMsg(
             "It appears that you found this gene table from a shared link created in " +
-              data.trim() +
-              ". If you want, you can bookmark this page: your results will be stored on the server at least for 30 days.",
-            {
+            data.trim() +
+            ". If you want, you can bookmark this page: your results will be stored on the server at least for 30 days.", {
               theme: "yellow",
               opacity: 1,
               displayLength: 3000000
@@ -184,11 +181,14 @@ $(document).ready(function() {
 
   tblPrueba2 = $("#tblPrueba2").dataTable({
     sAjaxSource: "plugins/genelist/genelist/services/search.php",
-    fnServerData: function(sSource, aoData, fnCallback) {
-      aoData.push(
-        { name: "id", value: $("#myInputTextField").val() },
-        { name: "selected_genome", value: $("input[name=popr]:checked").val() }
-      );
+    fnServerData: function (sSource, aoData, fnCallback) {
+      aoData.push({
+        name: "id",
+        value: $("#myInputTextField").val()
+      }, {
+        name: "selected_genome",
+        value: $("input[name=popr]:checked").val()
+      });
       $.ajax({
         dataType: "json",
         type: "POST",
@@ -207,34 +207,74 @@ $(document).ready(function() {
     bLengthChange: true,
     bScrollCollapse: true,
     bSort: true,
-    aLengthMenu: [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+    aLengthMenu: [
+      [10, 25, 50, 100, 500],
+      [10, 25, 50, 100, 500]
+    ],
     iDisplayLength: 25,
     oColVis: {
       sSize: "100",
       aiExclude: [0, 1, 2],
-      buttonText:
-        "<span class='hint--top' aria-label='Add or Remove search columns'><i class='fa fa-table' aria-hidden='true'> </i>Change Table Columns</span>",
+      buttonText: "<span class='hint--top' aria-label='Add or Remove search columns'><i class='fa fa-table' aria-hidden='true'> </i>Change Table Columns</span>",
       sAlign: "left",
       bRestore: true,
       sRestore: "Restore default values"
     },
-    aoColumns: [
-      { bVisible: 0, aTargets: 0 },
-      { aTargets: 1 },
-      { sWidth: "2px", aTargets: 2 },
-      { sWidth: "50px", aTargets: 3 },
-      { sWidth: "10%", aTargets: 4, bVisible: 0 },
-      { sWidth: "20%", aTargets: 5 },
-      { sWidth: "10%", bVisible: 0, aTargets: 6 },
-      { sWidth: "10%", bVisible: 0, aTargets: 6 },
-      { sWidth: "10%", bVisible: 0, aTargets: 7 },
-      { sWidth: "10%", bVisible: 0, aTargets: 8 },
-      { sWidth: "30%", aTargets: 9 },
-      { sWidth: "40%", aTargets: 10 }
-    ],
-    aoColumnDefs: [
+    aoColumns: [{
+        bVisible: 0,
+        aTargets: 0
+      },
       {
-        fnRender: function(oObj) {
+        aTargets: 1
+      },
+      {
+        sWidth: "2px",
+        aTargets: 2
+      },
+      {
+        sWidth: "50px",
+        aTargets: 3
+      },
+      {
+        sWidth: "10%",
+        aTargets: 4,
+        bVisible: 0
+      },
+      {
+        sWidth: "20%",
+        aTargets: 5
+      },
+      {
+        sWidth: "10%",
+        bVisible: 0,
+        aTargets: 6
+      },
+      {
+        sWidth: "10%",
+        bVisible: 0,
+        aTargets: 6
+      },
+      {
+        sWidth: "10%",
+        bVisible: 0,
+        aTargets: 7
+      },
+      {
+        sWidth: "10%",
+        bVisible: 0,
+        aTargets: 8
+      },
+      {
+        sWidth: "30%",
+        aTargets: 9
+      },
+      {
+        sWidth: "40%",
+        aTargets: 10
+      }
+    ],
+    aoColumnDefs: [{
+        fnRender: function (oObj) {
           if (oObj.aData[1] == true) {
             return '<input class="checkboxSelector" checked id="rcheckbox" type="checkbox" > ';
           } else {
@@ -248,17 +288,17 @@ $(document).ready(function() {
         aTargets: [8],
         mData: 8,
         sWidth: "100%",
-        mRender: function(data, type, full) {
+        mRender: function (data, type, full) {
           var pfam_str = "";
           if (data != null) {
             var tmppfamArray = data.split(";");
-            $.each(tmppfamArray, function(key, value) {
+            $.each(tmppfamArray, function (key, value) {
               var endstr;
-              key % 2 != 0
-                ? (endstr = "<br>")
-                : key == tmppfamArray.length - 1
-                ? (endstr = "")
-                : (endstr = "<br>");
+              key % 2 != 0 ?
+                (endstr = "<br>") :
+                key == tmppfamArray.length - 1 ?
+                (endstr = "") :
+                (endstr = "<br>");
               pfam_str +=
                 "<a target='_blank' href='http://www.genome.jp/dbget-bin/www_bget?ko:" +
                 value.substr(0, value.indexOf("-")) +
@@ -280,17 +320,17 @@ $(document).ready(function() {
         aTargets: [9],
         mData: 9,
         sWidth: "100%",
-        mRender: function(data, type, full) {
+        mRender: function (data, type, full) {
           var pfam_str = "";
           if (data != null) {
             var tmppfamArray = data.split(";");
-            $.each(tmppfamArray, function(key, value) {
+            $.each(tmppfamArray, function (key, value) {
               var endstr;
-              key % 2 != 0
-                ? (endstr = "<br>")
-                : key == tmppfamArray.length - 1
-                ? (endstr = "")
-                : (endstr = "<br>");
+              key % 2 != 0 ?
+                (endstr = "<br>") :
+                key == tmppfamArray.length - 1 ?
+                (endstr = "") :
+                (endstr = "<br>");
               pfam_str +=
                 "<a target='_blank' href='http://atgenie.org/gene?id=" +
                 value.substr(0, value.indexOf("-")) +
@@ -312,17 +352,17 @@ $(document).ready(function() {
         aTargets: [10],
         mData: 10,
         sWidth: "100%",
-        mRender: function(data, type, full) {
+        mRender: function (data, type, full) {
           var pfam_str = "";
           if (data != null) {
             var tmppfamArray = data.split(";");
-            $.each(tmppfamArray, function(key, value) {
+            $.each(tmppfamArray, function (key, value) {
               var endstr;
-              key % 2 != 0
-                ? (endstr = "<br>")
-                : key == tmppfamArray.length - 1
-                ? (endstr = "")
-                : (endstr = "<br>");
+              key % 2 != 0 ?
+                (endstr = "<br>") :
+                key == tmppfamArray.length - 1 ?
+                (endstr = "") :
+                (endstr = "<br>");
               pfam_str +=
                 "<a target='_blank' href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" +
                 value.substr(0, value.indexOf("-")) +
@@ -344,17 +384,17 @@ $(document).ready(function() {
         aTargets: [11],
         mData: 11,
         sWidth: "100%",
-        mRender: function(data, type, full) {
+        mRender: function (data, type, full) {
           var pfam_str = "";
           if (data != null) {
             var tmppfamArray = data.split(";");
-            $.each(tmppfamArray, function(key, value) {
+            $.each(tmppfamArray, function (key, value) {
               var endstr;
-              key % 2 != 0
-                ? (endstr = "<br>")
-                : key == tmppfamArray.length - 1
-                ? (endstr = "")
-                : (endstr = "<br>");
+              key % 2 != 0 ?
+                (endstr = "<br>") :
+                key == tmppfamArray.length - 1 ?
+                (endstr = "") :
+                (endstr = "<br>");
               pfam_str +=
                 "<a target='_blank' href='http://pfam.xfam.org/family/" +
                 value.substr(0, value.indexOf("-")) +
@@ -372,7 +412,7 @@ $(document).ready(function() {
         }
       }
     ],
-    fnRowCallback: function(nRow, aData, iDisplayIndex) {
+    fnRowCallback: function (nRow, aData, iDisplayIndex) {
       if (jQuery.inArray(aData[0], gaiSelected) != -1) {
         $(nRow)
           .find(".checkboxSelector")
@@ -387,13 +427,11 @@ $(document).ready(function() {
     oTableTools: {
       sRowSelect: "multi",
       sSwfPath: "plugins/genelist/genelist/swf/copy_csv_xls_pdf.swf",
-      aButtons: [
- {
+      aButtons: [{
           sExtends: "ajax",
-          sButtonText:
-            '<span class="hint--top" aria-label="Save current search results to active GeneList"><i class="fa fa-cart-plus  fa-2x" aria-hidden="true"></i></span>',
+          sButtonText: '<span class="hint--top" aria-label="Save current search results to active GeneList"><i class="fa fa-cart-plus  fa-2x" aria-hidden="true"></i></span>',
           titleAttr: "Add Genes to Active GeneList",
-          fnClick: function(nButton, oConfig) {
+          fnClick: function (nButton, oConfig) {
             var searchs = $("#myInputTextField").val();
             var columns = this.s.dt.aoPreSearchCols;
             var columnsearch = "";
@@ -419,11 +457,10 @@ $(document).ready(function() {
               type: "POST",
               url: "plugins/genelist/genelist/services/search_id.php",
               data: finalvar,
-              success: function() {
+              success: function () {
                 $("#tblPrueba2").stop();
                 $("#tblPrueba2").effect(
-                  "transfer",
-                  {
+                  "transfer", {
                     to: "#numberofgenesSpan",
                     className: "ui-effects-transfer-2"
                   },
@@ -447,9 +484,8 @@ $(document).ready(function() {
 
         {
           sExtends: "ajax",
-          sButtonText:
-            '<span class="hint--top" aria-label="Save as a new GeneList"><i class="fa fa-plus  fa-2x" aria-hidden="true"></i></span>',
-          fnClick: function(nButton, oConfig) {
+          sButtonText: '<span class="hint--top" aria-label="Save as a new GeneList"><i class="fa fa-plus  fa-2x" aria-hidden="true"></i></span>',
+          fnClick: function (nButton, oConfig) {
             var searchs = $("#myInputTextField").val();
             var columns = this.s.dt.aoPreSearchCols;
             var columnsearch = "";
@@ -487,11 +523,10 @@ $(document).ready(function() {
               type: "POST",
               url: "plugins/genelist/genelist/services/search_id.php",
               data: finalvar,
-              success: function() {
+              success: function () {
                 $("#tblPrueba2").stop();
                 $("#tblPrueba2").effect(
-                  "transfer",
-                  {
+                  "transfer", {
                     to: "#numberofgenesSpan",
                     className: "ui-effects-transfer-2"
                   },
@@ -513,12 +548,11 @@ $(document).ready(function() {
           }
         },
 
-  
+
         {
           sExtends: "ajax",
-          sButtonText:
-            '<span class="hint--top hint--error" aria-label="Replace active GeneList"><i class="fa fa-retweet fa-2x" style="color:#FFF" aria-hidden="true"></i></span>',
-          fnClick: function(nButton, oConfig) {
+          sButtonText: '<span class="hint--top hint--error" aria-label="Replace active GeneList"><i class="fa fa-retweet fa-2x" style="color:#FFF" aria-hidden="true"></i></span>',
+          fnClick: function (nButton, oConfig) {
             var searchs = $("#myInputTextField").val();
             var columns = this.s.dt.aoPreSearchCols;
             var columnsearch = "";
@@ -544,11 +578,10 @@ $(document).ready(function() {
               type: "POST",
               url: "plugins/genelist/genelist/services/search_id.php",
               data: finalvar,
-              success: function() {
+              success: function () {
                 $("#tblPrueba2").stop();
                 $("#tblPrueba2").effect(
-                  "transfer",
-                  {
+                  "transfer", {
                     to: "#numberofgenesSpan",
                     className: "ui-effects-transfer-2"
                   },
@@ -571,9 +604,8 @@ $(document).ready(function() {
         },
         {
           sExtends: "ajax",
-          sButtonText:
-            '<span class="hint--top hint--error" aria-label="Remove active GeneList"><i class="fa fa-trash  fa-2x" style="color:#FFF" aria-hidden="true"></i></span>',
-          fnClick: function(nButton, oConfig) {
+          sButtonText: '<span class="hint--top hint--error" aria-label="Remove active GeneList"><i class="fa fa-trash  fa-2x" style="color:#FFF" aria-hidden="true"></i></span>',
+          fnClick: function (nButton, oConfig) {
             $("body").css("cursor", "wait");
             $(nButton).html(
               "<img src='plugins/genelist/genelist/swf/btnloader.GIF' />"
@@ -584,11 +616,10 @@ $(document).ready(function() {
               data: {
                 empty_default_basket: "ss"
               },
-              success: function() {
+              success: function () {
                 $("#numberofgenesSpan").stop();
                 $("#numberofgenesSpan").effect(
-                  "transfer",
-                  {
+                  "transfer", {
                     to: "#deletebasket",
                     className: "ui-effects-transfer-2"
                   },
@@ -610,17 +641,15 @@ $(document).ready(function() {
         },
         {
           sExtends: "downloadtest",
-          sButtonText:
-            '<span class="hint--top" aria-label="Download current search results"><i class="fa fa-download  fa-2x" aria-hidden="true"></i></span>',
+          sButtonText: '<span class="hint--top" aria-label="Download current search results"><i class="fa fa-download  fa-2x" aria-hidden="true"></i></span>',
           sFileName: "*.tsv",
           sUrl: "plugins/genelist/genelist/services/download.php",
           mColumns: "visible"
         },
         {
           sExtends: "ajax",
-          sButtonText:
-            '<span class="hint--top" aria-label="Share current search results"><i class="fa fa-share-alt  fa-2x" aria-hidden="true"></i></span>',
-          fnClick: function(nButton, oConfig) {
+          sButtonText: '<span class="hint--top" aria-label="Share current search results"><i class="fa fa-share-alt  fa-2x" aria-hidden="true"></i></span>',
+          fnClick: function (nButton, oConfig) {
             var searchs = $("#myInputTextField").val();
             var columns = this.s.dt.aoPreSearchCols;
             var columnsearch = "";
@@ -649,7 +678,7 @@ $(document).ready(function() {
               type: "POST",
               url: "plugins/genelist/genelist/services/search_id.php",
               data: finalvar,
-              success: function(data) {
+              success: function (data) {
                 $("body").css("cursor", "auto");
                 $(nButton).html(
                   '<span class="hint--top" aria-label="Share current search results"><i class="fa fa-share-alt  fa-2x" aria-hidden="true"></i></span>'
@@ -657,12 +686,11 @@ $(document).ready(function() {
                 var hm = $("body").wHumanMsg();
                 hm.wHumanMsg(
                   'Shared Link: <a target="_blank" href="' +
-                    "/?table=" +
-                    data.trim() +
-                    '">http://eucgenie.org/?table=' +
-                    data.trim() +
-                    "</a>",
-                  {
+                  "/?table=" +
+                  data.trim() +
+                  '">http://eucgenie.org/?table=' +
+                  data.trim() +
+                  "</a>", {
                     theme: "cream",
                     opacity: 1,
                     displayLength: 30000
@@ -680,14 +708,14 @@ $(document).ready(function() {
 
     sScrollXInner: "120%",
     sScrollY: $(window).height() - 400,
-    fnInitComplete: function(oSettings, json) {
+    fnInitComplete: function (oSettings, json) {
       new FixedColumns(this, {
         iLeftColumns: 0
         /*,
         'iRightColumns': 0*/
       });
     },
-    fnDrawCallback: function() {
+    fnDrawCallback: function () {
       tblPrueba2.fnAdjustColumnSizing(false);
 
       // TableTools
@@ -702,7 +730,7 @@ $(document).ready(function() {
       var panelHeight = $dataTableWrapper.parent().height();
 
       var toolbarHeights = 0;
-      $dataTableWrapper.find(".fg-toolbar").each(function(i, obj) {
+      $dataTableWrapper.find(".fg-toolbar").each(function (i, obj) {
         toolbarHeights = toolbarHeights + $(obj).height();
       });
 
@@ -719,14 +747,13 @@ $(document).ready(function() {
 
   var old_number = 0;
   var invalid_boolean;
-  tblPrueba2.bind("processing", function(e, oSettings, bShow) {
+  tblPrueba2.bind("processing", function (e, oSettings, bShow) {
     if (bShow) {
       $("#loader").show();
     } else {
       $("#loader").hide();
 
-      if ($("#myInputTextField").val() == "") {
-      } else {
+      if ($("#myInputTextField").val() == "") {} else {
         if (
           oSettings._iRecordsDisplay == 73013 ||
           oSettings._iRecordsDisplay == 0
@@ -797,11 +824,11 @@ $(document).ready(function() {
       type: "POST",
       url: "plugins/genelist/genelist/services/search.php",
       data: finalvarx,
-      success: function(data) {
+      success: function (data) {
         if (data.trim() == "null") {
-          getCookie("mainsearchcookie") != undefined
-            ? $("#myInputTextField").val(getCookie("mainsearchcookie"))
-            : $("#myInputTextField").val("");
+          getCookie("mainsearchcookie") != undefined ?
+            $("#myInputTextField").val(getCookie("mainsearchcookie")) :
+            $("#myInputTextField").val("");
           tblPrueba2.fnFilter(
             $("#myInputTextField").val(),
             getCookie("mainsearchcookie")
@@ -845,38 +872,37 @@ $(document).ready(function() {
 
   /***cache thing */
   var t = document.getElementsByTagName("textarea")[0];
-  var offset = !window.opera
-    ? t.offsetHeight - t.clientHeight
-    : t.offsetHeight +
-      parseInt(
-        window.getComputedStyle(t, null).getPropertyValue("border-top-width")
-      );
+  var offset = !window.opera ?
+    t.offsetHeight - t.clientHeight :
+    t.offsetHeight +
+    parseInt(
+      window.getComputedStyle(t, null).getPropertyValue("border-top-width")
+    );
 
   t.style.height = "auto";
   t.style.height = t.scrollHeight + offset + "px";
 
-  var resize = function(t) {
+  var resize = function (t) {
     t.style.height = "auto";
     t.style.height = t.scrollHeight + offset + "px";
   };
 
   t.addEventListener &&
-    t.addEventListener("input", function(event) {
+    t.addEventListener("input", function (event) {
       resize(t);
     });
 
   t["attachEvent"] &&
-    t.attachEvent("onkeyup", function() {
+    t.attachEvent("onkeyup", function () {
       resize(t);
     }); /** cache thing end */
-  $(".checkboxSelectorall").change(function() {
+  $(".checkboxSelectorall").change(function () {
     var aData = tblPrueba2.fnGetData();
     for (var j = 0; j < aData.length; j++) {
       var iId = aData[j][0];
       if (jQuery.inArray(iId, gaiSelected) == -1) {
         gaiSelected[gaiSelected.length++] = iId;
-      } else {
-      }
+      } else {}
     }
 
     if ($(".checkboxSelectorall").prop("checked") == true) {
@@ -889,7 +915,7 @@ $(document).ready(function() {
       .prop("checked", $(".checkboxSelectorall").prop("checked"));
   });
 
-  $("#tblPrueba2 tbody tr td input").live("change", function(event) {
+  $("#tblPrueba2 tbody tr td input").live("change", function (event) {
     var temp_gene_selecct_id = $(event.target)
       .parent()
       .parent()
@@ -898,8 +924,7 @@ $(document).ready(function() {
       addtothebasket(temp_gene_selecct_id);
       $(event.target).stop();
       $(event.target).effect(
-        "transfer",
-        {
+        "transfer", {
           to: "#numberofgenesSpan",
           className: "ui-effects-transfer-2"
         },
@@ -909,8 +934,7 @@ $(document).ready(function() {
       removefrombasket(temp_gene_selecct_id);
       $("#numberofgenesSpan").stop();
       $("#numberofgenesSpan").effect(
-        "transfer",
-        {
+        "transfer", {
           to: $(event.target),
           className: "ui-effects-transfer-2"
         },
@@ -937,15 +961,14 @@ TableTools.BUTTONS.downloadtest = {
   sDiv: "",
   fnMouseover: null,
   fnMouseout: null,
-  fnClick: function(nButton, oConfig) {
+  fnClick: function (nButton, oConfig) {
     var ColumnsShown = $("#tblPrueba2").getColumnsShown(tblPrueba2);
 
     var oParams = this.s.dt.oApi._fnAjaxParameters(this.s.dt);
     var tmp_str = $("#myInputTextField")
       .val()
       .replace(/\r?\n/g, " ");
-    var ignitedPost = [
-      {
+    var ignitedPost = [{
         name: "id",
         value: tmp_str
       },
@@ -1007,7 +1030,7 @@ TableTools.BUTTONS.downloadtest = {
 };
 
 function updateGeneBasket(gaiSelected) {
-  $.each(gaiSelected, function(i, el) {
+  $.each(gaiSelected, function (i, el) {
     if ($.inArray(el, uniqueGenes) === -1) uniqueGenes.push(el);
   });
 }
@@ -1019,7 +1042,7 @@ function addtothebasket(addstr) {
     data: {
       genes_send_add: addstr
     },
-    success: function() {
+    success: function () {
       updategenebasket();
     }
   });
@@ -1032,7 +1055,7 @@ function removefrombasket(removestr) {
     data: {
       genes_send_remove: removestr
     },
-    success: function() {
+    success: function () {
       updategenebasket();
     }
   });
