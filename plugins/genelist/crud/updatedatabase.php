@@ -54,7 +54,6 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
             }
         } else {
         }
-        //mysqli_query($genelist_connection,"update defaultgenebaskets set gene_basket_id='$kid' where ip='$ip'") or die ("update failed");
         
     }
 } else if (isset($_POST['genes_send_remove'])) {
@@ -118,7 +117,6 @@ if (isset($_POST['genes_send']) || isset($_POST['genes_send_add'])) {
         mysqli_query($genelist_connection, "insert into genebaskets(gene_basket_id,gene_basket_name,harga,genelist,ip) values('$kid','new list','$initcountsnew','$genessendaddStringnew','$ip')") or die("insert failed");
         mysqli_query($genelist_connection, "insert into defaultgenebaskets(defaultgenebaskets.gene_basket_id,defaultgenebaskets.ip) SELECT LAST_INSERT_ID(gene_basket_id),'$ip' from genebaskets WHERE ip='$ip' ORDER BY gene_basket_id DESC Limit 1;");
     }
-    //echo json_encode($initcountsnew);
     
 } else if (isset($_POST['genes_send_add_new_cdn'])) {
     $genessendaddStringnew = trim($_POST['genes_send_add_new_cdn']);

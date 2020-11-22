@@ -18,7 +18,7 @@ if(checkprefix($_POST['id'],"Shared")==true ){
 $keywords =  preg_split("/[\:]+/",trim($_POST['id']));
 		$geneids_array=getdefaultsaredgenelist($keywords[1]);
 		$sharred_list=implode('","',$geneids_array);
-		//echo $_POST['id'];
+
 }
 
 $datatables = new Datatables();
@@ -50,13 +50,6 @@ $datatables
 	->join('gene_go', 'gene_go.gene_i=transcript_info.gene_i', 'left')
 	->join('gene_pfam', 'gene_pfam.gene_i=transcript_info.gene_i', 'left')
 
-
-//->edit_column('ids', '<a target="_parent" href="gene?id=$1" target="_blank">$1</a>', 'ID') 
-//->edit_column(''.$table_name.'.transcript_id', '<a target="_blank" href="transcript?id=$1">$1</a>', ''.$table_name.'.transcript_id')
-
-//->edit_column('transcript_potri.potri_id', '<a target="_blank" href="http://popgenie.org/transcript?id=$1">$1</a>', 'transcript_potri.potri_id') 
-//->edit_column('transcript_atg.atg_id', '<a target="_blank" href="http://atgenie.org/transcript?id=$1">$1</a>', 'transcript_atg.atg_id') ;
-//->unset_column(''.$table_name.'.gene_end') ; 
 ;
 
   
@@ -119,7 +112,6 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 
 
 $intersect_mysql_viscol_keys=array();
-//$mysqlcolumns=array('Gene'=>'ids','Chromosome'=>'chromosome','Source'=>'source','Confidence'=>'confidence','Trinity'=>'trinity_id','PFAM'=>'pfam_ids','GO'=>'go_ids','PFAM-Description'=>'pfam_desc','GO-Description'=>'go_desc');
 $mysqlcolumns=array('Gene'=>'ID','Transcript'=>'transcript_id','Chromosome'=>'chromosome_name','Description'=>'description','Poplar'=>'potri_id','ATG'=>'atg_id','KEGG'=>'kegg_description','ATG Description'=>'atg_description','GO'=>'go_description','PFAM'=>'pfam_description'  );
 $mysqlcolumns_flipped=array_flip($mysqlcolumns);
 $visColumnsarray = explode(",",$_POST['visColumns']);
@@ -131,7 +123,7 @@ foreach($intersect_mysql_viscol as $k=>$v)
 
 ini_set('memory_limit', '-1');
 ini_set('max_execution_time', 300);
-//print_r($intersect_mysql_viscol);
+
 if($_POST['button_name']!="Export table as TSV"){
 header('Content-type: application/csv');
 header('Content-Disposition: attachment; filename=gene_table.csv');
@@ -139,7 +131,7 @@ echo  array_to_scv($datatables->generate_csv($intersect_mysql_viscol_keys),$inte
 }else{
 header('Content-type: application/tsv');
 header('Content-Disposition: attachment; filename=gene_table.tsv');
-//exec("awk '{print $2}' gene_table.tsv "); 
+
 echo  array_to_scv($datatables->generate_csv($intersect_mysql_viscol_keys),$intersect_mysql_viscol,true,"\t","\n","");
 
 }
@@ -200,13 +192,13 @@ function array_to_scv($arrayall,$headerarray, $header_row = true, $col_sep = ","
 	}
 	
 	
-	//print_r( $uniqueEmails);
+
 	return $output;
 }
 
 
 
-//echo $datatables->generate($default_gene_basket_array);
+
 
 
 

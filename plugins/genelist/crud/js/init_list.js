@@ -54,7 +54,6 @@ $(function() {
 })
 
 function changespeciesdropdown(tmpcookie) {
-	//console.log(tmpcookie);
 	if (tmpcookie.match(/^potr[aisx]$/)) {
 		$('#poplar_species_select').val(tmpcookie).change();
 		setCookie("select_species", tmpcookie, 10);

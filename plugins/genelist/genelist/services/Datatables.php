@@ -1,22 +1,4 @@
 <?php
-  /**
-  * Ignited Datatables
-  *
-  * This is a wrapper class/library for Datatables (table plug-in for Jquery)
-  *
-  * @version    0.6 ( Standalone Php Library )
-  * @author     Vincent Bambico <metal.conspiracy@gmail.com>
-  *             Yusuf Ozdemir <yusuf@ozdemir.be>
-  *
-  * Standalone Php Library:
-  * @Fork     : https://github.com/n1crack/IgnitedDatatables-native-php-version
-  * @Discuss  : http://datatables.net/forums/discussion/5133/ignited-datatables-native-php-version
-  * 
-  * Codeigniter Library:
-  * @Fork     : https://github.com/IgnitedDatatables/Ignited-Datatables
-  * @Discuss  : http://codeigniter.com/forums/viewthread/160896/
-  * 
-  */
   class Datatables
   {
     /**

@@ -19,17 +19,7 @@ function changedbsource(sel_genome) {
   //current_species_tmp=sel_genome;
 }
 
-/*if(species_selection!=""){
-	$('input:radio[name="popr"][value='+species_selection+']').attr('checked', true);
-	}else{
-		if(getCookie("select_species") != undefined) {
-		var tmpcookier=getCookie("select_species");
-		$('input:radio[name="popr"][value='+tmpcookie+']').attr('checked', true);
-		}
-
-	}*/
-
-//Very cool custom functions
+//Function to get header address
 function $_GET(q, s) {
   s = s ? s : window.location.search;
   var re = new RegExp("&" + q + "(?:=([^&]*))?(?=&|$)", "i");
@@ -53,11 +43,7 @@ $.fn.getColumnsShown = function(dTable) {
 function handleAjaxError(xhr, textStatus, error) {
   var hm_basic = $("body").wHumanMsg();
   if (textStatus === "timeout") {
-    /*	hm_basic.wHumanMsg('Sorry! The server took too long to send the data.', {
-                        theme: 'red',
-                        opacity: 1,
-                        displayLength: 200
-                    });*/
+
   } else {
     hm_basic.wHumanMsg(
       "An error occurred on the server. Please try again in a minute.",
@@ -91,8 +77,7 @@ $(document).ready(function() {
    */
   $("#myInputTextField").keyup(function() {
     tblPrueba2.fnFilter($(this).val(), $("#myInputTextField").val());
-    //console.log($(this).val());
-    // setCookie("mainsearchcookie", $('#myInputTextField').val(), 7);
+
 
     if ($("#myInputTextField").val().length == 0) {
       toastr.options = {
@@ -403,20 +388,7 @@ $(document).ready(function() {
       sRowSelect: "multi",
       sSwfPath: "plugins/genelist/genelist/swf/copy_csv_xls_pdf.swf",
       aButtons: [
-        /*{
-                'sExtends': 'copy',
-                'sToolTip': 'Copy table',
-                'sButtonText': 'Copy table'
-            }, */
-
-        /*{
-                'sExtends': 'downloadtest',
-                'sToolTip': 'Export table as CSV',
-                'sButtonText': 'Export table as CSV',
-                'sFileName': '*.csv',
-                "sUrl": "plugins/genelist/genelist/services/download.php",
-                "mColumns": "visible"
-            },*/ {
+ {
           sExtends: "ajax",
           sButtonText:
             '<span class="hint--top" aria-label="Save current search results to active GeneList"><i class="fa fa-cart-plus  fa-2x" aria-hidden="true"></i></span>',
@@ -541,48 +513,7 @@ $(document).ready(function() {
           }
         },
 
-        //
-        // {
-        //     "sExtends": "ajax",
-        //     'sButtonText': 'Remove selected from Gene List',
-        //     "fnClick": function (nButton, oConfig) {
-        //
-        //         var searchs = $('#myInputTextField').val(); //this.s.dt.oPreviousSearch.sSearch;
-        //         var columns = this.s.dt.aoPreSearchCols;
-        //         var columnsearch = "";
-        //         var oParams = this.s.dt.oApi._fnAjaxParameters(this.s.dt);
-        //         var numberofgenesrecord = this.s.dt._iRecordsTotal;
-        //
-        //         for (i = 0; i < columns.length; i++) {
-        //             columnsearch += "&filter_" + i + "=" + encodeURIComponent(columns[i].sSearch);
-        //         }
-        //         var finalvar = $.param(oParams) + "&iDisplayLength=" + this.s.dt._iRecordsTotal + "&remove_genes=true&id=" + $('#myInputTextField').val()+"&selected_genome="+$('input[name=popr]:checked').val();;
-        //         $('body').css("cursor", "wait");
-        //         $(nButton).html("Removing genes..<img src='plugins/genelist/genelist/swf/btnloader.GIF' />");
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "plugins/genelist/genelist/services/search_id.php",
-        //             data: (finalvar),
-        //             success: function () {
-        //                 $("#numberofgenesSpan").stop();
-        //                 $("#numberofgenesSpan").effect("transfer", {
-        //                     to: "#deletebasket",
-        //                     className: "ui-effects-transfer-2"
-        //                 }, 1600);
-        //                 updategenebasket();
-        //                 $('body').css("cursor", "auto");
-        // 	$(nButton).html("Remove all from Gene List");
-        //                 $('.checkboxSelector', tblPrueba2.fnGetNodes()).prop('checked', false);
-        //                 selectboolean = false;
-        //             }
-        //
-        //         });
-        //
-        //
-        //     }
-        //
-        // },
-
+  
         {
           sExtends: "ajax",
           sButtonText:
@@ -785,7 +716,7 @@ $(document).ready(function() {
     }
     //datatables end
   });
-  //tblPrueba2.bind('processing',function(e, oSettings, bShow){console.log(bShow)});
+
   var old_number = 0;
   var invalid_boolean;
   tblPrueba2.bind("processing", function(e, oSettings, bShow) {
@@ -795,16 +726,11 @@ $(document).ready(function() {
       $("#loader").hide();
 
       if ($("#myInputTextField").val() == "") {
-        //hm_loading_errors.wHumanMsg('Please type in some gene ids.', {theme: 'green', opacity: 0.8, displayLength: 300});
       } else {
-        //  $('#elem').wHumanMsg('opacity', 0.0)
-        // console.log($('#elem').wHumanMsg('opacity'));
-
         if (
           oSettings._iRecordsDisplay == 73013 ||
           oSettings._iRecordsDisplay == 0
         ) {
-          //	hm_loading_errors.wHumanMsg('Invalid input detected, please type in correct ids.', {theme: 'yellow', opacity: 0.6,displayLength: 200});
           if (invalid_boolean != true) {
             toastr.options = {
               closeButton: false,
@@ -827,15 +753,10 @@ $(document).ready(function() {
             invalid_boolean = true;
           }
         } else {
-          //var hm_loading_errors = $("body").wHumanMsg();
           if (
             oSettings._iRecordsDisplay > 1 &&
             oSettings._iRecordsDisplay != 73013
           ) {
-            // $('#elem').wHumanMsg('opacity', 0.0);
-            //hm_loading_errors.wHumanMsg(''+oSettings._iRecordsDisplay+' gene models found.', {theme: 'green', opacity: 0.8, displayLength: 8000});
-            //toastr.clear();
-
             if (old_number != oSettings._iRecordsDisplay) {
               toastr.options = {
                 closeButton: false,
@@ -911,7 +832,7 @@ $(document).ready(function() {
             //event.stopPropagation();
             $("#myInputTextField").val(JSON.parse(data));
             //event.stopPropagation();
-            //console.log(data);
+
             tblPrueba2.fnFilter($("#myInputTextField").val(), JSON.parse(data));
           } catch (err) {
             console.log(err);

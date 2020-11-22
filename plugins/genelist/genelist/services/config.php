@@ -48,7 +48,7 @@ $datatables
 
 ->edit_column('transcript_potri.potri_id', '<a target="_blank" href="http://popgenie.org/transcript?id=$1">$1</a>', 'transcript_potri.potri_id') 
 ->edit_column('transcript_atg.atg_id', '<a target="_blank" href="http://atgenie.org/transcript?id=$1">$1</a>', 'transcript_atg.atg_id') ;
-//->unset_column(''.$table_name.'.gene_end') ; 
+
 
 
   

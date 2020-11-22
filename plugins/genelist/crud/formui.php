@@ -48,10 +48,8 @@ if (isset($_GET['action']) and $_GET['action'] == "savecurent") {
     <table style="border:1px solid #e15b63;border-radius: 10px;padding: 2px 2px 2px 2px;" width="100%">
         <input type="hidden" name="genebasketid" size="20" value="<?php echo $kid;?>" />
         <tr >
-            <!-- <td>name</td> -->
             <td>
                 <input id="namebarangid" type="text" name="namabarang" size="28" style="font-size:16px;width:80%;background-color: #fafafa  ; outline: none;border:none;color:blue;font-weight:bold;color:#7ab6ab" value="<?php echo $lname;?>" />&nbsp;
-                <!-- <button type="submit" value="" class="btn btn-default"><span id="submitformbtn"></span></button> -->
                 <span class="hint--top" aria-label="Save GeneList"><button class="submitb" type="submit" style="font-size:20px;cursor:pointer;color:#909090"><i class="fa fa-save"></i></button></span>
             </td>
         </tr>
