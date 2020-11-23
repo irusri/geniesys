@@ -1,5 +1,4 @@
 <?php
-//print  json_encode($result);//, JSON_NUMERIC_CHECK);
 $selected_genelist=trim($_POST['selected_genelist']);
 $primaryGenes=trim($_POST['primaryGenes']);
 $datatype = trim($_POST['datatype']);

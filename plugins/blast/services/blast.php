@@ -72,16 +72,11 @@ foreach($_POST as $name => $value) {
 			if (!file_exists('../tmp')) {
     			mkdir('../tmp', 0777, true);
 			}
-
-
-
 			$my_submission_file = $tmp_random_id.'.submission';
 			$handle_submission = fopen('../tmp/'.$my_submission_file, 'w') or die('Cannot open file:  '.$my_submission_file); //open file for writing ('w','r','a')...
 			$data_to_write_submission = trim($par2);
 			fwrite($handle_submission, $data_to_write_submission);
 			fclose($handle_submission);
-			
-			
 		break;
 		case 'query_sequence_text':
 		if (!file_exists('../tmp')) {

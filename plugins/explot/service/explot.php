@@ -79,11 +79,6 @@ $source_view='expression_tissues';
 
 $geneids_array = $primaryGenes;//explode(",", $primaryGenes);
 for($t=0;$t<count($geneids_array);$t++){
-/*if(checkprefix($geneids_array[$t],"Esu")==true){	
-$resultprobeset = mysql_query("SELECT * FROM $source_view WHERE id='$geneids_array[$t]' order by sample;")
-or die(mysql_error()); 
-}else{*/
-	
 	$pattern = '/^[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[0-9]?[0-9]$/';
 		if(preg_match($pattern,$geneids_array[$t])== true){
 			$newpattern = '/^[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+[.]+[0-9]$/';
@@ -97,9 +92,6 @@ or die(mysql_error());
 		}else{
 			$resultprobeset = mysql_query("SELECT DISTINCT sample,id,log2 FROM $source_view WHERE id='$geneids_array[$t]' order by sample;;")	or die(mysql_error()); 
 		}
-//}
-
-
 
 $rows = array();
 $rows2 = array();
@@ -107,11 +99,7 @@ $rows2 = array();
 $rows['name'] = $geneids_array[$t];
 while ($rowPROBE_ID = mysql_fetch_assoc($resultprobeset)) {
 	$rows['data'][]=(float)$rowPROBE_ID['log2'];
-	//if($rowPROBE_ID['sample']!=""){
-	//$rows['samples'][]=$rowPROBE_ID['sample'];
 	$rows2['sample'][]=$rowPROBE_ID['sample'];
-	//$rows['samples'].=$rowPROBE_ID['sample'];
-	//}
 }
 
 array_push($result,$rows);
@@ -119,7 +107,6 @@ array_push($result,$rows);
 array_push($result2,$rows2);
 }
 $result2=$result2[0]['sample']; 
-//array("immature_xylem", "mature_leaf", "phloem", "shoot_tips","xylem", "young_leaf");
 
 if($source=="eplant_sex"){
 $result2= array("alidhem", "ersboda", "leaf-01", "leaf-02", "leaf-03", "leaf-04", "leaf-05", "leaf-06", "leaf-07", "leaf-08", "leaf-09", "leaf-10", "leaf-11", "leaf-12", "leaf-13", "leaf-14", "leaf-15", "leaf-16", "leaf-17", "sculPark");
@@ -129,9 +116,6 @@ $result2= array("Buds-Dormant", "Buds-Pre-chilling", "Cambium-Phloem-Dormant", "
 }
 
 $arrsg = array ('popdata'=>$result,'samples'=>$result2);
-
-//
-
 return $arrsg;
 }
 
