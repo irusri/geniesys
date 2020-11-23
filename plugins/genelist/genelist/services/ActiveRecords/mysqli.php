@@ -176,7 +176,6 @@
     public function result()
     {
       $aData = array();
-
       while ($aRow = mysqli_fetch_object($this->_result))
         $aData[] = $aRow;
 
@@ -250,7 +249,7 @@
 
       if (is_numeric($this->ar_limit))
         $sql .= "\nLIMIT ".(($this->ar_offset == 0)? '' : $this->ar_offset.', ').$this->ar_limit;
-
+//print_r($sql);
       return $sql;
     }
 
