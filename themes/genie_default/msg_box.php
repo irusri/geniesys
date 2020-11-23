@@ -27,6 +27,9 @@
 			cursor:pointer;
 			background:#D7D8D7;
 			text-transform: capitalize;
+			float:right;
+	
+			
 		}
 </style>
 
@@ -39,5 +42,4 @@
 		$div2.hide();
 		}, 1000);
 	}
-
-</script>
+</script> 

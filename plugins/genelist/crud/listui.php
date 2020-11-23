@@ -20,7 +20,7 @@ if (mysqli_num_rows($defaultresults) != 0) {
     $checkbasketsquery = "SELECT genebaskets.gene_basket_id FROM genebaskets WHERE genebaskets.ip='$ip'";
     $checkbasketsresults = mysqli_query($genelist_connection,$checkbasketsquery) or die("broken connection");
     if (mysqli_num_rows($checkbasketsresults) != 0) {
-        $defaultgenebasketname = '<font style="color:#7ab6ab">No active genelist selected! click one of following gene list name to use it as a active genelist.</font>';
+        $defaultgenebasketname = '<font style="color:#7ab6ab">No active genelist selected!, click the following list to make it as an active genelist.</font>';
     } else {
         $defaultgenebasketname = '<font style="color:#7ab6ab">Click  <a style="cursor:pointer"  onclick="open_genelist();"><font style="color:#00F" width="3"  id="defaultgenebasket">here</font></a> to open the GeneList.</font>';
     }

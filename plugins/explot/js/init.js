@@ -4,15 +4,15 @@ var data_points = "";
 var y_axis_label = 'Normalized expression';
 var replicate_flag;
 var plus_minus_corr;
-var private_selected_sample="";
-var private_selected_datatype="";
+var private_selected_sample = "";
+var private_selected_datatype = "";
 
 function tmp_array_alert(removeItem) {
 	var removeme = "     <a target='_blank' href='gene?id=" + removeItem + "'>" + removeItem + "</a>  <span onclick='" + 'tmp_array_alert("' + removeItem + '");' + "' style='font-weight:bold;font-size:14px;color:#FF0000;cursor:pointer'>x</span>";
-	tmp_array = $.grep(tmp_array, function(value) {
+	tmp_array = $.grep(tmp_array, function (value) {
 		return value != removeme;
 	});
-	tmp_ids_array = $.grep(tmp_ids_array, function(value) {
+	tmp_ids_array = $.grep(tmp_ids_array, function (value) {
 		return value != removeItem;
 	});
 	toastr.options = {
@@ -57,8 +57,7 @@ function tmp_array_alert(removeItem) {
 		$('#newtable_2title').html("- Selected Genes <strong>" + tmp_array.length + "</strong>");
 		$('#newtable_4title').html("+ Selected Genes <strong>" + tmp_array.length + "</strong>");
 		$('#listids').html(tmp_array.join("<br>"));
-	}
-	else {
+	} else {
 		$('#newtable_2').hide();
 	}
 }
@@ -80,16 +79,8 @@ function geneadded(addedgene) {
 	}
 	toastr.success('' + addedgene + ' gene has been added to explot list.', 'Successfully added');
 }
-$(function() {
-	//var tmp_array= new Array(); ;
-	
-console.log("ss")
-	
+$(function () {
 	Popcharts.setOptions({
-		//  colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
-		//         '#FF9655', '#FFF263', '#6AF9C4']
-		//colors: [ "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
-		//"#55BF3B", "#DF5353", "#7798BF", "#aaeeee"]
 		colors: ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a']
 	});
 	//$.pageslide({ direction: 'left', href: '#modal', modal: false });
@@ -97,63 +88,57 @@ console.log("ss")
 	var chart;
 	var chartType = 'line';
 	var chartDataLength = 0;
-	var private_datatype="";
+	var private_datatype = "";
 	//var datasource="experiment_1";
 	//Custom funcadtion to draw chart
-	$.drawchart = function() {
-		$("#explot_waiting").show(); 
+	$.drawchart = function () {
+		$("#explot_waiting").show();
 		input_ids = $('#input_ids').val();
 		input_ids3 = input_ids.replace(/ /g, '')
 		var tmp_datasource = "";
 		var tmp_datatype = "";
-		
+
 		if (replicate_flag == "true") {
 			tmp_datasource = datasource;
-		}
-		else {
+		} else {
 			tmp_datasource = datasource; //+"_no_replicates";
 		}
-		
-		
-		var cookie_datatype=getCookie("cookie_datatype");
-		if(cookie_datatype!=null && cookie_datatype != undefined){private_datatype=cookie_datatype;}else{private_datatype="vst";}
-	
-		
-		private_selected_sample=tmp_datasource;
-		private_selected_datatype=private_datatype;
-		
-			var ele_type = document.getElementsByName('typergb');
-	/*if(private_datatype=="vst"){
-		ele_type[0].checked=true;
-	}else{
-		ele_type[1].checked=true;;
-	}
-	*/
-		
-		
+
+
+		var cookie_datatype = getCookie("cookie_datatype");
+		if (cookie_datatype != null && cookie_datatype != undefined) {
+			private_datatype = cookie_datatype;
+		} else {
+			private_datatype = "vst";
+		}
+
+
+		private_selected_sample = tmp_datasource;
+		private_selected_datatype = private_datatype;
+
+		var ele_type = document.getElementsByName('typergb');
+
 		$.post("plugins/explot/service/explot_service.php", {
 			primaryGenes: input_ids3,
 			source: tmp_datasource,
-			datatype:private_datatype
-		}, function(json) {
-			
+			datatype: private_datatype
+		}, function (json) {
+
 			if (json == "exceeded") {
 				$("#outterbox").hide();
 				$('#externallink2').html("<font color='#CC0000'><strong>Limit exceeded!</strong></br> Please select number of genes less than 1000.</font>");
 				return true;
 			}
 			if (json.popids != null) {
-				
-				
+
+
 				var ids = json.popids.join(', ');
 				$('#input_ids').val(ids);
 				$('#infolabels').html("You have selected <font color='#CC0000'>" + json.popdata.length + "</font> genes and <font color='#CC0000'>" + json.samples.length + "</font> samples.");
-			}
-			else {
+			} else {
 				if (json.popdata.length == 0) {
 					$('#infolabels').html("You haven't selected any genes and samples yet. Please go to the <a  href='?genelist=enable'>GeneList</a> and  <a href='?samplelist=enable' >SampleList</a> and select few genes.");
-				}
-				else {
+				} else {
 					if (json.popdata.length > 40) {
 						Popcharts.setOptions({
 							colors: ["#999999"]
@@ -300,13 +285,12 @@ console.log("ss")
 					//console.log(sample_name2)
 					//console.log(sample_name2);
 				}
-			}
-			else {
+			} else {
 				testarramd = testarr;
 				testarramd2 = testarr;
 				//console.log(testarr);
 			}
-			var setMin = function() {
+			var setMin = function () {
 				var chart = this,
 					ex = chart.yAxis[0].getExtremes();
 				// Sets the min value for the chart 
@@ -330,12 +314,12 @@ console.log("ss")
 					easing: 'easeOutBounce'
 				},
 				title: {
-					
-					text: '<i>'+$('#'+private_view)[0].labels[0].innerHTML+'</i> vs. gene expression',
+
+					text: '<i>' + $('#' + private_view)[0].labels[0].innerHTML + '</i> vs. gene expression',
 					x: -20
 				}, //center
 				subtitle: {
-					text: 'Source : '+MAIN_GENELIST_TABLE.split("_")[0]+'.org',
+					text: 'Source : ' + MAIN_GENELIST_TABLE.split("_")[0] + '.org',
 					x: -20
 				},
 				xAxis: {
@@ -349,7 +333,7 @@ console.log("ss")
 							fontFamily: 'Verdana, sans-serif'
 						}
 					},
-					 tickmarkPlacement: 'on'
+					tickmarkPlacement: 'on'
 				},
 				yAxis: {
 					title: {
@@ -367,7 +351,7 @@ console.log("ss")
 					enabled: false
 				},
 				tooltip: {
-					formatter: function() {
+					formatter: function () {
 						return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
 					}
 				},
@@ -387,40 +371,18 @@ console.log("ss")
 					series: {
 						point: {
 							events: {
-								/*
-					click: function(event) {
-        console.log(event.point.series.userOptions.id,"X("+this.x+"),Y("+this.y+")",this.series.data);
-      },*/
-								drag: function(e) {
-									// Returning false stops the drag and drops. Example:
-									/*
-									if (e.newY > 300) {
-									    this.y = 300;
-									    return false;
-									}
-									*/
-									/*if(e.y>chart.yAxis[0].min){
-                        $('#drag').html(
-							
-                            'Dragging <b>' + this.series.name + '</b>, <b>' + this.category + '</b> to <b>' + Popcharts.numberFormat(e.y, 2) + '</b>');
-					 
-					} else{
-					e.y = 1
-					return false;
-				}*/
+
+								drag: function (e) {
 									if (e.y < chart.yAxis[0].min) {
 										e.y = chart.yAxis[0].min;
 										return false;
-									}
-									else if (e.y > chart.yAxis[0].max) {
+									} else if (e.y > chart.yAxis[0].max) {
 										e.y = chart.yAxis[0].max;
 										return false;
-									}
-									else {
-										//$('#drag').html('Dragging <b>' + this.series.name + '</b>, <b>' + this.category + '</b> to <b>' + Popcharts.numberFormat(e.y, 2) + '</b>');
+									} else {
 									}
 								},
-								drop: function() {
+								drop: function () {
 									$('#drop').html('In <b>' + this.series.name + '</b>, <b>' + this.category + '</b> was set to <b>' + Popcharts.numberFormat(this.y, 2) + '</b>');
 								} //drop
 							}
@@ -431,7 +393,7 @@ console.log("ss")
 						},
 						cursor: 'pointer',
 						events: {
-							click: function(e) {
+							click: function (e) {
 								tmp_array.push("     <a target='_blank' href='gene?id=" + this.name + "'>" + this.name + "</a>  <span onclick='" + 'tmp_array_alert("' + this.name + '");' + "' style='font-weight:bold;font-size:14px;color:#FF0000;cursor:pointer'>x</span>");
 								geneadded(this.name);
 								tmp_array = $.unique(tmp_array);
@@ -444,8 +406,7 @@ console.log("ss")
 									$('#newtable_2title').html("- Selected Genes <strong>" + tmp_array.length + "</strong>");
 									$('#newtable_4title').html("+ Selected Genes <strong>" + tmp_array.length + "</strong>");
 									$('#listids').html(tmp_array.join("<br>"));
-								}
-								else {
+								} else {
 									$('#newtable_2').hide();
 								}
 							}
@@ -458,19 +419,18 @@ console.log("ss")
 						cursor: 'ns-resize'
 					}
 				}
-				
+
 			});
-			$("#explot_waiting").hide(); 
+			$("#explot_waiting").hide();
 			//Trigger swaplabelsbtn click event and Fire the swaplabelsbtn click event with xAxis update
 			var swap_boolean = true;
-			$("#swaplabelsbtn").click(function() {
+			$("#swaplabelsbtn").click(function () {
 				if (swap_boolean == true) {
 					chart.xAxis[0].update({
 						categories: testarramd2
 					}, true);
 					swap_boolean = false;
-				}
-				else {
+				} else {
 					chart.xAxis[0].update({
 						categories: testarramd
 					}, true);
@@ -491,17 +451,16 @@ console.log("ss")
 			document.getElementById('externallink2').innerHTML = "<a target='_blank' href='http://dx.doi.org/10.1111/nph.13077'>The floral transcriptome of Eucalyptus grandis</a><br><FONT size='2px'>Kelly J. Vining, Elisson Romanel, Rebecca C. Jones, Amy Klocko, Marcio Alves-Ferreira, Charles A. Hefer, Vindhya Amarasinghe, Palitha Dharmawardhana, Sushma Naithani, Martin Ranik, James Wesley-Smith, Luke Solomon, Pankaj Jaiswal, Alexander A. Myburg and Steven H. Strauss</FONT>";
 		}
 	}
-	
-	
+
+
 	//Trigger swapyaxis click event
-	$("#swapyaxis").click(function() {
+	$("#swapyaxis").click(function () {
 		if (data_points == "non_log") {
 			data_points = "";
 			y_axis_label = 'Data Expression (log2)';
 			$("#swapyaxis").html("Change to non Log values")
 			$.drawchart();
-		}
-		else {
+		} else {
 			data_points = "non_log";
 			y_axis_label = 'Data Expression ';
 			$("#swapyaxis").html("Change to Log values")
@@ -509,7 +468,7 @@ console.log("ss")
 		}
 	});
 	// Testing add series
-	$('#findcorr').click(function() {
+	$('#findcorr').click(function () {
 		var series = chart.get('wow')
 		var genelist_str = series.yData.join(",");
 		var random_id = Math.round(Math.random() * 100) + 1;
@@ -517,8 +476,7 @@ console.log("ss")
 		var tmp_datasource = "";
 		if (replicate_flag == "true") {
 			tmp_datasource = datasource;
-		}
-		else {
+		} else {
 			tmp_datasource = datasource; //+"_no_replicates";
 		}
 		console.log(plus_minus_corr)
@@ -530,15 +488,8 @@ console.log("ss")
 			dataType: "json",
 			url: "plugins/explot/service/explot_corr.php",
 			data: (finalvar),
-			success: function(json) {
-				/*if(json.length==0 ){
-									toastr.options = {"closeButton": false,"debug": false,"positionClass": "toast-bottom-right","onclick": null,"showDuration": "1","hideDuration": "0","timeOut": "4000","extendedTimeOut": "0","showEasing": "linear","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
- 	 toastr.error('No similar genes can be found for your profile.', 'No macthes!');												  
-							}else{
-							
-								
-							}
-							$(".loader-wrap").hide();*/
+			success: function (json) {
+
 				if (json.popdata.length == 0) {
 					toastr.options = {
 						"closeButton": false,
@@ -561,8 +512,7 @@ console.log("ss")
 				for (var i = seriesLength - 1; i > -1; i--) {
 					if (chart.series[i].name.toLowerCase() == 'navigator') {
 						navigator = chart.series[i];
-					}
-					else {
+					} else {
 						if (chart.series[i].name != "Draggable Series") {
 							chart.series[i].remove();
 						}
@@ -573,24 +523,22 @@ console.log("ss")
 					//console.log(json.popdata[k]);
 				}
 				$(".loader-wrap").hide(); //$("#loading_img").hide(); 			
-				//   console.log(data);
-				//	draw_avg_line();					
+				
 			}
 		});
 	});
 	// Testing add series
-	$('#findexp').click(function() {
+	$('#findexp').click(function () {
 		var series = chart.get('wow')
 		var genelist_str = series.yData.join(",");
 		console.log(series)
-		
+
 		var random_id = Math.round(Math.random() * 100) + 1;
 		var new_gene_list_name = datasource + "_" + random_id;
 		var tmp_datasource = "";
 		if (replicate_flag == "true") {
 			tmp_datasource = datasource;
-		}
-		else {
+		} else {
 			tmp_datasource = datasource; //+"_no_replicates";
 		}
 		var tmp_range = $("#expr_slider").slider("option", "value");
@@ -601,7 +549,7 @@ console.log("ss")
 			dataType: "json",
 			url: "plugins/explot/service/explot_get_genes.php",
 			data: (finalvar),
-			success: function(json) {
+			success: function (json) {
 				//console.log(json)
 				if (json.popdata.length == 0) {
 					toastr.options = {
@@ -625,8 +573,7 @@ console.log("ss")
 				for (var i = seriesLength - 1; i > -1; i--) {
 					if (chart.series[i].name.toLowerCase() == 'navigator') {
 						navigator = chart.series[i];
-					}
-					else {
+					} else {
 						if (chart.series[i].name != "Draggable Series") {
 							chart.series[i].remove();
 						}
@@ -643,62 +590,30 @@ console.log("ss")
 		});
 		//console.log(finalvar);
 	});
-	$('#newtable_3title').click(function() {
-		
-			mainCreategenelistbyName(tmp_ids_array.join(),"explot_list",function(e){get_active(function(e){
-				
-toastr.success("explot_list GeneList has been created with " + tmp_ids_array.length + ' gene ids.', 'New GeneList created');
-				
-			$("#newtable_3title").effect("transfer", {
-				to: "#numberofgenesSpan",
-				className: "ui-effects-transfer-2"
-			}, 600);
-				$("#newtable_2").hide();
-				
-			})})
+	$('#newtable_3title').click(function () {
 
-		
-/*		
-		$.post("plugins/explot/service/explot.php", {
-			selected_genelist: tmp_ids_array.join()
-		}, function(json) {
-			var hm_basic = $("body").wHumanMsg();
-			hm_basic.wHumanMsg("explot list has been created. Please click GeneList link to see more details.", {
-				theme: 'yellow',
-				opacity: 1,
-				displayLength: 8000
-			});
-			$("#newtable_3title").effect("transfer", {
-				to: "#numberofgenesSpan",
-				className: "ui-effects-transfer-2"
-			}, 600);
-			open_genelist_slider();
-		});*/
-		//alert("Wait!, I'll make a special list for you.");
+		mainCreategenelistbyName(tmp_ids_array.join(), "explot_list", function (e) {
+			get_active(function (e) {
+
+				toastr.success("explot_list GeneList has been created with " + tmp_ids_array.length + ' gene ids.', 'New GeneList created');
+
+				$("#newtable_3title").effect("transfer", {
+					to: "#numberofgenesSpan",
+					className: "ui-effects-transfer-2"
+				}, 600);
+				$("#newtable_2").hide();
+
+			})
+		})
+
 	});
 	//Click startTour BUtton
-	$('#startTourBtn').click(function() {
+	$('#startTourBtn').click(function () {
 		mannapperuma.startTour(tour);
 	});
 	//data source change
-/*	$.each(['eplant_log', 'eplant_sex', 'eplant_asp201'], function(i, type) {
-		$('#' + type).change(function() {
-			datasource = type;
-			setCookie("cookie_view", datasource, 10);
-			$.drawchart();
-			$("#button2").hide();
-			$("#buttonxx").show();
-			$("#button3").hide();
-		});
-	});*/
-	
-	
-	
-	
-	
-		//data source change
-	$.each(['vstvalue', 'tpmvalue'], function(i, type2) {
-		$('#' + type2).change(function(e) {
+	$.each(['vstvalue', 'tpmvalue'], function (i, type2) {
+		$('#' + type2).change(function (e) {
 			var datatype = e.target.value;
 			setCookie("cookie_datatype", datatype, 10);
 			$.drawchart();
@@ -707,35 +622,31 @@ toastr.success("explot_list GeneList has been created with " + tmp_ids_array.len
 			//$("#button3").hide();
 		});
 	});
-	
-	
 
-	
-	
 	// the button action
-var hasPlotBand = false,
-    $button = $('#button');
+	var hasPlotBand = false,
+		$button = $('#button');
 
-$button.click(function () {
-    if (!hasPlotBand) {
-        chart.xAxis[0].addPlotBand({
-            from: 3.5,
-            to: 7.5,
-            color: '#FCFFC5',
-            id: 'plot-band-1'
-        });
-        $button.html('Remove plot band');
-    } else {
-        chart.xAxis[0].removePlotBand('plot-band-1');
-        $button.html('Add plot band');
-    }
-    hasPlotBand = !hasPlotBand;
-});
+	$button.click(function () {
+		if (!hasPlotBand) {
+			chart.xAxis[0].addPlotBand({
+				from: 3.5,
+				to: 7.5,
+				color: '#FCFFC5',
+				id: 'plot-band-1'
+			});
+			$button.html('Remove plot band');
+		} else {
+			chart.xAxis[0].removePlotBand('plot-band-1');
+			$button.html('Add plot band');
+		}
+		hasPlotBand = !hasPlotBand;
+	});
 
-	
-	
+
+
 	//Export
-	$('#save_as_pdf').click(function() {
+	$('#save_as_pdf').click(function () {
 		chart.exportChart({
 			type: 'application/pdf',
 			filename: datasource
@@ -745,7 +656,7 @@ $button.click(function () {
 			}
 		});
 	});
-	$('#save_as_png').click(function() {
+	$('#save_as_png').click(function () {
 		chart.exportChart({
 			type: 'image/png',
 			filename: datasource
@@ -755,7 +666,7 @@ $button.click(function () {
 			}
 		});
 	});
-	$('#save_as_svg').click(function() {
+	$('#save_as_svg').click(function () {
 		chart.exportChart({
 			type: 'image/svg+xml',
 			filename: datasource
@@ -766,8 +677,8 @@ $button.click(function () {
 		});
 	});
 	//Chart type radio change
-	$.each(['line', 'bar', 'spline', 'area', 'areaspline', 'scatter', 'pie', 'column'], function(i, type) {
-		$('#' + type).change(function() {
+	$.each(['line', 'bar', 'spline', 'area', 'areaspline', 'scatter', 'pie', 'column'], function (i, type) {
+		$('#' + type).change(function () {
 			chartType = type;
 			for (var j = 0; j < chartDataLength; j++) {
 				chart.series[j].update({
@@ -777,32 +688,13 @@ $button.click(function () {
 		});
 	});
 	// the submit handler
-	$('#submit').click(function() {
+	$('#submit').click(function () {
 		$.drawchart();
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-});
-/*//hide/show sliding window
-function toggleslide(){
-	if( $pageslide.is( ':visible' )) {
-	 $.pageslide.close();
-	      document.getElementById('showbtn').style.display='inline';
-		    document.getElementById('container').style.width='100%';
-	   }else{
-		  $.pageslide({ direction: 'left', href: '#modal', modal: false });
 
-	     document.getElementById('showbtn').style.display='none';
-	   }
-}*/
+
+});
+
 function toggleMe() {
 	var e = document.getElementById('newtable_3');
 	if (!e) return true;
@@ -810,8 +702,7 @@ function toggleMe() {
 		//  e.style.display="block"
 		document.getElementById('newtable_3').style.display = "block"
 		document.getElementById('newtable_2').style.display = "none"
-	}
-	else {
+	} else {
 		document.getElementById('newtable_3').style.display = "none"
 		document.getElementById('newtable_2').style.display = "block"
 	}
@@ -856,68 +747,62 @@ function additional_control_close() {
 }
 
 
-function changeview(e){
-	private_view=e;
-	datasource = "expression_"+e+"_vst";
+function changeview(e) {
+	private_view = e;
+	datasource = "expression_" + e + "_vst";
 	setCookie("cookie_view", private_view, 10);
 	$.drawchart();
 }
 
-function reinitTool(newArray){
+function reinitTool(newArray) {
 	$("#experiment_div").empty();
-	maingetAllExpriments(function(activeexpriments) {	
-		
-		var tmp_selected="";
-		var tmp_arr=[];
-		activeexpriments=JSON.parse(activeexpriments);
+	maingetAllExpriments(function (activeexpriments) {
+
+		var tmp_selected = "";
+		var tmp_arr = [];
+		activeexpriments = JSON.parse(activeexpriments);
 
 
-		for(var i=0;i<activeexpriments.length;i++){
-			var tmp_name=activeexpriments[i]["experiment_name"];
-			var tmp_value=activeexpriments[i]["experiment_value"];
-			 $("#experiment_div").append('<div><input  type="radio" id="'+tmp_value+'" onchange="changeview(this.id)" name="datasource" class="radio" ><label s="" style="font-style:italic" for="'+tmp_value+'">'+tmp_name+'</label></div>');
-			if(activeexpriments[i]["default selection"]=="1"){
-				tmp_selected=tmp_value;
+		for (var i = 0; i < activeexpriments.length; i++) {
+			var tmp_name = activeexpriments[i]["experiment_name"];
+			var tmp_value = activeexpriments[i]["experiment_value"];
+			$("#experiment_div").append('<div><input  type="radio" id="' + tmp_value + '" onchange="changeview(this.id)" name="datasource" class="radio" ><label s="" style="font-style:italic" for="' + tmp_value + '">' + tmp_name + '</label></div>');
+			if (activeexpriments[i]["default selection"] == "1") {
+				tmp_selected = tmp_value;
 			}
 			tmp_arr.push(tmp_value);
 		}
-				
+
 		var cookieView = getCookie('cookie_view')
-		if(cookieView== null || jQuery.inArray(cookieView, tmp_arr) == -1 ){
-			private_view=tmp_selected;	 
-			setCookie('cookie_view',private_view);
-		}else{
-			private_view=cookieView;
+		if (cookieView == null || jQuery.inArray(cookieView, tmp_arr) == -1) {
+			private_view = tmp_selected;
+			setCookie('cookie_view', private_view);
+		} else {
+			private_view = cookieView;
 		}
 		var b1 = document.getElementById(private_view);
 		b1.checked = true;
-		
-		
-	datasource = "expression_"+private_view+"_vst";	
-
-		if(newArray[0]!=undefined && newArray[0].length>0){
-		
+		datasource = "expression_" + private_view + "_vst";
+		if (newArray[0] != undefined && newArray[0].length > 0) {
 			console.log(newArray)
-			if(newArray[0].length>1000){toastr.error('Please save less than 1000 genes.', 'Limit exceeded');return true}
+			if (newArray[0].length > 1000) {
+				toastr.error('Please save less than 1000 genes.', 'Limit exceeded');
+				return true
+			}
 			$('#input_ids').val(newArray[0]);
 			$.drawchart();
 		}
-		
-	});	
+
+	});
 }
 
-
-maingetactiveDB(function(activedb) {
+maingetactiveDB(function (activedb) {
 	console.log("reinitTool from print.js")
-	//activedb=JSON.parse(activedb);
-	MAIN_ACTIVE_GENELIST_ARRAY=activedb.split(",");
+	MAIN_ACTIVE_GENELIST_ARRAY = activedb.split(",");
 
-	MAIN_ACTIVE_GENELIST=activedb;
-	 // tmp_selected_species_abb=activedb[0]['abbreviation'];
-	 // setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
-	  if (typeof reinitTool == 'function') { 
-		
-		reinitTool(activedb); 
-		  }
-	});
-	
+	MAIN_ACTIVE_GENELIST = activedb;
+	if (typeof reinitTool == 'function') {
+
+		reinitTool(activedb);
+	}
+});

@@ -51,8 +51,6 @@ for($i=0;$i<count($corr_genes);$i++){
 	}
 }
 	
-//print_r($tmp_arr);
-
 if(count($tmp_arr)<201){
 $new_array=getdata($tmp_arr,$expression_table);
 print json_encode($new_array);
@@ -60,16 +58,11 @@ print json_encode($new_array);
 print json_encode("exceeded");	
 }
 
-
 function getdata($primaryGenes,$expression_table){
 mysql_connect("localhost", "popuser", "poppass") or die(mysql_error());
 mysql_select_db("eucgenie_egrandis_v2") or die(mysql_error());
 $result = array();
 $result2 = array();
-//$source='eplant_sex';
-
-//$source_view='expression_tissues';
-
 
 $geneids_array = $primaryGenes;//explode(",", $primaryGenes);
 for($t=0;$t<count($geneids_array);$t++){

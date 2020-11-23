@@ -190,7 +190,7 @@ function settings(){
 		}
 	}
 	echo "</select></span></div></td></tr><tr><td>
-	<div ><b>Navigation  <br><small><font color='red'>You can create two-level menu links with the current version of the GenIE-Sys. Unlike the primary menu items, the sub-level menu links are followed by the <b>-</b> prefix..</font></small> 
+	<div ><b>Navigation  <br><small><font color='red'>You can create two-level menu links with the current version of the GenIE-Sys. Unlike the primary menu items, the sub-level menu links are seperated by the <b>-</b> prefix..</font></small> 
 	</td><td><span id='menu' title='Home' class='editText'>".$c['menu']."</span></div></td></tr>";
 	
 	foreach(array('title','description','keywords','copyright') as $key){

@@ -39,9 +39,7 @@
    <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be type in here</p>
 </form>
 <br>
-<!--<h3> There is a database name stated in the setting file. Howevere that database does not exsist in MySQL server. Do you want to create a new database?</h3>-->
 <button class="upbtn"  id="create_db">create a fresh database</button>
-<!--<button class="upbtn"  id="create_db_arabidopsis">create a database with <i>Arabidopsis thaliana</i></button>-->
 <button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; First you have to create a database or use the existing database.</span> 
 <button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 <br><br>
@@ -91,7 +89,6 @@ There are some missing files in the data directory. Please upload the following 
         <input id="update_description_checkbox" type="checkbox" onchange="annotation_update_description()" name="task_3" value="1" class="tasks-list-cb">
         <span class="tasks-list-mark"></span>
         <span class="tasks-list-desc">Store description (gene and transcript) into the database </span><span id="update_description_waiting"> &nbsp;&nbsp; <img src='plugins/home/css/btnloader.GIF' /></span> 
-        <!--<a href='javascript:go_to_help(this);'>(help)</a>-->
       </label> 
 
 
