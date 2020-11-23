@@ -4,7 +4,7 @@
 [![DOI:10.1101/808881](https://zenodo.org/badge/DOI/10.1101/808881.svg)](https://doi.org/10.1101/808881)
 
 
-Docker installation can be done in several ways.
+Docker installation can be tested or run in several ways.
 
 **1.\) Run using [Play with Docker](https://labs.play-with-docker.com/)**  
 The quickest way to test the GenIE-Sys, it takes only a few minutes
