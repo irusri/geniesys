@@ -151,12 +151,6 @@ $blast_string="";
 <div style="display: none" id="result_buttons">
 <input class="form-submit" type="button" id="frm-fasta" value="FASTA"></input> 
 <input class="form-submit" type="button" id="frm-genelist" value="Create a GeneList"></input> 
-<!--<input class="form-submit" type="button" id="frm-kablammo" value="Send to kablammo"></input> 
-<input class="form-submit" type="button" id="frm-pfam" value="Send to Pfam"></input>
-<input class="form-submit" type="button" id="frm-Galaxy" value="Send to Galaxy"></input>
-<input class="form-submit" type="button" id="frm-best" value="Get Best BLAST"></input>
-<input class="form-submit" type="button" id="frm-tree" value="Create Phylogenetic tree"></input>
-<input class="form-submit" type="button" id="frm-tree" value="Create DOwnload the table results"></input>-->
 </div>
 
 <script src="plugins/blast/js/jquery.dataTables.min.js" type="application/javascript" ></script>

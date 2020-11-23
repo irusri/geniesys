@@ -83,8 +83,5 @@ function limit2($text,$length=40,$tail="...") {
     return ucfirst($text);
 }
 
-
-
-
 //mysqli_close(mysql_connect()); 
 ?>

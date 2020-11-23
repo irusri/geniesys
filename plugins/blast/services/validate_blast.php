@@ -2,7 +2,6 @@
 $uuid=$_POST['uuid'];
 $qid=$_POST['qid'];
 $program=$_POST['program'];
-
 //sleep(10);
 if(isset($uuid)){
 	$tmp_resultfile="../tmp/".$uuid.".output";
@@ -42,7 +41,6 @@ if(isset($uuid)){
 			exec("tsp -c ".$qid,$tmp_path);
 			echo $tmp_path[0];
 		}else{
-
       echo "error";
     }
 		
@@ -200,22 +198,4 @@ foreach ($result_array as $array) {
 }
  return $result;
 }
-/*if(isset($qid) && isset($uuid)){
-	exec("tsp -s ".$qid,$tmp_path);
-	if($tmp_path[0]=="finished"){
-			$resultfile="../tmp/".$uuid.".output";
-			if(file_exists($resultfile) && filesize($resultfile) > 0) {
-				echo $uuid;
-			}
-			//exec("tsp -i ".$qid,$error_text);
-			//$error.=json_encode($error_text);
-		}
-
-}*/
-
-/*if(isset($uuid)){
-	echo getcwd() ;
-	$error.="empty output";
-}
-echo $error;*/
 ?>
