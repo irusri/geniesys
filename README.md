@@ -34,9 +34,6 @@ docker-compose up
  [![Beerpay](https://beerpay.io/plantgenie/geniesys/make-wish.svg?style=flat)](https://beerpay.io/plantgenie/geniesys)
 -->
 
-Now we can start the real development and push changes into genie.
-
-
 Licence & Contributors
 ======================
 
