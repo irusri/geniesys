@@ -27,7 +27,7 @@ cd docker4geniesys
 docker-compose up
 ```
 
-👍 Now you can access the GenIE-Sys on [http://localhost/geniesys/](http://localhost/geniesys/) URL.
+👍   Now you can access the GenIE-Sys on [http://localhost/geniesys/](http://localhost/geniesys/) URL.
 
 <!--
 **Make your wish**
