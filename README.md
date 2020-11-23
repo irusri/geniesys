@@ -4,7 +4,6 @@
 [![DOI:10.1101/808881](https://zenodo.org/badge/DOI/10.1101/808881.svg)](https://doi.org/10.1101/808881)
 
 
-
 Docker installation can be done in several ways.
 
 #### 1.\) Run using Play with Docker
@@ -29,12 +28,8 @@ docker-compose up
 
 You can access MySQL database using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). Some useful docker commands are as follows. As you may noticed here `admin` is the default MySQL username and `mypass` is the default  password. You can change that in `docker-compose.yml file.`
 
-👍   Now you can access the GenIE-Sys on [http://localhost/geniesys/](http://localhost/geniesys/) URL and follow the  [documentation](https://geniesys.gitbook.io).
+👍  GenIE-Sys is available on [http://localhost/geniesys/](http://localhost/geniesys/) URL and follow the  [documentation](https://geniesys.gitbook.io).
 
-<!--
-**Make your wish**
- [![Beerpay](https://beerpay.io/plantgenie/geniesys/make-wish.svg?style=flat)](https://beerpay.io/plantgenie/geniesys)
--->
 
 Licence & Contributors
 ======================
