@@ -26,7 +26,7 @@ cd docker4geniesys
 docker-compose up
 ```
 
-You can access MySQL database using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). Some useful docker commands are as follows. As you may noticed here `admin` is the default MySQL username and `mypass` is the default  password. You can change that in `docker-compose.yml file.`
+You can access the MySQL database using `mysql -u admin -pmypass -h localhost -P 3308` or using [phpMyAdmin](http://localhost/phpmyadmin). As you may noticed here `admin` is the default MySQL username and `mypass` is the default  password. You can change the default password in `docker-compose.yml file.`
 
 👍  GenIE-Sys is available on [http://localhost/geniesys/](http://localhost/geniesys/) URL and follow the  [documentation](https://app.gitbook.com/@geniesys/s/geniesys/for-administrators/installation).
 
