@@ -292,27 +292,17 @@
       return canvas.toDataURL();
     }
   };
-
-  
   return Fingerprint;
-
-
-
-  
 });
 
 
 
-
-
 var MAIN_GENELIST;
-
 var fp4 = new Fingerprint({screen_resolution: true});
 var MAIN_FINGERPRINT=fp4.get().toString();
 var MAIN_GENELIST_DATABASE="plantgenie_genelist";
 var MAIN_GENELIST_TABLE="popgenie_potri_v31";
 //var MAIN_HOME_PAGE_TREE_PREFIX="z_testing_"; //Only for PopGenIE and ConGenIE home page animation
-
 
 
 //Follwoing variables can be changed from the sidebar.js	
@@ -383,7 +373,7 @@ if($_GET('species')!= undefined) {
 
 //if($_GET('species')!= undefined) {
 maingetactiveDB(function(activedb) {
-    setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
+    //setCookie("genie_select_species_abb", activedb[0]['abbreviation'], 10);
 });
 //}
 
