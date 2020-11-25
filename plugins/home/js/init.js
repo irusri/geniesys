@@ -149,12 +149,12 @@ function passStatus(status){
    if(status=="success"){
      $("#drop_db").show();
      $("#create_db").hide();
-     $("#db_span").html(" <font color='green'> &#9432;  Database already exists. You can click below phpMyAdmin link to see more details.</font>");
+     $("#db_span").html(" <font color='green'> &#9432;  Database created. You can click below phpMyAdmin link to see more details.</font>");
      $("#clone_div").hide(); 
    }else{
      $("#create_db").show();
      $("#drop_db").hide();
-     $("#db_span").html(" <font color='orange'> &#9432;  The database does not exist, but you can create a new database.</font>");
+     $("#db_span").html(" <font color='orange'> &#9432; Database does not exist, but you can create a new database.</font>");
      $("#clone_div").show(); 
    }
  }
@@ -176,7 +176,7 @@ $("#create_db_arabidopsis").click(function () {
 // Cloning 
 function clone_genome(t) {
   if( t.id=="artha"){
-    db_operation("clone_database", t.id);
+    db_operation("create_database", t.id);
   }else{
     alert("This button will allow you to clone the existing "+t.id+" database into your database in the future","clone download");
   }
