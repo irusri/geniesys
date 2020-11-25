@@ -36,11 +36,11 @@
    <p><label for="host">Host:&nbsp;&nbsp;&nbsp;</label><input autocomplete="host" id="mhost" value="localhost" placeholder="MySQL host : localhost" type="text"/> &#9432; This is the default host </p>
    <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username (MAMP uses root as default username) </p>
    <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password (MAMP uses root as default password)</p>
-   <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> &#9432; Current database name should be type in here</p>
+   <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> <span id="db_span">&#9432; Current database name should be type in here</span></p>
 </form>
 <br>
-<button class="upbtn"  id="create_db">create a fresh database</button>
-<button id="drop_db" class="upbtn"  style="background:red;color:white">Delete current database</button>&nbsp; <span class="help_span">&#9432; First you have to create a database or use the existing database.</span> 
+<button class="upbtn"  style="display:none"  id="create_db">create a fresh database</button>
+<button id="drop_db" class="upbtn"  style="background:red;color:white;display:none">Delete current database</button>&nbsp; 
 <button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 <br><br>
 <div id="clone_div" style="border:dotted thin black;width:60%;border-radius:5px;padding:6px;display:none">
