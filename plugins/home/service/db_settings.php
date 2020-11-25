@@ -1,7 +1,9 @@
 <?php
+
+require '../../../api/src/config/crypt.php';
+
 ini_set('memory_limit', '-1');
 ini_set('max_execution_time', 300);
-
 $host = trim($_POST['host']);
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
@@ -18,6 +20,31 @@ function jsonMsg($status, $message, $name = '')
     echo json_encode($arr);
 }
 
+if ($get_action == "db_name") {
+    $ini_array = parse_ini_file("../../../genie_files/settings",true) or die("Unable to open file!");
+    $genieCrypt=new genieCrypt();
+
+    $host=$ini_array['settings'][host];
+    $user=$ini_array['settings'][username];
+    $pass=$genieCrypt->DecryptThis($ini_array['settings'][password]);
+    $database=$ini_array['settings'][database];
+    $ret=array();
+    $ret["host"]=$host;
+    $ret["user"]=$user;
+    $ret["pass"]=$pass;
+    $ret["database"]=$database;
+
+    $conn = mysqli_connect($host, $user, $pass);
+    if (!$conn) {
+        jsonMsg('error', "Connection failed: " , json_encode($ret));
+    }else{
+        jsonMsg('success', "Database server connection was established.", json_encode($ret));
+    }
+
+}
+
+
+/*
 //Test Connection - check whther the given username and passwords are correct
 if ($get_action == "db_name") {
     //Check the settings file for database name
@@ -34,8 +61,7 @@ if ($get_action == "db_name") {
     } else {
         jsonMsg('success', "Database server connection was established.", $db_name);
     }
-}
-
+}*/
 
 //Create a new database depending on the given name
 if ($get_action == "create_database") {
@@ -44,21 +70,21 @@ if ($get_action == "create_database") {
     if (!$link) {
         jsonMsg('error', "Wrong username and or password");
         exit;
-        
+
     } else {
         if (!mysqli_select_db($link, $database)) {
             $sql = "CREATE DATABASE " . $database;
             // $sql = "CREATE DATABASE ".$database.";GRANT SELECT ON ".$database.".* TO ".$username."@'".$host."';GRANT INSERT,UPDATE,DELETE ON ".$database.".genebaskets TO ".$username."@'".$host."';GRANT INSERT,UPDATE,DELETE ON ".$database.".defaultgenebaskets TO ".$username."@'".$host."';";
             if ($link->query($sql) === true) {
-                jsonMsg('success', "<strong>" . $database . "</strong> database was created",$database );
+                jsonMsg('success', "<strong>" . $database . "</strong> database was created", $database);
                 mysqli_close($link);
                 load_sql($host, $username, $password, $database, $get_name);
             } else {
-                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database",$database );
+                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database", $database);
                 mysqli_close($link);
             }
         } else {
-            jsonMsg('success', "Database <strong>" . $database . "</strong> already exist",$database );
+            jsonMsg('success', "Database <strong>" . $database . "</strong> already exist", $database);
             mysqli_close($link);
         }
     }
@@ -67,8 +93,9 @@ if ($get_action == "create_database") {
 
 //Drop exsisting database
 if ($get_action == "drop_database") {
+    saveSettings();
     //Make a connection
-    $link = mysqli_connect($host, $username, $password);
+ /*   $link = mysqli_connect($host, $username, $password);
     if (!$link) {
         jsonMsg('error', "Wrong username and or password");
         exit;
@@ -81,9 +108,8 @@ if ($get_action == "drop_database") {
             saveSettings("");
             jsonMsg('success', "<strong>" . $database . "</strong> database was deleted");
         }
-    }
+    }*/
 }
-
 
 //clone_database
 if ($get_action == "clone_database") {
@@ -95,11 +121,11 @@ if ($get_action == "clone_database") {
         if (!mysqli_select_db($link, $database)) {
             $sql = "CREATE DATABASE " . $database;
             if ($link->query($sql) === true) {
-                jsonMsg('success', "<strong>" . $database . "</strong> database was created  with $get_name data",$database );
+                jsonMsg('success', "<strong>" . $database . "</strong> database was created  with $get_name data", $database);
                 mysqli_close($link);
                 load_sql($host, $username, $password, $database, $get_name);
             } else {
-                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database",$database );
+                jsonMsg('error', "Not enough permssion to create <strong>" . $database . "</strong> database", $database);
                 mysqli_close($link);
             }
         } else {
@@ -107,11 +133,11 @@ if ($get_action == "clone_database") {
             if ($link->query($sqlx) === true) {
                 $link->query($sqlx);
                 $sql = "CREATE DATABASE " . $database;
-                jsonMsg('success', "<strong>" . $database . "</strong> already exist but created a new database with $get_name data",$database );
+                jsonMsg('success', "<strong>" . $database . "</strong> already exist but created a new database with $get_name data", $database);
                 mysqli_close($link);
                 load_sql($host, $username, $password, $database, $get_name);
             } else {
-                jsonMsg('error', "Not enough permssion to drop or create <strong>" . $database . "</strong> database",$database );
+                jsonMsg('error', "Not enough permssion to drop or create <strong>" . $database . "</strong> database", $database);
                 mysqli_close($link);
             }
             mysqli_close($link);
@@ -120,7 +146,8 @@ if ($get_action == "clone_database") {
 
 }
 
-function downloadZipFile($url, $filepath){
+function downloadZipFile($url, $filepath)
+{
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_HEADER, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -128,16 +155,14 @@ function downloadZipFile($url, $filepath){
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
     $raw_file_data = curl_exec($ch);
 
-    if(curl_errno($ch)){
-       echo 'error:' . curl_error($ch);
+    if (curl_errno($ch)) {
+        echo 'error:' . curl_error($ch);
     }
     curl_close($ch);
 
     file_put_contents($filepath, $raw_file_data);
-    return (filesize($filepath) > 0)? true : false;
+    return (filesize($filepath) > 0) ? true : false;
 }
-
-
 
 // load MySQL dump file into the database
 function load_sql($host, $username, $password, $database, $get_name)
@@ -198,7 +223,7 @@ function load_sql($host, $username, $password, $database, $get_name)
         } while (mysqli_next_result($conn));
     }
 
-    saveSettings($database);
+    //saveSettings($database);
     #User permissions:
     $conn->query("CREATE USER IF NOT EXISTS geniecmsuser@'" . $host . "' IDENTIFIED BY 'geniepass'; ");
     $conn->query("GRANT ALL ON " . $database . ".* TO geniecmsuser@'" . $host . "';"); //ALL replace with SELECT
@@ -213,16 +238,59 @@ function load_sql($host, $username, $password, $database, $get_name)
 }
 
 /*if the settings file exist save the settings*/
-function saveSettings($s)
+function saveSettings()
 {
-    $file = @fopen("../../../genie_files/settings", 'w');
-    if (!$file) {
-        echo "Error opening settings. Set correct permissions (644) to the settings file.";
-        exit;
-    }
-    fwrite($file, $s);
-    fclose($file);
+  $genieCrypt=new genieCrypt();
+    $data = array(
+        'settings' => array(
+            'host' =>  trim($_POST['host']),
+            'username' => trim($_POST['username']),
+            'password' => $genieCrypt->EncryptThis(trim($_POST['password'])),
+            'database' => trim($_POST['database'])
+        )
+    );
+
+    write_php_ini($data, "../../../genie_files/settings") ;
+    jsonMsg('success', "settings file saved.", "done");
 }
+
+
+
+function write_php_ini($array, $file)
+{
+    $res = array();
+    foreach($array as $key => $val)
+    {
+        if(is_array($val))
+        {
+            $res[] = "[$key]";
+            foreach($val as $skey => $sval) $res[] = "$skey = ".(is_numeric($sval) ? $sval : '"'.$sval.'"');
+        }
+        else $res[] = "$key = ".(is_numeric($val) ? $val : '"'.$val.'"');
+    }
+    safefilerewrite($file, implode("\r\n", $res));
+}
+
+function safefilerewrite($fileName, $dataToSave)
+{    if ($fp = fopen($fileName, 'w'))
+    {
+        $startTime = microtime(TRUE);
+        do
+        {            $canWrite = flock($fp, LOCK_EX);
+           // If lock not obtained sleep for 0 - 100 milliseconds, to avoid collision and CPU load
+           if(!$canWrite) usleep(round(rand(0, 100)*1000));
+        } while ((!$canWrite)and((microtime(TRUE)-$startTime) < 5));
+
+        //file was locked so now we can store information
+        if ($canWrite)
+        {            fwrite($fp, $dataToSave);
+            flock($fp, LOCK_UN);
+        }
+        fclose($fp);
+    }
+
+}
+
 
 //Upload GFF3 file
 if ($get_action == "upload_gff3") {

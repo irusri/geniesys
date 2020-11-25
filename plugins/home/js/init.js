@@ -118,6 +118,15 @@ $("#myadmin_links_expression").click(function () {
   window.open( "/phpmyadmin/db_structure.php?db=" + $('#mdbname').val(), '_blank');
 });
 
+
+function database_operation(){
+  //Check database is exsist
+  // if not allow them to create or clone the database
+  // If yes allow them to delete or clone the database
+}
+
+
+
  //Check database
  function db_operation(action, name) {
    if(action!="clone_database"){on_disable_b_and_c_clicked();}
@@ -147,7 +156,10 @@ $("#myadmin_links_expression").click(function () {
                  $("#database_checkbox").prop("checked", false)
              }
              if (action == "db_name") {
-                 $("#mdbname").val(data.name);
+                $("#mhost").val(JSON.parse(data.name).host);
+                $("#musername").val(JSON.parse(data.name).user); 
+                $("#mpassword").val(JSON.parse(data.name).pass);
+                $("#mdbname").val(JSON.parse(data.name).database);
              }
          },
          error: function (data) { 

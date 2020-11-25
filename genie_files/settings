@@ -1,1 +1,5 @@
-chanaka2
+[settings]
+host = "localhost"
+username = "admin"
+password = "U1NCRFpGdTIxMnJnL1NxdFhOMUo3UT09Ojqft9wH8S2VE/zHRpP5afL/"
+database = "dsadada"
