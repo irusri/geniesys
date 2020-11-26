@@ -18,13 +18,14 @@ if($reset=="logo"){
 //Change header image
 if($imageType=="header"){
 $arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
- 
+ //clearstatcache();
 if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
     echo "false";
     return;
 }
  
     move_uploaded_file($_FILES['file']['tmp_name'], 'images/tmp.png' );//. $_FILES['file']['name']
+   
     echo "success";
 }
 

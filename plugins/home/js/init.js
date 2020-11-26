@@ -152,7 +152,7 @@ function passStatus(status){
      $("#db_span").html(" <font color='green'> &#9432;  Database created. You can click below phpMyAdmin link to see more details.</font>");
      $("#clone_div").hide(); 
    }else{
-     $("#create_db").show();
+     $("#create_db").hide();
      $("#drop_db").hide();
      $("#db_span").html(" <font color='orange'> &#9432; Database does not exist, but you can create a new database.</font>");
      $("#clone_div").show(); 
@@ -175,7 +175,7 @@ $("#create_db_arabidopsis").click(function () {
 
 // Cloning 
 function clone_genome(t) {
-  if( t.id=="artha"){
+  if( t.id=="artha" || t.id=="eugra"){
     db_operation("create_database", t.id);
   }else{
     alert("This button will allow you to clone the existing "+t.id+" database into your database in the future","clone download");

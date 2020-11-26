@@ -48,7 +48,7 @@
 <button class="upbtn deactive" onClick="clone_genome(this)"  id="potra" style="background:grey;color:white;border-color: grey;">Populus tremula</button>
 <button class="upbtn" onClick="clone_genome(this)" id="piabi" style="background:grey;color:white;border-color: grey;">Picea abies</button>
 <button class="upbtn" onClick="clone_genome(this)"  id="artha" >Arbidopsis thaliana</button>
-<button class="upbtn" onClick="clone_genome(this)"  id="eugra" style="background:grey;color:white;border-color: grey;">Eucalyptus grandis</button></br></br>
+<button class="upbtn" onClick="clone_genome(this)"  id="eugra" >Eucalyptus grandis</button></br></br>
 </div>
 </br></br> 
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right;cursor:pointer">External link to phpMyAdmin page >></a><br>

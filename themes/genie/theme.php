@@ -14,6 +14,7 @@
          <meta name='author' content='Chanaka Mannapperuma'>
          <meta name='description' content='".$c['description']."'>
          <meta name='keywords' content='".$c['keywords']."'>";
+         
          edittags();
          ?>
       <script type="application/javascript">

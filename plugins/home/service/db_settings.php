@@ -161,13 +161,20 @@ if ($get_action == "create_database") {
 
 // load MySQL dump file into the database
 function load_sql($host, $username, $password, $database, $get_name){
-    if ($get_name == "dump") {
+ /*   if ($get_name == "dump") {
         $url = "http://build.plantgenie.org/tmp/dump/dump.sql";
         $file_name = "dump.sql";
     } else {
         $url = "http://build.plantgenie.org/tmp/Athaliana_447/Athaliana_447.sql";
         $file_name = "Athaliana_447.sql";
     }
+*/
+
+
+$url = "http://build.plantgenie.org/tmp/".$get_name."/dump.sql";
+$file_name = "dump.sql";
+
+
     //$url="http://build.plantgenie.org/tmp/".$key."/".$file_name;
     $targetFile = fopen($file_name, 'w');
 
