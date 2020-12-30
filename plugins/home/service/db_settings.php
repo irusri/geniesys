@@ -8,6 +8,7 @@ $host = trim($_POST['host']);
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 $database = trim($_POST['database']);
+$species = trim($_POST['species']);
 $get_action = $_POST['action'];
 $get_name = $_POST['name'];
 $settings_array=array();
@@ -37,7 +38,6 @@ if ($get_action == "") {
 
 }
 
-
 //Read ini file
 function readInifile(){
     $ini_array = parse_ini_file("../../../genie_files/settings",true) or die("Unable to open file!");
@@ -46,12 +46,14 @@ function readInifile(){
     $user=$ini_array['settings'][username];
     $pass=$genieCrypt->DecryptThis($ini_array['settings'][password]);
     $database=$ini_array['settings'][database];
+    $species=$ini_array['settings'][species];
     $ret=array();
     $ret["host"]=$host;
     $ret["user"]=$user;
     $ret["pass"]=$pass;
     $ret["database"]=$database;
-    $settings_array=$ret;
+    $ret["species"]=$species;
+    $settings_array=$ret; 
     $PHP_Pass=exec('echo $MYSQL_ADMIN_PASS');
     $conn_init = mysqli_connect($host, $user, $PHP_Pass);
     $conn = mysqli_connect($host, $user, $pass);
@@ -87,7 +89,8 @@ function saveSettings(){
             'host' =>  trim($_POST['host']),
             'username' => trim($_POST['username']),
             'password' => $genieCrypt->EncryptThis(trim($_POST['password'])),
-            'database' => trim($_POST['database'])
+            'database' => trim($_POST['database']),
+            'species' => trim($_POST['species'])
         )
     );
     write_php_ini($data, "../../../genie_files/settings") ;

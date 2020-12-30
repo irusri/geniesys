@@ -28,7 +28,7 @@
 <button id="btn_submit"  onclick='javascript:location.reload(true);'>save</button>
        <!--site section ended-->
 </div>
-      <div id="db"><br>
+      <div id="db"><br> 
       <!--db section start-->
       <h3>Loading novel genome to GenIE-Sys database. Follow the steps one at a time.</h3>
 <span style="overflow: hidden;position: absolute;top:30px" id="error_msg"></span>
@@ -37,6 +37,7 @@
    <p><label for="username">Username:</label><input value="admin" autocomplete="username" id="musername" placeholder="MySQL username: admin" type="text"/> &#9432; This is the default username (MAMP uses root as default username) </p>
    <p><label for="password">Password:</label><input value="mypass" autocomplete="password" id="mpassword" placeholder="MySQL password : mypass" type="text"/> &#9432; This is the default password (MAMP uses root as default password)</p>
    <p><label for="database">Database:</label><input id="mdbname" placeholder="Type in new database name" value="" type="text"/> <span id="db_span">&#9432; Current database name should be type in here</span></p>
+   <p><label for="species">Species name:</label><input id="mspeciesname" placeholder="Type in new species name" value="" type="text"/> <span id="species_span">&#9432; Current species name should be type in here</span></p>
 </form>
 <br>
 <button class="upbtn"  style="display:none"  id="create_db">create a fresh database</button>

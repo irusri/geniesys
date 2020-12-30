@@ -8,6 +8,7 @@ $host = trim($_POST['host']);
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 $database = trim($_POST['database']);
+$species = trim($_POST['species']);
 $get_action = $_POST['action'];
 $get_name = $_POST['name'];
 
@@ -33,6 +34,7 @@ if ($get_action == "db_name") {
     $ret["user"]=$user;
     $ret["pass"]=$pass;
     $ret["database"]=$database;
+    $ret["species"]=$species;
 
     $conn = mysqli_connect($host, $user, $pass);
     if (!$conn) {

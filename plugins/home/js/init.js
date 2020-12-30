@@ -109,6 +109,7 @@ function read_ini_file() {
       $("#musername").val(JSON.parse(data.name).user); 
       $("#mpassword").val(JSON.parse(data.name).pass);
       $("#mdbname").val(JSON.parse(data.name).database);
+      $("#mspeciesname").val(JSON.parse(data.name).species);
     }
     });
 }
@@ -123,7 +124,8 @@ $("#db_form input").on("input", function(e) {
     var musername = $('#musername').val();
     var mpasswd = $('#mpassword').val();
     var mdbname = $('#mdbname').val();
-    var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&action=save_ini_file";
+    var mspeciesname = $('#mspeciesname').val();
+    var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&species=" + mspeciesname + "&action=save_ini_file";
     $.ajax({
         type: "POST",
         url: "plugins/home/service/db_settings.php",
