@@ -16,7 +16,7 @@ $keywords =  preg_split("/[\:]+/",trim(htmlentities($_POST['id'])));
 		$sharred_list=implode('","',$geneids_array);
 }
 
-$tintinvariable="at";
+$tintinvariable="";
 $table_name="transcript_info";
 
 $datatables = new Datatables();
@@ -46,8 +46,8 @@ $datatables
 ->edit_column('ids', '<a target="_parent" href="gene?id=$1" target="_blank">$1</a>', 'ID') 
 ->edit_column(''.$table_name.'.transcript_id', '<a target="_blank" href="transcript?id=$1">$1</a>', ''.$table_name.'.transcript_id')
 
-->edit_column('transcript_potri.potri_id', '<a target="_blank" href="http://popgenie.org/transcript?id=$1">$1</a>', 'transcript_potri.potri_id') 
-->edit_column('transcript_atg.atg_id', '<a target="_blank" href="http://atgenie.org/transcript?id=$1">$1</a>', 'transcript_atg.atg_id') ;
+->edit_column('transcript_potri.potri_id', '<a target="_blank" href="https://popgenie.org/transcript?id=$1">$1</a>', 'transcript_potri.potri_id') 
+->edit_column('transcript_atg.atg_id', '<a target="_blank" href="https://atgenie.org/transcript?id=$1">$1</a>', 'transcript_atg.atg_id') ;
 
 
 
