@@ -63,7 +63,7 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 	$pattern = '/^[a-zA-Z]+[.]+[a-zA-Z0-9]+[.]+[0-9]?[0-9]$/';
 	$flag=true;
 
-	if(checkprefix($onlyconsonants,$tintinvariable)==true && checkprefix($onlyconsonants,"at")==true){
+	if(checkprefix($onlyconsonants,$tintinvariable)==true && checkprefix($onlyconsonants,$tintinvariable)==true){
 		$flag=false;
 	$geneids_array = explode(",", $onlyconsonants);
 	$geneids_array_str=implode('","',$geneids_array);
