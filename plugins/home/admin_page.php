@@ -46,7 +46,7 @@
 <br><br>
 <div id="clone_div" style="border:dotted thin black;width:60%;border-radius:5px;padding:6px;display:none">
 <h4>Clone from the PlantGenIE core species. This includes all the annotation and expression data.</h4>
-<button class="upbtn deactive" onClick="clone_genome(this)"  id="potra" >Populus tremula</button>
+<button class="upbtn" onClick="clone_genome(this)"  id="potra" >Populus tremula</button>
 <button class="upbtn" onClick="clone_genome(this)" id="piabi" >Picea abies</button>
 <button class="upbtn" onClick="clone_genome(this)"  id="artha" >Arbidopsis thaliana</button>
 <button class="upbtn" onClick="clone_genome(this)"  id="eugra" >Eucalyptus grandis</button></br></br>

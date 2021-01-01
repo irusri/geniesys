@@ -140,6 +140,7 @@ $("#db_form input").on("input", function(e) {
 
 // Pass status to the visual elements
 function passStatus(status){
+  disable_easytabs(tabs, [3,4,5]);
   if(status=="error"){
     //Connection failed Wrong username or Password
   
@@ -150,7 +151,7 @@ function passStatus(status){
    //Connection successful
    if(status=="success"){
      $("#drop_db").show();
-
+     enable_all();
      $("#db_span").html(" <font color='green'> &#9432;  Database created. You can click below phpMyAdmin link to see more details.</font>");
      $("#clone_div").hide(); 
    }else{
@@ -179,11 +180,11 @@ $("#create_db_arabidopsis").click(function () {
 
 // Cloning 
 function clone_genome(t) {
-  if( t.id=="artha" || t.id=="eugra"){
+  //if( t.id=="artha" || t.id=="eugra"){
     db_operation("create_database", t.id);
-  }else{
-    alert("This button will allow you to clone the existing "+t.id+" database into your database in the future","clone download");
-  }
+ // }else{
+  //  alert("This button will allow you to clone the existing "+t.id+" database into your database in the future","clone download");
+ // }
  };
 
 //Check database
@@ -201,7 +202,6 @@ function db_operation(action, name) {
         data: (finalvarx),
         dataType: 'json',
         success: function (data) {
-        
           $(".loader-wrap").hide();
           read_ini_file();
         },
