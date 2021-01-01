@@ -109,7 +109,7 @@ if ($get_action == "generate_indices") {
 //Update gene_i in annotation tables
 if ($get_action == "update_gene_i") {
 //"gene_pfam", "gene_go", "gene_kegg","gene_maize",
-$gene_annotation_table_array = array( "gene_go");     
+$gene_annotation_table_array = array( "gene_pfam","gene_go", "gene_kegg","transcript_info");     
 include('../../../plugins/settings.php'); 
 $private_url = parse_url($db_url['genelist']);
 $conn = new mysqli($private_url['host'], $private_url['user'], $private_url['pass'], str_replace('/', '', $private_url['path']));
@@ -118,7 +118,7 @@ if ($conn->connect_error) {
 }
 for($i=0;$i<count($gene_annotation_table_array);$i++){
     $gene_annotation_sql="UPDATE $gene_annotation_table_array[$i] INNER JOIN gene_info on gene_info.gene_id = $gene_annotation_table_array[$i].gene_id SET $gene_annotation_table_array[$i].gene_i = gene_info.gene_i;";
-       echo $gene_annotation_sql;
+       //echo $gene_annotation_sql;
         //exit();
         if ($conn->query($gene_annotation_sql) === TRUE) {
             echo "gene_i updated in $gene_annotation_table_array[$i]";

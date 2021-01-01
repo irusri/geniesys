@@ -28,13 +28,13 @@ $datatables->connect($popgenie_genepages_config);
 
 $datatables//,basic.Peptide_Name
 
-->select(''.$table_name.'.gene_id as ID,"check_box_value",'.$table_name.'.gene_id as ids,'.$table_name.'.transcript_id,'.$table_name.'.chromosome_name,'.$table_name.'.description,transcript_potri.potri_id,transcript_atg.atg_id,gene_kegg.kegg_description,gene_atg.atg_description,gene_go.go_description,gene_pfam.pfam_description')
+->select(''.$table_name.'.gene_id as ID,"check_box_value",'.$table_name.'.gene_id as ids,'.$table_name.'.transcript_id,'.$table_name.'.chromosome_name,'.$table_name.'.description,transcript_potri.potri_id,transcript_atg.atg_id,gene_kegg.kegg_description,gene_arabidopsis.atg_description,gene_go.go_description,gene_pfam.pfam_description')
 ->from($table_name)
 
 ->join('transcript_potri', 'transcript_potri.transcript_i=transcript_info.transcript_i', 'left')
 ->join('transcript_atg', 'transcript_atg.transcript_i=transcript_info.transcript_i', 'left')
 ->join('gene_kegg', 'gene_kegg.gene_i=transcript_info.gene_i', 'left')
-	->join('gene_atg', 'gene_atg.gene_i=transcript_info.gene_i', 'left')
+	->join('gene_arabidopsis', 'gene_arabidopsis.gene_i=transcript_info.gene_i', 'left')
 	->join('gene_go', 'gene_go.gene_i=transcript_info.gene_i', 'left')
 	->join('gene_pfam', 'gene_pfam.gene_i=transcript_info.gene_i', 'left')
 

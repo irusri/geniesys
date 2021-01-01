@@ -355,9 +355,11 @@ function annotation_update_gene_i(){
       data: (finalvarx),
       dataType: 'json',
       success: function (data) {
+      
         $("#update_gene_i_waiting").hide();
       },
       complete: function(xhr, textStatus) {
+      
         $("#update_gene_i_waiting").hide();
     } 
   }); 
