@@ -19,6 +19,11 @@ if ($get_action == "read_settings_ini") {
 }
 
 //Check connection
+if ($get_name == "check") {
+    readInifile();
+}
+
+//Check connection
 if ($get_action == "check_connection") {
     checkConnection();
 }
@@ -37,6 +42,7 @@ if ($get_action == "") {
 if ($get_action == "") {
 
 }
+
 
 //Read ini file
 function readInifile(){
