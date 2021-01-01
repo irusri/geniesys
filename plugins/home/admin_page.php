@@ -40,16 +40,19 @@
    <p><label for="species">Species name:</label><input id="mspeciesname" placeholder="Type in new species name" value="" type="text"/> <span id="species_span">&#9432; Current species name should be type in here</span></p>
 </form>
 <br>
-<button class="upbtn"  style="display:none"  id="create_db">create a fresh database</button>
+
 <button id="drop_db" class="upbtn"  style="background:red;color:white;display:none">Delete current database</button>&nbsp; 
 <button class="upbtn" style="display:none"  id="download_indices">Download indices</button>
 <br><br>
 <div id="clone_div" style="border:dotted thin black;width:60%;border-radius:5px;padding:6px;display:none">
 <h4>Clone from the PlantGenIE core species. This includes all the annotation and expression data.</h4>
-<button class="upbtn deactive" onClick="clone_genome(this)"  id="potra" style="background:grey;color:white;border-color: grey;">Populus tremula</button>
-<button class="upbtn" onClick="clone_genome(this)" id="piabi" style="background:grey;color:white;border-color: grey;">Picea abies</button>
+<button class="upbtn deactive" onClick="clone_genome(this)"  id="potra" >Populus tremula</button>
+<button class="upbtn" onClick="clone_genome(this)" id="piabi" >Picea abies</button>
 <button class="upbtn" onClick="clone_genome(this)"  id="artha" >Arbidopsis thaliana</button>
 <button class="upbtn" onClick="clone_genome(this)"  id="eugra" >Eucalyptus grandis</button></br></br>
+<hr>
+<button class="upbtn" onClick="clone_genome(this)"  id="dump" >Just create an empty database for different speices</button></br></br>
+
 </div>
 </br></br> 
 <a target="_blank" id="myadmin_links" style="color:blue;font-weight:bold;float:right;cursor:pointer">External link to phpMyAdmin page >></a><br>

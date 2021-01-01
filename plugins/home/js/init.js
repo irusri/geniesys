@@ -142,7 +142,7 @@ $("#db_form input").on("input", function(e) {
 function passStatus(status){
   if(status=="error"){
     //Connection failed Wrong username or Password
-    $("#create_db").hide();
+  
     $("#drop_db").hide();
     $("#db_span").html("<font color='red'> &#9432; Wrong username or password. Please type in correct username and password. </font>");
     $("#clone_div").hide(); 
@@ -150,11 +150,11 @@ function passStatus(status){
    //Connection successful
    if(status=="success"){
      $("#drop_db").show();
-     $("#create_db").hide();
+
      $("#db_span").html(" <font color='green'> &#9432;  Database created. You can click below phpMyAdmin link to see more details.</font>");
      $("#clone_div").hide(); 
    }else{
-     $("#create_db").hide();
+
      $("#drop_db").hide();
      $("#db_span").html(" <font color='orange'> &#9432; Database does not exist, but you can create a new database.</font>");
      $("#clone_div").show(); 
@@ -166,6 +166,7 @@ $("#drop_db").click(function () {
   db_operation("drop_database", "drop");
 });
 
+/*
 $("#create_db").click(function () {
   db_operation("create_database", "dump");
 });
@@ -174,6 +175,7 @@ $("#create_db_arabidopsis").click(function () {
   db_operation("create_database", "artha");
  // download_indices("create_database", "dump");
 });
+*/
 
 // Cloning 
 function clone_genome(t) {
@@ -199,7 +201,7 @@ function db_operation(action, name) {
         data: (finalvarx),
         dataType: 'json',
         success: function (data) {
-          console.log(data)
+        
           $(".loader-wrap").hide();
           read_ini_file();
         },
