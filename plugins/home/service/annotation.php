@@ -185,7 +185,7 @@ if ($get_action == "load_extra_annotations") {
 if ($get_action == "load_best_blast") {
     load_files($data_dir ."/gene_populus.tsv", 'gene_populus');
     load_files($data_dir ."/gene_spruce.tsv", 'gene_spruce');
-    load_files($data_dir ."/gene_arabidopsis.tsv", 'gene_atg');
+    load_files($data_dir ."/gene_arabidopsis.tsv", 'gene_arabidopsis');
 }
 
 
