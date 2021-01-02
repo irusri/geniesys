@@ -91,14 +91,14 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 	}
 
 	// need some work before adding condition to the same species
-	if(checkprefix($onlyconsonants,"postri")==true   ){
+	if(checkprefix($onlyconsonants,"spotri")==true   ){
 	$flag=false;
 	$geneids_array = explode(",", $onlyconsonants);
 	$geneids_array_str=implode('","',$geneids_array);
 	$datatables->where('transcript_potri.potri_id in ',$geneids_array_str);
 	}
 	
-	if(checkprefix($onlyconsonants,"astg")==true   ){
+	if(checkprefix($onlyconsonants,"satg")==true   ){
 	$flag=false;
 	$geneids_array = explode(",", $onlyconsonants);
 	$geneids_array_str=implode('","',$geneids_array);
