@@ -176,8 +176,8 @@ if ($get_action == "create_database") {
 
 // load MySQL dump file into the database
 function load_sql($host, $username, $password, $database, $get_name){
-$url = "http://build.plantgenie.org/tmp/".$get_name."/dump.sql";
-$file_name = "dump.sql";
+$url = "http://build.plantgenie.org/databases/".$get_name.".sql";
+$file_name = $get_name.".sql";
 
     //$url="http://build.plantgenie.org/tmp/".$key."/".$file_name;
     $targetFile = fopen($file_name, 'w');
