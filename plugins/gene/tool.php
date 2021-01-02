@@ -19,14 +19,14 @@
         <td>Transcript name:</td>
         <td id="transcript_id">&nbsp;</td>
       </tr>
-      <tr>
+  <!--     <tr>
         <td>Protein name:</td>
         <td id="peptide_name">&nbsp;</td>
       </tr>
-      <tr>
+     <tr>
         <td>PAC Transcript ID:</td>
         <td id="pac_id">&nbsp;</td>
-      </tr>
+      </tr>-->
       <tr>
         <td>Start position:</td>
         <td id="start">&nbsp;</td>
