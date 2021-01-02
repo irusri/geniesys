@@ -50,6 +50,7 @@ foreach($c as $key => $val) {
 	}
 }
 
+error_reporting(0);
 /*Fire loadplugins() function*/
 loadplugins();
 

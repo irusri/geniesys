@@ -214,12 +214,12 @@ $file_name = $get_name.".sql";
     $sql = file_get_contents($script_path);
     if (mysqli_multi_query($conn, $sql)) {
         do {
-            /* store first result set */
+            //store first result set 
             if ($result = mysqli_store_result($conn)) {
                 //do nothing since there's nothing to handle
                 mysqli_free_result($result);
             }
-            /* print divider */
+            //print divider 
             if (mysqli_more_results($conn)) {
                 //I just kept this since it seems useful
                 //try removing and see for yourself
@@ -238,5 +238,85 @@ $file_name = $get_name.".sql";
         mkdir('upload', 0777, true);
     }
 
+    download_blast_indices($get_name);
+
 }
 
+// This function will download the pre generated blast indices from remote server
+function download_blast_indices($get_name) { 
+    ini_set('max_execution_time', 3000);
+    $data_dir=dirname(__FILE__)."../../../data"; 
+    if (!file_exists($data_dir."/bin")) {
+        $data_dir="../../../data/blast";
+        $zip_file="blast.zip";
+        download__compressed("http://build.plantgenie.org/blast/".$get_name."/blast.zip",$zip_file,$data_dir);
+    }else{
+        //echo "b"; 
+    } 
+   
+}
+
+function download__compressed($url,$zipFile,$extractDir){
+    ini_set('max_execution_time', 3000); 
+	$zipResource = fopen($zipFile, "w");
+    
+    // Get The Zip File From Server
+    $ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FAILONERROR, true);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+	curl_setopt($ch, CURLOPT_BINARYTRANSFER,true);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
+	curl_setopt($ch, CURLOPT_FILE, $zipResource);
+    $page = curl_exec($ch);
+    
+	if(!$page) {
+		echo "Error :- ".curl_error($ch);
+	}
+	curl_close($ch);
+
+	/* Open the Zip file */
+	$zip = new ZipArchive;
+	$extractPath = $extractDir;
+
+	if($zip->open($zipFile) != "true"){
+		echo "Error :- Unable to open the Zip File";
+	}
+
+	/* Extract Zip File */
+	$zip->extractTo($extractPath);
+    $zip->close();
+    unlink($zipFile);
+
+    chmodifyr($extractPath."/");
+   
+	//die('Your file was downloaded and extracted '.$extractPath.', go check.');
+}
+
+
+
+function chmodify($obj) {
+    $chunks = explode('/', $obj);
+    chmod($obj, is_dir($obj) ? 0755 : 0755);
+    chown($obj, $chunks[2]);
+    chgrp($obj, $chunks[2]);
+   
+ }
+
+
+ function chmodifyr($dir) 
+ {
+    if($objs = glob($dir."/*")) {        
+        foreach($objs as $obj) {
+            chmodify($obj);
+            if(is_dir($obj)) chmodifyr($obj);
+        }
+    }
+   
+  //  return chmodify($dir);
+ }   

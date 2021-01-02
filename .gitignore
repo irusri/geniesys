@@ -4,7 +4,7 @@ update_submodule.sh
 .DS_Store
 password
 genie_files
-genie_files/
+genie_files/*
 plugins/settings.php
 plugins/blast/tmp
 plugins/eximage
@@ -31,3 +31,6 @@ plugins/explot
 plugins/blast/services/scripts/bin
 api/vendor
 plugins/home/service/*.sql
+genie_files/genelist
+genie_files/password
+genie_files/settings

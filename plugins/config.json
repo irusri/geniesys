@@ -6,25 +6,25 @@
 			"group_name": "Genomes",
 			"dataset_path":"data/blast/genome",
 			"molecule_type":"nucleotide",
-			"user_friendly_name":"Arabidopsis thaliana Genomes"
+			"user_friendly_name":"Genomes"
 		},{
 			"number": 2,
 			"group_name": "Transcripts",
 			"dataset_path":"data/blast/transcript",
 			"molecule_type":"nucleotide",
-			"user_friendly_name":"Arabidopsis thaliana Transcripts"
+			"user_friendly_name":"Transcripts"
 		},{
 			"number": 3,
 			"group_name": "CDS",
 			"dataset_path":"/data/blast/cds",
 			"molecule_type":"nucleotide",
-			"user_friendly_name":"Arabidopsis thaliana CDS"
+			"user_friendly_name":"CDS"
 		},{
 			"number": 4,
 			"group_name": "Protein",
 			"dataset_path":"data/blast/protein",
 			"molecule_type":"protein",
-			"user_friendly_name":"Arabidopsis thaliana protein"
+			"user_friendly_name":"protein"
 		}
 	],
 	"default_jbrowse_dataset_directory":"Fptr"

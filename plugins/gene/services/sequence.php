@@ -114,6 +114,12 @@ for ($xprotein = 1; $xprotein <= count($outputprotein); $xprotein++) {
 	$sequenceproteinstr.=$outputprotein[$xprotein];
 }
 
+if ($sequenceproteinstr==""){
+	exec("../../blast/services/scripts/bin/fastacmd -l 1000000000000000000 -t T  -d  '".dirname(__FILE__)."/../../../".$protein_path_variable."' -s '".$transcript_id.".p' ;",$outputprotein);
+for ($xprotein = 1; $xprotein <= count($outputprotein); $xprotein++) {
+	$sequenceproteinstr.=$outputprotein[$xprotein];
+}
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $datasignaltranscriptstart=$gene_start;
