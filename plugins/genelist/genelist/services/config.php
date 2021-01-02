@@ -16,7 +16,7 @@ $keywords =  preg_split("/[\:]+/",trim(htmlentities($_POST['id'])));
 		$sharred_list=implode('","',$geneids_array);
 }
 
-$tintinvariable="po";
+$tintinvariable="";
 $table_name="transcript_info";
 
 $datatables = new Datatables();
@@ -28,6 +28,15 @@ $popgenie_genepages_config = array(
 'password' => $private_url['pass'], 
 'database' => str_replace('/', '', $private_url['path']), 
 'hostname' => $private_url['host']);
+
+//check prefix for gene id search
+$sql_get_one_gene_id ="select gene_id from gene_info limit 1";
+$gene_id_connection=mysqli_connect($private_url['host'], $private_url['user'], $private_url['pass'],str_replace('/', '', $private_url['path'])) or die(mysqli_error());
+$gene_id_results =mysqli_query($gene_id_connection,$sql_get_one_gene_id);
+$gene_id_array   = mysqli_fetch_assoc($gene_id_results);
+$tintinvariable= substr(($gene_id_array)["gene_id"],0,3);
+mysqli_close($gene_id_connection); 
+
 // MYSQL configuration
 $datatables->connect($popgenie_genepages_config);
 $datatables
