@@ -110,6 +110,7 @@ function read_ini_file() {
       $("#mpassword").val(JSON.parse(data.name).pass);
       $("#mdbname").val(JSON.parse(data.name).database);
       $("#mspeciesname").val(JSON.parse(data.name).species);
+      setCookie("species_name", JSON.parse(data.name).species, 10);
     }
     });
 }
@@ -140,6 +141,7 @@ function save_ini_file(){
       dataType: 'json',
       success: function (data) {
         passStatus(data.status);
+        setCookie("species_name", mspeciesname, 10);
       }
   });
 
