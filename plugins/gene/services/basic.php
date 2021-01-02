@@ -55,6 +55,10 @@ if($id_type=="transcript" ||  $id_type=="gene"){
 		$children[$g]->potri_id=$basic_results_rows['potri_id'];
 		$children[$g]->atg_id=$basic_results_rows['atg_id'];
 		
+		$ini_array = parse_ini_file("../../../genie_files/settings",true) or die("Unable to open file!");
+		$children[$g]->species_name=$ini_array['settings'][species];
+
+
 		$children[$g]->input_type=$id_type;
 		$children[$g]->input_id=$post_id;
 		$ret[] = $children[$g];
@@ -91,6 +95,8 @@ function str_startswith($source, $prefix)
 {
    return strncmp($source, $prefix, strlen($prefix)) == 0;
 }
+
+
 
 
 

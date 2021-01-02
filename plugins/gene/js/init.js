@@ -74,9 +74,11 @@ function get_basic_info(id) {
 		url: "plugins/gene/services/basic.php",
 		data: (data_p),
 		success: function (data) {
+			var species_name=JSON.parse(data)['basic_data'][0].species_name;
+
 			if (JSON.parse(data)['error'] != null) {
 				$('#tab-container').hide();
-				$('#title').html("<font color='red'>Incorrect Arabidopsis thaliana id " + JSON.parse(data)['error'] + '</font>');
+				$('#title').html("<font color='red'>Incorrect "+species_name+" id " + JSON.parse(data)['error'] + '</font>');
 				return false;
 			}
 			$('#description').html(JSON.parse(data)['basic_data'][0].description);
@@ -87,11 +89,11 @@ function get_basic_info(id) {
 			$('#other_tids').html(JSON.parse(data)['basic_data'][0].other_transcripts);
 
 			if (JSON.parse(data)['basic_data'][0].input_type == "transcript") {
-				$('#title').html("Arabidopsis thaliana gene model " + JSON.parse(data)['basic_data'][0].transcript_id);
+				$('#title').html(species_name+" gene model " + JSON.parse(data)['basic_data'][0].transcript_id);
 				$('#start').html(JSON.parse(data)['basic_data'][0].transcript_start);
 				$('#end').html(JSON.parse(data)['basic_data'][0].transcript_end);
 			} else {
-				$('#title').html("Arabidopsis thaliana gene " + JSON.parse(data)['basic_data'][0].gene_id);
+				$('#title').html(species_name+" gene " + JSON.parse(data)['basic_data'][0].gene_id);
 				$('#start').html(JSON.parse(data)['basic_data'][0].gene_start);
 				$('#end').html(JSON.parse(data)['basic_data'][0].gene_end);
 			}
