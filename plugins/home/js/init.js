@@ -120,23 +120,32 @@ $("#db_form input").on("input", function(e) {
   var val = input.val();
   if (input.data("lastval") != val) {
     input.data("lastval", val);
-    var mhost = $('#mhost').val();
-    var musername = $('#musername').val();
-    var mpasswd = $('#mpassword').val();
-    var mdbname = $('#mdbname').val();
-    var mspeciesname = $('#mspeciesname').val();
-    var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&species=" + mspeciesname + "&action=save_ini_file";
-    $.ajax({
-        type: "POST",
-        url: "plugins/home/service/db_settings.php",
-        data: (finalvarx),
-        dataType: 'json',
-        success: function (data) {
-          passStatus(data.status);
-        }
-    });
+    save_ini_file()
   }
 });
+
+
+//save init file
+function save_ini_file(){
+  var mhost = $('#mhost').val();
+  var musername = $('#musername').val();
+  var mpasswd = $('#mpassword').val();
+  var mdbname = $('#mdbname').val();
+  var mspeciesname = $('#mspeciesname').val();
+  var finalvarx = "host=" + mhost + "&username=" + musername + "&password=" + mpasswd + "&database=" + mdbname + "&species=" + mspeciesname + "&action=save_ini_file";
+  $.ajax({
+      type: "POST",
+      url: "plugins/home/service/db_settings.php",
+      data: (finalvarx),
+      dataType: 'json',
+      success: function (data) {
+        passStatus(data.status);
+      }
+  });
+
+}
+
+
 
 // Pass status to the visual elements
 function passStatus(status){
@@ -167,24 +176,12 @@ $("#drop_db").click(function () {
   db_operation("drop_database", "drop");
 });
 
-/*
-$("#create_db").click(function () {
-  db_operation("create_database", "dump");
-});
-
-$("#create_db_arabidopsis").click(function () {
-  db_operation("create_database", "artha");
- // download_indices("create_database", "dump");
-});
-*/
 
 // Cloning 
 function clone_genome(t) {
-  //if( t.id=="artha" || t.id=="eugra"){
-    db_operation("create_database", t.id);
- // }else{
-  //  alert("This button will allow you to clone the existing "+t.id+" database into your database in the future","clone download");
- // }
+   db_operation("create_database", t.id);
+   $("#mspeciesname").val(t.innerText);
+   save_ini_file(); 
  };
 
 //Check database
