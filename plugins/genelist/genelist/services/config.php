@@ -34,7 +34,7 @@ $sql_get_one_gene_id ="select gene_id from gene_info limit 1";
 $gene_id_connection=mysqli_connect($private_url['host'], $private_url['user'], $private_url['pass'],str_replace('/', '', $private_url['path'])) or die(mysqli_error());
 $gene_id_results =mysqli_query($gene_id_connection,$sql_get_one_gene_id);
 $gene_id_array   = mysqli_fetch_assoc($gene_id_results);
-$tintinvariable= substr(($gene_id_array)["gene_id"],0,3);
+$tintinvariable= strtolower(substr(($gene_id_array)["gene_id"],0,2));
 mysqli_close($gene_id_connection); 
 
 // MYSQL configuration
@@ -51,14 +51,11 @@ $datatables
 	->join('gene_go', 'gene_go.gene_i=transcript_info.gene_i', 'left')
 	->join('gene_pfam', 'gene_pfam.gene_i=transcript_info.gene_i', 'left')
 
-
 ->edit_column('ids', '<a target="_parent" href="gene?id=$1" target="_blank">$1</a>', 'ID') 
 ->edit_column(''.$table_name.'.transcript_id', '<a target="_blank" href="transcript?id=$1">$1</a>', ''.$table_name.'.transcript_id')
 
 ->edit_column('transcript_potri.potri_id', '<a target="_blank" href="https://popgenie.org/transcript?id=$1">$1</a>', 'transcript_potri.potri_id') 
 ->edit_column('transcript_atg.atg_id', '<a target="_blank" href="https://atgenie.org/transcript?id=$1">$1</a>', 'transcript_atg.atg_id') ;
-
-
 
   
 if(isset($sharred_list)){
@@ -72,7 +69,7 @@ if(isset($_POST['id']) && $_POST['id'] != ''){
 	$pattern = '/^[a-zA-Z]+[.]+[a-zA-Z0-9]+[.]+[0-9]?[0-9]$/';
 	$flag=true;
 
-	if(checkprefix($onlyconsonants,$tintinvariable)==true && checkprefix($onlyconsonants,$tintinvariable)==true){
+	if(checkprefix($onlyconsonants,$tintinvariable)==true ){
 		$flag=false;
 	$geneids_array = explode(",", $onlyconsonants);
 	$geneids_array_str=implode('","',$geneids_array);
