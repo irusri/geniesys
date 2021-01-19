@@ -7,8 +7,8 @@
        <li class='tab'><a href="#site">Site settings</a></li>
        <li class='tab'><a href="#db">Database settings</a></li>
        <li  class='tab'><a href="#annotation">Annotation</a></li>
-       <li class='tab'><a href="#expression">Expression</a></li>
-       <li class='tab'><a href="#network">Network</a></li>
+       <li style="display:none" class='tab'><a href="#expression">Expression</a></li>
+       <li  style="display:none" class='tab'><a href="#network">Network</a></li>
      </ul>
     <div class='panel-container'>
       <div id="page"> <br>

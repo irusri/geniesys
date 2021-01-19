@@ -295,8 +295,6 @@
   return Fingerprint;
 });
 
-
-
 var MAIN_GENELIST;
 var fp4 = new Fingerprint({screen_resolution: true});
 var MAIN_FINGERPRINT=fp4.get().toString();
