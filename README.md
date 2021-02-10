@@ -1,4 +1,4 @@
-[![geniesys](https://github.com/plantgenie/geniesys/blob/master/docs/images/logo_32.png?raw=true "Download") Website](http://geniesys.org) | [Documentation](https://geniesys.gitbook.io) | [Demo](https://eucgenie.org) 
+[Website](http://geniesys.org) | [Documentation](https://geniesys.gitbook.io) | [Demo](https://eucgenie.org) 
 =======
 
 [![DOI:10.1101/808881](https://zenodo.org/badge/DOI/10.1101/808881.svg)](https://doi.org/10.1101/808881)
